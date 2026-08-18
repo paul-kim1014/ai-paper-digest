@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting · AI 논문 요약</title>
+<script>
+(function(){
+  var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+  if(s)r.setAttribute('data-theme',s);
+  window.toggleTheme=function(){
+    var cur=r.getAttribute('data-theme');
+    var next=cur==='dark'?'light':(cur==='light'?'dark':
+      (matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+    r.setAttribute('data-theme',next);localStorage.setItem(k,next);
+  };
+})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+:root:not([data-theme=light]){@media (prefers-color-scheme:dark){
+  :root{}
+}}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+header{padding:44px 0 20px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.8rem;margin-top:14px}
+.controls{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none}
+#search:focus{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 12px;border-radius:20px;background:var(--chip);border:1px solid transparent;
+  font-size:.82rem;cursor:pointer;color:var(--muted);user-select:none;transition:.15s}
+.chip.active{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h2{font-size:1.08rem;font-weight:680;margin:0 0 8px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.94rem;margin:0 0 12px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* detail page */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:18px}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow)}
+.section h3{margin:0 0 8px;font-size:.82rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;
+  font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../index.html">← 목록으로</a>
+<h1 class="title" style="font-size:1.45rem">zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting</h1>
+<p class="authors">Girish G N, Ashutosh Sahoo, Akshay SP, Gurukiran S, Dhanashekar Kandaswamy</p>
+<div class="badges" style="margin:12px 0"><span class="badge">q-fin.RM</span><span class="badge">머신러닝</span>
+  <span class="date">2026.08.17 · arXiv:2608.16856</span>
+</div>
+<div class="section" style="border-color:var(--accent)">
+  <h3>한 줄 요약</h3><p>zLend은 온체인 데이터로 대출 신용심사를 자동화합니다.</p></div>
+<div class="section"><h3>어떤 문제를 푸는가</h3><p>탈중앙화 금융에서 신용정보가 부족해 대출자 상환 능력을 체크하기 어려움. 수입 확인 없이 온체인 활동만으로 신용 평가 필요.</p></div>
+<div class="section"><h3>핵심 방법</h3><p>지갑의 자산 흐름을 두 가지 방식으로 복원해 리스크를 판단. 안정화폐만으로도 전체 자산을 분리해 리스크 과대평가 방지.</p></div>
+<div class="section"><h3>결과와 의의</h3><p>대출 규모에 따라 신용등급이 달라지고, 다양한 지표가 독립적으로 리스크를 판단. 실제 대출 결정에 활용 중.</p></div>
+<div class="section"><h3>키워드</h3><div class="badges"><span class="kw">DeFi</span><span class="kw">온체인 신용심사</span><span class="kw">자산 흐름 복원</span><span class="kw">대출 리스크</span><span class="kw">zLend</span></div></div>
+<div class="section"><h3>원문 초록</h3><p class="abstract">Decentralized lending lacks a credit bureau: a borrower&#x27;s capacity to repay must be inferred entirely from public on-chain activity, without income verification or a liability record. This paper presents zLend, a deployed cash-flow underwriting framework that reconstructs a wallet&#x27;s daily balance history from raw token transfers and derives short-duration repayment-capacity signals from it. The reconstruction is performed twice per wallet, once restricted to a fixed stablecoin basket and once over all fungible transfers, on the premise that a wallet&#x27;s total token holdings and its liquid, spendable balance are distinct quantities whose conflation misprices risk. From each series we derive liquidity coverage against a fixed loan size, cash-flow volatility and regularity, a drawdown-and-recovery statistic adapted from quantitative finance, and a recurring-counterparty detector that identifies salary-like payment cadence from transfer timing alone. The two views are then compared: a wallet with large aggregate holdings whose stablecoin reserve rarely covers the loan size is flagged as a liquidity mismatch irrespective of total wealth. We specify the pipeline formally, document the golden-master methodology used to verify a cross-language production migration to numerical tolerance 1e-9, and characterize the tier function&#x27;s parameter sensitivity with an independent reimplementation validated to exact agreement (78 of 78 field assertions) against the deployed system&#x27;s reference fixtures. Tier assignment is governed predominantly by the reference loan size, with four of six reference wallets changing tier across loan sizes from USD 10 to USD 25,000; the drawdown and coverage criteria bind on disjoint wallets, so neither subsumes the other; and no criterion in the tier rule is inert. zLend is deployed in production, informing real lending decisions via third-party API integrations.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2608.16856v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2608.16856" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div>
+</div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

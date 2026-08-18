@@ -85,12 +85,12 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 <header>
   <h1 class="title">AI 논문 요약 다이제스트</h1>
   <p class="subtitle">arXiv 최신 인공지능 논문을 매일 자동으로 요약합니다.</p>
-  <p class="meta">총 2편 · 마지막 갱신 2026-08-18 16:10 UTC
+  <p class="meta">총 15편 · 마지막 갱신 2026-08-18 16:19 UTC
     · <a href="#" onclick="toggleTheme();return false" style="color:var(--accent)">🌗 테마</a></p>
 </header>
 <div class="controls">
   <input id="search" type="search" placeholder="제목·키워드로 검색…" oninput="doSearch()">
-  <div class="chips"><span class="chip active" data-cat="all" onclick="filt(this)">전체</span><span class="chip" data-cat="cs.RO" onclick="filt(this)">로보틱스</span><span class="chip" data-cat="cs.LG" onclick="filt(this)">머신러닝</span></div>
+  <div class="chips"><span class="chip active" data-cat="all" onclick="filt(this)">전체</span><span class="chip" data-cat="cs.RO" onclick="filt(this)">로보틱스</span><span class="chip" data-cat="cs.LG" onclick="filt(this)">머신러닝</span><span class="chip" data-cat="cs.CV" onclick="filt(this)">컴퓨터비전</span><span class="chip" data-cat="cs.DS" onclick="filt(this)">cs.DS</span><span class="chip" data-cat="cs.SC" onclick="filt(this)">cs.SC</span><span class="chip" data-cat="cs.CL" onclick="filt(this)">자연어처리</span><span class="chip" data-cat="stat.ML" onclick="filt(this)">통계적 ML</span><span class="chip" data-cat="cs.DM" onclick="filt(this)">cs.DM</span><span class="chip" data-cat="q-fin.RM" onclick="filt(this)">q-fin.RM</span></div>
 </div>
 <div id="list"><a class="card" href="paper/2608.16889.html"
    data-cat="cs.RO" data-search="don&#x27;t drop the baton: long-horizon robot manipulation via agentic subtask exploration and transition-aware memory baton은 장기 로봇 조작을 위해 하위 작업 단위로 탐색하고 전이 인식 메모리로 오류를 줄인다. 로봇 조작 하위 작업 탐색 전이 인식 메모리 vla 모델 장기 태스크 cs.ro cs.ai cs.cv">
@@ -105,6 +105,110 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
   <h2>Q-based Variational Inverse Reinforcement Learning</h2>
   <p class="tldr">QVIRL은 인간 선호도를 학습하여 안전한 AI를 만드는 새로운 방법</p>
   <div class="badges"><span class="badge">머신러닝</span><span class="kw">변분 역강화학습</span><span class="kw">베이지안 방법</span><span class="kw">보상 함수 추론</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16887.html"
+   data-cat="cs.CV" data-search="an empirical study of training pixel-space text-to-image diffusion models 픽셀 공간 모델 훈련에 효과적인 전략 제안 픽셀 공간 확산 모델 잠재 공간 텍스트-to-이미지 추론 속도 cs.cv">
+  <h2>An Empirical Study of Training Pixel-Space Text-to-Image Diffusion Models</h2>
+  <p class="tldr">픽셀 공간 모델 훈련에 효과적인 전략 제안</p>
+  <div class="badges"><span class="badge">컴퓨터비전</span><span class="kw">픽셀 공간</span><span class="kw">확산 모델</span><span class="kw">잠재 공간</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16884.html"
+   data-cat="cs.DS" data-search="improving the matrix multiplication exponent with modern optimization and alphaevolve 이 논문은 최신 최적화 기법과 alphaevolve를 활용해 행렬 곱셈 지수 ω의 상한을 2.371177로 개선했습니다. 행렬 곱셈 지수 결합 손실 분석 alphaevolve 최적화 알고리즘 머신러닝 cs.ds cs.ai cs.cc cs.lg">
+  <h2>Improving the matrix multiplication exponent with modern optimization and AlphaEvolve</h2>
+  <p class="tldr">이 논문은 최신 최적화 기법과 AlphaEvolve를 활용해 행렬 곱셈 지수 ω의 상한을 2.371177로 개선했습니다.</p>
+  <div class="badges"><span class="badge">cs.DS</span><span class="kw">행렬 곱셈 지수</span><span class="kw">결합 손실 분석</span><span class="kw">AlphaEvolve</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16878.html"
+   data-cat="cs.DS" data-search="spectral gaps of hit-and-run and coordinate hit-and-run 히트 앤 런 알고리즘의 수렴 속도를 개선한 이론적 분석 히트 앤 런 포인카레 상수 kls 추측 스펙트럴 갭 혼합 시간 cs.ds cs.lg math.pr math.st">
+  <h2>Spectral Gaps of Hit-and-Run and Coordinate Hit-and-Run</h2>
+  <p class="tldr">히트 앤 런 알고리즘의 수렴 속도를 개선한 이론적 분석</p>
+  <div class="badges"><span class="badge">cs.DS</span><span class="kw">히트 앤 런</span><span class="kw">포인카레 상수</span><span class="kw">KLS 추측</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16876.html"
+   data-cat="cs.SC" data-search="autosr: automatic symbolic regression by searching research states autosr은 과학적 탐구 과정을 기록하며 방정식을 자동으로 찾는 시스템입니다. 기호 회귀 research state monte carlo 트리 탐색 과학적 탐구 자동화 cs.sc cs.ai cs.lg math.na">
+  <h2>AutoSR: Automatic Symbolic Regression by Searching Research States</h2>
+  <p class="tldr">AutoSR은 과학적 탐구 과정을 기록하며 방정식을 자동으로 찾는 시스템입니다.</p>
+  <div class="badges"><span class="badge">cs.SC</span><span class="kw">기호 회귀</span><span class="kw">Research State</span><span class="kw">Monte Carlo 트리 탐색</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16873.html"
+   data-cat="cs.LG" data-search="an analytical-prior framework for data-efficient prediction of sound-reduction frequencies in rectangular side-branch helmholtz resonators 분석적 사전 지식을 활용해 시뮬레이션 데이터 부족 시 정확도를 높인 방법 분석적 사전 데이터 효율성 헬mholtz 공명기 정밀 예측 머신러닝 cs.lg">
+  <h2>An Analytical-Prior Framework for Data-Efficient Prediction of Sound-Reduction Frequencies in Rectangular Side-Branch Helmholtz Resonators</h2>
+  <p class="tldr">분석적 사전 지식을 활용해 시뮬레이션 데이터 부족 시 정확도를 높인 방법</p>
+  <div class="badges"><span class="badge">머신러닝</span><span class="kw">분석적 사전</span><span class="kw">데이터 효율성</span><span class="kw">헬mholtz 공명기</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16870.html"
+   data-cat="cs.LG" data-search="data-efficient and interpretable classification of circulating tumor cell phenotypes in microfluidic devices via deep learning 미세유체 장치에서 세포 이동 경로를 분석해 암 전이 가능성을 예측하는 데이터 효율적 방법 제안 딥러닝 미세유체 암 세포 분류 데이터 증강 모델 해석성 cs.lg">
+  <h2>Data-Efficient and Interpretable Classification of Circulating Tumor Cell Phenotypes in Microfluidic Devices via Deep Learning</h2>
+  <p class="tldr">미세유체 장치에서 세포 이동 경로를 분석해 암 전이 가능성을 예측하는 데이터 효율적 방법 제안</p>
+  <div class="badges"><span class="badge">머신러닝</span><span class="kw">딥러닝</span><span class="kw">미세유체</span><span class="kw">암 세포 분류</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16868.html"
+   data-cat="cs.CL" data-search="towards computational provenance: carrying causal-state evidence in generated text 생성된 텍스트에 내부 상태 증거를 남기고 검출하는 방법을 제시했습니다. 컴퓨테이셔널 프로venience 원인 상태 증거 생성 텍스트 신경망 트랜스포머 cs.cl cs.ai">
+  <h2>Towards Computational Provenance: Carrying Causal-State Evidence in Generated Text</h2>
+  <p class="tldr">생성된 텍스트에 내부 상태 증거를 남기고 검출하는 방법을 제시했습니다.</p>
+  <div class="badges"><span class="badge">자연어처리</span><span class="kw">컴퓨테이셔널 프로venience</span><span class="kw">원인 상태 증거</span><span class="kw">생성 텍스트</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16864.html"
+   data-cat="stat.ML" data-search="non-crossing deep quantile regression for distributional survival prediction 분포 예측에서 교차하지 않는 분위수 회귀를 통한 생존 분석 방법 제안 생존 분석 분위수 회귀 검열 데이터 비교적 분위수 개인화 예측 stat.ml cs.lg stat.ap">
+  <h2>Non-Crossing Deep Quantile Regression for Distributional Survival Prediction</h2>
+  <p class="tldr">분포 예측에서 교차하지 않는 분위수 회귀를 통한 생존 분석 방법 제안</p>
+  <div class="badges"><span class="badge">통계적 ML</span><span class="kw">생존 분석</span><span class="kw">분위수 회귀</span><span class="kw">검열 데이터</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16863.html"
+   data-cat="cs.CV" data-search="splatguide: geometric priors from 3d gaussians for pose-free novel view synthesis 3d 가우시안을 활용해 포즈 없이 새로운 시야 생성 성능 개선 3d 가우시안 포즈 없이 신규 시야 생성 비전도 지도 크로스 어텐션 cs.cv">
+  <h2>SplatGuide: Geometric Priors from 3D Gaussians for Pose-Free Novel View Synthesis</h2>
+  <p class="tldr">3D 가우시안을 활용해 포즈 없이 새로운 시야 생성 성능 개선</p>
+  <div class="badges"><span class="badge">컴퓨터비전</span><span class="kw">3D 가우시안</span><span class="kw">포즈 없이</span><span class="kw">신규 시야 생성</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16861.html"
+   data-cat="cs.DM" data-search="the canonical facets of multi-separator polytopes 그래프 다분리 다면체의 핵심 면을 수학적으로 분석했습니다. 다분리 다면체 정수 선형 프로그래밍 그래프 이론 면 분석 홀수 사이클 부등식 cs.dm cs.lg math.co">
+  <h2>The canonical facets of multi-separator polytopes</h2>
+  <p class="tldr">그래프 다분리 다면체의 핵심 면을 수학적으로 분석했습니다.</p>
+  <div class="badges"><span class="badge">cs.DM</span><span class="kw">다분리 다면체</span><span class="kw">정수 선형 프로그래밍</span><span class="kw">그래프 이론</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16859.html"
+   data-cat="cs.CV" data-search="harnesseval-w: agentifying the evaluation of visual worlds 시각 세계 평가를 에이전트 기반으로 혁신적으로 개선한 새로운 벤치마크 도구 harnesseval-w 에이전트 기반 평가 시각 세계 모델 벤치마크 인과관계 분석 cs.cv">
+  <h2>HarnessEval-W: Agentifying the Evaluation of Visual Worlds</h2>
+  <p class="tldr">시각 세계 평가를 에이전트 기반으로 혁신적으로 개선한 새로운 벤치마크 도구</p>
+  <div class="badges"><span class="badge">컴퓨터비전</span><span class="kw">HarnessEval-W</span><span class="kw">에이전트 기반 평가</span><span class="kw">시각 세계 모델</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16856.html"
+   data-cat="q-fin.RM" data-search="zlend: a dual-scope cash-flow reconstruction framework for on-chain credit underwriting zlend은 온체인 데이터로 대출 신용심사를 자동화합니다. defi 온체인 신용심사 자산 흐름 복원 대출 리스크 zlend q-fin.rm cs.lg">
+  <h2>zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting</h2>
+  <p class="tldr">zLend은 온체인 데이터로 대출 신용심사를 자동화합니다.</p>
+  <div class="badges"><span class="badge">q-fin.RM</span><span class="kw">DeFi</span><span class="kw">온체인 신용심사</span><span class="kw">자산 흐름 복원</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16855.html"
+   data-cat="cs.CV" data-search="can unsupervised methods outperform supervised deep learning when ground truth is sparse? a case study of bronchovascular bundle segmentation in low-dose ct ronald은 저선량 ct에서 기관지 혈관 번들을 정확히 분할해 초기 폐암 노드 탐지 효율을 높인다. bronchovascular bundle segmentation low-dose ct ronald lung nodule detection supervised vs unsupervised methods cs.cv">
+  <h2>Can Unsupervised Methods Outperform Supervised Deep Learning When Ground Truth Is Sparse? A Case Study of Bronchovascular Bundle Segmentation in Low-Dose CT</h2>
+  <p class="tldr">RONALD은 저선량 CT에서 기관지 혈관 번들을 정확히 분할해 초기 폐암 노드 탐지 효율을 높인다.</p>
+  <div class="badges"><span class="badge">컴퓨터비전</span><span class="kw">Bronchovascular Bundle Segmentation</span><span class="kw">Low-Dose CT</span><span class="kw">RONALD</span>
     <span class="date">2026.08.17</span>
   </div>
 </a></div>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data-Efficient and Interpretable Classification of Circulating Tumor Cell Phenotypes in Microfluidic Devices via Deep Learning · AI 논문 요약</title>
+<script>
+(function(){
+  var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+  if(s)r.setAttribute('data-theme',s);
+  window.toggleTheme=function(){
+    var cur=r.getAttribute('data-theme');
+    var next=cur==='dark'?'light':(cur==='light'?'dark':
+      (matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+    r.setAttribute('data-theme',next);localStorage.setItem(k,next);
+  };
+})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+:root:not([data-theme=light]){@media (prefers-color-scheme:dark){
+  :root{}
+}}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+header{padding:44px 0 20px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.8rem;margin-top:14px}
+.controls{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none}
+#search:focus{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 12px;border-radius:20px;background:var(--chip);border:1px solid transparent;
+  font-size:.82rem;cursor:pointer;color:var(--muted);user-select:none;transition:.15s}
+.chip.active{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h2{font-size:1.08rem;font-weight:680;margin:0 0 8px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.94rem;margin:0 0 12px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* detail page */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:18px}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow)}
+.section h3{margin:0 0 8px;font-size:.82rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;
+  font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../index.html">← 목록으로</a>
+<h1 class="title" style="font-size:1.45rem">Data-Efficient and Interpretable Classification of Circulating Tumor Cell Phenotypes in Microfluidic Devices via Deep Learning</h1>
+<p class="authors">Serena Su, Yifan Wang, Senwei Liang</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span>
+  <span class="date">2026.08.17 · arXiv:2608.16870</span>
+</div>
+<div class="section" style="border-color:var(--accent)">
+  <h3>한 줄 요약</h3><p>미세유체 장치에서 세포 이동 경로를 분석해 암 전이 가능성을 예측하는 데이터 효율적 방법 제안</p></div>
+<div class="section"><h3>어떤 문제를 푸는가</h3><p>암 세포의 물리적 특성(크기, 유동성)을 기반으로 한 이동 경로 데이터로 세포 유형을 분류하려면 복잡한 유체 상호작용으로 인해 역추론이 어려웠고, 데이터 부족과 모델 해석 가능성 부족이 문제였다.</p></div>
+<div class="section"><h3>핵심 방법</h3><p>SubSeq이라는 데이터 증강 기법을 통해 학습 시 지역적 이동 경로 조각을 추출해 패턴 학습을 촉진하고, 기울기 가중 클래스 활성화 맵핑을 적용해 모델 예측의 물리적 기반을 분석하는 방법을 제안했다.</p></div>
+<div class="section"><h3>결과와 의의</h3><p>SubSeq는 기존 방법보다 분류 정확도를 향상시키고, 지역적 이동 경로가 생물물리학적 정보를 담고 있음을 밝혀내며, 전체 경로보다 효율적인 데이터 사용 가능성을 제시했다.</p></div>
+<div class="section"><h3>키워드</h3><div class="badges"><span class="kw">딥러닝</span><span class="kw">미세유체</span><span class="kw">암 세포 분류</span><span class="kw">데이터 증강</span><span class="kw">모델 해석성</span></div></div>
+<div class="section"><h3>원문 초록</h3><p class="abstract">Accurate classification of circulating tumor cell (CTC) phenotypes can provide valuable information for assessing metastatic potential. Label free microfluidic devices provide a hydrodynamic obstacle course that transforms subtle biophysical characteristics of CTCs, including size and deformability, into distinct kinematic trajectories. However, the highly nonlinear fluid structure interactions governing these trajectories make the inverse problem of inferring cellular phenotype from trajectory data analytically intractable. While deep neural networks (DNNs) have emerged as a powerful approach for addressing this inverse problem, their effectiveness is constrained by the limited availability of trajectory data and the lack of physical interpretability. To address these challenges, we propose an interpretable and data efficient DNN framework for trajectory based CTC classification. To mitigate the scarcity of data, we develop Subsequence (SubSeq), a targeted augmentation strategy that randomly extracts informative local trajectory segments during training to promote learning from localized patterns. We further apply Gradient Weighted Class Activation Mapping to identify the trajectory features and physical regions of the microfluidic device that drive model predictions. Experimental results demonstrate that SubSeq improves classification accuracy over the evaluated baseline and augmentation methods. Furthermore, interpretability analysis suggests that localized trajectory segments contain substantial biophysical information relevant to accurate classification. This provides justification for SubSeq and also highlights the redundancy of full-length trajectories. More broadly, the proposed framework views microfluidic geometries as physical encoders of cellular mechanical properties, providing mechanistic insights that may inform the future design of diagnostic devices.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2608.16870v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2608.16870" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div>
+</div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>
