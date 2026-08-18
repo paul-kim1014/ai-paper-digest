@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learn What&#x27;s Left, Not What&#x27;s Mastered: Saturation Aware Advantage Reweighting for Multi-Reward Policy Optimization · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W34.html">← 2026-W34 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Learn What&#x27;s Left, Not What&#x27;s Mastered: Saturation Aware Advantage Reweighting for Multi-Reward Policy Optimization</h1>
+<p class="authors">Yixuan Wang, Yifei Chen, Haichao Zhang, Haozheng Luo, Xander Wu, Jie Ni, Yun Fu, Nuno Vasconcelos 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="badge">인공지능</span><span class="pop">👍 42</span>
+  <span class="date">2026.08.17 · arXiv:2608.16072</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>SA-MRPO는 다중 보상 목표를 향상시키기 위해 작업 진행 상황에 따라 가중치를 동적으로 조정합니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>게임에서 일부 채점 기준이 이미 잘 통과됐으면, 그 기준은 자동으로 빼고, 아직 어려운 기준에 더 집중해 점수를 올리는 방법입니다. 예를 들어, 수학 문제 풀이에서 이미 잘 푼 문제는 자동으로 빼고, 어려운 문제에 더 시간을 써서 점수를 더 올립니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>팀원들이 서로 다른 과제를 수행할 때, 이미 완료된 작업은 자동으로 빼고, 아직 미흡한 작업에 더 많은 시간을 할당하는 방식입니다. 예를 들어, 수학 문제 풀이에서 이미 정답률이 높은 문제는 자동으로 빼고, 어려운 문제에 집중합니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>기존 방법은 고정된 가중치로 보상 목표를 처리해, 일부 목표는 과도하게 최적화되고 다른 목표는 소홀히 처리됩니다. 이로 인해 학습이 이미 해결된 목표에 계속 자원을 할당해 효과가 떨어집니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>SA-MRPO는 각 보상 목표를 독립적으로 표준화하고, 배치 수준에서 목표 포화도를 추정해 기여도를 자동 조정합니다. 이는 미흡한 목표에 더 많은 자원을 할당하면서 이미 만족된 목표는 유지합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>두 가지 및 세 가지 보상 목표의 수학적 추론에서 15개 비교 중 12개에서 성능 향상, AIME24에서 5%까지 개선. 적응적 추론에서는 평균 3.8% 정확도 향상, AMC23에서는 최대 9.2% 개선을 기록했습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>강화학습(RL)</b><span>컴퓨터가 시도하고 실패를 반복하며 최적의 행동을 배우는 방법입니다.</span></div><div class="bg-item"><b>다중 보상 최적화</b><span>하나의 목표가 아닌 여러 목표를 동시에 만족시키려는 문제 해결 방식입니다.</span></div><div class="bg-item"><b>보상 재가중(Advantage Reweighting)</b><span>학습 과정에서 특정 행동의 가치를 조정해 학습 효율을 높이는 기법입니다.</span></div><div class="bg-item"><b>포화도(Saturation)</b><span>특정 작업이 이미 완벽하게 처리되면, 추가 개선이 어려운 상태를 말합니다.</span></div><div class="bg-item"><b>정책 최적화(Policy Optimization)</b><span>AI가 최적의 행동 전략을 찾는 과정을 개선하는 기술입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">강화학습</span><span class="kw">다중 보상 최적화</span><span class="kw">보상 재가중</span><span class="kw">포화도</span><span class="kw">정책 최적화</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Reinforcement learning (RL) with group-relative advantages has become the de facto standard for post-training language model reasoners. However, when optimizing multiple reward objectives, existing methods typically scalarize the reward vector with a fixed weighted sum before group-wise standardization. We show that this design leads to two fundamental problems: rollouts with distinct reward profiles can receive identical advantages, and all objectives are optimized with fixed relative weights regardless of their current level of saturation. As a result, training continues to allocate gradient budget to already-solved objectives instead of focusing on those with greater remaining headroom. We introduce \textbf{Saturation Aware Advantage Reweighting for Multi-Reward Policy Optimization} (SA-MRPO), which standardizes each reward objective independently and adaptively discounts its contribution according to a batch-level estimate of objective saturation. This dynamically reallocates optimization effort toward under-optimized objectives while empirically maintaining performance on those that are already well satisfied. We further show that saturation-aware reweighting can reverse the sign of an update, rather than merely rescale its magnitude. Across mathematical reasoning with two- and three-objective reward combinations, SA-MRPO improves the harder correctness objective over GDPO in 12 of 15 benchmark comparisons, with gains of up to $5\%$ on AIME24. On adaptive reasoning it improves accuracy on all five benchmarks, by $3.8\%$ on average and up to $9.2 \%$ on AMC23, and on coding benchmarks it improves pass rate by up to $2.3\%$, while in all settings maintaining the easier objectives near their already satisfied levels.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2608.16072v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2608.16072" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

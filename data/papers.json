@@ -1,11 +1,911 @@
 {
-  "2608.16889": {
-    "id": "2608.16889",
-    "title": "Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory",
+  "2608.16798": {
+    "id": "2608.16798",
+    "title": "ClawGym II: Exploring Black-Box RL on Agent Harness",
     "authors": [
-      "Bingxin Xu",
-      "Yuzhang Shang",
-      "Emilio Ferrara"
+      "Huatong Song",
+      "Fei Bai",
+      "Ming Yang",
+      "Renyuan Li",
+      "Jia Deng",
+      "Jujie He",
+      "Zhange Zhang",
+      "Daixuan Cheng",
+      "Yan Xing",
+      "Qi Yun",
+      "Xuxing Chen",
+      "Danyang Li",
+      "Feng Chang",
+      "Chuan Hao",
+      "Ran Tao",
+      "Jian Yang",
+      "Bryan Dai",
+      "Wayne Xin Zhao",
+      "Mingjie Tang",
+      "Ji-Rong Wen"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-08-17T16:53:03Z",
+    "updated": "2026-08-17T16:53:03Z",
+    "abstract": "Agent harnesses have substantially improved performance on long-horizon tasks by coordinating agent interactions with the environment. However, reinforcement learning through complex harnesses remains largely unexplored, as scaling such training to long-horizon agent tasks introduces fundamental challenges. In this work, we present a unified black-box RL framework for stable and scalable optimization of general agents through complex harnesses. Concretely, we first build a sandbox-based execution infrastructure that isolates task environments and harnesses within temporary sandboxes for large-scale concurrent rollouts. We then decouple policy optimization from opaque harness execution and place a serving proxy at the model boundary to capture model calls. To reconstruct multi-turn trajectories and improve training efficiency, we organize the captured calls into prefix trees and further adapt both critic-based PPO and critic-free GRPO to optimize over the recovered tree structure. Meanwhile, we maintain training-inference consistency throughout the optimization process. Finally, we introduce mix-harness training, allowing a single model to be jointly optimized by heterogeneous harnesses. With Qwen3-30A3B, black-box RL improves Pass@1 on ClawGym-Bench by 9.98 and 14.81 points through OpenClaw and Claude Code, respectively, while remaining stable over 200-400 optimization steps. Moreover, the framework yields consistent gains on more challenging tasks such as JobBench and OfficeQA. Overall, our framework enables effective, stable, and scalable optimization of general agents through black-box harnesses, supporting unified training across heterogeneous execution systems.",
+    "pdf_url": "https://arxiv.org/pdf/2608.16798v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.16798",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 33,
+    "citations": null,
+    "summary": {
+      "tldr": "복잡한 환경에서 에이전트를 안정적으로 학습시키는 새로운 방법을 제안했습니다.",
+      "problem": "장기 목표 달성 시 에이전트와 환경의 상호작용을 조율하는 것이 어렵고, 복잡한 훈련 시스템에서 학습이 불안정합니다.",
+      "method": "임시 환경에서 실행을 분리해 대규모 학습을 가능하게 하고, 정책 최적화와 실행을 분리해 안정성을 높였습니다. 트리 구조로 학습 데이터를 정리해 학습 효율을 개선했습니다.",
+      "result": "ClawGym-Bench에서 14.81점 개선을 달성했고, 다양한 어려운 작업에서도 안정적인 성능을 보였습니다.",
+      "example": "로봇이 여러 가지 도구를 사용해 장애물을 넘는 훈련을 할 때, 이 기술은 로봇이 다양한 방법을 시도하면서도 안정적으로 배우도록 도와줍니다.",
+      "eli12": "게임을 할 때, 다양한 방법으로 승리하는 법을 배우는 거예요. 이 기술은 로봇이 여러 가지 도구를 사용해 문제를 해결하는 법을 더 쉽게 배울 수 있게 해요.",
+      "background": [
+        {
+          "term": "강화학습",
+          "explain": "실험을 반복해 올바른 행동을 배우는 방법입니다."
+        },
+        {
+          "term": "블랙박스 RL",
+          "explain": "내부 작동 방식을 볼 수 없는 시스템에서 학습하는 방법입니다."
+        },
+        {
+          "term": "샌드박스",
+          "explain": "안전하게 실험을 할 수 있는 가상의 공간입니다."
+        },
+        {
+          "term": "PPO",
+          "explain": "강화학습에서 안정적으로 학습하는 기법입니다."
+        },
+        {
+          "term": "트리 구조",
+          "explain": "데이터를 계층적으로 정리해 이해하기 쉽게 만드는 방식입니다."
+        }
+      ],
+      "keywords": [
+        "블랙박스 RL",
+        "에이전트 헤르스",
+        "샌드박스",
+        "PPO",
+        "트리 구조"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:35:48.317675+00:00",
+    "week": "2026-W34"
+  },
+  "2608.14277": {
+    "id": "2608.14277",
+    "title": "SimpleOPD: Simple Tokenizer-Agnostic On-Policy Distillation for Long-Context Reasoning",
+    "authors": [
+      "Haonan He",
+      "Haodi Lei",
+      "Yun Luo",
+      "Haoran Zhang",
+      "Shunkai Zhang",
+      "Yizhuo Li",
+      "Shengji Tang",
+      "Zhilin Wang",
+      "Runzhe Zhan",
+      "Lei Bai",
+      "Ganqu Cui",
+      "Fangchen Yu",
+      "Yafu Li",
+      "Peng Ye",
+      "Ning Ding",
+      "Yu Cheng"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-08-14T12:57:02Z",
+    "updated": "2026-08-14T12:57:02Z",
+    "abstract": "On-policy distillation (OPD) offers a promising way to transfer reasoning capabilities from stronger teacher models, but applying it to long-context reasoning teachers and short-context students introduces practical challenges, including tokenizer mismatch, teacher-student distribution mismatch, response length explosion, and training instability. In this work, we study this setting by transferring proof-reasoning capabilities from the long-context reasoning model SU-01 to short-context student models. To handle tokenizer differences, we perform OPD in a shared text space and align only tokens that occupy identical text spans under the student and teacher tokenizers. To mitigate the problem of excessive generation length and frequent truncation, we introduce a student reference KL loss and mask the advantages of special termination tokens such as </think> and <|im_end|>. This strategy constrains the student from drifting excessively from its initial policy, thereby mitigating the teacher-student distribution mismatch problem and fostering steady length growth. Experiments on both same-family and different-family student models, including Qwen3, Qwen3.5, Intern-S2, GLM-4.7, Gemma-4, show consistent gains in mathematical reasoning, especially natural-language math proving. Notably, Intern-S2-Preview improves by 21.2 points on ProofBench, reaching 55.2 and surpassing Gemini-2.5-Pro. It also improves on science benchmarks such as HLE and HiPhO, suggesting that OPD transfers reasoning capabilities that generalize beyond the mathematical training domain.",
+    "pdf_url": "https://arxiv.org/pdf/2608.14277v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.14277",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 30,
+    "citations": 0,
+    "summary": {
+      "tldr": "OPD 기법을 단순화해 장문 추론 능력 이전",
+      "problem": "장문 추론 모델에서 단문 학생 모델로 지식 이전 시 토크나이저 불일치, 분포 불일치, 응답 길이 폭발, 훈련 불안정 등의 문제 발생",
+      "method": "공유 텍스트 공간에서 토큰 정렬하고 학생 모델의 KL 손실로 길이 제어, 종료 토큰 영향 제거해 안정성 확보",
+      "result": "Qwen3 등 모델에서 수학 추론 성능 21.2점 향상, 과학 평가에서도 우수한 성능 보여",
+      "example": "수학 문제 풀이 능력을 가진 선생 모델이 학생 모델에게 지식 전달 시, 토큰 처리 방식 차이를 해결해 안정적으로 학습하게 만드는 기술",
+      "eli12": "수학 문제를 잘 푸는 선생님이 학생에게 문제 풀이 방법을 가르칠 때, 글을 어떻게 나누는지 달라서 혼동하지 않도록 도와주는 방법",
+      "background": [
+        {
+          "term": "On-policy Distillation (OPD)",
+          "explain": "선생 모델의 지식을 학생 모델에 전달하는 기법"
+        },
+        {
+          "term": "Tokenizer",
+          "explain": "문장을 단어나 기호로 나누는 도구"
+        },
+        {
+          "term": "Distribution Mismatch",
+          "explain": "선생과 학생이 보는 데이터가 서로 다르게 생기면 발생하는 문제"
+        },
+        {
+          "term": "KL Loss",
+          "explain": "두 데이터가 얼마나 다른지 측정하는 방법"
+        },
+        {
+          "term": "Long-Context Reasoning",
+          "explain": "많은 정보를 보고 논리적으로 문제를 해결하는 능력"
+        }
+      ],
+      "keywords": [
+        "OPD",
+        "토크나이저",
+        "분포 불일치",
+        "KL 손실",
+        "장문 추론"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:39:34.021893+00:00",
+    "week": "2026-W34"
+  },
+  "2608.12149": {
+    "id": "2608.12149",
+    "title": "Massive Activations in Hybrid Linear Attention Large Language Models: Pre-Attention Spikes and Inter-Spike Plateaus",
+    "authors": [
+      "Zunhai Su",
+      "Bohan Sun",
+      "Xialie Zhuang",
+      "Shuibai Zhang",
+      "He Xiao",
+      "Jing Xiong",
+      "Hengyuan Zhang",
+      "Zhongzhu Zhou",
+      "Tiantian Zhang",
+      "Ngai Wong",
+      "Chuan-Wei Kuo"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-08-12T15:11:18Z",
+    "updated": "2026-08-12T15:11:18Z",
+    "abstract": "We present the first systematic study of Massive activations (MAs) in layer-interleaved HLA LLMs and uncover two architecture-aligned morphologies: MAs consistently spike immediately before full attention layers, forming pre-attention spikes (PAS), and can persist through intervening linear attention layers, giving rise to inter-spike plateaus (ISP). As full attention becomes denser, successive PAS become increasingly connected through ISP, ultimately recovering the stable MA morphology of full attention LLMs. We establish the recurrence of this organization across five linear attention architectures, six hybridization configurations, five data domains, and representative open-source hybrid models spanning 1.2B to 397B total parameters. Controlled pretraining of GDN-based hybrids at scales up to 1.3B shows that both morphologies emerge early and respond asymmetrically to output gating: full attention output gating strongly attenuates their absolute magnitudes without eliminating their layerwise organization, whereas removing GDN gates yields comparatively modest amplification. Mechanistically, our systematic-outlier analysis supports a shared lifecycle account governed by the timing of MA cancellation. PAS follows a localized write-sink-cancel process, while the extended persistence of ISP is consistent with delayed cancellation. At the full attention limit, this account recovers the stable MA morphology characteristic of full attention LLMs. Our code is available at https://github.com/StartluxLabs/Massive-Activations-HLA.",
+    "pdf_url": "https://arxiv.org/pdf/2608.12149v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.12149",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 30,
+    "citations": 0,
+    "summary": {
+      "tldr": "하이브리드 모델에서 대규모 활성화의 패턴을 규명했습니다.",
+      "problem": "하이브리드 LLM에서 대규모 활성화(MA)가 어떻게 변화하는지, 구조적 패턴을 분석했습니다.",
+      "method": "다양한 하이브리드 아키텍처에서 MA의 변화를 관찰해 '전 주의 스파이크(PAS)'와 '간 스파이크 플레이트아웃(ISP)' 두 형태를 발견했습니다.",
+      "result": "MA 패턴이 아키텍처와 데이터에 관계없이 일관되게 나타나며, 출력 게이팅에 따라 비대칭적으로 반응하는 것을 밝혀냈습니다.",
+      "example": "도로에서 신호등이 켜질 때 갑작스럽게 멈추는 '스파이크'와, 그 사이에 지속적으로 움직이는 '플레이트아웃'을 비유로 설명합니다. 이 패턴이 모델의 정보 처리 방식을 반영한다고 봅니다.",
+      "eli12": "차가 길을 따라 달릴 때, 갑자기 멈추는 순간(스파이크)과 그 사이에 계속 움직이는 시간(플레이트아웃)이 반복되는 걸 생각해보세요. 이 패턴이 컴퓨터가 말을 배우는 방식을 보여줍니다.",
+      "background": [
+        {
+          "term": "하이브리드 선형 주의",
+          "explain": "완전 주의와 선형 주의를 섞은 모델로, 효율적인 정보 처리가 가능합니다."
+        },
+        {
+          "term": "대규모 활성화(MA)",
+          "explain": "모델이 정보를 처리할 때 특정 레이어에서 매우 큰 활성화 값이 나타나는 현상입니다."
+        },
+        {
+          "term": "출력 게이팅",
+          "explain": "모델이 출력을 제어하기 위해 특정 레이어에서 정보 흐름을 조절하는 기법입니다."
+        },
+        {
+          "term": "레이어 인터리브",
+          "explain": "다양한 레이어를 번갈아가며 배치해 효율적인 계산을 수행하는 구조입니다."
+        },
+        {
+          "term": "정량적 분석",
+          "explain": "데이터를 수치로 표현해 패턴이나 규칙을 찾는 분석 방법입니다."
+        }
+      ],
+      "keywords": [
+        "하이브리드 주의 모델",
+        "대규모 활성화",
+        "출력 게이팅",
+        "레이어 인터리브",
+        "정량적 분석"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:40:23.670294+00:00",
+    "week": "2026-W34"
+  },
+  "2608.15669": {
+    "id": "2608.15669",
+    "title": "Large Discovery Models: Empirically-grounded Model-Based Open-Ended Search",
+    "authors": [
+      "Zhongwei Yu",
+      "Yan Song",
+      "Xue Yan",
+      "Anjie Liu",
+      "Xingyu Lu",
+      "Yihang Chen",
+      "Huichi Zhou",
+      "Siyuan Guo",
+      "Luoyang Sun",
+      "Sihan Chen",
+      "Xiangning Yu",
+      "Jun Wang"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-08-16T10:27:06Z",
+    "updated": "2026-08-16T10:27:06Z",
+    "abstract": "Scientific discovery often involves optimising expensive-to-evaluate objectives over vast, structured, and open-ended hypothesis spaces, such as molecules, protein sequences, and computer programs. Generative models such as large language models (LLMs) provide expressive priors over such spaces, but their likelihoods and self-assessments are unreliable proxies for the objectives and calibrated epistemic uncertainty, especially for novel candidates outside the observed data distribution. We introduce the Large Discovery Model (LDM), an empirically grounded recurrent architecture that couples a generative model with a Bayesian non-parametric reward surrogate model. The generative model proposes and refines candidate designs, while the surrogate predicts their performance and quantifies uncertainty, yielding an uncertainty-aware value that guides candidate generation, refinement, and selection. The discovery memory and the surrogate model are continually updated as each new experimental observation arrives. We evaluate LDM on three scenarios spanning different design modalities and objectives, including neural-network training, antibody design, and molecular optimisation. Compared to LLM-only reflection or traditional statistical search across these domains, LDM achieves a $2.4\\times$ greater reduction in validation BPB, an $18.2\\%$ relative decrease in binding energy, and more than $60\\%$ relative gains in molecular multi-objective performance. These results suggests that LDM could serve as a general-purpose discovery engine for effective search over open-ended hypothesis spaces.",
+    "pdf_url": "https://arxiv.org/pdf/2608.15669v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.15669",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 46,
+    "citations": null,
+    "summary": {
+      "tldr": "LDM은 과학적 탐구를 위한 신뢰할 수 있는 자동 탐색 시스템입니다.",
+      "problem": "새로운 분자나 단백질 설계 시 기존 모델이 실험 비용이 큰 목표를 정확히 예측하지 못해 효율적이지 않습니다.",
+      "method": "LDM은 생성 모델과 베이지안 보상 모델을 결합해 후보 설계를 생성하고, 성능과 불확실성을 동시에 예측합니다. 새로운 실험 결과가 생기면 시스템이 스스로 학습합니다.",
+      "result": "LDM은 기존 방법보다 검증 성능 2.4배 개선, 결합 에너지 18.2% 감소, 분자 다목적 성능 60% 향상 결과를 보였습니다.",
+      "example": "약물 설계 시 수만개의 분자 후보를 생성해 가장 효과적인 약물을 빠르게 찾는 시스템입니다. 실험 결과를 실시간으로 학습해 더 나은 선택을 합니다.",
+      "eli12": "로봇이 맞춤옷을 만들 때, 처음엔 무작위로 옷을 만들고, 착용한 사람의 피드백을 받아 점점 더 좋은 옷을 만드는 방식입니다. 실험 결과를 계속 배우면서 더 나은 답을 찾죠.",
+      "background": [
+        {
+          "term": "생성 모델",
+          "explain": "데이터에서 패턴을 배우고 새로운 데이터를 만들어내는 시스템입니다."
+        },
+        {
+          "term": "베이지안 모델",
+          "explain": "확률을 사용해 데이터의 신뢰도를 판단하고, 새로운 정보를 기반으로 예측하는 방법입니다."
+        },
+        {
+          "term": "오픈엔드 가설 공간",
+          "explain": "모든 가능한 답을 미리 알 수 없고, 새로운 아이디어가 계속 생기는 문제 공간입니다."
+        },
+        {
+          "term": "검증 성능 지표",
+          "explain": "모델이 실제 문제를 얼마나 잘 해결하는지를 측정하는 척도입니다."
+        },
+        {
+          "term": "분자 최적화",
+          "explain": "약물이나 소재를 만들 때, 가장 효과적이고 안전한 분자를 찾는 과정입니다."
+        }
+      ],
+      "keywords": [
+        "Large Discovery Model",
+        "Bayesian Surrogate",
+        "Open-Ended Search",
+        "Molecular Optimization",
+        "Generative Model"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:41:20.824611+00:00",
+    "week": "2026-W34"
+  },
+  "2608.16072": {
+    "id": "2608.16072",
+    "title": "Learn What's Left, Not What's Mastered: Saturation Aware Advantage Reweighting for Multi-Reward Policy Optimization",
+    "authors": [
+      "Yixuan Wang",
+      "Yifei Chen",
+      "Haichao Zhang",
+      "Haozheng Luo",
+      "Xander Wu",
+      "Jie Ni",
+      "Yun Fu",
+      "Nuno Vasconcelos",
+      "Yijiang Li"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-08-17T04:07:50Z",
+    "updated": "2026-08-17T04:07:50Z",
+    "abstract": "Reinforcement learning (RL) with group-relative advantages has become the de facto standard for post-training language model reasoners. However, when optimizing multiple reward objectives, existing methods typically scalarize the reward vector with a fixed weighted sum before group-wise standardization. We show that this design leads to two fundamental problems: rollouts with distinct reward profiles can receive identical advantages, and all objectives are optimized with fixed relative weights regardless of their current level of saturation. As a result, training continues to allocate gradient budget to already-solved objectives instead of focusing on those with greater remaining headroom. We introduce \\textbf{Saturation Aware Advantage Reweighting for Multi-Reward Policy Optimization} (SA-MRPO), which standardizes each reward objective independently and adaptively discounts its contribution according to a batch-level estimate of objective saturation. This dynamically reallocates optimization effort toward under-optimized objectives while empirically maintaining performance on those that are already well satisfied. We further show that saturation-aware reweighting can reverse the sign of an update, rather than merely rescale its magnitude. Across mathematical reasoning with two- and three-objective reward combinations, SA-MRPO improves the harder correctness objective over GDPO in 12 of 15 benchmark comparisons, with gains of up to $5\\%$ on AIME24. On adaptive reasoning it improves accuracy on all five benchmarks, by $3.8\\%$ on average and up to $9.2 \\%$ on AMC23, and on coding benchmarks it improves pass rate by up to $2.3\\%$, while in all settings maintaining the easier objectives near their already satisfied levels.",
+    "pdf_url": "https://arxiv.org/pdf/2608.16072v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.16072",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 42,
+    "citations": null,
+    "summary": {
+      "tldr": "SA-MRPO는 다중 보상 목표를 향상시키기 위해 작업 진행 상황에 따라 가중치를 동적으로 조정합니다.",
+      "problem": "기존 방법은 고정된 가중치로 보상 목표를 처리해, 일부 목표는 과도하게 최적화되고 다른 목표는 소홀히 처리됩니다. 이로 인해 학습이 이미 해결된 목표에 계속 자원을 할당해 효과가 떨어집니다.",
+      "method": "SA-MRPO는 각 보상 목표를 독립적으로 표준화하고, 배치 수준에서 목표 포화도를 추정해 기여도를 자동 조정합니다. 이는 미흡한 목표에 더 많은 자원을 할당하면서 이미 만족된 목표는 유지합니다.",
+      "result": "두 가지 및 세 가지 보상 목표의 수학적 추론에서 15개 비교 중 12개에서 성능 향상, AIME24에서 5%까지 개선. 적응적 추론에서는 평균 3.8% 정확도 향상, AMC23에서는 최대 9.2% 개선을 기록했습니다.",
+      "example": "팀원들이 서로 다른 과제를 수행할 때, 이미 완료된 작업은 자동으로 빼고, 아직 미흡한 작업에 더 많은 시간을 할당하는 방식입니다. 예를 들어, 수학 문제 풀이에서 이미 정답률이 높은 문제는 자동으로 빼고, 어려운 문제에 집중합니다.",
+      "eli12": "게임에서 일부 채점 기준이 이미 잘 통과됐으면, 그 기준은 자동으로 빼고, 아직 어려운 기준에 더 집중해 점수를 올리는 방법입니다. 예를 들어, 수학 문제 풀이에서 이미 잘 푼 문제는 자동으로 빼고, 어려운 문제에 더 시간을 써서 점수를 더 올립니다.",
+      "background": [
+        {
+          "term": "강화학습(RL)",
+          "explain": "컴퓨터가 시도하고 실패를 반복하며 최적의 행동을 배우는 방법입니다."
+        },
+        {
+          "term": "다중 보상 최적화",
+          "explain": "하나의 목표가 아닌 여러 목표를 동시에 만족시키려는 문제 해결 방식입니다."
+        },
+        {
+          "term": "보상 재가중(Advantage Reweighting)",
+          "explain": "학습 과정에서 특정 행동의 가치를 조정해 학습 효율을 높이는 기법입니다."
+        },
+        {
+          "term": "포화도(Saturation)",
+          "explain": "특정 작업이 이미 완벽하게 처리되면, 추가 개선이 어려운 상태를 말합니다."
+        },
+        {
+          "term": "정책 최적화(Policy Optimization)",
+          "explain": "AI가 최적의 행동 전략을 찾는 과정을 개선하는 기술입니다."
+        }
+      ],
+      "keywords": [
+        "강화학습",
+        "다중 보상 최적화",
+        "보상 재가중",
+        "포화도",
+        "정책 최적화"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:42:26.150766+00:00",
+    "week": "2026-W34"
+  },
+  "2608.16319": {
+    "id": "2608.16319",
+    "title": "Advancing Open and Reproducible Relational Learning: RelArena-$α$, TabPFN-Rel and RPI",
+    "authors": [
+      "Adrian Hayler",
+      "Klemens Flöge",
+      "Alan Arazi",
+      "Rishabh Ranjan",
+      "Jure Leskovec",
+      "Felix Birkel",
+      "Brendan Roof",
+      "Anurag Garg",
+      "Kristina Collins",
+      "Lydia Sidhoum",
+      "Jonas Kübler",
+      "Siyuan Guo",
+      "Oscar Key",
+      "Jan Hendrik Metzen",
+      "Rylee Grace",
+      "David Salinas",
+      "Arthur Cahu",
+      "Simon Bing",
+      "Benjamin Jäger",
+      "Tuana Çelik",
+      "Mihir Manium",
+      "Vitor Monteiro",
+      "Jake Robertson",
+      "Jerry Chen",
+      "Eliott Kalfon",
+      "Tomás Pereda",
+      "Lilly Wehrhahn",
+      "Dominik Safaric",
+      "Tobias Schroeder",
+      "Georg Grab",
+      "Diana Kriuchkova",
+      "Clara Cornu",
+      "Philipp Singer",
+      "Nick Erickson",
+      "Vahid Balazadeh",
+      "Marie Salmon",
+      "Simone Alessi",
+      "Kürşat Kaya",
+      "Philipp Jund",
+      "Léo Grinsztajn",
+      "Yann LeCun",
+      "Bernhard Schölkopf",
+      "Madelon Hulsebos",
+      "Lennart Purucker",
+      "Sauraj Gambhir",
+      "Frank Hutter",
+      "Noah Hollmann"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-08-17T09:25:05Z",
+    "updated": "2026-08-17T09:25:05Z",
+    "abstract": "This first release of Prior Labs in relational learning shows our continued commitment to open science. We open-source three pieces of software that we expect to accelerate research in the field towards meaningful real-world impact. We aim to steer further development based on feedback from, and in collaboration with, the community. Given the early stage of development, our $α$-release targets researchers and early-adopting practitioners. Over the past years, a variety of datasets and tasks for relational learning have emerged, but the community has not converged on a reliable, reproducible way to compare different methods on these tasks. Our $α$-release, RelArena-$α$, provides a unified framework for running and comparing baselines on RelBench v1 by standardizing data loading, evaluation protocols, tuning regimes, and support for systems with custom tuning, inspired by established tabular benchmarks such as TabArena. We plan to work with the research community to further develop RelArena-$α$ into a catalyst for progress in the relational learning community. We release the initial version of TabPFN-Rel, a purpose-built relational harness for TabPFN-3. Currently ranked first among models on RelArena-$α$, TabPFN-Rel makes key improvements upon RDBLearn. Beyond its ranking, TabPFN-Rel serves as a strong baseline, adding to the growing evidence that flattening a relational database into a single table remains competitive with specialized relational architectures on real-world tasks. To facilitate adoption of relational learning methods in research and industry, we release an initial $α$-version of our Relational Predictive Interface, RPI, an open-source, model-agnostic interface that enables early adopters to easily define problems on new databases and apply any model implemented in RelArena-$α$, including TabPFN-Rel, to these problems.",
+    "pdf_url": "https://arxiv.org/pdf/2608.16319v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.16319",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 19,
+    "citations": null,
+    "summary": {
+      "tldr": "관계형 학습 연구를 위한 오픈소스 도구 세 가지를 공개했습니다.",
+      "problem": "관계형 데이터를 처리하는 방법을 비교하기 위한 표준화된 평가 방법이 부족해 연구 진행이 어려웠습니다. 다양한 데이터셋이 등장했지만, 재현 가능한 실험 환경이 없어 방법론 비교가 제한적이었습니다.",
+      "method": "RelArena-α는 데이터 로딩과 평가 방식을 표준화해 모델 비교를 가능하게 하는 프레임워크입니다. TabPFN-Rel은 관계형 데이터를 단일 테이블로 변환해도 효과적인 모델로 개선되었습니다. RPI는 다양한 모델을 새로운 데이터베이스에 쉽게 적용할 수 있는 인터페이스입니다.",
+      "result": "TabPFN-Rel은 RelArena-α에서 최고 성능을 보이며, 관계형 데이터 처리에 단일 테이블 접근법이 여전히 유용함을 입증했습니다. 이 도구들은 연구자와 산업에서 관계형 학습을 더 쉽게 적용할 수 있도록 합니다.",
+      "example": "도서관에서 책과 작가, 출판사 정보를 관리할 때, 이 기술은 책을 찾는 규칙을 자동으로 학습해 검색을 더 쉽게 도와줍니다. 예를 들어, '작가 A가 쓴 책'을 빠르게 찾는 시스템을 만들 수 있습니다.",
+      "eli12": "장난감을 정리할 때, 어떤 방법이 가장 잘 정리되는지 비교해보는 거예요. 이 논문은 장난감 정리법을 표준화해 누구나 쉽게 비교하고, 새로운 정리법을 쉽게 시도할 수 있도록 도구를 만든 거예요. 이렇게 해서 더 나은 정리법을 빠르게 찾을 수 있게 해요.",
+      "background": [
+        {
+          "term": "관계형 학습",
+          "explain": "데이터베이스처럼 관계가 있는 정보를 학습하는 방법입니다."
+        },
+        {
+          "term": "표준화",
+          "explain": "모든 사람이 동일하게 평가하거나 비교할 수 있도록 규칙을 만드는 일입니다."
+        },
+        {
+          "term": "오픈소스",
+          "explain": "누구나 자유롭게 사용하고 개선할 수 있는 소프트웨어입니다."
+        },
+        {
+          "term": "모델-agnostic",
+          "explain": "특정 모델을 사용하지 않고, 모든 모델을 적용할 수 있도록 만든 시스템입니다."
+        },
+        {
+          "term": "데이터베이스",
+          "explain": "정보를 저장하고 관리하기 위한 컴퓨터의 저장소입니다."
+        }
+      ],
+      "keywords": [
+        "관계형 학습",
+        "오픈소스",
+        "표준화",
+        "모델-agnostic",
+        "데이터베이스"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:43:24.883025+00:00",
+    "week": "2026-W34"
+  },
+  "2608.15265": {
+    "id": "2608.15265",
+    "title": "VibeWorlding: Can Multimodal Agents Construct 3D Open Worlds End-to-End?",
+    "authors": [
+      "Yansong Ning",
+      "Jingwen Ye",
+      "Zhongkai Wu",
+      "Yang Sun",
+      "Yiqin Zhu",
+      "Xingyi Li",
+      "Weidong Zhang",
+      "Hao Liu"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-08-15T14:53:38Z",
+    "updated": "2026-08-15T14:53:38Z",
+    "abstract": "Constructing an interactive 3D open world from a user query is important. However, existing methods are primarily evaluated on idealized, simple queries, making it difficult to systematically analyze and compare how multimodal agents understand user intent, use 3D tools, and reason over textual and visual 3D world information. To this end, we propose VibeWorlding, a unified framework for benchmarking and training vibe worlding agents: a multimodal agent that can autonomously infer user intent, plan scene layout, invoke 3D tools, and reflect on the multimodal feedback in a multi-turn agent-environment interaction process. To achieve this, we first build VWE-BENCH, a benchmark of 2,616 high-quality 3D assets, 323 human-annotated seed 3D worlds, and 6,828 reverse-synthesized multimodal user queries, split into verified queries with ground-truth and unverified queries with carefully designed rubrics. Moreover, we develop VibeWorlding-Gym, a joint multimodal RL post-training framework that integrates (1) a sandbox environment unifying asset retrieval, editing, and image rendering as MCP tools, and (2) a rubric-based verifier that combines physical feasibility and intent fulfillment verification, supporting both fair model evaluation and scalable multimodal RL reward service. Our experiments show that current frontier MLLMs are far from solving the vibe worlding agent task, with even GPT-5.5 and Qwen3.8-Max reaching below 60% success rate, and trace the bottleneck to precise 3D world editing. We further find that RL training can ease this weakness and enable open-source MLLMs to even surpass closed-source frontiers: our VibeWorlder-8B is comparable to frontier MLLMs, while our flagship VibeWorlder-30B-A3B attains the best overall Pass@1 among all evaluated models.",
+    "pdf_url": "https://arxiv.org/pdf/2608.15265v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.15265",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 50,
+    "citations": null,
+    "summary": {
+      "tldr": "AI가 사용자 요청에 따라 3D 세계를 스스로 만들 수 있는지 실험했습니다.",
+      "problem": "현재 AI는 사용자의 요청을 이해해 3D 세계를 만들기 어렵습니다. 기존 방법은 단순한 요청만 테스트해 복잡한 상황을 분석하지 못합니다.",
+      "method": "VibeWorlding이라는 프레임워크를 만든 데, AI가 요청을 이해하고 3D 도구를 사용해 세계를 만들며 피드백을 반복적으로 처리합니다. 실제 데이터와 강화학습 환경을 결합해 테스트했습니다.",
+      "result": "현존하는 AI 모델은 성공률 60%도 못 넘지만, 강화학습으로 개선하면 오픈소스 모델도 최첨단 모델을 따라갈 수 있었습니다.",
+      "example": "게임 개발자가 '숲 속에 호수 만들기'라고 요청하면, AI가 나무와 물을 배치하고 자연스러운 풍경을 생성해주는 시스템입니다.",
+      "eli12": "엄마가 '나무 한 그루 심어줘'라고 말하면, AI가 흙을 파고 나무를 심고, 물을 주는 모습을 연상시키는 장난감을 만드는 것처럼요. AI가 스스로 생각하며 세상을 만들 수 있는지 테스트하는 실험입니다.",
+      "background": [
+        {
+          "term": "멀티모달 에이전트",
+          "explain": "텍스트, 이미지, 영상 등 다양한 데이터를 이해해 문제를 해결하는 AI입니다."
+        },
+        {
+          "term": "3D 세계 구축",
+          "explain": "게임이나 가상현실에서 사용자가 요청한 내용을 3차원으로 만들어주는 일입니다."
+        },
+        {
+          "term": "강화학습",
+          "explain": "AI가 시도해보고 결과를 배우며 점점 더 잘하는 학습 방법입니다."
+        },
+        {
+          "term": "벤치마크",
+          "explain": "AI의 능력을 비교하기 위한 표준화된 테스트 데이터입니다."
+        },
+        {
+          "term": "샌드박스 환경",
+          "explain": "AI가 안전하게 실험할 수 있는 가상의 시뮬레이션 공간입니다."
+        }
+      ],
+      "keywords": [
+        "멀티모달 에이전트",
+        "3D 세계 구축",
+        "강화학습",
+        "벤치마크",
+        "샌드박스"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:44:17.993735+00:00",
+    "week": "2026-W34"
+  },
+  "2608.13417": {
+    "id": "2608.13417",
+    "title": "Beyond Final Scores: A Systematic Evaluation of Agents for Long-Horizon AI Research and Development",
+    "authors": [
+      "Yiwei Li",
+      "Wanli Yang",
+      "Hexiang Tan",
+      "Xiangzhou Huang",
+      "Zhengyu Chen",
+      "Ziran Li",
+      "Borun Chen",
+      "Shanglin Lei",
+      "Huaisheng Zhu",
+      "Hao Tian",
+      "Fei Sun",
+      "Xunliang Cai",
+      "Jingang Wang"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-08-13T16:11:22Z",
+    "updated": "2026-08-13T16:11:22Z",
+    "abstract": "Autonomous agents are increasingly capable of improving models, systems, and other technical artifacts through long-horizon experimentation. To understand the current state of this capability, however, evaluation must go beyond final scores, which neither reveal where progress is gained or lost nor indicate whether accumulated experience improves later decisions. We therefore present a systematic evaluation of seven frontier models on 36 long-horizon tasks based on a new framework that uses rule-based metrics to characterize within-run behavior through Solution Framing, Execution, and Feedback Control and controlled comparisons to assess experience reuse within and across tasks. The results show that current agents operate more like engineering optimizers than fully autonomous researchers: they can formulate and implement practical solutions, but their performance varies substantially across runs, their strongest solutions mainly adapt or combine established techniques, and genuine methodological novelty remains rare. Detailed analysis reveals that observed performance is shaped by multiple factors, including distinct process bottlenecks behind similar final outcomes, experience reuse that can help or mislead subsequent decisions, and harness designs that affect performance stability. These findings suggest concrete directions for improving model training, inference-time strategies, experience management, and harness design.",
+    "pdf_url": "https://arxiv.org/pdf/2608.13417v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.13417",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 48,
+    "citations": null,
+    "summary": {
+      "tldr": "AI 에이전트의 장기적 성능 평가 방법 제안",
+      "problem": "현재 AI 에이전트 평가는 최종 결과만 보지만, 학습 과정이나 경험 활용 방식을 파악할 수 없어 한계가 있음. 이로 인해 진정한 연구 능력 여부를 판단하기 어려움",
+      "method": "규칙 기반 지표를 사용해 작업 중 행동을 분석하는 '해결 전략, 실행, 피드백 제어' 프레임워크 제안. 작업 내외부 경험 재사용을 비교해 평가",
+      "result": "에이전트는 최적화 도구처럼 작동하며, 혁신적인 방법론은 드물고 경험 재사용이 성과에 영향을 주는 것으로 나타남. 학습 과정의 병목점과 불안정성도 분석됨",
+      "example": "과학자처럼 문제 해결 전략을 스스로 개발하는지, 반복 실험으로 최적화하는지 비교. 예를 들어, 새로운 실험 기법 개발 대신 기존 기법 조합으로 접근하는 모습",
+      "eli12": "로봇이 오래 걸리는 퍼즐을 풀 때, 단순히 결과만 보는 대신 어떻게 시도했는지, 배운 경험을 다시 쓰는지 살펴보는 방법을 말해요. 지금은 좋은 방법을 찾지만, 완전히 새로운 아이디어는 거의 없어요",
+      "background": [
+        {
+          "term": "Long-Horizon Tasks",
+          "explain": "오랜 시간이 걸리는 작업으로, 단계적 학습이 필요한 과제"
+        },
+        {
+          "term": "Rule-Based Metrics",
+          "explain": "규칙을 기반으로 측정하는 지표로, 행동 과정을 객관적으로 평가"
+        },
+        {
+          "term": "Experience Reuse",
+          "explain": "이전 경험을 새로운 문제 해결에 재사용하는 능력"
+        },
+        {
+          "term": "Feedback Control",
+          "explain": "실행 결과를 바탕으로 실시간으로 전략을 수정하는 시스템"
+        },
+        {
+          "term": "Autonomous Agents",
+          "explain": "자기 주도적으로 작업을 수행하는 인공지능 에이전트"
+        }
+      ],
+      "keywords": [
+        "장기적 태스크",
+        "규칙 기반 지표",
+        "경험 재사용",
+        "피드백 제어",
+        "자기 주도 에이전트"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:45:21.721180+00:00",
+    "week": "2026-W34"
+  },
+  "2608.12743": {
+    "id": "2608.12743",
+    "title": "Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence",
+    "authors": [
+      "Haokai Zhang",
+      "Yuhang Ding",
+      "Yunshu Zhou",
+      "Xinze Du",
+      "Shengtao Zhang",
+      "Zhiyue Zhao",
+      "Yuling Xi",
+      "Hao Chen"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-08-13T02:42:35Z",
+    "updated": "2026-08-13T02:42:35Z",
+    "abstract": "Spatial intelligence is becoming a foundation for embodied agents, robotic planning, and multimodal assistants. To improve the spatial reasoning ability of VLM agents, existing work has mainly followed two lines. One line uses post-training methods, such as supervised fine-tuning and reinforcement learning. Another line adopts an agentic paradigm in which the model calls external spatial tools, such as depth estimation and 3D reconstruction tools, to gather intermediate spatial evidence. We study a complementary and underexplored route: Can a frozen VLM agent improve its spatial reasoning through \\textbf{parameter-update-free self-evolution}, without depending on external expert spatial tools at inference time? We present \\textbf{Spatial Memory Agent (SMA)}, an \\textbf{experience-grounded runtime framework} that converts verified spatial experience into reusable transferable lessons. In a verifiable spatial environment, SMA queries the frozen VLM, obtains a predicted answer and reward, and uses \\textbf{verifier-guided reflection} to distill compact transferable lessons from spatial experience. SMA further assigns each lesson a \\textbf{Transfer Reliability Score (TRS)}, which is initialized uniformly and calibrated from later retrieval outcomes as visit evidence of future transfer reliability. During \\textbf{read-only deployment}, SMA retrieves lessons by semantic filter and similarity-TRS combined ranking, allowing the retrieved memory to guide frozen model inference. Across five representative spatial benchmarks and four base VLMs, SMA achieves the highest macro average in every base-model block and the best accuracy among the evaluated methods in most of the 20 evaluations, establishing a practical parameter-update-free path for spatial self-evolution across the evaluated frozen model scales and environments.",
+    "pdf_url": "https://arxiv.org/pdf/2608.12743v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.12743",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 42,
+    "citations": null,
+    "summary": {
+      "tldr": "SMA는 외부 도구 없이 경험을 통해 공간 지능을 향상시킵니다.",
+      "problem": "기존 방법은 외부 도구나 파라미터 업데이트를 필요로 하며, 이 논문은 이를 해결하기 위해 경험 기반 자기 진화를 제안합니다.",
+      "method": "SMA는 동결된 VLM이 경험을 통해 학습하고, 검증된 경험을 이전 가능한 교훈으로 변환합니다. Transfer Reliability Score(TRS)로 교훈의 신뢰도를 평가해 추론 시 활용합니다.",
+      "result": "5개의 공간 평가에서 최고 성능을 보이며, 파라미터 업데이트 없이 공간 자기 진화의 실용적 경로를 입증했습니다.",
+      "example": "로봇이 이전 경로를 기억해 새로운 환경에서 스스로 이동하는 것처럼, 경험을 통해 지식을 전달합니다.",
+      "eli12": "책을 읽고 기억해 새로운 문제를 해결하는 것처럼, AI가 경험을 통해 스스로 배우는 방법입니다. 외부 도움 없이도 똑똑하게 문제를 해결해요.",
+      "background": [
+        {
+          "term": "VLM",
+          "explain": "이미지와 텍스트를 이해하는 인공지능 모델입니다."
+        },
+        {
+          "term": "공간 추론",
+          "explain": "실제 공간에서 위치나 방향을 이해하는 능력입니다."
+        },
+        {
+          "term": "이전 학습",
+          "explain": "이미 배운 지식을 새로운 문제에 적용하는 방법입니다."
+        },
+        {
+          "term": "파라미터 업데이트",
+          "explain": "AI 모델이 학습할 때 내부 설정 값을 조정하는 과정입니다."
+        },
+        {
+          "term": "검증",
+          "explain": "결과가 올바른지 확인하는 과정입니다."
+        }
+      ],
+      "keywords": [
+        "Spatial Memory Agent",
+        "Transfer Reliability Score",
+        "Experience-Grounded",
+        "Parameter-Update-Free",
+        "Self-Evolution"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:46:12.563391+00:00",
+    "week": "2026-W34"
+  },
+  "2608.14391": {
+    "id": "2608.14391",
+    "title": "Can We Defend Against AI-Generated Video Attacks on Real-World Crisis Events? A Systematic Evaluation of Detectors, Generators and Social Dissemination",
+    "authors": [
+      "Shuo Liang",
+      "Yixing Ma",
+      "Pengfei Zhou",
+      "Zhenglin Wan",
+      "Xingyan Chen",
+      "Zihan Mei",
+      "Manting Li",
+      "Feihan Chen",
+      "Zhiwen Wang",
+      "Bin Xu",
+      "Haotian Zhang",
+      "Jiajun Song",
+      "Shiya Su",
+      "Run Liu",
+      "Zhenghang Ni",
+      "Yifa Yu",
+      "Jintao Hong",
+      "Bolong Feng",
+      "Yifei Liu",
+      "Zirui Zhang",
+      "Jingxuan Zhang",
+      "Songlin Zhao",
+      "Yifan Bai",
+      "Kang Tan",
+      "Yizhe Liu",
+      "Junhao Du",
+      "Yongtao Ge",
+      "Zhaopan Xv",
+      "Xinyuan Zhang",
+      "Mengru Ma",
+      "Chunhua Shen",
+      "Wei Wang",
+      "Yang You",
+      "Zheng Zhu",
+      "Kaipeng Zhang",
+      "Wangbo Zhao"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-08-14T15:32:56Z",
+    "updated": "2026-08-17T01:05:35Z",
+    "abstract": "Recent video generators can fabricate realistic depictions of wars, disasters, public emergencies, and other real-world crises, creating substantial risks of misinformation. Existing benchmarks, however, provide limited evidence on detector and generator behavior in such settings, including how detectability varies with generation conditions, how people perceive generated videos, and whether detectors remain reliable during social dissemination. To address this gap, we introduce RA-Bench, a benchmark for AI-generated video detection that uses Real videos as Anchors. RA-Bench contains 17,886 videos, comprising 1,830 real-video anchors across 10 social-risk categories and 16,056 generated clips from four open-source and five closed-source generators. Based on RA-Bench, we organize our evaluation along three dimensions. We first assess detector generalization across seven traditional detectors, ten zero-shot multimodal models under three review settings, and two MLLMs specifically fine-tuned on AI-generated video detection. Across these methods, none of the three detector families generalizes consistently across RA-Bench instances. We then examine how detectability varies with generation quality, conditioning information, and sampling seeds. These analyses show that generation properties affect detector families differently, while source-level detection patterns remain stable across seeds. Finally, we study human authenticity judgments and detector reliability during social dissemination. We find that videos that mislead people are also difficult for current detectors, and that social dissemination makes detection harder. Together, these findings show that current methods struggle to detect realistic AI-generated videos, highlighting the need for detectors robust to evolving video generators.",
+    "pdf_url": "https://arxiv.org/pdf/2608.14391v2",
+    "arxiv_url": "https://arxiv.org/abs/2608.14391",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 267,
+    "citations": 0,
+    "summary": {
+      "tldr": "AI가 만든 위장 영상이 실제 위기 상황을 조작할 수 있어, 탐지 기술의 한계를 드러냈습니다.",
+      "problem": "AI가 전쟁, 재난 등 실제 위기 상황을 가짜 영상으로 만들 수 있어 정보 오염 위험이 큽니다. 하지만 기존 검출 기술이 이런 상황에서 얼마나 잘 작동하는지 평가되지 않았습니다.",
+      "method": "실제 영상과 AI 생성 영상을 비교하는 RA-Bench라는 새로운 평가 기준을 만든 후, 다양한 검출 기술을 테스트했습니다. 생성 조건, 영상 품질, 사회적 전파 등에 따른 검출 효과를 분석했습니다.",
+      "result": "현존하는 검출 기술은 실제 영상과 차이가 없어 보이는 AI 생성 영상을 대부분 못 찾고, 사회적 전파로 인해 검출이 더 어려워졌습니다. 이는 진짜 위기 상황을 조작하는 AI 영상에 대한 신뢰할 수 있는 방어 기술이 부족함을 보여줍니다.",
+      "example": "재난이 일어난 듯 보이는 가짜 영상이 SNS에 퍼져 사람들을 혼란스럽게 만들면, 지금의 기술로는 이걸 알아차리기 어려운데요. 이걸 막기 위한 더 나은 방안이 필요합니다.",
+      "eli12": "AI가 사람을 속이기 위해 진짜 재난처럼 보이는 영상을 만든다고요. 지금은 이런 영상을 알아차리기 어려워요. 그래서 사람들을 속이지 않기 위해 더 똑똑한 방법이 필요해요.",
+      "background": [
+        {
+          "term": "AI 생성 영상",
+          "explain": "인공지능이 만들어낸 실제처럼 보이는 영상"
+        },
+        {
+          "term": "정보 오염",
+          "explain": "거짓 정보가 퍼져 진실을 혼란스럽게 만드는 일"
+        },
+        {
+          "term": "검출 기술",
+          "explain": "가짜 영상인지 진짜인지 구분하는 방법"
+        },
+        {
+          "term": "사회적 전파",
+          "explain": "SNS나 네트워크로 정보가 사람 사이로 퍼지는 것"
+        },
+        {
+          "term": "Benchmark",
+          "explain": "기술을 평가하기 위한 기준이 되는 데이터나 시스템"
+        }
+      ],
+      "keywords": [
+        "AI 생성 영상",
+        "정보 오염",
+        "검출 기술",
+        "사회적 전파",
+        "Benchmark"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:47:08.266782+00:00",
+    "week": "2026-W34"
+  },
+  "2608.14144": {
+    "id": "2608.14144",
+    "title": "Self-Supervised Visual On-Policy Distillation",
+    "authors": [
+      "Yijiang Li",
+      "Yijun Liang",
+      "Yunjie Tian",
+      "Bingyang Wang",
+      "Ke Zhang",
+      "Zhenfei Yin",
+      "Di Fu",
+      "Philip Torr",
+      "Nuno Vasconcelos"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-08-14T09:52:01Z",
+    "updated": "2026-08-14T09:52:01Z",
+    "abstract": "Visual on-policy distillation relies heavily on an informative teacher-student asymmetry, through either a larger, stronger teacher or privileged supervision, such as reference answers or ground-truth regions of interest. This raises a fundamental question: where can informative asymmetry come from when nothing privileged is available? We answer this by inverting where the asymmetry comes from. Rather than adding privileged information to the teacher, we subtract information from the student. This asymmetry creates the same effective learning signal for free as a teacher with access to information unavailable to the student, without ground-truth annotations, rewards, or a separate stronger teacher model. Building on this principle, we introduce Self-Supervised Visual On-Policy Distillation (S$^2$VOPD), a simple yet effective method that constructs on-policy learning signals from asymmetric augmented views. S$^2$VOPD distills the teacher's distribution conditioned on the original image on-policy into the student distribution conditioned on a strongly augmented view of the same image. We systematically explore a broad design space of visual augmentations and uncover that (1) asymmetry matters: all four augmentation families improve performance, while symmetric self-distillation degrades it; (2) strength matters: performance peaks at a moderate strength; and (3) the gap must remain task-consistent: augmentations that completely remove the question-relevant evidence can induce large but uninformative discrepancies. Across six fine-grained perception benchmarks, S$^2$VOPD improves Qwen3.5-4B from 70.7% to 77.4%, above all open-source models compared, up to Qwen3-VL at 235B, and surpasses GPT-5.4. While holding training data the same, it recovers 96% of the improvement achieved by methods with privileged information. Website is at https://williamium3000.github.io/s2vopd",
+    "pdf_url": "https://arxiv.org/pdf/2608.14144v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.14144",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 158,
+    "citations": 0,
+    "summary": {
+      "tldr": "Self-Supervised Visual On-Policy Distillation(S²VOPD)은 추가 정보 없이 모델 성능을 향상시킵니다.",
+      "problem": "전통적인 시각 온-정책 디스티л레이션은 특권 정보(정답/정규화 영역)가 필요해, 실제 적용 시 제약이 많습니다. 이 논문은 특권 정보 없이도 효과적인 학습 신호를 만드는 방법을 찾고자 합니다.",
+      "method": "학생 모델에 정보를 제거해 비대칭성을 만들고, 강력한 데이터 증강을 통해 학습 신호를 생성합니다. 교사 모델은 원본 이미지 기반으로 학습하고, 학생 모델은 강화된 이미지 기반으로 학습해 비대칭적인 학습을 유도합니다.",
+      "result": "6개의 세부 인식 평가에서 Qwen3.5-4B의 정확도가 70.7%→77.4%로 향상되고, GPT-5.4를 넘어서는 성능을 보입니다. 특권 정보 기반 방법의 96% 성능을 회복합니다.",
+      "example": "사진 속 물체를 인식하는 모델을 훈련할 때, 정답을 알려주지 않고도 사진을 다양한 방식으로 변형해보며 학습하게 합니다. 예를 들어, 사진을 흐리게 해서 보는 것처럼, 모델이 다양한 조건에서 정답을 예측하게 만듭니다.",
+      "eli12": "게임에서 상대가 보지 못하는 정보를 이용해 승리하는 것처럼, 모델이 보지 못하는 정보를 가정해 학습합니다. 사진을 다르게 보여주면서 '이건 맞아'라고 스스로 배우게 하는 거예요.",
+      "background": [
+        {
+          "term": "온-정책 디스티л레이션",
+          "explain": "교사 모델이 학생 모델에게 직접적인 지도를 주며 학습하는 방식"
+        },
+        {
+          "term": "데이터 증강",
+          "explain": "이미지에 다양한 변형(흐림, 회전 등)을 가해 새로운 데이터를 만드는 기법"
+        },
+        {
+          "term": "자율 학습(self-supervised learning)",
+          "explain": "정답을 알려주지 않고 데이터 자체에서 학습 신호를 찾는 방법"
+        },
+        {
+          "term": "비대칭 학습",
+          "explain": "교사와 학생이 서로 다른 정보를 기반으로 학습하는 구조"
+        },
+        {
+          "term": "정규화 영역(ground-truth)",
+          "explain": "정답을 나타내는 실제 데이터 영역(예: 이미지에서 특정 물체의 경계)"
+        }
+      ],
+      "keywords": [
+        "Self-Supervised Learning",
+        "On-Policy Distillation",
+        "Data Augmentation",
+        "Teacher-Student Model",
+        "Visual Perception"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:48:14.041791+00:00",
+    "week": "2026-W34"
+  },
+  "2608.13049": {
+    "id": "2608.13049",
+    "title": "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
+    "authors": [
+      "Dingyi Rong",
+      "Yue Shi",
+      "Chaofan Ma",
+      "Jiezhang Cao",
+      "Zongrui Wang",
+      "Zeyu Zhang",
+      "Yao Mu",
+      "Guangtao Zhai",
+      "Ning Liu"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-08-13T10:14:33Z",
+    "updated": "2026-08-13T10:14:33Z",
+    "abstract": "Large-scale manipulation data is essential for robot learning, yet collecting robot demonstrations remains expensive and difficult to scale. Meanwhile, abundant egocentric human manipulation videos provide rich behavioral experiences, but transferring them across embodiments remains challenging due to differences between human hands and robotic end-effectors. Recent advances in video world models offer a promising pathway to synthesize robot-centric manipulation videos from human observations, while their cross-embodiment transfer capability remains largely unexplored. Therefore, we introduce H2R-Bench, a benchmark for evaluating cross-embodiment human-to-robot manipulation video generation, where models transform egocentric human demonstrations into robot manipulation videos under specified embodiments. Each benchmark instance contains a human demonstration video, target embodiment constraints, and source-grounded annotations covering task goals, action events, functional contacts, and object responses. H2R-Bench evaluates generated videos through five dimensions, including goal-state completion, action-event completion, functional contact transfer, embodiment correctness, and general video quality. We benchmark eleven state-of-the-art video generation models across six manipulation families and two robot embodiments. Our evaluation reveals that current video world models remain limited in human-to-robot manipulation transfer: even leading models often fail in embodiment consistency, functional interaction, and task execution. H2R-Bench provides a systematic diagnostic framework for evaluating whether video world models can bridge the human-to-robot embodiment gap and convert human manipulation observations into robot-centric training resources.",
+    "pdf_url": "https://arxiv.org/pdf/2608.13049v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.13049",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 17,
+    "citations": null,
+    "summary": {
+      "tldr": "인간 행동을 로봇 동작으로 변환하는 기술을 평가하는 새로운 테스트베이스를 제안했습니다.",
+      "problem": "로봇 학습용 데이터 수집이 어려워 인간 동영상 활용이 필요하지만, 인간 손과 로봇 팔의 차이로 인해 전환 곤란함.",
+      "method": "H2R-Bench는 인간 동영상과 로봇 신체 제약을 입력으로 받아, 로봇 동작 영상을 생성하고 5가지 기준으로 평가하는 테스트베이스.",
+      "result": "현존하는 모델들이 인간-로봇 전환 시 일관성과 기능적 상호작용에서 실패함을 드러내며, 기술 발전 방향을 제시.",
+      "example": "공장에서 인간이 제품 조립하는 영상을 로봇이 따라할 수 있도록 테스트하는 시스템. 인간의 손 움직임을 로봇 팔의 동작으로 변환해 보는 것.",
+      "eli12": "인간이 블록을 쌓는 영상을 보여주면, 로봇이 똑같이 따라할 수 있도록 테스트하는 게임. 인간의 손 움직임을 로봇의 팔 움직임으로 바꿔서 보여주는 거야.",
+      "background": [
+        {
+          "term": "로봇 학습",
+          "explain": "로봇이 스스로 배우는 방법을 연구하는 분야"
+        },
+        {
+          "term": "비디오 월드 모델",
+          "explain": "영상 속 세계를 이해하고 예측하는 인공지능 기술"
+        },
+        {
+          "term": "신체 제약",
+          "explain": "로봇이 움직일 수 있는 방식을 설정하는 규칙"
+        },
+        {
+          "term": "기능적 접촉",
+          "explain": "물체를 잡거나 조작할 때 발생하는 실제적인 상호작용"
+        },
+        {
+          "term": "동작 이벤트",
+          "explain": "특정 행동이 발생하는 순간을 기록한 데이터"
+        }
+      ],
+      "keywords": [
+        "H2R-Bench",
+        "로봇 학습",
+        "비디오 월드 모델",
+        "신체 제약",
+        "기능적 접촉"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:49:32.285973+00:00",
+    "week": "2026-W34"
+  },
+  "2608.13555": {
+    "id": "2608.13555",
+    "title": "HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark",
+    "authors": [
+      "Dairu Liu",
+      "Zekun Qi",
+      "Jiayu Zeng",
+      "Ruixi Yu",
+      "Yu Guan",
+      "Yintianrun Zhang",
+      "Xuchuan Chen",
+      "Sikai Liang",
+      "Zekai Li",
+      "Chenghuai Lin",
+      "Xinqiang Yu",
+      "Wenyao Zhang",
+      "He Wang",
+      "Li Yi"
     ],
     "categories": [
       "cs.RO",
@@ -13,567 +913,197 @@
       "cs.CV"
     ],
     "primary_category": "cs.RO",
-    "published": "2026-08-17T17:59:57Z",
-    "updated": "2026-08-17T17:59:57Z",
-    "abstract": "Long-horizon robot manipulation chains many contact-rich skills into one multi-stage task. Vision-language-action (VLA) models increasingly master the individual skills, yet the chain still fails: errors compound beyond the policy's ability to correct, and one subtask silently constrains the next. A promising recipe freezes the VLA and puts an LLM agent in charge: it plans in language, moves in free space with analytic primitives, invokes the VLA only for contact-rich segments, and writes adaptation into language memory. Applied to long horizons, it breaks twice. (1) Competence comes from whole-task exploration at test time, whose cost is multiplicative in stages: if one stage needs T episodes, a K-stage task needs about T^K, and a failure does not reveal which stage caused it. (2) It has no representation of transitions: the VLA primitive carries an exit but no entry condition, so a subtask can succeed in a form its successor cannot use. We present BATON. Against (1), BATON makes the subtask the unit of exploration: each is explored in the cheap short-horizon regime and its solution stored in memory; a long-horizon trajectory is then composed from these solutions rather than discovered whole. Cost becomes additive (T*K) and every failure is attributed to a single stage. Against (2), BATON equips exploration with a transition-aware memory. Within a subtask, a verifier agent governs the invocation transition: the VLA is called only after the wrist view confirms the scene is ready. Across subtasks, a handoff transition restores an entry state disturbed by the predecessor's residue, and a lookahead transition selects the strategy whose outcome the successor can inherit. No parameters are updated. On the long-horizon benchmark RoboMemArena, BATON improves task success by 11.6% and cumulative success by 14.9% over the SoTA.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16889v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16889",
+    "published": "2026-08-13T17:59:40Z",
+    "updated": "2026-08-13T17:59:40Z",
+    "abstract": "Humanoid motion tracking is central to teleoperation and whole-body imitation, yet evaluation often disagrees with what people perceive in videos. Kinematic errors average per-frame pose differences but miss the physical artifacts that matter most, particularly unstable support and incorrect contacts such as foot skating and mistimed touch-downs. Meanwhile, widely used test suites are small and lack the diversity needed to stress contact-rich, long-horizon behaviors. We introduce HumanTracker to make humanoid tracking evaluation both perceptually aligned and scalable. The HumanTracker benchmark contains approximately 153 hours of optical motion trajectories from multiple professional performers, organized into four motion families with text labels for fine-grained diagnosis. We further propose HumanScore, a preference-aligned metric trained on 12K motion pairs containing 24K motions. Across representative state-of-the-art trackers, HumanScore better predicts human preferences and reveals contact and stability failures that kinematic metrics often miss.",
+    "pdf_url": "https://arxiv.org/pdf/2608.13555v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.13555",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 15,
+    "citations": 0,
     "summary": {
-      "tldr": "BATON은 장기 로봇 조작을 위해 하위 작업 단위로 탐색하고 전이 인식 메모리로 오류를 줄인다.",
-      "problem": "장기 로봇 조작에서 하위 작업 간 오류가 누적되고, 전이 조건이 없어 다음 작업이 이전 결과를 활용하지 못해 실패율이 높다. 기존 방법은 탐색 비용이 곱해져 효율적이지 않다.",
-      "method": "BATON은 하위 작업을 독립적으로 탐색해 해결책을 메모리에 저장하고, 전이 인식 메모리로 작업 간 연결점을 관리한다. VLA는 접촉이 필요한 부분만 호출하고, 검증 에이전트가 상태 준비 여부를 확인한다.",
-      "result": "RoboMemArena에서 기존 최고 성능 대비 작업 성공률 11.6%, 누적 성공률 14.9% 향상. 탐색 비용을 선형으로 줄이고 오류 원인을 정확히 분리한다.",
+      "tldr": "인간의 움직임을 더 자연스럽게 평가하는 새로운 기준을 제안했습니다.",
+      "problem": "현재 움직임 추적 평가가 인간의 눈으로 보는 것과 다르고, 발 밀어내기 같은 실수를 놓치는 문제가 있습니다. 기존 데이터셋도 다양하지 않아 복잡한 움직임을 테스트하기 어렵습니다.",
+      "method": "HumanTracker는 전문 연기자의 153시간 분량의 움직임 데이터를 사용해 실제 인간의 감각을 반영합니다. HumanScore는 12,000개의 움직임 쌍을 기반으로 사람의 선호도를 예측하는 새로운 평가 척도입니다.",
+      "result": "HumanScore는 기존 척도보다 인간의 판단을 더 정확히 예측하고, 발 밀어내기 같은 실수를 효과적으로 감지할 수 있습니다. 이는 로봇이나 가상 인물의 움직임을 더 자연스럽게 만들 수 있습니다.",
+      "example": "춤을 추는 로봇이 발을 잘못 밀어내면 HumanScore가 이를 감지해 개선을 권장합니다. 이는 실제 춤추는 사람처럼 자연스러운 움직임을 만드는 데 도움이 됩니다.",
+      "eli12": "춤추는 로봇이 발을 잘못 밀어내면 그걸 잡아주는 선생님이 생각해보세요. HumanTracker는 이 선생님이 직접 움직임을 보고, 로봇이 더 자연스럽게 춤추도록 도와주는 기술입니다.",
+      "background": [
+        {
+          "term": "움직임 추적",
+          "explain": "로봇이나 가상 인물이 사람처럼 움직이는 걸 컴퓨터가 따라잡는 기술"
+        },
+        {
+          "term": "운동학 오류",
+          "explain": "움직임을 추적할 때 컴퓨터가 계산한 위치와 실제 위치의 차이"
+        },
+        {
+          "term": "인간 선호도",
+          "explain": "사람들이 어떤 움직임을 자연스럽다고 느끼는 감각"
+        },
+        {
+          "term": "데이터셋",
+          "explain": "AI가 학습할 때 사용하는 실제 움직임 데이터 모음"
+        },
+        {
+          "term": "접촉 역학",
+          "explain": "발이 바닥에 닿거나 밀어내는 등 몸의 부품이 서로 만날 때의 움직임"
+        }
+      ],
       "keywords": [
-        "로봇 조작",
-        "하위 작업 탐색",
-        "전이 인식 메모리",
-        "VLA 모델",
-        "장기 태스크"
+        "HumanTracker",
+        "HumanScore",
+        "움직임 추적",
+        "데이터셋",
+        "접촉 역학"
       ]
     },
-    "fetched_at": "2026-08-18T16:10:16.529547+00:00"
+    "fetched_at": "2026-08-18T16:50:27.995836+00:00",
+    "week": "2026-W34"
   },
-  "2608.16888": {
-    "id": "2608.16888",
-    "title": "Q-based Variational Inverse Reinforcement Learning",
+  "2608.14284": {
+    "id": "2608.14284",
+    "title": "PRM-as-a-Judge 1.5: A Toolkit for Robot Process Assessment",
     "authors": [
-      "Ondrej Bajgar",
-      "Peter Tisnikar",
-      "Alessandro Abate",
-      "Konstantinos Gatsis",
-      "Maike Osborne"
-    ],
-    "categories": [
-      "cs.LG"
-    ],
-    "primary_category": "cs.LG",
-    "published": "2026-08-17T17:59:55Z",
-    "updated": "2026-08-17T17:59:55Z",
-    "abstract": "The development of safe and beneficial AI requires that systems can learn and act in accordance with human preferences. However, explicitly specifying these preferences by hand is often infeasible. Inverse reinforcement learning (IRL) addresses this challenge by inferring preferences, represented as reward functions, from expert behaviour. We introduce Q-based Variational IRL (QVIRL), a novel Bayesian IRL method that recovers a posterior distribution over rewards from expert demonstrations via primarily learning a variational distribution over optimal Q-values. Unlike previous approaches, QVIRL combines scalability with uncertainty quantification, important for safety-critical applications as well as active learning. We demonstrate QVIRL's strong performance in apprenticeship learning across various tasks, including gridworlds, Lunar Lander, the Highway Environment, and two ATARI games both with static expert data and with active learning. It is the first method for Bayesian IRL that demonstrates training from raw pixel observations.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16888v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16888",
-    "summary": {
-      "tldr": "QVIRL은 인간 선호도를 학습하여 안전한 AI를 만드는 새로운 방법",
-      "problem": "AI가 인간 선호도를 직접 학습하기 어려워, 전문가 행동을 통해 보상 함수를 추론해야 함. 기존 방법은 확장성과 불확실성 처리에 한계가 있음",
-      "method": "QVIRL은 베이지안 접근법으로, 최적 Q값에 대한 변분 분포를 학습해 보상 함수 후분포를 회복. 확장성과 불확실성 측정을 결합해 안전한 적용 가능",
-      "result": "그리드월드, 루나랜더, 고속도로 환경, ATARI 게임 등 다양한 작업에서 우수한 성능. 원시 픽셀 관찰을 기반으로 하는 첫 베이지안 역강화학습 방법",
-      "keywords": [
-        "변분 역강화학습",
-        "베이지안 방법",
-        "보상 함수 추론",
-        "활성 학습",
-        "원시 픽셀 관찰"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:10:57.931173+00:00"
-  },
-  "2608.16887": {
-    "id": "2608.16887",
-    "title": "An Empirical Study of Training Pixel-Space Text-to-Image Diffusion Models",
-    "authors": [
-      "Dengyang Jiang",
-      "Ruoyi Du",
-      "Zhennan Chen",
-      "Dongyang Liu",
-      "Zanyi Wang",
-      "Mingzhe Zheng",
-      "Xiangpeng Yang",
-      "Huanqia Cai",
-      "Aiming Hao",
-      "Yuming Jiang",
-      "Peng Gao",
-      "Harry Yang",
-      "Steven Hoi"
-    ],
-    "categories": [
-      "cs.CV"
-    ],
-    "primary_category": "cs.CV",
-    "published": "2026-08-17T17:59:25Z",
-    "updated": "2026-08-17T17:59:25Z",
-    "abstract": "This paper investigates an increasingly important topic in generative modeling: pixel-space diffusion models. Although numerous studies have explored this topic, most focus on small-scale or class-conditional settings. Consequently, a practical recipe for training pixel-space models that rival or exceed well-established latent-space counterparts remains elusive. Through a comprehensive empirical study, we first observe that direct large-scale pre-training in pixel space converges substantially more slowly than in latent space. This observation motivates a latent-to-pixel strategy that acquires generative priors efficiently in latent space and transitions to pixel space during post-training. We then systematically investigate the key design choices governing this transition, including weight initialization, data composition, prediction target, decoder architecture, and noise schedule, and identify a practical recipe that makes the resulting pixel-space models match or outperform their latent-space counterparts while delivering 3.18 to 4.75 times end-to-end inference speedups. We hope that our findings provide useful empirical insights and practical guidelines for future research on pixel-space generation.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16887v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16887",
-    "summary": {
-      "tldr": "픽셀 공간 모델 훈련에 효과적인 전략 제안",
-      "problem": "기존 연구는 소규모 또는 클래스 조건부 설정에 집중해 대규모 픽셀 공간 모델 훈련 방법이 부족하다.",
-      "method": "잠재 공간에서 사전을 효율적으로 학습한 후 픽셀 공간으로 전환하는 전략을 제안하고, 핵심 설계 요소를 체계적으로 분석했다.",
-      "result": "결과적으로 3.18~4.75배 빠른 추론 속도를 달성하며, 잠재 공간 모델과 경쟁할 수 있는 성능을 보였다.",
-      "keywords": [
-        "픽셀 공간",
-        "확산 모델",
-        "잠재 공간",
-        "텍스트-to-이미지",
-        "추론 속도"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:11:57.883843+00:00"
-  },
-  "2608.16884": {
-    "id": "2608.16884",
-    "title": "Improving the matrix multiplication exponent with modern optimization and AlphaEvolve",
-    "authors": [
-      "Emilien Dupont",
-      "Marvin Eisenberger",
-      "Borislav Kozlovskii",
-      "Abbas Mehrabian",
-      "Francisco J. R. Ruiz",
-      "Abigail See",
-      "Renfei Zhou",
-      "Josh Alman",
-      "Virginia Vassilevska Williams",
-      "Matej Balog"
-    ],
-    "categories": [
-      "cs.DS",
-      "cs.AI",
-      "cs.CC",
-      "cs.LG"
-    ],
-    "primary_category": "cs.DS",
-    "published": "2026-08-17T17:59:05Z",
-    "updated": "2026-08-17T17:59:05Z",
-    "abstract": "The current best bounds on the matrix multiplication exponent $ω$ are obtained through a refinement of the laser method called combination loss analysis (Duan et al., 2022; Williams et al., 2024; Alman et al., 2025). In this note, we address the optimization problem at the core of this approach and propose several improvements. First, we reformulate the optimization problem allowing us to solve it in a larger setting than was previously possible. Second, we leverage recent advances in machine learning to design a new optimization algorithm for this problem. Finally, we refine the resulting optimization algorithm with AlphaEvolve. Our combined approach yields an upper bound of $ω$ < 2.371177, improving the previous best bound of 2.371339.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16884v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16884",
-    "summary": {
-      "tldr": "이 논문은 최신 최적화 기법과 AlphaEvolve를 활용해 행렬 곱셈 지수 ω의 상한을 2.371177로 개선했습니다.",
-      "problem": "행렬 곱셈의 효율성을 결정하는 지수 ω의 상한을 낮추는 것이 핵심 문제입니다. 기존 방법은 결합 손실 분석을 통해 2.371339의 상한을 기록했으나, 더 나은 결과를 위해 최적화 문제를 개선해야 했습니다.",
-      "method": "최적화 문제를 더 넓은 범위로 재구성하고, 머신러닝 기술을 적용한 새 알고리즘을 설계했습니다. 또한 AlphaEvolve를 통해 알고리즘을 세분화해 효율성을 높였습니다.",
-      "result": "ω의 상한을 2.371177로 낮춰 기존 2.371339보다 0.000162 개선했습니다. 이는 행렬 연산의 계산 효율성 향상에 중요한 기여를 합니다.",
-      "keywords": [
-        "행렬 곱셈 지수",
-        "결합 손실 분석",
-        "AlphaEvolve",
-        "최적화 알고리즘",
-        "머신러닝"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:12:42.562191+00:00"
-  },
-  "2608.16878": {
-    "id": "2608.16878",
-    "title": "Spectral Gaps of Hit-and-Run and Coordinate Hit-and-Run",
-    "authors": [
-      "Yunbum Kook",
-      "Santosh S. Vempala"
-    ],
-    "categories": [
-      "cs.DS",
-      "cs.LG",
-      "math.PR",
-      "math.ST"
-    ],
-    "primary_category": "cs.DS",
-    "published": "2026-08-17T17:57:11Z",
-    "updated": "2026-08-17T17:57:11Z",
-    "abstract": "For any convex body $\\mathcal{K}\\subset\\mathbb{R}^{n}$ containing a unit ball, the spectral gap of Hit-and-Run is $Ω(1/(n^2 C_{\\mathsf{PI}}))$, where $C_{\\mathsf{PI}}$ is the Poincaré constant of the uniform distribution $π$ over $\\mathcal{K}$. This implies that Hit-and-Run converges to a distribution within $χ^2$-divergence $\\varepsilon$ of the uniform distribution $π$ in $O(n^2 C_{\\mathsf{PI}}\\log(M/\\varepsilon))$ steps from any starting distribution $π_0$ with $M=χ^2(π_{0}\\,\\|\\,π)$, thus refining the known bound of $O(n^2 R^2 \\log(M/\\varepsilon))$ by Lovász and Vempala (2004) in terms of the outer radius $R$; for nearly isotropic bodies, together with progress on the KLS conjecture, the complexity is $O(n^2\\log n\\log(M/\\varepsilon))$, improving the dimension dependence from cubic to nearly quadratic while maintaining logarithmic dependence on the initial distance. It was an open problem to connect the convergence of Hit-and-Run to Poincaré/KLS constants as was done for the Ball walk by Kannan, Lovász and Simonovits (1997). Unlike Hit-and-Run, the Ball walk has an unavoidable linear dependence on (a stronger notion) of the initial warmness. We directly bound the spectral gap of the Hit-and-Run Markov chain by connecting it to functional isoperimetric constants, inspired by the recent analysis of In-and-Out. Rewriting the spectral gap in terms of dual certificates leads to the Babuška--Aziz constant studied in the analysis of PDEs; it is asymptotically bounded by the improved Poincaré constant, which we show can be bounded in terms of the usual Poincaré constant. The proof is based on duality and calculus, unlike known proofs of convergence for Hit-and-Run which are based on bounding the conductance. The same technique can be applied to Coordinate Hit-and-Run, resulting in a much improved mixing time of $O(n^3C_{\\mathsf{PI}}\\log(M/\\varepsilon))$.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16878v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16878",
-    "summary": {
-      "tldr": "히트 앤 런 알고리즘의 수렴 속도를 개선한 이론적 분석",
-      "problem": "볼워크와 달리 초기 분포에 의존하지 않는 히트 앤 런 알고리즘의 수렴 속도를 정밀하게 평가하는 것이 문제였다.",
-      "method": "포인카레 상수와 기하학적 성질을 연결해 스펙트럴 갭을 직접적으로 경계하고, 이중 인증서를 통해 분석을 단순화했다.",
-      "result": "차원 의존도를 제곱에서 거의 제곱근으로 개선한 복잡도 경계를 도출하며, KLS 추측과 결합해 효율성을 극대화했다.",
-      "keywords": [
-        "히트 앤 런",
-        "포인카레 상수",
-        "KLS 추측",
-        "스펙트럴 갭",
-        "혼합 시간"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:13:14.017285+00:00"
-  },
-  "2608.16876": {
-    "id": "2608.16876",
-    "title": "AutoSR: Automatic Symbolic Regression by Searching Research States",
-    "authors": [
-      "Kejia Zhang",
-      "Youran Sun",
-      "Xinyu Ren",
-      "Chugang Yi",
-      "Haizhao Yang"
-    ],
-    "categories": [
-      "cs.SC",
-      "cs.AI",
-      "cs.LG",
-      "math.NA"
-    ],
-    "primary_category": "cs.SC",
-    "published": "2026-08-17T17:55:26Z",
-    "updated": "2026-08-17T17:55:26Z",
-    "abstract": "We introduce Automatic Symbolic Regression (AutoSR), a fully automated system that instantiates Research-Space Symbolic Regression by searching persistent scientific investigations rather than isolated equations. Finite, noisy data often yield numerically competitive expressions that imply very different behavior outside the observed regime, making numerical fit and syntactic complexity insufficient measures of scientific credibility. Existing approaches largely focus on improving expressions, yet the search typically retains little beyond the resulting formula and score, losing the scientific record, such as motivations and probes, that inform what to try next. AutoSR preserves this record in a \\textbf{Research State}, coupling each candidate equation with the reasoning, computational evidence, and independent review developed along its branch. Proposer--reviewer agents develop these states under progressive-widening Monte Carlo tree search (PW-MCTS), which allocates computation across competing investigations, while the accumulated research record is ultimately synthesized into a final report that explains the leading relation and the basis for its selection. Across nine selected challenges from two benchmark suites, AutoSR recovers algebraically equivalent relations in every case, including three cp3-bench problems that no published system recovers and six structurally diverse LSR-Transform problems. Overall, AutoSR extends symbolic regression from equation-level search toward automated scientific investigation, allowing scientific knowledge and accumulated evidence to shape both what is explored and how the resulting equation is justified.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16876v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16876",
-    "summary": {
-      "tldr": "AutoSR은 과학적 탐구 과정을 기록하며 방정식을 자동으로 찾는 시스템입니다.",
-      "problem": "기존의 기호 회귀 방법은 수치적 적합도만을 중시해 과학적 신뢰도를 제대로 평가하지 못합니다. 노이즈가 있는 데이터로 얻은 표현식이 관찰 범위 외부에서 다른 행동을 보일 수 있어, 단순한 수치적 결과만으로는 과학적 타당성을 판단할 수 없습니다.",
-      "method": "AutoSR은 'Research State'라는 개념을 도입해 각 후보 방정식에 탐구 이력, 계산 증거, 검토 내용을 연결합니다. 이는 진행적 확장 Monte Carlo 트리 탐색(PW-MCTS)을 통해 병렬적으로 진행되며, 최종 보고서로 과학적 근거를 설명합니다.",
-      "result": "9개의 체이프런 문제에서 Algebraically equivalent 관계를 모두 복원해내며, 기존 시스템이 해결하지 못한 3개의 cp3-bench 문제도 해결했습니다. 이는 기호 회귀를 자동화된 과학 탐구로 확장한 혁신입니다.",
-      "keywords": [
-        "기호 회귀",
-        "Research State",
-        "Monte Carlo 트리 탐색",
-        "과학적 탐구",
-        "자동화"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:13:53.288529+00:00"
-  },
-  "2608.16873": {
-    "id": "2608.16873",
-    "title": "An Analytical-Prior Framework for Data-Efficient Prediction of Sound-Reduction Frequencies in Rectangular Side-Branch Helmholtz Resonators",
-    "authors": [
-      "Jiaming Li"
-    ],
-    "categories": [
-      "cs.LG"
-    ],
-    "primary_category": "cs.LG",
-    "published": "2026-08-17T17:53:14Z",
-    "updated": "2026-08-17T17:53:14Z",
-    "abstract": "High-fidelity finite-element simulations can provide accurate numerical predictions for side-branch resonators, but large simulation datasets are expensive to generate and purely data-driven surrogates may become unreliable when simulation-labelled data are scarce. This study develops an analytical-prior learning framework that reuses a low-cost analytical model to improve data efficiency under limited high-fidelity simulation budgets. Two complementary routes are considered. When the analytical model remains available at inference, it is retained as an explicit baseline and the simulation data are used to learn only the analytical-to-simulation discrepancy. When a self-contained predictor is required, the analytical mapping is first distilled from abundant low-cost evaluations into a learned prior and then calibrated with the limited simulation data. The framework is evaluated on rectangular side-branch Helmholtz resonators using 86 simulation-labelled geometries and 8,998 non-overlapping analytical-only geometries. The analytical model achieved a mean absolute error (MAE) of 1.333 Hz. Direct support vector regression (SVR) achieved 3.375 Hz, while residual SVR reduced the MAE to 0.426 Hz. A direct multilayer perceptron (MLP) achieved 1.109 Hz, whereas analytical-prior pretraining reduced the error to 0.556 Hz with frozen-prior residual adaptation and 0.371 Hz with full-model fine-tuning. Across training budgets of 20 to 70 simulation-labelled cases, both analytical correction and analytical-prior pretraining consistently improved data efficiency relative to direct learning. These results show that analytical prior information can substantially improve high-fidelity prediction when simulation data are scarce, with explicit correction and prior distillation serving complementary deployment needs.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16873v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16873",
-    "summary": {
-      "tldr": "분석적 사전 지식을 활용해 시뮬레이션 데이터 부족 시 정확도를 높인 방법",
-      "problem": "고해상도 시뮬레이션 데이터 생성 비용이 높고, 데이터 부족 시 순수 데이터 기반 모델이 신뢰도가 낮은 문제",
-      "method": "저비용 분석 모델과 시뮬레이션 데이터를 결합해 오차를 보완하는 두 가지 접근법 제안. 분석 모델을 기반으로 사전 지식을 추출해 학습 효율을 높임",
-      "result": "분석 사전 기반 모델은 MAE 0.371Hz로 직접 학습보다 3~4배 정확도 향상. 제한된 시뮬레이션 데이터에서도 효과적임을 입증",
-      "keywords": [
-        "분석적 사전",
-        "데이터 효율성",
-        "헬mholtz 공명기",
-        "정밀 예측",
-        "머신러닝"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:14:27.628031+00:00"
-  },
-  "2608.16870": {
-    "id": "2608.16870",
-    "title": "Data-Efficient and Interpretable Classification of Circulating Tumor Cell Phenotypes in Microfluidic Devices via Deep Learning",
-    "authors": [
-      "Serena Su",
-      "Yifan Wang",
-      "Senwei Liang"
-    ],
-    "categories": [
-      "cs.LG"
-    ],
-    "primary_category": "cs.LG",
-    "published": "2026-08-17T17:51:49Z",
-    "updated": "2026-08-17T17:51:49Z",
-    "abstract": "Accurate classification of circulating tumor cell (CTC) phenotypes can provide valuable information for assessing metastatic potential. Label free microfluidic devices provide a hydrodynamic obstacle course that transforms subtle biophysical characteristics of CTCs, including size and deformability, into distinct kinematic trajectories. However, the highly nonlinear fluid structure interactions governing these trajectories make the inverse problem of inferring cellular phenotype from trajectory data analytically intractable. While deep neural networks (DNNs) have emerged as a powerful approach for addressing this inverse problem, their effectiveness is constrained by the limited availability of trajectory data and the lack of physical interpretability. To address these challenges, we propose an interpretable and data efficient DNN framework for trajectory based CTC classification. To mitigate the scarcity of data, we develop Subsequence (SubSeq), a targeted augmentation strategy that randomly extracts informative local trajectory segments during training to promote learning from localized patterns. We further apply Gradient Weighted Class Activation Mapping to identify the trajectory features and physical regions of the microfluidic device that drive model predictions. Experimental results demonstrate that SubSeq improves classification accuracy over the evaluated baseline and augmentation methods. Furthermore, interpretability analysis suggests that localized trajectory segments contain substantial biophysical information relevant to accurate classification. This provides justification for SubSeq and also highlights the redundancy of full-length trajectories. More broadly, the proposed framework views microfluidic geometries as physical encoders of cellular mechanical properties, providing mechanistic insights that may inform the future design of diagnostic devices.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16870v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16870",
-    "summary": {
-      "tldr": "미세유체 장치에서 세포 이동 경로를 분석해 암 전이 가능성을 예측하는 데이터 효율적 방법 제안",
-      "problem": "암 세포의 물리적 특성(크기, 유동성)을 기반으로 한 이동 경로 데이터로 세포 유형을 분류하려면 복잡한 유체 상호작용으로 인해 역추론이 어려웠고, 데이터 부족과 모델 해석 가능성 부족이 문제였다.",
-      "method": "SubSeq이라는 데이터 증강 기법을 통해 학습 시 지역적 이동 경로 조각을 추출해 패턴 학습을 촉진하고, 기울기 가중 클래스 활성화 맵핑을 적용해 모델 예측의 물리적 기반을 분석하는 방법을 제안했다.",
-      "result": "SubSeq는 기존 방법보다 분류 정확도를 향상시키고, 지역적 이동 경로가 생물물리학적 정보를 담고 있음을 밝혀내며, 전체 경로보다 효율적인 데이터 사용 가능성을 제시했다.",
-      "keywords": [
-        "딥러닝",
-        "미세유체",
-        "암 세포 분류",
-        "데이터 증강",
-        "모델 해석성"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:15:05.175539+00:00"
-  },
-  "2608.16868": {
-    "id": "2608.16868",
-    "title": "Towards Computational Provenance: Carrying Causal-State Evidence in Generated Text",
-    "authors": [
-      "Benjamin Belay"
-    ],
-    "categories": [
-      "cs.CL",
-      "cs.AI"
-    ],
-    "primary_category": "cs.CL",
-    "published": "2026-08-17T17:50:04Z",
-    "updated": "2026-08-17T17:50:04Z",
-    "abstract": "A language model's output does not by itself provide verifiable evidence about the internal computation that produced it. We study computational provenance: whether generated text can carry detectable evidence of which causally relevant internal state occurred. We test a bounded form of this idea in two controlled architectures: a modular feed-forward neural network and a transformer-based model. Both architectures are trained on the same arithmetic task with a mandatory pathway through two discrete intermediate states, allowing different internal paths to produce the same answer. We deliberately switch between these paths, authenticate the state actually used, and let that verified state determine a subtle statistical pattern in the generated text that can later be detected. The feed-forward and transformer systems each passed all 128 matched pairs in both their public and separately sealed protected end-to-end evaluations, with the detector recovering the signal associated with the authenticated internal state. The required causal computation also reproduced across five independently trained feed-forward models and three independently trained transformers. In a separate answer-only transformer experiment, our linear probes did not recover a naturally learned intermediate state. These results provide a controlled proof of concept that information about a verified, causally relevant internal state can be preserved in generated text even when the answer is unchanged.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16868v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16868",
-    "summary": {
-      "tldr": "생성된 텍스트에 내부 상태 증거를 남기고 검출하는 방법을 제시했습니다.",
-      "problem": "언어 모델의 출력은 내부 계산 증거를 제공하지 않아, 생성 텍스트에 원인 상태 증거가 포함될 수 있는지 조사했습니다.",
-      "method": "두 아키텍처(피드포워드 네트워크, 트랜스포머)에서 고정된 중간 상태를 거쳐 동일한 답을 생성하게 하여, 경로 변경 후 검증된 상태에 따른 텍스트 통계 패턴을 생성했습니다.",
-      "result": "모두 128개 쌍을 통과하며 검증된 상태와 연결된 신호를 탐지했고, 선형 프로브는 중간 상태를 찾지 못해 방법의 유효성을 입증했습니다.",
-      "keywords": [
-        "컴퓨테이셔널 프로venience",
-        "원인 상태 증거",
-        "생성 텍스트",
-        "신경망",
-        "트랜스포머"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:15:50.225854+00:00"
-  },
-  "2608.16864": {
-    "id": "2608.16864",
-    "title": "Non-Crossing Deep Quantile Regression for Distributional Survival Prediction",
-    "authors": [
-      "Shuai Huang",
-      "Zhe Qu",
-      "Zhaowei Hua",
-      "Guohao Shen",
-      "Rui Tang",
-      "Hongtu Zhu"
-    ],
-    "categories": [
-      "stat.ML",
-      "cs.LG",
-      "stat.AP"
-    ],
-    "primary_category": "stat.ML",
-    "published": "2026-08-17T17:46:41Z",
-    "updated": "2026-08-17T17:46:41Z",
-    "abstract": "In survival analysis the way covariates act on the risk of an event often differs between early and late failure times, yet hazard- and mean-based summaries collapse this variation into a single number. Quantile-based modeling instead describes the full conditional distribution on the original time scale, but existing censored-data methods are either inflexible or produce logically inconsistent crossing quantile curves. We propose a Censored Non-crossing Quantile (CNQ) framework for right-censored data that jointly estimates several conditional survival quantiles and guarantees valid ordering by construction, with flexibility supplied by Kolmogorov-Arnold and Transformer backbones, and we establish a finite-sample excess-risk bound holding jointly across all fitted quantile levels. Across 27 simulation settings and six cohorts the framework attains lower pinball loss than quantile-, hazard- and tree-based competitors whenever the conditional distribution is asymmetric, with interval coverage closer to nominal on all six. In two clinical case studies (METABRIC, breast cancer; FLCHAIN, population mortality) it recovers covariate effects that vary across the survival distribution and would be hidden by a single hazard ratio, and yields coherent individualized quantile milestones. Code: https://github.com/BIG-S2/deepcnq",
-    "pdf_url": "https://arxiv.org/pdf/2608.16864v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16864",
-    "summary": {
-      "tldr": "분포 예측에서 교차하지 않는 분위수 회귀를 통한 생존 분석 방법 제안",
-      "problem": "전통적 생존 분석은 위험 요소의 시간에 따른 차이를 무시하고 단일 수치로 요약해 제한적이며, 분위수 기반 모델은 검열 데이터 처리 시 교차 분위수 문제로 불일치가 발생합니다.",
-      "method": "검열 데이터용 Censored Non-crossing Quantile(CNQ) 프레임워크를 제안해 분위수를 일관되게 순서대로 추정하고, 콜모고로프-아르노드와 트랜스포머 구조로 유연성 확보",
-      "result": "시뮬레이션과 임상 데이터에서 기존 방법보다 분위수 손실이 낮고 신뢰 구간 정확도 향상, 생존 분포별 위험 요소 변화를 명확히 파악 가능",
-      "keywords": [
-        "생존 분석",
-        "분위수 회귀",
-        "검열 데이터",
-        "비교적 분위수",
-        "개인화 예측"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:16:26.260087+00:00"
-  },
-  "2608.16863": {
-    "id": "2608.16863",
-    "title": "SplatGuide: Geometric Priors from 3D Gaussians for Pose-Free Novel View Synthesis",
-    "authors": [
-      "Yejun Zhang",
-      "Zihan Wang",
-      "Xu Ji",
+      "Yuyang Liu",
+      "Yanqing Shen",
+      "Ruike Chen",
+      "Jifan Zhao",
+      "Yuxuan Tian",
+      "Yichi Zhang",
+      "Tianfeng Long",
+      "Zixuan Yin",
+      "Yipu Wang",
+      "Ziheng Qin",
+      "Wenxing Tan",
+      "Yang Shi",
+      "Mingyu Cao",
+      "Runze Xiao",
+      "Ziqi Wang",
+      "Zhixin Yin",
+      "Shiwei Chu",
+      "Yi-Fan Zhang",
+      "Yao Mu",
+      "Yuheng Ji",
       "Yihao Wang",
-      "Yuxin Hou",
-      "Junyuan Fang",
-      "Juho-Matti Kilpeläinen",
-      "Arno Solin",
-      "Hamed Rezazadegan Tavakoli",
-      "Esa Rahtu",
-      "Juho Kannala"
+      "Jun Yan",
+      "Zhongyuan Wang",
+      "Pengwei Wang",
+      "Xiaolong Zheng"
     ],
     "categories": [
+      "cs.RO",
       "cs.CV"
     ],
-    "primary_category": "cs.CV",
-    "published": "2026-08-17T17:45:57Z",
-    "updated": "2026-08-17T17:45:57Z",
-    "abstract": "Generating photorealistic novel views from unposed images requires both 3D geometric understanding and the ability to synthesize unseen content. A natural strategy combines feed-forward 3DGS reconstruction with multi-view diffusion. Yet prior pipelines extract at most one signal from the reconstruction, either pixel rendering or learned features, while none exploits per-Gaussian visibility for occlusion-aware reference selection. This *information disconnect* leaves renderable geometry, visibility cues, and learned features unused. SplatGuide closes this disconnect by reusing a single 3DGS scene across three complementary roles. Rendered images provide pixel-aligned geometric conditioning. Per-Gaussian source-view indices are rendered into a target-view voting map for occlusion-aware reference selection. Reconstruction tokens supply feature-level guidance via cross-attention. All three signals derive from the same reconstruction forward pass. Across RealEstate10K, DL3DV, Tanks-and-Temples, and Mip-NeRF 360, SplatGuide achieves state-of-the-art pose-free novel view synthesis. On RealEstate10K, with a moderate number of input views, it surpasses the ground-truth-pose baseline.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16863v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16863",
+    "primary_category": "cs.RO",
+    "published": "2026-08-14T13:10:02Z",
+    "updated": "2026-08-14T13:10:02Z",
+    "abstract": "Fine-grained robotic evaluation matters for understanding embodied models, going beyond binary success rates and rule-based process scores. We present PRM-as-a-Judge 1.5, a toolkit for robot process assessment that turns rollout videos into dense progress curves and derives multiple fine metrics. PRM-as-a-Judge 1.5 introduces three metrics, building on version 1.0, that characterize failure-side progress, post-drawdown recovery, and success-side execution quality, helping users understand embodied model capability. Based on the rollout videos from benchmarks, we perform a comprehensive assessment of the embodied models, providing some fine-grained metric results and key findings. We further introduce RoboPulse++ to evaluate the reliability of process reward models (PRM), providing evaluators with a more accurate testing platform. Moreover, we release a user-friendly assessment suite, including the benchmark, metric implementation, and visualization tools, to support reproducible manipulation process evaluation. We call on the community to rethink how robots are evaluated and establish transparent, procedural, and reproducible assessment as a foundation for the next generation of embodied intelligence.",
+    "pdf_url": "https://arxiv.org/pdf/2608.14284v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.14284",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 12,
+    "citations": 0,
     "summary": {
-      "tldr": "3D 가우시안을 활용해 포즈 없이 새로운 시야 생성 성능 개선",
-      "problem": "비포즈 이미지에서 사실적인 새로운 시야를 생성하려면 3D 기하학 이해와 신규 콘텐츠 생성 능력이 필요하지만, 기존 방법은 시각적 정보를 효과적으로 활용하지 못해 한계가 있었다.",
-      "method": "SplatGuide는 단일 3DGS 장면을 3가지 역할로 재사용해 문제를 해결한다. 렌더링된 이미지는 기하학적 조건, 가우시안 기반 비전도 지도는 가리침 인식을 위한 투표 맵, 재구성 토큰은 크로스 어텐션을 통해 특징 가이드를 제공한다.",
-      "result": "RealEstate10K 등 4개 데이터셋에서 최고 성능을 기록하며, 입력 시야 수가 적은 경우에도 기준 포즈 기반 방법을 능가하는 결과를 보여준다.",
+      "tldr": "로봇의 작업 과정을 세부적으로 평가하는 도구를 소개합니다.",
+      "problem": "현재 로봇 평가가 성공 여부만 보는 단순한 방법으로, 실제 작업 과정을 파악하지 못해 한계가 있습니다. 이 논문은 로봇이 작업 중 어떤 점에서 실패했는지, 회복했는지, 결과가 얼마나 좋은지 등을 세부적으로 분석하는 방법을 제안합니다.",
+      "method": "롤아웃 영상에서 로봇의 진행 상황을 시간별로 추적해 곡선으로 표현하고, 실패 회복력, 성공 품질 등 세 가지 새로운 지표를 도입했습니다. 또한 PRM 모델의 신뢰도를 평가하는 RoboPulse++ 도구와 사용자 친화적인 평가 툴킷을 제공합니다.",
+      "result": "세부 지표를 통해 로봇의 실제 능력을 파악할 수 있는 데이터와 주요 발견점을 제시했으며, 재현 가능한 평가 기준을 마련해 미래 로봇 지능 발전의 기반이 되는 것을 목표로 합니다.",
+      "example": "로봇이 장난감 조립을 할 때, 각 단계에서 얼마나 잘 진행되었는지, 실수했을 때 어떻게 회복했는지, 최종 결과가 얼마나 완벽한지 등을 자세히 분석해 개선점을 찾는 예입니다.",
+      "eli12": "로봇이 장난감을 조립하는 걸 생각해보세요. 지금까지는 완성했는지만 보지만, 이 도구는 로봇이 어떤 부분에서 실수했는지, 다시 시작했는지, 결과가 얼마나 잘 나왔는지 등을 자세히 알려주는 거예요. 이렇게 알면 로봇이 더 잘 작동하도록 개선할 수 있어요.",
+      "background": [
+        {
+          "term": "embodied model",
+          "explain": "실제 환경에서 움직이며 학습하는 로봇 모델을 말해요."
+        },
+        {
+          "term": "process reward model (PRM)",
+          "explain": "로봇이 작업 중 어떤 단계에서 잘 수행했는지를 평가하는 시스템입니다."
+        },
+        {
+          "term": "rollout video",
+          "explain": "로봇이 작업을 진행하는 과정을 영상으로 기록한 것을 말해요."
+        },
+        {
+          "term": "fine-grained metric",
+          "explain": "작업 과정을 매우 세부적으로 측정하는 지표를 말해요."
+        },
+        {
+          "term": "reproducible evaluation",
+          "explain": "같은 조건에서 반복해 실험할 수 있는 정확한 평가 방법을 말해요."
+        }
+      ],
       "keywords": [
-        "3D 가우시안",
-        "포즈 없이",
-        "신규 시야 생성",
-        "비전도 지도",
-        "크로스 어텐션"
+        "PRM-as-a-Judge 1.5",
+        "embodied models",
+        "process reward models",
+        "fine-grained metrics",
+        "reproducible evaluation"
       ]
     },
-    "fetched_at": "2026-08-18T16:17:01.942268+00:00"
+    "fetched_at": "2026-08-18T16:51:35.114440+00:00",
+    "week": "2026-W34"
   },
-  "2608.16861": {
-    "id": "2608.16861",
-    "title": "The canonical facets of multi-separator polytopes",
+  "2608.15037": {
+    "id": "2608.15037",
+    "title": "Prototype-Rectified Iterative Self-supervised Manifold Denoising under Severe Acoustic Shift",
     "authors": [
-      "Bjoern Andres",
-      "Silvia Di Gregorio",
-      "Jannik Irmai",
-      "Lucas Fabian Naumann",
-      "Shengxian Zhao"
+      "Ashish Anand Shukla",
+      "Rini Smita Thakur",
+      "Aryan Das",
+      "Vinod K. Kurmi"
     ],
     "categories": [
-      "cs.DM",
-      "cs.LG",
-      "math.CO"
-    ],
-    "primary_category": "cs.DM",
-    "published": "2026-08-17T17:44:39Z",
-    "updated": "2026-08-17T17:44:39Z",
-    "abstract": "We initiate a polyhedral study of the graph multi-separator problem proposed by Irmai et al. (2024) as an alternative to the lifted multicut problem for application to the task of image segmentation. Starting with an integer linear program (ILP) formulation and the multi-separator polytope spanned by its feasible solutions, we characterize in terms of efficiently-decidable, graph-theoretic conditions all facets induced by inequalities of the ILP. We proceed by strengthening these inequalities and describing additional facets of some multi-separator polytopes induced by the stronger inequalities. Specifically, we obtain a totally dual integral description of the multi-separator polytope for paths in the case where separation is considered for all vertex pairs. Finally, we relate the multi-separator polytope to the boolean quadric polytope, showing that facets induced by odd-cycle inequalities do not transfer generally, and to the lifted multicut polytope, showing that either polytope is a projection of a face of the other.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16861v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16861",
-    "summary": {
-      "tldr": "그래프 다분리 다면체의 핵심 면을 수학적으로 분석했습니다.",
-      "problem": "이미지 분할에 적합한 대체 문제로, 다분리 문제의 다면체 구조를 이해하는 것이 목표입니다. 기존 리프트 다중컷 문제 대신 새로운 접근법을 탐구합니다.",
-      "method": "정수 선형 프로그래밍(ILP)을 기반으로 다면체를 정의하고, 그래프 이론적 조건을 통해 면을 특징づけ습니다. 강화된 부등식을 통해 추가적인 면을 발견하고, 경로 구조에서 TDI 설명을 도출합니다.",
-      "result": "다분리 다면체의 모든 면을 그래프 이론적 조건으로 설명하고, 다른 다면체와의 관계를 밝혀냈습니다. 홀수 사이클 부등식의 일반적 전이 불가능성을 증명했습니다.",
-      "keywords": [
-        "다분리 다면체",
-        "정수 선형 프로그래밍",
-        "그래프 이론",
-        "면 분석",
-        "홀수 사이클 부등식"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:17:35.216276+00:00"
-  },
-  "2608.16859": {
-    "id": "2608.16859",
-    "title": "HarnessEval-W: Agentifying the Evaluation of Visual Worlds",
-    "authors": [
-      "Weiliang Chen",
-      "Haowen Sun",
-      "Jun Gao",
-      "Jiawei Chi",
-      "Hanyang Wang",
-      "Qiyu Dai",
-      "Yihao Li",
-      "Hao Li",
-      "Jingnan Gao",
-      "Yi-Hsin Hung",
-      "Xingzhuo Guo",
-      "Shangchen Miao",
-      "Zhiyuan Shi",
-      "Xiang Li",
-      "Fengrui Tian",
-      "Weihua Du",
-      "Ziqi Huang",
-      "Shenyuan Gao",
-      "Siqiao Huang",
-      "Mingyu Liu",
-      "Yifei Li",
-      "Shizun Wang",
-      "Xi Wang",
-      "Tianqi Zhang",
-      "Xue Luo",
-      "Xiyin Ren",
-      "Jinshan Ren",
-      "Xiaoyang Shen",
-      "Xiaobo Hu",
-      "Zhiyang Dou",
-      "Mingyu Ding",
-      "Yichao Yan",
-      "Xinchao Wang",
-      "Yizhou Wang",
-      "Shilong Liu",
-      "Wenzhao Zheng",
-      "Yueqi Duan",
-      "Yuan Gong",
-      "Ziwei Liu",
-      "Ming-Yu Liu",
-      "Jialong Wu",
-      "Jiangran Lyu",
-      "Fangfu Liu"
-    ],
-    "categories": [
-      "cs.CV"
-    ],
-    "primary_category": "cs.CV",
-    "published": "2026-08-17T17:43:24Z",
-    "updated": "2026-08-17T17:43:24Z",
-    "abstract": "A benchmark should deliver more than a scalar score: what makes an evaluation trustworthy is the reasoning that justifies the score. This is especially critical for world models, where judging a rollout requires understanding whether physics, causality, and world state evolve correctly. Humans spot such violations naturally, yet no existing benchmark automates this capability: metrics are computed brute-force, leaving no reasoning chain that can be examined or verified. We introduce HarnessEval-W, an agentified evaluation pipeline that brings the harness paradigm from the LLM ecosystem to world model benchmarking. Rather than applying a fixed rubric, HarnessEval-W interprets the context of each evaluation case, decomposes the evaluation question into measurable subproblems, and spawns specialized sub-agents, each equipped with tailored context and diagnostic tools to reason over its own subproblem. The parent agent then validates the gathered evidence and summarizes it into the final verdict. This hierarchical workflow turns every evaluation into a transparent evidence tree whose complete reasoning chain justifies the result. We apply HarnessEval-W to 18 representative world models over 330 evaluation cases. Its judgments closely align with human preferences while providing verifiable, fine-grained diagnoses of every generated rollout. We open-source the full pipeline as a live benchmark and invite the broad community to contribute to grow new skills and evaluation cases as world models evolve.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16859v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16859",
-    "summary": {
-      "tldr": "시각 세계 평가를 에이전트 기반으로 혁신적으로 개선한 새로운 벤치마크 도구",
-      "problem": "현재 세계 모델 평가 기준은 단순한 점수만 제공해 신뢰성 부족. 물리학, 인과관계 등 복잡한 요소를 판단할 때 인간의 직관이 필요하지만 자동화된 분석이 부족하다.",
-      "method": "HarnessEval-W는 평가 사례 맥락을 분석해 하위 문제로 나누고, 전문화된 에이전트들이 각 문제를 해결하는 구조. 부모 에이전트가 증거를 검증해 최종 판단을 내리는 계층적 프로세스를 사용한다.",
-      "result": "인간 선호도와 일치하는 평가 결과를 제공하며, 각 시뮬레이션의 세부적 진단을 가능하게 하는 신뢰할 수 있는 평가 체계를 구축했다. 오픈소스로 공개해 커뮤니티 협업을 장려한다.",
-      "keywords": [
-        "HarnessEval-W",
-        "에이전트 기반 평가",
-        "시각 세계 모델",
-        "벤치마크",
-        "인과관계 분석"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:18:15.416573+00:00"
-  },
-  "2608.16856": {
-    "id": "2608.16856",
-    "title": "zLend: A Dual-Scope Cash-Flow Reconstruction Framework for On-Chain Credit Underwriting",
-    "authors": [
-      "Girish G N",
-      "Ashutosh Sahoo",
-      "Akshay SP",
-      "Gurukiran S",
-      "Dhanashekar Kandaswamy"
-    ],
-    "categories": [
-      "q-fin.RM",
+      "cs.SD",
       "cs.LG"
     ],
-    "primary_category": "q-fin.RM",
-    "published": "2026-08-17T17:39:05Z",
-    "updated": "2026-08-17T17:39:05Z",
-    "abstract": "Decentralized lending lacks a credit bureau: a borrower's capacity to repay must be inferred entirely from public on-chain activity, without income verification or a liability record. This paper presents zLend, a deployed cash-flow underwriting framework that reconstructs a wallet's daily balance history from raw token transfers and derives short-duration repayment-capacity signals from it. The reconstruction is performed twice per wallet, once restricted to a fixed stablecoin basket and once over all fungible transfers, on the premise that a wallet's total token holdings and its liquid, spendable balance are distinct quantities whose conflation misprices risk. From each series we derive liquidity coverage against a fixed loan size, cash-flow volatility and regularity, a drawdown-and-recovery statistic adapted from quantitative finance, and a recurring-counterparty detector that identifies salary-like payment cadence from transfer timing alone. The two views are then compared: a wallet with large aggregate holdings whose stablecoin reserve rarely covers the loan size is flagged as a liquidity mismatch irrespective of total wealth. We specify the pipeline formally, document the golden-master methodology used to verify a cross-language production migration to numerical tolerance 1e-9, and characterize the tier function's parameter sensitivity with an independent reimplementation validated to exact agreement (78 of 78 field assertions) against the deployed system's reference fixtures. Tier assignment is governed predominantly by the reference loan size, with four of six reference wallets changing tier across loan sizes from USD 10 to USD 25,000; the drawdown and coverage criteria bind on disjoint wallets, so neither subsumes the other; and no criterion in the tier rule is inert. zLend is deployed in production, informing real lending decisions via third-party API integrations.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16856v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16856",
+    "primary_category": "cs.SD",
+    "published": "2026-08-15T04:42:14Z",
+    "updated": "2026-08-15T04:42:14Z",
+    "abstract": "Audio-Text Foundation Models (ATMs) fail catastrophically under severe acoustic noise, yet existing adaptation strategies either rely on gradient-based Test-Time Adaptation (TTA), which reinforces noise rather than signal, or on prompt tuning that requires privileged noise annotations unavailable at inference. We address these failures with PRISM (Prototype-Rectified Iterative Self-supervised Manifold Denoising), a training-free, source-free TTA framework grounded in the Affine Noise Hypothesis: severe acoustic noise induces a low-rank affine shift in the multimodal latent space, with more than 90% of distortion energy confined to the leading 60 principal components. PRISM estimates and reverses this distortion from an unlabeled target batch using frozen text prototypes as geometric anchors via three closed-form geometric corrections compiled into a single static projection matrix by Affine Bias Regression. At inference, adaptation reduces to one matrix-vector multiplication in 0.0009 ms, making it substantially faster than gradient-based TTA while requiring no additional training. On UrbanSound8K, PRISM improves over the zero-shot baseline by 12.94 percentage points and surpasses an oracle-assisted TTA baseline by 9.41 percentage points, despite never observing its privileged augmented noise prompts. We further identify the Polyphonic Trap, a principled failure mode of subspace deflation for broadband classes, and resolve it via Confidence-Aware Regression (CAR), recovering up to 8.16 percentage points for the worst-affected class.",
+    "pdf_url": "https://arxiv.org/pdf/2608.15037v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.15037",
+    "subfield": "음성·오디오",
+    "upvotes": 0,
+    "citations": null,
     "summary": {
-      "tldr": "zLend은 온체인 데이터로 대출 신용심사를 자동화합니다.",
-      "problem": "탈중앙화 금융에서 신용정보가 부족해 대출자 상환 능력을 체크하기 어려움. 수입 확인 없이 온체인 활동만으로 신용 평가 필요.",
-      "method": "지갑의 자산 흐름을 두 가지 방식으로 복원해 리스크를 판단. 안정화폐만으로도 전체 자산을 분리해 리스크 과대평가 방지.",
-      "result": "대출 규모에 따라 신용등급이 달라지고, 다양한 지표가 독립적으로 리스크를 판단. 실제 대출 결정에 활용 중.",
+      "tldr": "PRISM은 소리 노이즈를 없애는 빠른 방법",
+      "problem": "음성 인식 모델이 큰 소리 노이즈에 실패하고, 기존 방법은 노이즈를 더 심하게 만들거나 추가 데이터가 필요해요.",
+      "method": "PRISM은 텍스트 기반 고정된 모델을 사용해 소리의 왜곡을 역전하고, 한 번에 계산할 수 있는 고정된 수학적 테이블로 빠르게 조정해요.",
+      "result": "UrbanSound8K 데이터에서 기존 방법보다 12.94% 더 정확하고, 노이즈 데이터를 보지 않아도 9.41% 성공적으로 개선했어요.",
+      "example": "자동차 내부에서 대화를 듣는 시스템이 엔진 소리와 같은 노이즈를 제거해 명확한 대화를 제공하는 예요. PRISM은 이처럼 복잡한 소리 환경에서도 빠르게 적응해요.",
+      "eli12": "로봇이 방금 깨끗하게 정리한 방을 다시 오염시키지 않도록, 이 기술은 소리의 잡음이 어떤 식으로 생기는지 알아서 잡음만 제거해요. 이걸 위해선 먼저 다양한 소리를 들었을 때 배운 방법을 사용해요.",
+      "background": [
+        {
+          "term": "음성-텍스트 기반 모델",
+          "explain": "음성과 텍스트를 동시에 이해하는 인공지능 모델로, 음성 인식이나 번역에 쓰입니다."
+        },
+        {
+          "term": "테스트 시간 적응",
+          "explain": "모델이 새로운 환경에서 빠르게 적응해 정확도를 유지하는 기술입니다."
+        },
+        {
+          "term": "주성분 분석",
+          "explain": "데이터의 중요한 특징을 찾기 위해 복잡한 데이터를 간단한 요소로 정리하는 방법입니다."
+        },
+        {
+          "term": "수학적 테이블",
+          "explain": "데이터를 변환하거나 분석할 때 사용하는 고정된 숫자 배열로, 계산이 빠릅니다."
+        },
+        {
+          "term": "공선성 변환",
+          "explain": "데이터가 특정 방향으로 이동했을 때, 그 변화를 역으로 돌리는 수학적 기법입니다."
+        }
+      ],
       "keywords": [
-        "DeFi",
-        "온체인 신용심사",
-        "자산 흐름 복원",
-        "대출 리스크",
-        "zLend"
+        "PRISM",
+        "테스트 시간 적응",
+        "주성분 분석",
+        "음성-텍스트 모델",
+        "공선성 변환"
       ]
     },
-    "fetched_at": "2026-08-18T16:18:53.471612+00:00"
-  },
-  "2608.16855": {
-    "id": "2608.16855",
-    "title": "Can Unsupervised Methods Outperform Supervised Deep Learning When Ground Truth Is Sparse? A Case Study of Bronchovascular Bundle Segmentation in Low-Dose CT",
-    "authors": [
-      "Anna Mrukwa",
-      "Marek Socha",
-      "Aleksandra Suwalska",
-      "Agata Durawa",
-      "Malgorzata Jelitto",
-      "Katarzyna Dziadziuszko",
-      "Edyta Szurowska",
-      "Pawel Bozek",
-      "Michal Marczyk",
-      "Witold Rzyman",
-      "Rafal Dziadziuszko",
-      "Joanna Polanska"
-    ],
-    "categories": [
-      "cs.CV"
-    ],
-    "primary_category": "cs.CV",
-    "published": "2026-08-17T17:38:22Z",
-    "updated": "2026-08-17T17:38:22Z",
-    "abstract": "Background Lung cancer remains the deadliest cancer worldwide because it is often diagnosed too late. Effective treatment depends on detection at an early screening stage. However, the growing number of patients and the limited number of radiologists lead to prolonged diagnostic waiting times. In very early stage lung cancer, nodule visibility is further reduced by adjacent blood vessels and airway walls, because nodules are often connected to or supplied by these structures. Task-specific analysis of the bronchovascular bundle is therefore important for efficient nodule detection, and its removal can increase the diagnostic potential of lung cancer screening. Materials and Methods To assess the efficacy of the proposed method, we used series from widely utilized LDCT datasets, including the Duke Lung Cancer Screening (DLCS) dataset and the Pilot Pomeranian Lung Cancer Screening Program. The proposed bronchovascular bundle segmentation pipeline, RONALD, operates on computed tomography images and returns binary masks of vessels and bronchi located in the lung parenchyma. The method includes a preprocessing stage with lung, lobe, and mediastinum segmentation, followed by separate vessel and bronchial tree segmentation. Results The proposed pipeline segmented the bronchovascular bundle in low-dose computed tomography scans while improving nodule retention compared with other segmentation methods: from 93.98% and 90.36% to 100% in DLCS, and from 83.16% and 62.36% to 99.92% in the Pomeranian dataset. Conclusion The resulting segmentations can improve lung nodule detection in the very early stages of lung cancer.",
-    "pdf_url": "https://arxiv.org/pdf/2608.16855v1",
-    "arxiv_url": "https://arxiv.org/abs/2608.16855",
-    "summary": {
-      "tldr": "RONALD은 저선량 CT에서 기관지 혈관 번들을 정확히 분할해 초기 폐암 노드 탐지 효율을 높인다.",
-      "problem": "폐암 조기 진단은 노드가 혈관과 기도 벽에 가려 보이기 어렵고, 방사선과 의사 부족으로 진단 지연이 발생한다. 기존 분할 방법은 노드 보존율이 낮아 효과가 제한적이었다.",
-      "method": "RONALD은 저선량 CT 영상에서 폐, 폐엽, 중격 분할 후 혈관과 기관지 트리 분할을 병행하는 파이프라인을 사용해 이진 마스크를 생성한다.",
-      "result": "DLCS 데이터셋에서 노드 보존율 100%, 페머니안 데이터셋에서 99.92%를 달성해 기존 방법(93.98%→100%, 83.16%→99.92%)을 능가했으며, 조기 폐암 진단에 기여한다.",
-      "keywords": [
-        "Bronchovascular Bundle Segmentation",
-        "Low-Dose CT",
-        "RONALD",
-        "Lung Nodule Detection",
-        "Supervised vs Unsupervised Methods"
-      ]
-    },
-    "fetched_at": "2026-08-18T16:19:44.357654+00:00"
+    "fetched_at": "2026-08-18T16:52:34.344158+00:00",
+    "week": "2026-W34"
   }
 }

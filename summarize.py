@@ -20,8 +20,14 @@ PROMPT_TEMPLATE = """당신은 인공지능 논문을 한국어로 쉽게 풀어
   "problem": "이 논문이 풀려는 문제 (2~3문장)",
   "method": "제안한 방법의 핵심 아이디어 (2~3문장)",
   "result": "주요 결과와 의의 (2~3문장)",
+  "example": "이 기술이 현실에서 어떻게 쓰이는지 구체적 사용 예시, 또는 이해를 돕는 쉬운 비유 (3~4문장)",
+  "eli12": "12살 아이에게 이야기하듯 아주 쉬운 말과 친근한 비유로 풀어 설명 (3~4문장, 전문용어 금지)",
+  "background": [
+    {{"term": "이 논문을 이해하는 데 필요한 개념/배경지식 이름", "explain": "그 개념을 쉬운 말로 1~2문장 설명"}}
+  ],
   "keywords": ["키워드", "3~5개"]
-}}"""
+}}
+background 항목은 3~5개를 넣으세요."""
 
 
 def _extract_json(text: str) -> dict:
@@ -42,11 +48,29 @@ def _normalize(data: dict) -> dict:
     kw = data.get("keywords", [])
     if isinstance(kw, str):
         kw = [k.strip() for k in re.split(r"[,;]", kw) if k.strip()]
+
+    bg_raw = data.get("background", [])
+    background = []
+    if isinstance(bg_raw, dict):
+        bg_raw = [{"term": k, "explain": v} for k, v in bg_raw.items()]
+    if isinstance(bg_raw, list):
+        for b in bg_raw:
+            if isinstance(b, dict):
+                term = str(b.get("term", "")).strip()
+                explain = str(b.get("explain", b.get("description", ""))).strip()
+                if term:
+                    background.append({"term": term, "explain": explain})
+            elif isinstance(b, str) and b.strip():
+                background.append({"term": b.strip(), "explain": ""})
+
     return {
         "tldr": str(data.get("tldr", "")).strip(),
         "problem": str(data.get("problem", "")).strip(),
         "method": str(data.get("method", "")).strip(),
         "result": str(data.get("result", "")).strip(),
+        "example": str(data.get("example", "")).strip(),
+        "eli12": str(data.get("eli12", "")).strip(),
+        "background": background[:5],
         "keywords": [str(k).strip() for k in kw][:5],
     }
 
