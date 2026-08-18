@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 논문 요약 다이제스트</title>
+<script>
+(function(){
+  var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+  if(s)r.setAttribute('data-theme',s);
+  window.toggleTheme=function(){
+    var cur=r.getAttribute('data-theme');
+    var next=cur==='dark'?'light':(cur==='light'?'dark':
+      (matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+    r.setAttribute('data-theme',next);localStorage.setItem(k,next);
+  };
+})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+:root:not([data-theme=light]){@media (prefers-color-scheme:dark){
+  :root{}
+}}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+header{padding:44px 0 20px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.8rem;margin-top:14px}
+.controls{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none}
+#search:focus{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 12px;border-radius:20px;background:var(--chip);border:1px solid transparent;
+  font-size:.82rem;cursor:pointer;color:var(--muted);user-select:none;transition:.15s}
+.chip.active{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h2{font-size:1.08rem;font-weight:680;margin:0 0 8px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.94rem;margin:0 0 12px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* detail page */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:18px}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow)}
+.section h3{margin:0 0 8px;font-size:.82rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;
+  font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1 class="title">AI 논문 요약 다이제스트</h1>
+  <p class="subtitle">arXiv 최신 인공지능 논문을 매일 자동으로 요약합니다.</p>
+  <p class="meta">총 2편 · 마지막 갱신 2026-08-18 16:10 UTC
+    · <a href="#" onclick="toggleTheme();return false" style="color:var(--accent)">🌗 테마</a></p>
+</header>
+<div class="controls">
+  <input id="search" type="search" placeholder="제목·키워드로 검색…" oninput="doSearch()">
+  <div class="chips"><span class="chip active" data-cat="all" onclick="filt(this)">전체</span><span class="chip" data-cat="cs.RO" onclick="filt(this)">로보틱스</span><span class="chip" data-cat="cs.LG" onclick="filt(this)">머신러닝</span></div>
+</div>
+<div id="list"><a class="card" href="paper/2608.16889.html"
+   data-cat="cs.RO" data-search="don&#x27;t drop the baton: long-horizon robot manipulation via agentic subtask exploration and transition-aware memory baton은 장기 로봇 조작을 위해 하위 작업 단위로 탐색하고 전이 인식 메모리로 오류를 줄인다. 로봇 조작 하위 작업 탐색 전이 인식 메모리 vla 모델 장기 태스크 cs.ro cs.ai cs.cv">
+  <h2>Don&#x27;t Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory</h2>
+  <p class="tldr">BATON은 장기 로봇 조작을 위해 하위 작업 단위로 탐색하고 전이 인식 메모리로 오류를 줄인다.</p>
+  <div class="badges"><span class="badge">로보틱스</span><span class="kw">로봇 조작</span><span class="kw">하위 작업 탐색</span><span class="kw">전이 인식 메모리</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a>
+<a class="card" href="paper/2608.16888.html"
+   data-cat="cs.LG" data-search="q-based variational inverse reinforcement learning qvirl은 인간 선호도를 학습하여 안전한 ai를 만드는 새로운 방법 변분 역강화학습 베이지안 방법 보상 함수 추론 활성 학습 원시 픽셀 관찰 cs.lg">
+  <h2>Q-based Variational Inverse Reinforcement Learning</h2>
+  <p class="tldr">QVIRL은 인간 선호도를 학습하여 안전한 AI를 만드는 새로운 방법</p>
+  <div class="badges"><span class="badge">머신러닝</span><span class="kw">변분 역강화학습</span><span class="kw">베이지안 방법</span><span class="kw">보상 함수 추론</span>
+    <span class="date">2026.08.17</span>
+  </div>
+</a></div>
+<footer>arXiv 데이터 기반 · 자동 생성</footer>
+<script>
+var curCat='all';
+function filt(el){
+  document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active')});
+  el.classList.add('active');curCat=el.dataset.cat;doSearch();
+}
+function doSearch(){
+  var q=document.getElementById('search').value.toLowerCase().trim();
+  var n=0;
+  document.querySelectorAll('.card').forEach(function(c){
+    var okCat=curCat==='all'||c.dataset.cat===curCat;
+    var okQ=!q||c.dataset.search.indexOf(q)>-1;
+    var show=okCat&&okQ;c.style.display=show?'block':'none';if(show)n++;
+  });
+  var e=document.getElementById('empty');
+  if(n===0){if(!e){e=document.createElement('p');e.id='empty';e.className='empty';
+    e.textContent='검색 결과가 없습니다.';document.getElementById('list').appendChild(e);}}
+  else if(e){e.remove();}
+}
+</script>
+</div>
+</body>
+</html>

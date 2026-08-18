@@ -1,0 +1,70 @@
+{
+  "2608.16889": {
+    "id": "2608.16889",
+    "title": "Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory",
+    "authors": [
+      "Bingxin Xu",
+      "Yuzhang Shang",
+      "Emilio Ferrara"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-08-17T17:59:57Z",
+    "updated": "2026-08-17T17:59:57Z",
+    "abstract": "Long-horizon robot manipulation chains many contact-rich skills into one multi-stage task. Vision-language-action (VLA) models increasingly master the individual skills, yet the chain still fails: errors compound beyond the policy's ability to correct, and one subtask silently constrains the next. A promising recipe freezes the VLA and puts an LLM agent in charge: it plans in language, moves in free space with analytic primitives, invokes the VLA only for contact-rich segments, and writes adaptation into language memory. Applied to long horizons, it breaks twice. (1) Competence comes from whole-task exploration at test time, whose cost is multiplicative in stages: if one stage needs T episodes, a K-stage task needs about T^K, and a failure does not reveal which stage caused it. (2) It has no representation of transitions: the VLA primitive carries an exit but no entry condition, so a subtask can succeed in a form its successor cannot use. We present BATON. Against (1), BATON makes the subtask the unit of exploration: each is explored in the cheap short-horizon regime and its solution stored in memory; a long-horizon trajectory is then composed from these solutions rather than discovered whole. Cost becomes additive (T*K) and every failure is attributed to a single stage. Against (2), BATON equips exploration with a transition-aware memory. Within a subtask, a verifier agent governs the invocation transition: the VLA is called only after the wrist view confirms the scene is ready. Across subtasks, a handoff transition restores an entry state disturbed by the predecessor's residue, and a lookahead transition selects the strategy whose outcome the successor can inherit. No parameters are updated. On the long-horizon benchmark RoboMemArena, BATON improves task success by 11.6% and cumulative success by 14.9% over the SoTA.",
+    "pdf_url": "https://arxiv.org/pdf/2608.16889v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.16889",
+    "summary": {
+      "tldr": "BATON은 장기 로봇 조작을 위해 하위 작업 단위로 탐색하고 전이 인식 메모리로 오류를 줄인다.",
+      "problem": "장기 로봇 조작에서 하위 작업 간 오류가 누적되고, 전이 조건이 없어 다음 작업이 이전 결과를 활용하지 못해 실패율이 높다. 기존 방법은 탐색 비용이 곱해져 효율적이지 않다.",
+      "method": "BATON은 하위 작업을 독립적으로 탐색해 해결책을 메모리에 저장하고, 전이 인식 메모리로 작업 간 연결점을 관리한다. VLA는 접촉이 필요한 부분만 호출하고, 검증 에이전트가 상태 준비 여부를 확인한다.",
+      "result": "RoboMemArena에서 기존 최고 성능 대비 작업 성공률 11.6%, 누적 성공률 14.9% 향상. 탐색 비용을 선형으로 줄이고 오류 원인을 정확히 분리한다.",
+      "keywords": [
+        "로봇 조작",
+        "하위 작업 탐색",
+        "전이 인식 메모리",
+        "VLA 모델",
+        "장기 태스크"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:10:16.529547+00:00"
+  },
+  "2608.16888": {
+    "id": "2608.16888",
+    "title": "Q-based Variational Inverse Reinforcement Learning",
+    "authors": [
+      "Ondrej Bajgar",
+      "Peter Tisnikar",
+      "Alessandro Abate",
+      "Konstantinos Gatsis",
+      "Maike Osborne"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-08-17T17:59:55Z",
+    "updated": "2026-08-17T17:59:55Z",
+    "abstract": "The development of safe and beneficial AI requires that systems can learn and act in accordance with human preferences. However, explicitly specifying these preferences by hand is often infeasible. Inverse reinforcement learning (IRL) addresses this challenge by inferring preferences, represented as reward functions, from expert behaviour. We introduce Q-based Variational IRL (QVIRL), a novel Bayesian IRL method that recovers a posterior distribution over rewards from expert demonstrations via primarily learning a variational distribution over optimal Q-values. Unlike previous approaches, QVIRL combines scalability with uncertainty quantification, important for safety-critical applications as well as active learning. We demonstrate QVIRL's strong performance in apprenticeship learning across various tasks, including gridworlds, Lunar Lander, the Highway Environment, and two ATARI games both with static expert data and with active learning. It is the first method for Bayesian IRL that demonstrates training from raw pixel observations.",
+    "pdf_url": "https://arxiv.org/pdf/2608.16888v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.16888",
+    "summary": {
+      "tldr": "QVIRL은 인간 선호도를 학습하여 안전한 AI를 만드는 새로운 방법",
+      "problem": "AI가 인간 선호도를 직접 학습하기 어려워, 전문가 행동을 통해 보상 함수를 추론해야 함. 기존 방법은 확장성과 불확실성 처리에 한계가 있음",
+      "method": "QVIRL은 베이지안 접근법으로, 최적 Q값에 대한 변분 분포를 학습해 보상 함수 후분포를 회복. 확장성과 불확실성 측정을 결합해 안전한 적용 가능",
+      "result": "그리드월드, 루나랜더, 고속도로 환경, ATARI 게임 등 다양한 작업에서 우수한 성능. 원시 픽셀 관찰을 기반으로 하는 첫 베이지안 역강화학습 방법",
+      "keywords": [
+        "변분 역강화학습",
+        "베이지안 방법",
+        "보상 함수 추론",
+        "활성 학습",
+        "원시 픽셀 관찰"
+      ]
+    },
+    "fetched_at": "2026-08-18T16:10:57.931173+00:00"
+  }
+}

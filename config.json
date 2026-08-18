@@ -1,0 +1,18 @@
+{
+  "backend": "auto",
+  "site_title": "AI 논문 요약 다이제스트",
+  "site_description": "arXiv 최신 인공지능 논문을 매일 자동으로 요약합니다.",
+  "language": "ko",
+  "arxiv": {
+    "categories": ["cs.AI", "cs.LG", "cs.CL", "cs.CV", "cs.NE", "stat.ML"],
+    "max_results": 15
+  },
+  "claude": {
+    "model": "claude-sonnet-5",
+    "max_tokens": 1200
+  },
+  "ollama": {
+    "host": "http://localhost:11434",
+    "model": "qwen3:8b"
+  }
+}
