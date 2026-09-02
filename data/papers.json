@@ -1137,7 +1137,7 @@
     "pdf_url": "https://arxiv.org/pdf/2609.00111v1",
     "arxiv_url": "https://arxiv.org/abs/2609.00111",
     "subfield": "컴퓨터비전 (CV)",
-    "upvotes": 304,
+    "upvotes": 335,
     "citations": null,
     "summary": {
       "tldr": "자율주행차가 시각과 언어를 통합해 안전하게 운전하는 기술",
@@ -1205,7 +1205,7 @@
     "arxiv_url": "https://arxiv.org/abs/2608.30821",
     "subfield": "컴퓨터비전 (CV)",
     "upvotes": 97,
-    "citations": null,
+    "citations": 0,
     "summary": {
       "tldr": "실제 공간을 가상 환경에 정확하게 복제하는 새로운 기술",
       "problem": "실제 공간을 가상 환경으로 변환할 때 물체의 정확한 형태와 위치를 파악하는 것이 어렵다. 기존 방법은 이상적인 입력 데이터를 가정해 실용성이 낮았다.",
@@ -1461,7 +1461,7 @@
     "arxiv_url": "https://arxiv.org/abs/2608.29681",
     "subfield": "기타 AI",
     "upvotes": 1,
-    "citations": null,
+    "citations": 0,
     "summary": {
       "tldr": "다국어 멀티모달 허위정보의 구조를 분석해 탐지 방법을 개선했습니다.",
       "problem": "소셜 미디어에서 이미지와 텍스트가 결합된 허위정보는 심각한데, 기존 방법으로는 효과적으로 탐지하고 분석하기 어렵습니다. 특히 다국어로 퍼지는 정보의 특성과 전략이 잘 알려지지 않았습니다.",
@@ -1524,8 +1524,8 @@
     "pdf_url": "https://arxiv.org/pdf/2609.01591v1",
     "arxiv_url": "https://arxiv.org/abs/2609.01591",
     "subfield": "자연어처리 (NLP)",
-    "upvotes": 309,
-    "citations": 0,
+    "upvotes": 326,
+    "citations": null,
     "summary": {
       "tldr": "학생 맞춤형 AI 튜터를 만들기 위한 새로운 기술을 제안했습니다.",
       "problem": "현재 AI 튜터는 학생의 능력에 따라 조정되지 않아 효과가 제한되고, 실제 학습자 데이터를 수집해 분석하는 것이 어렵고 비용이 많이 듭니다. 기존 시뮬레이터는 설명이나 피드백을 처리하지 못하거나 학생의 실력과 맞지 않아 한계가 있습니다.",
@@ -1618,7 +1618,7 @@
     "arxiv_url": "https://arxiv.org/abs/2608.30320",
     "subfield": "자연어처리 (NLP)",
     "upvotes": 43,
-    "citations": 0,
+    "citations": null,
     "summary": {
       "tldr": "Qwen3.8-Next는 효율성과 안정성을 동시에 높인 인공지능 모델 설계법",
       "problem": "기존 대형 언어 모델은 계산 자원이 많아 비효율적이었고, 훈련 중 불안정했다. 이 논문은 더 적은 자원으로도 좋은 성능을 내고 안정적인 훈련을 가능하게 하는 방법을 찾는다.",
@@ -1684,7 +1684,7 @@
     "arxiv_url": "https://arxiv.org/abs/2608.31119",
     "subfield": "자연어처리 (NLP)",
     "upvotes": 35,
-    "citations": null,
+    "citations": 0,
     "summary": {
       "tldr": "PaperGym은 논문의 기준을 활용해 연구 계획 생성을 개선한 프레임워크입니다.",
       "problem": "기존 연구 계획 생성은 질문과 평가 기준을 동일한 내용에서 가져와서, 단순한 표현 변경으로 보상이 가능해졌고, 평가 기준이 약 11.9%에서 34.1%까지 누출되는 문제가 있었습니다.",
@@ -1748,7 +1748,7 @@
     "arxiv_url": "https://arxiv.org/abs/2608.28281",
     "subfield": "AI 일반·에이전트",
     "upvotes": 99,
-    "citations": null,
+    "citations": 0,
     "summary": {
       "tldr": "LoopArena은 코드 자동화 시스템의 제어 능력을 평가하는 새로운 테스트 벤치마크입니다.",
       "problem": "코드 생성 AI가 반복 작업을 처리할 때, 시스템이 잘못된 판단을 내리는 문제가 있습니다. 이로 인해 작업 결과가 제어 로직의 문제인지 AI 능력의 문제인지 구분하기 어려웠습니다.",
@@ -1838,7 +1838,7 @@
     "pdf_url": "https://arxiv.org/pdf/2609.00028v1",
     "arxiv_url": "https://arxiv.org/abs/2609.00028",
     "subfield": "AI 일반·에이전트",
-    "upvotes": 52,
+    "upvotes": 53,
     "citations": null,
     "summary": {
       "tldr": "UI-Venus-2는 다양한 환경에서 안정적으로 작업을 수행하는 인터페이스 에이전트를 개발했습니다.",
@@ -1980,7 +1980,7 @@
     "arxiv_url": "https://arxiv.org/abs/2608.27550",
     "subfield": "강화학습·로보틱스",
     "upvotes": 86,
-    "citations": null,
+    "citations": 1,
     "summary": {
       "tldr": "VLAct는 제한된 로봇 데이터로도 우수한 시각-언어-행동 모델을 만드는 방법",
       "problem": "로봇 데이터는 웹 이미지-텍스트 데이터보다 확장이 어려워 표현 품질이 핵심 문제입니다. 제한된 데이터로도 일반화된 모델을 만드는 것이 어려웠습니다.",
@@ -2129,7 +2129,7 @@
     "pdf_url": "https://arxiv.org/pdf/2609.01404v1",
     "arxiv_url": "https://arxiv.org/abs/2609.01404",
     "subfield": "강화학습·로보틱스",
-    "upvotes": 19,
+    "upvotes": 20,
     "citations": 0,
     "summary": {
       "tldr": "드론 제어에 MLLM의 능력을 평가하는 실험 결과 공유",
@@ -2190,7 +2190,7 @@
     "arxiv_url": "https://arxiv.org/abs/2608.31046",
     "subfield": "머신러닝 (ML)",
     "upvotes": 123,
-    "citations": 0,
+    "citations": null,
     "summary": {
       "tldr": "OPD는 효과적이지 않으며, 스스로 학습하는 방법이 더 나은 결과를 보인다.",
       "problem": "OPD는 교사 모델의 피드백을 학생 모델에 전달하지만, 교사의 피드백이 불확실해 학생의 성장 원인을 파악하기 어려웠다. 교사 규모가 커질수록 피드백의 노이즈가 증가하는 문제가 있었다.",
@@ -2255,7 +2255,7 @@
     "pdf_url": "https://arxiv.org/pdf/2609.01343v1",
     "arxiv_url": "https://arxiv.org/abs/2609.01343",
     "subfield": "머신러닝 (ML)",
-    "upvotes": 65,
+    "upvotes": 67,
     "citations": null,
     "summary": {
       "tldr": "SMELT는 계산 효율을 유지하면서 트랜스포머 모델의 성능을 향상시킵니다.",
@@ -2318,7 +2318,7 @@
     "arxiv_url": "https://arxiv.org/abs/2608.31036",
     "subfield": "머신러닝 (ML)",
     "upvotes": 47,
-    "citations": null,
+    "citations": 0,
     "summary": {
       "tldr": "NoRA는 LoRA의 학습 안정성과 성능을 개선하는 간단한 방법입니다.",
       "problem": "LoRA는 파라미터 효율적 모델 조정에 널리 사용되지만, 학습 동작을 안정적으로 조절하는 방법이 부족해 수렴이 어려웠습니다. 초기 학습 단계에서 다운 프로젝션에 의존하는 문제가 있었기 때문입니다.",
