@@ -53,17 +53,38 @@ python3 main.py --rebuild  # 새 선별 없이 기존 데이터로 사이트만 
 
 데이터는 `data/papers.json`(논문·요약 축적), `data/issues.json`(주차별 이슈)에 저장되고 사이트는 `docs/`에 생성됩니다.
 
+## Slack 주간 알림
+
+주간 이슈가 발행되면 `main.py`가 자동으로 Slack에 링크를 보냅니다(설정된 경우에만, 미설정이면 조용히 건너뜀). 두 방식 중 하나를 고르세요.
+
+### 방식 1) 봇 토큰 — 본인에게 DM (권장, 이메일로 대상 지정)
+1. https://api.slack.com/apps → **Create New App** → From scratch → 워크스페이스 선택
+2. **OAuth & Permissions** → *Bot Token Scopes* 에 `chat:write` 와 `users:read.email` 추가
+3. 상단 **Install to Workspace** → 승인 → **Bot User OAuth Token**(`xoxb-...`) 복사
+4. `.env` 에 `SLACK_BOT_TOKEN=xoxb-...` 입력
+5. `config.json` 의 `notify.slack.recipient_email` 을 받을 사람 이메일로 설정(기본: 등록된 이메일)
+
+> DM이 오려면 그 이메일이 해당 Slack 워크스페이스의 계정 이메일과 같아야 합니다.
+
+### 방식 2) 웹훅 — 채널에 게시 (더 간단, DM 아님)
+1. 위 앱에서 **Incoming Webhooks** 활성화 → **Add New Webhook to Workspace** → 채널 선택
+2. 생성된 URL을 `.env` 에 `SLACK_WEBHOOK_URL=https://hooks.slack.com/...` 로 입력
+
+설정 후 테스트: `python3 main.py --rebuild` 는 발송하지 않으므로, 실제 발송은 `python3 main.py` 실행 시 이뤄집니다. `--no-notify` 로 끌 수 있습니다.
+
 ## 배포 & 매주 자동 갱신
 
-`docs/` 폴더 기반 GitHub Pages. 갱신은 아래 한 줄:
+`docs/` 폴더 기반 GitHub Pages. 갱신은 아래 한 줄(Slack 발송 포함):
 
 ```bash
 python3 main.py && git add -A && git commit -m "weekly update" && git push
 ```
 
-**매주 월요일 오전 9시 자동 발행** — macOS `cron` 예시:
+**매주 월요일 오전 9시 자동 발행 + Slack 알림** — macOS `cron` 예시:
 
 ```bash
 0 9 * * 1 cd ~/ai-paper-digest && /usr/bin/python3 main.py && \
   git add -A && git commit -m "auto: $(date +\%F)" && git push
 ```
+
+`main.py` 안에서 Slack 발송까지 처리하므로 cron에 별도 알림 단계는 필요 없습니다.

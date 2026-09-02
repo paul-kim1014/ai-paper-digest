@@ -16,6 +16,7 @@ from datetime import date, datetime, timezone
 import curate
 import fetch
 import generate
+import notify
 import summarize
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -63,6 +64,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=None, help="이번 실행 신규 요약 개수 제한")
     ap.add_argument("--rebuild", action="store_true", help="선별 없이 사이트만 재생성")
+    ap.add_argument("--no-notify", action="store_true", help="Slack 발송 건너뛰기")
     args = ap.parse_args()
 
     load_env()
@@ -126,6 +128,13 @@ def main() -> int:
     save_json(ISSUES_FILE, issues)
     generate.build_site(store, issues, cfg)
     print(f"완료: {label} 이슈 발행 · 신규 {ok}편, 실패 {fail}편, 전체 축적 {len(store)}편")
+
+    # Slack 자동 발송 (설정된 경우)
+    if not args.no_notify and fields:
+        all_papers = [store[i] for lst in fields.values() for i in lst if i in store]
+        top = max(all_papers, key=lambda x: x.get("upvotes", 0)) if all_papers else None
+        msg = notify.build_message(cfg, label, fields, top)
+        notify.send_slack(cfg, msg)
     return 0
 
 
