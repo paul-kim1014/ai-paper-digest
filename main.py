@@ -112,6 +112,7 @@ def main() -> int:
                 p["week"] = label
                 store[pid] = p
                 ok += 1
+                save_json(PAPERS_FILE, store)  # 중간 저장: 중단돼도 요약이 날아가지 않음
             except Exception as e:  # noqa: BLE001
                 fail += 1
                 print(f"    요약 실패: {e}", file=sys.stderr)

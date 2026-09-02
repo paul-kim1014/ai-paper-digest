@@ -96,7 +96,12 @@ def summarize_ollama(prompt: str, cfg: dict) -> dict:
         "model": cfg.get("model", "qwen3:8b"),
         "prompt": prompt,
         "stream": False,
-        "options": {"temperature": 0.3},
+        # qwen3 등 추론 모델의 <think> 블록은 어차피 버리므로 끈다 (속도 2~3배)
+        "think": cfg.get("think", False),
+        "options": {
+            "temperature": 0.3,
+            "num_predict": cfg.get("num_predict", 1200),  # 폭주 방지
+        },
     }
     req = urllib.request.Request(
         f"{host}/api/generate",

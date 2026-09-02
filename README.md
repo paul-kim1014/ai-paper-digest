@@ -72,19 +72,40 @@ python3 main.py --rebuild  # 새 선별 없이 기존 데이터로 사이트만 
 
 설정 후 테스트: `python3 main.py --rebuild` 는 발송하지 않으므로, 실제 발송은 `python3 main.py` 실행 시 이뤄집니다. `--no-notify` 로 끌 수 있습니다.
 
-## 배포 & 매주 자동 갱신
+## 배포 & 매주 자동 갱신 (launchd — 설치 완료)
 
-`docs/` 폴더 기반 GitHub Pages. 갱신은 아래 한 줄(Slack 발송 포함):
+`docs/` 폴더 기반 GitHub Pages. 수동 갱신은 아래 한 줄(Slack 발송 포함):
 
 ```bash
 python3 main.py && git add -A && git commit -m "weekly update" && git push
 ```
 
-**매주 월요일 오전 9시 자동 발행 + Slack 알림** — macOS `cron` 예시:
+**자동 실행은 macOS `launchd`로 이미 설치되어 있습니다.** 매주 **월요일 오전 9시**에
+`weekly_update.sh`가 실행되어 선별→요약→사이트 갱신→git push→Slack 알림까지 한 번에 처리합니다.
+그 시각에 Mac이 잠들어 있으면 **깨어난 직후** 실행됩니다(cron과 달리 건너뛰지 않음).
+
+- 실행 스크립트: [`weekly_update.sh`](weekly_update.sh)
+- launchd 정의: `~/Library/LaunchAgents/com.paulkim.ai-paper-digest.plist`
+- 실행 로그: `data/cron.log` (git에는 올라가지 않음)
+
+### 자동화 관리 명령
 
 ```bash
-0 9 * * 1 cd ~/ai-paper-digest && /usr/bin/python3 main.py && \
-  git add -A && git commit -m "auto: $(date +\%F)" && git push
+# 지금 즉시 한 번 실행(테스트)
+launchctl start com.paulkim.ai-paper-digest && tail -f ~/ai-paper-digest/data/cron.log
+
+# 등록 상태 확인 (두번째 열이 마지막 종료코드)
+launchctl list | grep ai-paper-digest
+
+# 잠시 끄기 / 다시 켜기
+launchctl unload ~/Library/LaunchAgents/com.paulkim.ai-paper-digest.plist
+launchctl load   ~/Library/LaunchAgents/com.paulkim.ai-paper-digest.plist
 ```
 
-`main.py` 안에서 Slack 발송까지 처리하므로 cron에 별도 알림 단계는 필요 없습니다.
+> 자동 실행 시 로컬 Ollama가 필요합니다(스크립트가 미기동 시 자동 기동 시도). Claude API 백엔드를
+> 쓰면 `.env`의 키만 있으면 됩니다. `main.py` 안에서 Slack 발송까지 처리하므로 별도 단계는 없습니다.
+
+### 누적 방식
+매 실행은 그 주의 ISO 주차(예: `2026-W36`)를 키로 `data/issues.json`에 이슈를 추가하고,
+논문·요약은 `data/papers.json`에 계속 쌓입니다. 지난 주차는 `archive.html`에 그대로 남아
+분야별로 다시 볼 수 있습니다. 같은 주에 여러 번 실행하면 그 주 이슈만 갱신됩니다.

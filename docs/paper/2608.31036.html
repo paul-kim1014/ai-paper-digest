@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>주차별 아카이브 · AI 논문 요약</title>
+<title>Normalized Low-Rank Adaptation · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -92,16 +92,24 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="index.html">← 최신 이슈로</a>
-<header style="padding-top:8px"><h1 class="title">📚 주차별 아카이브</h1>
-  <p class="subtitle">지난 주간 이슈를 분야별로 다시 볼 수 있습니다.</p></header>
-<a class="issue-row" href="issue/2026-W36.html">
-  <div><div class="wk">2026-W36</div><div class="sub">컴퓨터비전 (CV), 기타 AI, 자연어처리 (NLP), AI 일반·에이전트, 강화학습·로보틱스, 머신러닝 (ML)</div></div>
-  <div class="badges"><span class="badge">18편</span>
-    <span class="date">2026.09.02</span></div></a><a class="issue-row" href="issue/2026-W34.html">
-  <div><div class="wk">2026-W34</div><div class="sub">자연어처리 (NLP), 머신러닝 (ML), AI 일반·에이전트, 컴퓨터비전 (CV), 강화학습·로보틱스, 음성·오디오</div></div>
-  <div class="badges"><span class="badge">15편</span>
-    <span class="date">2026.08.18</span></div></a>
+<a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Normalized Low-Rank Adaptation</h1>
+<p class="authors">Jiale Kang, Ziyin Yue, Zheng Zhan, Yangyi Huang, Weiyang Liu</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="pop">👍 47</span>
+  <span class="date">2026.08.31 · arXiv:2608.31036</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>NoRA는 LoRA의 학습 안정성과 성능을 개선하는 간단한 방법입니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>차가 길을 달릴 때 방향을 잘 조절하는 것처럼, NoRA는 모델이 학습할 때 방향을 안정적으로 잡아줘 실수를 줄이고 빠르게 배울 수 있게 해요. 이 방법은 복잡한 장비를 추가하지 않고도 차량을 더 안전하게 만드는 것처럼 작동해요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>대형 언어 모델이 특정 작업을 학습할 때, NoRA는 모델이 과도하게 변하지 않도록 조절해 오래된 지식을 잃지 않도록 도와줍니다. 예를 들어, 번역 모델이 새로운 언어를 배우면서 기존 언어의 능력을 유지합니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>LoRA는 파라미터 효율적 모델 조정에 널리 사용되지만, 학습 동작을 안정적으로 조절하는 방법이 부족해 수렴이 어려웠습니다. 초기 학습 단계에서 다운 프로젝션에 의존하는 문제가 있었기 때문입니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>NoRA는 학습 중 다운 프로젝션 행렬을 정규화해 안정적인 최적화를 도모했습니다. 초기화 시점에만 정규화를 적용해 기존 LoRA를 개선할 수 있음을 보여주었습니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>NoRA는 사전 학습, 감독 토닝, 강화 학습 등 다양한 시나리오에서 수렴 속도를 빠르게 하고 성능을 향상시켰으며, 파라미터 추가나 추론 시간 증가 없이도 효과를 발휘했습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>LoRA</b><span>대규모 모델을 효율적으로 조정하기 위해 작은 행렬로 파라미터를 수정하는 기법입니다.</span></div><div class="bg-item"><b>정규화</b><span>학습 과정에서 데이터를 일정한 범위로 조절해 모델이 안정적으로 학습하도록 돕는 방법입니다.</span></div><div class="bg-item"><b>catastrophic forgetting</b><span>모델이 새로운 정보를 배우면서 기존 지식을 잃는 현상으로, 학습 과정에서 문제가 됩니다.</span></div><div class="bg-item"><b>파라미터 효율적 적응</b><span>모델을 조정할 때 전체 파라미터를 바꾸지 않고, 일부만 수정해 효율적으로 학습하는 방법입니다.</span></div><div class="bg-item"><b>학습 동작</b><span>모델이 데이터를 보고 스스로 학습하는 과정에서 일어나는 변화와 조정을 의미합니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LoRA</span><span class="kw">정규화</span><span class="kw">catastrophic forgetting</span><span class="kw">파라미터 효율적 적응</span><span class="kw">학습 동작</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">While low-rank adaptation (LoRA) is widely used for parameter-efficient model adaptation, how to regularize its training dynamics for stable and effective optimization remains underexplored. Because LoRA initializes the up-projection to zero, its early optimization dynamics are largely governed by the down-projection. Building on this observation, we introduce Normalized Low-Rank Adaptation (NoRA), a simple yet effective method that normalizes the down-projection matrices during training. We further show that the same normalization can be applied only at initialization, improving standard LoRA without requiring repeated normalization throughout training. Across pretraining, supervised finetuning, and reinforcement learning, NoRA consistently accelerates convergence, improves performance and training stability, and mitigates catastrophic forgetting. These benefits require neither additional trainable parameters nor inference-time computation, making NoRA a simple and broadly applicable enhancement to LoRA.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2608.31036v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2608.31036" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>
 </body>

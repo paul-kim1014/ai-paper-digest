@@ -1105,5 +1105,1258 @@
     },
     "fetched_at": "2026-08-18T16:52:34.344158+00:00",
     "week": "2026-W34"
+  },
+  "2609.00111": {
+    "id": "2609.00111",
+    "title": "Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving",
+    "authors": [
+      "Xin Zhou",
+      "Zongchuang Zhao",
+      "Zhibo Yang",
+      "Mingsheng Li",
+      "Humen Zhong",
+      "Shuai Bai",
+      "Du Chu",
+      "Ruizhe Chen",
+      "Zhaohai Li",
+      "Jun Tang",
+      "Qiuyue Wang",
+      "Mingkun Yang",
+      "Jiazhao Zhang",
+      "Dayiheng Liu",
+      "Dingkang Liang",
+      "Xiang Bai"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-08-31T17:59:54Z",
+    "updated": "2026-08-31T17:59:54Z",
+    "abstract": "We present Qwen-Drive-1.0, an initial step towards a vision-language foundation model for autonomous driving. Qwen-Drive-1.0 retains the architecture of the pretrained vision-language model (VLM) and integrates 3D perception, visual question answering, and motion planning within a unified framework. An external bird's-eye-view (BEV) perception head jointly performs 3D object detection, semantic occupancy prediction, and BEV map segmentation. It serves as a probe of the 3D information accessible from the shared representations and provides an explicit, inspectable interface to 3D scene structure. A Planning Expert conditions on shared VLM representations to generate future ego trajectories. A staged training recipe combines driving supervision with general-purpose vision-language data to acquire driving-specific competence while helping preserve broad visual understanding and instruction-following capabilities. Experiments demonstrate strong 3D perception and driving scene understanding while largely preserving general vision-language capability. Comprehensive evaluations across open-loop, pseudo-closed-loop, and closed-loop settings further show highly competitive motion-planning performance.",
+    "pdf_url": "https://arxiv.org/pdf/2609.00111v1",
+    "arxiv_url": "https://arxiv.org/abs/2609.00111",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 304,
+    "citations": null,
+    "summary": {
+      "tldr": "자율주행차가 시각과 언어를 통합해 안전하게 운전하는 기술",
+      "problem": "자율주행차가 주변을 보고 판단하는 데 시각 정보만으로는 한계가 있어, 시각과 언어를 결합해 더 정확하게 판단해야 합니다. 기존 시스템은 복잡한 도로 상황을 이해하는 데 어려움이 있습니다.",
+      "method": "시각-언어 모델을 기반으로 3D 인식, 시각 질문 답변, 운전 계획을 하나의 시스템에 통합했습니다. 비행기 위에서 본 시야(BEV)로 주변을 분석하고, 운전 전략을 생성하는 전문가 모듈을 추가했습니다.",
+      "result": "3D 인식과 운전 계획에서 뛰어난 성능을 보이며, 일반적인 시각-언어 이해 능력도 유지했습니다. 실제 도로 상황에서 안정적인 운전이 가능해졌습니다.",
+      "example": "자율주행차가 교차로에서 신호등을 보고 '정지'라는 지시를 받아 멈추는 모습입니다. 주변 차량과 보행자를 인식하고, 도로 상태를 이해해 안전하게 운전합니다.",
+      "eli12": "자동차가 스스로 운전할 때, 눈으로 보는 것과 말을 듣는 것을 동시에 이해해 도로를 안전하게 달리는 기술입니다. 예를 들어, '왼쪽으로 회전'이라는 말을 듣고, 주변 차량을 보며 정확하게 움직이는 거죠.",
+      "background": [
+        {
+          "term": "시각-언어 모델",
+          "explain": "사진이나 영상을 보고 그 내용을 말로 설명하는 기술"
+        },
+        {
+          "term": "BEV 시야",
+          "explain": "비행기에서 바라보는 듯한 위에서 본 도로 모습을 분석하는 방식"
+        },
+        {
+          "term": "운동 계획",
+          "explain": "자동차가 앞으로 어떻게 움직일지 계산하는 방법"
+        },
+        {
+          "term": "3D 인식",
+          "explain": "자동차가 주변 물체의 위치와 형태를 공간적으로 이해하는 기술"
+        },
+        {
+          "term": "자율주행",
+          "explain": "사람이 직접 운전하지 않고 차량이 스스로 주행하는 기술"
+        }
+      ],
+      "keywords": [
+        "자율주행",
+        "시각-언어 모델",
+        "BEV",
+        "운동 계획",
+        "3D 인식"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:34:43.811402+00:00",
+    "week": "2026-W36"
+  },
+  "2608.30821": {
+    "id": "2608.30821",
+    "title": "Lucida: Parse, Generate, and Place for Composable Real-to-Sim Scene Modeling",
+    "authors": [
+      "Minghan Qin",
+      "Yuang Wang",
+      "Xiuyu Yang",
+      "Yushi Long",
+      "Yujian Zhang",
+      "Ruihuan Wang",
+      "Kai Ye",
+      "Yangang Zhang",
+      "Hang Li"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-08-31T14:03:20Z",
+    "updated": "2026-08-31T14:03:20Z",
+    "abstract": "Composable scene modeling aims to recover a real indoor scene as complete, editable object assets arranged as observed, giving robot simulation and embodied AI a simulation-ready replica of the real environment whose objects can be manipulated individually. Existing pipelines decompose the task into three steps---parse the observations into instances, generate an asset for each, and place each asset back---but every step presumes an input that a cluttered capture rarely provides: accurate instance geometry, unoccluded views, and assets that accurately match the observations. We propose Lucida, which keeps this order but redistributes the requirements, so each step consumes only what a real capture reliably provides and precision is reached at the end of the pipeline rather than demanded at its start. Lucida parses the video into a scene graph whose nodes carry per-instance multi-view evidence, generates a complete asset for each instance from its evidence, and places assets with GizmoAct, a VLM policy that casts placement as multi-turn GUI interaction, manipulating the object's gizmo in a closed loop and deciding itself when alignment is reached. Across scene-level 3D object detection, object pose estimation, and scene reconstruction, Lucida improves mAP over Boxer by 69% on R2S-Scene, raises ADD-SB@0.05 from 57.8% to 83.4% on CA-1M, and increases scene F-Score from 0.794 for SAM3D to 0.924.",
+    "pdf_url": "https://arxiv.org/pdf/2608.30821v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.30821",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 97,
+    "citations": null,
+    "summary": {
+      "tldr": "실제 공간을 가상 환경에 정확하게 복제하는 새로운 기술",
+      "problem": "실제 공간을 가상 환경으로 변환할 때 물체의 정확한 형태와 위치를 파악하는 것이 어렵다. 기존 방법은 이상적인 입력 데이터를 가정해 실용성이 낮았다.",
+      "method": "Lucida는 물체를 분석→생성→배치하는 세 단계를 사용하지만, 각 단계에서 필요한 데이터를 실제 촬영에서 얻을 수 있도록 재설계했다. AI가 물체의 여러 각도 정보를 바탕으로 자동으로 모델을 생성하고, 가상 환경에서 정확한 위치를 조정한다.",
+      "result": "기존 기술보다 물체 인식 정확도 69% 향상, 공간 복원 정확도 83%까지 높이고, 가상 환경에서의 물체 조작이 가능해졌다.",
+      "example": "실제 방을 스캔해 가상 공간에 정확하게 복제하고, 로봇이 가상 환경에서 물건을 움직일 수 있도록 준비한다. 예를 들어, 실내 장난감을 가상 공간에 정확히 배치해 로봇이 그 장난감을 조작하는 훈련을 할 수 있다.",
+      "eli12": "실제 방을 보고, AI가 방안의 물건을 하나씩 인식해서 가상 공간에 정확하게 옮겨놓는다고 생각해. AI가 물건의 형태와 위치를 스스로 맞춰서, 로봇이 가상 공간에서 그 물건을 움직일 수 있게 만든다.",
+      "background": [
+        {
+          "term": "시나리오 그래프",
+          "explain": "실제 공간의 물건을 시각적으로 연결해 관계를 표현하는 도구"
+        },
+        {
+          "term": "VLM 정책",
+          "explain": "AI가 사용자 인터페이스처럼 여러 단계로 물건을 조작하는 방법"
+        },
+        {
+          "term": "가상 환경",
+          "explain": "실제 공간을 디지털로 재현한 가상 공간"
+        },
+        {
+          "term": "물체 위치 추정",
+          "explain": "실제 공간에서 물건의 정확한 위치를 파악하는 기술"
+        },
+        {
+          "term": "장면 복원",
+          "explain": "실제 장면을 디지털 모델로 완전히 복제하는 과정"
+        }
+      ],
+      "keywords": [
+        "시나리오 그래프",
+        "VLM 정책",
+        "가상 환경",
+        "물체 위치 추정",
+        "장면 복원"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:35:48.611856+00:00",
+    "week": "2026-W36"
+  },
+  "2608.31106": {
+    "id": "2608.31106",
+    "title": "DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution",
+    "authors": [
+      "Jiashu Zhu",
+      "Yanhao Zheng",
+      "Ruitian Tian",
+      "Rujing Dang",
+      "Shen Zhang",
+      "Bingze Song",
+      "Jiachen Lei",
+      "Ruimin Lin",
+      "Jiahong Wu",
+      "Xiangxiang Chu"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.SD"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-08-31T17:11:05Z",
+    "updated": "2026-08-31T17:11:05Z",
+    "abstract": "Recent video generators often omit audio or synthesize it in a separate stage, limiting reciprocal modeling of visual dynamics and acoustic events. We present DreamX-Creator 1.0, a compact native joint audio-video generation system centered on a 7B generator. Conditioned on a first frame and a text prompt, the generator jointly denoises modality-specialized audio and video streams. The streams are processed independently in the first half of the network and coupled in the latter half through Gated Cross-Modal Attention, whose token- and head-wise output gates modulate each active cross-modal attention-head output. A unified Audio-Video Data System constructs and filters temporally coherent clips, produces structured multimodal annotations, and organizes clips into capability-oriented data pools. Progressive Joint Training comprises two audio-video pre-training stages followed by High-Quality Finetuning. Audio-Video Reinforcement Learning further post-trains the generator with Modality-Aware Multimodal Feedback that routes video-, audio-, and cross-modal feedback to the corresponding streams. For high-resolution output, our Autoregressive 1-Step 2K Refinement pipeline adapts a bidirectional multi-step teacher into an autoregressive multi-step refiner and distills it into a student requiring one denoising evaluation per temporal chunk. Overall, DreamX-Creator 1.0 achieves native, synchronized audio-video generation with performance competitive with state-of-the-art open-source systems. By releasing our compact 7B generator and 2K Refiner, we seek to democratize native audio-video generation and provide an accessible foundation for future research in unified audio-video generative modeling.",
+    "pdf_url": "https://arxiv.org/pdf/2608.31106v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.31106",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 93,
+    "citations": null,
+    "summary": {
+      "tldr": "DreamX-Creator 1.0은 2K 해상도로 영상과 음성 동시 생성을 가능하게 합니다.",
+      "problem": "기존 영상 생성기는 음성과 영상을 별도로 처리해 동기화가 어려웠습니다. 이로 인해 시각적 변화와 음향 이벤트의 상호작용이 제한되었습니다.",
+      "method": "7B 파라미터 모델을 기반으로, 첫 프레임과 텍스트 입력을 조건으로 영상과 음성 스트림을 병렬 처리해 생성합니다. 이후 Gated Cross-Modal Attention을 통해 모달리티 간 연결을 강화하고, 데이터 시스템과 강화 학습을 통해 품질을 개선합니다.",
+      "result": "2K 해상도에서 최신 오픈소스 시스템과 경쟁하는 성능을 달성했습니다. 7B 모델과 2K Refiner를 공개해 누구나 쉽게 활용할 수 있도록 했습니다.",
+      "example": "자연 documentary 영상 제작 시, 산책하는 사람의 영상과 자연 소리(예: 나무 소리, 새 소리)를 동시에 자동 생성합니다. 게임 트레일러도 시각과 음향을 동기화해 제작할 수 있습니다.",
+      "eli12": "마법사가 마법으로 동영상과 소리를 동시에 만들어요. 예를 들어, 해변에서 일어나는 일을 영상으로 보고, 파도 소리도 함께 들을 수 있게 해주는 마법을 말이에요. 이걸로 누구나 쉽게 만들 수 있게 만들었어요.",
+      "background": [
+        {
+          "term": "모달리티",
+          "explain": "영상과 음성처럼 서로 다른 유형의 데이터를 말해요."
+        },
+        {
+          "term": "Cross-Modal Attention",
+          "explain": "영상과 음성이 서로 연결되도록 도와주는 기술이에요."
+        },
+        {
+          "term": "강화 학습",
+          "explain": "모델이 오류를 반복해 수정하며 학습하는 방법이에요."
+        },
+        {
+          "term": "해상도",
+          "explain": "화면의 세부 표현 정도로, 2K는 더 선명하게 보이는 해상도예요."
+        },
+        {
+          "term": "데이터 시스템",
+          "explain": "영상과 음성을 정리해 저장하는 시스템으로, 효율적으로 사용할 수 있게 해요."
+        }
+      ],
+      "keywords": [
+        "영상 생성",
+        "음성 생성",
+        "Cross-Modal Attention",
+        "강화 학습",
+        "2K 해상도"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:37:03.772864+00:00",
+    "week": "2026-W36"
+  },
+  "2608.28122": {
+    "id": "2608.28122",
+    "title": "Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities",
+    "authors": [
+      "Tianfu Wang",
+      "Zhezheng Hao",
+      "Xilin Xia",
+      "Lixin Liu",
+      "Mengkang Hu",
+      "Hongzhang Liu",
+      "Xi Chen",
+      "Ziyan Liu",
+      "Xiankun Lin",
+      "Weijia Zhang",
+      "Nicholas Jing Yuan",
+      "Hui Xiong"
+    ],
+    "categories": [
+      "cs.MM"
+    ],
+    "primary_category": "cs.MM",
+    "published": "2026-08-28T09:35:14Z",
+    "updated": "2026-08-28T09:35:14Z",
+    "abstract": "Generative models can turn natural-language prompts into images, text, code, and other content, lowering the cost of producing drafts and components. Their practical impact increasingly depends on whether those pieces can become complete, dependable deliverables. This survey examines agentic artifact creation, which we define as stateful construction in which an AI system materially constructs or revises a deliverable and intermediate observations redirect later work. Functionally, the process links an operational representation of the artifact, a construction policy, and runtime verification whose feedback can redirect later actions. We reviewed 259 works available through August 20, 2026: 230 systems meeting this definition and 29 benchmarks of agentic artifact construction. We compare six artifact families, then analyze application settings and evaluation practice as separate dimensions. Across families, construction challenges reflect not only modality but also how tightly decisions are coupled and whether failures become visible while they remain repairable. Decomposition can reduce local complexity while increasing coordination and reassembly costs. Learned judges may add little independent evidence when they share the generator's preferences or blind spots. We formulate principles for keeping commitments and responsibility explicit, turning feedback into targeted repair, and revalidating affected state after change. We also identify opportunities for sustaining coherent, accountable control as artifacts, creator intent, and construction systems evolve. A curated paper list is available at https://github.com/GeminiLight/awesome-agentic-artifact-creation.",
+    "pdf_url": "https://arxiv.org/pdf/2608.28122v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.28122",
+    "subfield": "기타 AI",
+    "upvotes": 57,
+    "citations": null,
+    "summary": {
+      "tldr": "AI가 완전한 결과물을 만드는 방법을 연구한 논문입니다.",
+      "problem": "생성 모델은 초안을 만들지만, 완성된 신뢰할 수 있는 결과물을 만드는 데 어려움이 있습니다. 이 논문은 AI가 스스로 수정하며 결과물을 완성하는 방식을 탐구합니다.",
+      "method": "259개의 시스템과 벤치마크를 분석해, 생성물의 유형과 평가 방법을 비교했습니다. 생성 과정에서 피드백을 반복적으로 사용해 오류를 수정하는 방식을 중심으로 연구했습니다.",
+      "result": "생성 과정에서 피드백을 통해 오류를 수정하는 원칙을 제안했고, 시스템의 발전에 따른 책임감 있는 제어 방안을 제시했습니다. 다양한 분야에서 활용 가능한 기술적 기회를 발견했습니다.",
+      "example": "개발자가 AI에 코드를 생성하게 하고, 생성된 코드가 스스로 오류를 찾아 수정하는 시스템입니다. 예를 들어, AI가 문서를 작성한 후 내용이 부족하면 자동으로 추가합니다.",
+      "eli12": "로봇이 장난감을 만들 때, 잘못된 부분이 생기면 스스로 고쳐나가는 방법을 연구한 것 같아요. 처음엔 틀렸지만, 반복해서 고쳐서 완벽하게 만드는 거죠.",
+      "background": [
+        {
+          "term": "생성 모델",
+          "explain": "문장이나 이미지 등을 입력받아 새로운 내용을 만들어내는 컴퓨터 프로그램"
+        },
+        {
+          "term": "피드백 루프",
+          "explain": "작업 결과를 보고 다시 수정하는 반복적인 과정"
+        },
+        {
+          "term": "아티팩트",
+          "explain": "AI가 생성한 문서, 코드, 이미지 등 결과물 전체를 의미합니다"
+        },
+        {
+          "term": "시스템 평가",
+          "explain": "시스템이 얼마나 잘 작동하는지 테스트하는 방법"
+        },
+        {
+          "term": "책임감",
+          "explain": "작업에 대한 결과에 대해 책임을 지는 태도"
+        }
+      ],
+      "keywords": [
+        "생성 모델",
+        "피드백 루프",
+        "아티팩트",
+        "시스템 평가",
+        "책임감"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:38:06.478993+00:00",
+    "week": "2026-W36"
+  },
+  "2608.27509": {
+    "id": "2608.27509",
+    "title": "The Mechanics of Democratic Dominance: A System Dynamics Paradigm for Dynamic Consent Engineering",
+    "authors": [
+      "Muhammad Sukri Bin Ramli"
+    ],
+    "categories": [
+      "physics.soc-ph"
+    ],
+    "primary_category": "physics.soc-ph",
+    "published": "2026-08-27T07:22:19Z",
+    "updated": "2026-08-31T01:53:49Z",
+    "abstract": "Traditional frameworks of political communication operate under linear, event-driven assumptions that treat voter persuasion as a static, transactional function. This paper introduces Dynamic Consent Engineering (DCE), a novel interdisciplinary paradigm that synthesizes Edward Bernays' foundational principles of public relations with the S-E-E-D (Snowball, Equilibrium, Elasticity, Dominance) framework of system dynamics. By expanding Bernaysian operational constraints into a four-dimensional resource matrix (incorporating algorithmic media infrastructure alongside manpower, mindpower, and capital), we mathematically formalize how democratic institutions construct, optimize, and sustain political dominance. We map Bernays' classic eight-step engineering workflow directly onto non-linear feedback loops, information time lags, and demographic carrying capacities. Through rigorous modeling of systemic feedback structures, we isolate the dynamic root causes of political elasticity, policy resistance plateaus, and threshold-triggered trust collapses. Finally, we establish a four-step diagnostic pipeline and validate the framework via historical reference mode verification, demonstrating that long-term political stability depends not on ephemeral rhetoric, but on the structural synchronization of policy execution and dynamic feedback calibration.",
+    "pdf_url": "https://arxiv.org/pdf/2608.27509v2",
+    "arxiv_url": "https://arxiv.org/abs/2608.27509",
+    "subfield": "기타 AI",
+    "upvotes": 3,
+    "citations": 0,
+    "summary": {
+      "tldr": "정치적 권력 유지가 알고리즘과 피드백 시스템을 통해 이루어진다",
+      "problem": "전통적인 정치 커뮤니케이션 모델은 선형적이고 일회적인 접근을 사용해 선거 유도를 정적 처리한다. 이 논문은 정치 권력 유지의 복잡한 동적 메커니즘을 이해하기 위해 새로운 접근법을 제안한다",
+      "method": "에드워드 벤야의 PR 원칙을 시스템 다이내믹스의 S-E-E-D 프레임워크와 결합해 4차원 자원 매트릭스를 도입한다. 알고리즘 미디어 인프라와 인력, 지식, 자본을 통합해 정책 실행과 피드백 조정의 동적 구조를 수학적으로 모델링한다",
+      "result": "정치적 안정성은 단순한 선전이 아닌 정책 실행과 피드백 조정의 구조적 동기화에 달려있다는 사실을 밝혀낸다. 역사적 사례를 통해 이 프레임워크의 유효성을 검증했다",
+      "example": "선거 캠페인에서 전통 미디어와 디지털 알고리즘을 동시에 사용해 유권자 반응을 실시간으로 분석하고 전략을 조정하는 방식을 예시로 들어, 정치적 영향력 유지의 동적 메커니즘을 보여준다",
+      "eli12": "게임에서 상대방의 반응을 보고 계속 전략을 바꾸는 것처럼, 정치에서는 사람들의 생각을 계속 바꾸는 알고리즘과 사람들의 힘을 함께 사용해 지속적으로 영향을 미치는 방법을 연구했다",
+      "background": [
+        {
+          "term": "시스템 다이내믹스",
+          "explain": "시스템이 시간에 따라 어떻게 변하는지를 시뮬레이션하는 방법"
+        },
+        {
+          "term": "피드백 루프",
+          "explain": "행동이 시스템을 바꾸고, 그 변화가 다시 행동을 바꾸는 반복 과정"
+        },
+        {
+          "term": "알고리즘",
+          "explain": "특정 규칙에 따라 자동으로 계산하거나 판단하는 컴퓨터의 지시문"
+        },
+        {
+          "term": "정책 저항 플랫폼",
+          "explain": "정책이 더 이상 반대받지 않는 절대적 한계 상태"
+        },
+        {
+          "term": "자원 매트릭스",
+          "explain": "자원의 종류와 양을 4차원으로 표현한 테이블"
+        }
+      ],
+      "keywords": [
+        "정치 시스템",
+        "동적 피드백",
+        "알고리즘 정치",
+        "정책 저항",
+        "시스템 다이내믹스"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:39:19.625442+00:00",
+    "week": "2026-W36"
+  },
+  "2608.29681": {
+    "id": "2608.29681",
+    "title": "MMMMM: A Unified Taxonomy for Investigating the Mechanisms of Multilingual MultiModal Misinformation",
+    "authors": [
+      "Nadav Borenstein",
+      "Greta Warren",
+      "Desmond Elliott",
+      "Isabelle Augenstein"
+    ],
+    "categories": [
+      "cs.CY"
+    ],
+    "primary_category": "cs.CY",
+    "published": "2026-08-30T09:30:19Z",
+    "updated": "2026-08-30T09:30:19Z",
+    "abstract": "Multimodal misinformation on social media is highly prevalent, potent, and harmful, yet difficult to detect and counter, and still poorly understood compared to its text-only counterpart. Research on the properties and deceptive strategies of multimodal misinformation is hindered by a lack of taxonomies grounded in real-world contexts and by the limitations of current multimodal machine learning models, which prevent the automation of annotation and analysis at scale. We address these shortcomings in three steps. First, we collect a large-scale, high-quality dataset of real-world misinformation instances from Twitter/X in seven languages. Second, we develop a novel, comprehensive taxonomy of multimodal misinformation grounded in an in-depth qualitative analysis of the data and prior theoretical work. Finally, we operationalise the taxonomy through an automated multi-step annotation pipeline using a Vision-Language Model (VLM), and perform human-validation. Our novel approach leads to previously undocumented insights about how social media users combine images with text to spread misinformation in the wild, e.g., that AI-generated content is particularly prevalent in technology and science, while vaccination misinformation disproportionately utilises images from news outlets to assert credibility. Our method and findings provide guidance for targeted approaches for detecting multimodal misinformation, and suggest that mitigation efforts should be developed and applied strategically rather than uniformly.",
+    "pdf_url": "https://arxiv.org/pdf/2608.29681v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.29681",
+    "subfield": "기타 AI",
+    "upvotes": 1,
+    "citations": null,
+    "summary": {
+      "tldr": "다국어 멀티모달 허위정보의 구조를 분석해 탐지 방법을 개선했습니다.",
+      "problem": "소셜 미디어에서 이미지와 텍스트가 결합된 허위정보는 심각한데, 기존 방법으로는 효과적으로 탐지하고 분석하기 어렵습니다. 특히 다국어로 퍼지는 정보의 특성과 전략이 잘 알려지지 않았습니다.",
+      "method": "실제 허위정보 데이터를 수집해 분석하고, 전문가와 이론을 바탕으로 분류 체계를 만들었습니다. 이를 위해 시각-언어 모델을 활용해 자동화된 분석 프로세스를 개발했습니다.",
+      "result": "AI 생성 콘텐츠가 과학/기술 분야에 많고, 백신 허위정보는 뉴스 이미지를 활용해 신뢰성을 높이는 전략을 밝혀냈습니다. 이는 허위정보 탐지 기술 개발에 실질적인 방향을 제시합니다.",
+      "example": "사람들이 허위정보를 퍼질 때, 사진과 글을 조합해 '이미지가 진짜처럼 보이게' 만드는 경우가 많습니다. 예를 들어, 백신 반대 글에 실제 뉴스 사진을 붙여 '전문가가 말했다'는 듯 보이게 하는 것입니다.",
+      "eli12": "사람들이 사진과 글을 섞어 거짓 정보를 퍼뜨릴 때, AI로 만든 사진이 과학 관련 글에 자주 보이고, 백신에 대한 허위정보는 실제 뉴스 사진을 써서 더 믿게 만드는 걸 알아냈습니다. 이걸 잡기 위해 사진과 글을 분석하는 기계를 만들었어요.",
+      "background": [
+        {
+          "term": "멀티모달 허위정보",
+          "explain": "사진과 글이 섞여서 퍼지는 거짓 정보예요"
+        },
+        {
+          "term": "분류 체계",
+          "explain": "정보를 종류별로 나누는 방법으로, 예를 들어 '사기'와 '진짜'를 구분해요"
+        },
+        {
+          "term": "시각-언어 모델",
+          "explain": "사진과 글을 동시에 이해하는 컴퓨터 프로그램"
+        },
+        {
+          "term": "자동화 분석",
+          "explain": "머신이 사람이 직접 해야 할 일을 자동으로 처리하는 기술"
+        },
+        {
+          "term": "인간 검증",
+          "explain": "컴퓨터가 분석한 결과를 사람에게 보여주고 그 사람이 확인하는 과정"
+        }
+      ],
+      "keywords": [
+        "멀티모달 허위정보",
+        "분류 체계",
+        "시각-언어 모델",
+        "자동화 분석",
+        "인간 검증"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:40:19.117398+00:00",
+    "week": "2026-W36"
+  },
+  "2609.01591": {
+    "id": "2609.01591",
+    "title": "StudentSim: Training LLM-based Student Simulators",
+    "authors": [
+      "Ke Yang",
+      "Chenglong Wang",
+      "Michel Galley",
+      "Chandan Singh",
+      "Jeevana Priya Inala",
+      "ChengXiang Zhai",
+      "Jianfeng Gao"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-09-01T17:55:10Z",
+    "updated": "2026-09-01T17:55:10Z",
+    "abstract": "AI tutors are most useful when they adapt to each student's strengths, weaknesses, and preferred guidance, but evidence about which guidance works for which student is sparse, slow, and costly to collect from real learners. Student simulators can provide this signal as a proxy, yet existing approaches are limited: state-tracking models fit student behavior but struggle to process explanations or corrections, while LLM role-play follows guidance fluently but does not reliably match the competence of the student being imitated. We present StudentSim, a training framework that turns sparse per-student data into individualized simulators through pooled training followed by per-student specialization. The resulting simulators both mirror a student's own responses and update them under tutor guidance. We also introduce StudentSimEval, a standardized protocol covering 60 students across chess, second-language English writing, and mathematics, using public learner datasets with de-identified records shared for research. StudentSimEval measures behavioral fidelity (F), or how well a simulator matches a student's responses, and guidance responsiveness (R), or how readily it updates under tutor guidance, with all methods fit and evaluated on the same records. Across all three domains, StudentSim outperforms GPT-5.4 on both metrics. In chess, StudentSim reaches F=0.51 and R=0.91, compared with 0.23 and 0.72 for GPT-5.4 and 0.45 and 0.27 for Maia2. As a proof of concept, using StudentSim as a reward model for tutor reinforcement learning produces a chess tutor that expert humans rate as more accurate, better-guided, and more personalized than a no-RL baseline and a tutor trained against a GPT-5.4 simulator reward. Code is available at https://github.com/microsoft/StudentSim.",
+    "pdf_url": "https://arxiv.org/pdf/2609.01591v1",
+    "arxiv_url": "https://arxiv.org/abs/2609.01591",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 309,
+    "citations": 0,
+    "summary": {
+      "tldr": "학생 맞춤형 AI 튜터를 만들기 위한 새로운 기술을 제안했습니다.",
+      "problem": "현재 AI 튜터는 학생의 능력에 따라 조정되지 않아 효과가 제한되고, 실제 학습자 데이터를 수집해 분석하는 것이 어렵고 비용이 많이 듭니다. 기존 시뮬레이터는 설명이나 피드백을 처리하지 못하거나 학생의 실력과 맞지 않아 한계가 있습니다.",
+      "method": "StudentSim은 모든 학생 데이터를 함께 훈련해 일반적인 패턴을 학습한 후, 각 학생에게 맞춤화된 시뮬레이터로 만듭니다. 이 시뮬레이터는 학생의 답변을 따라가고, 튜터의 피드백에 따라 스스로 업데이트할 수 있도록 설계했습니다.",
+      "result": "체스, 영어 글쓰기, 수학 등 3개 분야에서 GPT-5.4와 다른 모델보다 성능이 우수했습니다. 예를 들어 체스에서는 학생의 답변 일치도(F) 0.51, 피드백 반응도(R) 0.91을 달성했습니다. 이 기술은 튜터의 학습 효과를 크게 향상시킬 수 있습니다.",
+      "example": "체스 학생에게 맞춤형 튜터를 만드는 예로, 학생이 어떤 수를 좋아하는지, 어디에서 실수하는지 등을 분석해 실시간으로 맞춤 피드백을 제공합니다. 이는 실제 학습자 데이터 없이도 학생의 특성을 이해하게 해줍니다.",
+      "eli12": "우리가 체스를 배우는 친구를 상상해보자. 이 친구는 특정 수를 좋아하고, 특정 상황에서 실수해요. StudentSim은 이 친구의 생각을 배우고, 그 친구처럼 맞춤형으로 가르쳐주죠. 튜터가 친구의 실수를 보고 실시간으로 조언해주는 것처럼요.",
+      "background": [
+        {
+          "term": "AI 튜터",
+          "explain": "학생에게 맞춤형 학습을 도와주는 인공지능 선생님"
+        },
+        {
+          "term": "학생 시뮬레이터",
+          "explain": "학생의 학습 습관이나 실수를 모방하는 가상의 학생"
+        },
+        {
+          "term": "LLM",
+          "explain": "많은 데이터를 학습해 다양한 질문에 답변하는 인공지능"
+        },
+        {
+          "term": "강화학습",
+          "explain": "정답을 찾기 위해 반복적으로 시도하고, 실수할 때마다 배우는 방법"
+        },
+        {
+          "term": "맞춤형 학습",
+          "explain": "각 학생의 능력에 맞춰 다른 사람보다 더 잘 가르치는 방식"
+        }
+      ],
+      "keywords": [
+        "StudentSim",
+        "AI 튜터",
+        "학생 시뮬레이터",
+        "LLM",
+        "강화학습"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:41:20.790233+00:00",
+    "week": "2026-W36"
+  },
+  "2608.30320": {
+    "id": "2608.30320",
+    "title": "On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability",
+    "authors": [
+      "Zihan Qiu",
+      "Zekun Wang",
+      "Xiao Li",
+      "Yanpeng Li",
+      "Yang Xu",
+      "Yixuan Wang",
+      "Huaqing Zhang",
+      "Rui Men",
+      "Bochao Mao",
+      "Chengruidong Zhang",
+      "Fan Zhou",
+      "Hao Luo",
+      "Haofeng Huang",
+      "Haoran Lian",
+      "Haoyan Huang",
+      "Hongqing Chen",
+      "Jianwei Zhang",
+      "Jing Xu",
+      "Junjie Wang",
+      "Langshi Chen",
+      "Liangyu Wang",
+      "Linlang Jiang",
+      "Man Yuan",
+      "Minmin Sun",
+      "Peng Jin",
+      "Siqi Zhang",
+      "Siyu Wang",
+      "Xingzhang Ren",
+      "Yakai Wang",
+      "Yi Zhang",
+      "Yiming Dong",
+      "Yizhong Cao",
+      "Yubo Ma",
+      "Yunfei Mao",
+      "Bo Zheng",
+      "Dayiheng Liu"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-08-31T06:35:07Z",
+    "updated": "2026-08-31T06:35:07Z",
+    "abstract": "We describe the architecture and ablations of Qwen3.8-Flash-Next, a sparse mixture-of-experts model with 125B parameters, 6B activated per token, and additional 51B parameters of n-gram embedding tables held off the accelerator. On fourteen pre-training benchmarks the model leads the 397B-A17B predecessor on eight and trails it on the rest by at most 2.6 points, at 1/3 the activated parameters, 1/3 the training tokens, and roughly 1/9 the training FLOPs. Token mixing uses a layer-wise hybrid of Gated DeltaNet (GDN) and global attention, with one full-attention layer in every four; at continued-pretraining time those full-attention layers are replaced by Qwen Sparse Attention (QSA), which scores context at micro-block granularity with a compressed lightweight indexer. The residual stream is widened to four branches and read through an elementwise gate, a design we call the Gated Residual (GR). Capacity is added outside the backbone by a single n-gram embedding layer whose tables are prefetched from host memory. We evaluate every candidate change along three axes: loss together with downstream benchmarks; the cost of the change in training, prefill and decode; and its effect on the optimal hyperparameters and training stability. Loss and downstream accuracy do not always move together: enlarging the n-gram vocabulary lowers loss monotonically while downstream accuracy saturates. The architecture and the Muon optimizer together shift the optimal learning rate and batch size upwards, render batch-size warmup unnecessary, and substantially improve stability under stress tests. Loss, benchmarks, efficiency and stability form one design problem. Solved jointly, they yield a recipe that is simultaneously more efficient, more capable and more stable.",
+    "pdf_url": "https://arxiv.org/pdf/2608.30320v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.30320",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 43,
+    "citations": 0,
+    "summary": {
+      "tldr": "Qwen3.8-Next는 효율성과 안정성을 동시에 높인 인공지능 모델 설계법",
+      "problem": "기존 대형 언어 모델은 계산 자원이 많아 비효율적이었고, 훈련 중 불안정했다. 이 논문은 더 적은 자원으로도 좋은 성능을 내고 안정적인 훈련을 가능하게 하는 방법을 찾는다.",
+      "method": "희소한 전문가 혼합 모델을 사용해 계산량을 줄이고, 층별로 주의 메커니즘을 조합해 처리 속도를 높인다. 훈련 안정성을 위해 학습률과 배치 크기 조정 방법도 개선했다.",
+      "result": "1/3의 자원으로 기존 모델을 능가하며, 훈련 중 오류가 줄고 성능이 안정적으로 유지된다. 효율성과 능력, 안정성 모두 개선된 설계법을 제시했다.",
+      "example": "대형 AI 어시스턴트가 더 빠르게 대답하고, 서버 과부하 시에도 안정적으로 작동하는 예시로, 번역기나 챗봇에 적용 가능하다.",
+      "eli12": "스마트 토이가 빠르게 배우고, 충전 없이도 오래 작동하는 방법을 연구했어요. 토이가 많은 정보를 기억하면서도 안정적으로 움직이는 법을 알아내서, 더 똑똑하고 오래 사용할 수 있게 했어요.",
+      "background": [
+        {
+          "term": "희소 혼합 전문가 모델",
+          "explain": "많은 전문가 중 일부만 선택해 사용해 자원을 절약하는 방법"
+        },
+        {
+          "term": "주의 메커니즘",
+          "explain": "모델이 중요한 정보를 먼저 보고, 나중에 보는 정보는 무시하는 방식"
+        },
+        {
+          "term": "Gated Residual",
+          "explain": "모델이 학습할 때 중요한 정보만 강조해 처리하는 기술"
+        },
+        {
+          "term": "훈련 안정성",
+          "explain": "모델이 오류 없이 계속해서 학습할 수 있는 능력"
+        },
+        {
+          "term": "FLOPs",
+          "explain": "컴퓨터가 계산하는 작업량을 나타내는 단위"
+        }
+      ],
+      "keywords": [
+        "희소 혼합 전문가",
+        "주의 메커니즘",
+        "Gated Residual",
+        "훈련 안정성",
+        "FLOPs"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:42:18.276660+00:00",
+    "week": "2026-W36"
+  },
+  "2608.31119": {
+    "id": "2608.31119",
+    "title": "PaperGym: Rubric-Centered Evolution for Research-Plan Generation",
+    "authors": [
+      "Yuhan Wang",
+      "Zhengxi Lu",
+      "Yuchen Yan",
+      "Kaitao Song",
+      "Wenqi Zhang",
+      "Weiming Lu",
+      "Jun Xiao",
+      "Yueting Zhuang",
+      "Yongliang Shen"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-08-31T17:31:18Z",
+    "updated": "2026-08-31T17:31:18Z",
+    "abstract": "Research planning is the decisive capability of AI scientists. Yet a research plan admits no verifiable answer, so reinforcement learning lacks the environment it requires: tasks paired with a critic. Rubrics extracted from scientific papers can supply the critic. Existing pipelines, however, draw the question and the criteria from the same content, so the reward can be earned by paraphrase. The rubric is further compressed into a single scalar per rollout. We introduce PaperGym, a unified framework that turns each research paper into a complete training environment. PaperGym exploits the structure of a paper: the question is synthesized from the research goal and background, while the criteria are derived from the method and experiments. The criteria span methodological innovation and experimental design, and criterion leakage falls to 3.7%, versus 11.90% to 34.10% in existing datasets. Training uses the rubric twice: first as privileged context for OPSD's self-teacher, then as the reward for GRPO. Across Qwen3-1.7B/4B/8B, this schedule outperforms supervised fine-tuning, either stage alone, and the reverse ordering, improving five-benchmark averages by +5.6, +5.0, and +4.8 points. With the recipe held fixed, models trained on PaperGym-20k win 58.1% of three-way comparisons, against 28.2% for RubricHub Science. The trained Qwen3-8B reaches 73.48 on ResearchQA, above the far larger Kimi K2.6. We release the pipeline, the 20,000-instance corpus PaperGym-20k, and the benchmarks PaperGym-Innov and PaperGym-Design.",
+    "pdf_url": "https://arxiv.org/pdf/2608.31119v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.31119",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 35,
+    "citations": null,
+    "summary": {
+      "tldr": "PaperGym은 논문의 기준을 활용해 연구 계획 생성을 개선한 프레임워크입니다.",
+      "problem": "기존 연구 계획 생성은 질문과 평가 기준을 동일한 내용에서 가져와서, 단순한 표현 변경으로 보상이 가능해졌고, 평가 기준이 약 11.9%에서 34.1%까지 누출되는 문제가 있었습니다.",
+      "method": "PaperGym은 논문의 구조를 활용해 질문을 연구 목표와 배경에서, 기준은 방법론과 실험에서 추출합니다. 평가 기준을 두 번 사용해 먼저 학습에 도움이 되는 컨텍스트로 사용하고, 그 후 보상으로 활용합니다.",
+      "result": "PaperGym-20k 데이터로 훈련한 모델은 기존 시스템보다 5.6~4.8점 높은 성능을 보였고, 연구 질문 답변에서 김비 K2.6보다 높은 점수를 기록했습니다.",
+      "example": "새로운 AI 기술 개발 시, 연구 계획을 작성하고 그 계획이 혁신적이고 실험 설계가 잘 되었는지 평가하는 도구로 사용할 수 있습니다. 기존 방법은 단순히 문장을 바꾸는 것만으로 평가를 통과할 수 있었지만, PaperGym은 실제 내용을 철저히 검토합니다.",
+      "eli12": "게임에서 각 레벨마다 다른 규칙을 만든다고 생각해요. AI는 이 규칙을 따라 연구 계획을 만들고, 그 계획이 얼마나 좋은지 철저히 점검합니다. 이 방법으로 AI가 더 똑똑하게 학습할 수 있어요.",
+      "background": [
+        {
+          "term": "강화학습",
+          "explain": "AI가 시도하고 결과를 보면서 스스로 배우는 방법입니다."
+        },
+        {
+          "term": "루브릭",
+          "explain": "작업을 평가할 때 사용하는 체크리스트 같은 기준입니다."
+        },
+        {
+          "term": "연구 계획",
+          "explain": "새로운 연구를 시작하기 위한 단계별 계획서입니다."
+        },
+        {
+          "term": "자기 강사",
+          "explain": "AI가 스스로 학습을 도와주는 도움이 되는 정보입니다."
+        },
+        {
+          "term": "GRPO",
+          "explain": "AI 모델을 보상 기준으로 훈련시키는 방법입니다."
+        }
+      ],
+      "keywords": [
+        "PaperGym",
+        "루브릭 중심",
+        "연구 계획 생성",
+        "GRPO",
+        "자기 강사"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:43:32.365469+00:00",
+    "week": "2026-W36"
+  },
+  "2608.28281": {
+    "id": "2608.28281",
+    "title": "LoopArena: Benchmarking Models as Runtime Controllers for Loop Engineering",
+    "authors": [
+      "Yi Wang",
+      "Haopeng Zhang",
+      "Chengxiang Huang",
+      "Rui Dai",
+      "Kaikui Liu",
+      "Piotr Koniusz",
+      "Xiangxiang Chu"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-08-28T12:44:54Z",
+    "updated": "2026-08-28T12:44:54Z",
+    "abstract": "Loop Engineering is emerging as a practice for organizing development work around coding agents. Instead of writing each prompt by hand, practitioners design loops that monitor progress, assign work, run checks, and decide what the agent should do next. Even with a capable coding agent, a loop may trust a stale progress note, skip needed verification, spend its budget in the wrong direction, or stop before the task is safe to submit. Yet the final outcome of one end-to-end run cannot tell whether success or failure reflects the loop's guidance or the coding agent's ability to carry out the task. We introduce LoopArena, a benchmark for evaluating how well one model can guide a separate coding agent through a long-running task. The model under evaluation is the \\textbf{Controller}: after each coding round, it receives a structured summary of the run and instructs a separate, fixed coding agent, the \\textbf{Worker}, on what to do or verify next, or decides whether to stop. LoopArena evaluates this ability in three complementary settings that differ in execution scope and cost. Type I scores next-step Loop Contract selection through execution-validated questions without running the Worker at evaluation time. Type II executes repeated control over a selected slice of a full task, while Type III evaluates the paired full task from its original state. On full tasks, the best observed Strict Success Rate is \\textbf{24.69\\%}, leaving substantial room for improvement in long-horizon loop control. Across Controllers, the paired reduction in estimated inference cost averages \\textbf{64.4\\%}, and Type II produces a similar ordering under the main Core criterion (Spearman's \\(ρ=\\textbf{0.9747}\\)). We release the benchmark data and evaluation code at https://github.com/AMAP-ML/LoopArena .",
+    "pdf_url": "https://arxiv.org/pdf/2608.28281v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.28281",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 99,
+    "citations": null,
+    "summary": {
+      "tldr": "LoopArena은 코드 자동화 시스템의 제어 능력을 평가하는 새로운 테스트 벤치마크입니다.",
+      "problem": "코드 생성 AI가 반복 작업을 처리할 때, 시스템이 잘못된 판단을 내리는 문제가 있습니다. 이로 인해 작업 결과가 제어 로직의 문제인지 AI 능력의 문제인지 구분하기 어려웠습니다.",
+      "method": "LoopArena은 제어 모델(Controller)이 작업자(Agent)를 지시하는 방식을 평가합니다. 세 가지 실험 설정에서 제어 모델의 결정이 얼마나 효과적인지 비교하며, 실행 비용과 성공률을 측정합니다.",
+      "result": "완전한 작업에서 제어 모델의 성공률은 24.69%로, 개선 여지가 큽니다. 추정된 추론 비용은 64.4% 감소했고, 실험 결과는 일관된 순서를 보입니다.",
+      "example": "개발자가 코드 자동 생성 AI를 사용해 앱을 만들 때, LoopArena은 AI가 어떤 단계에서 어떤 작업을 할지 결정하는 방식을 테스트합니다. 예를 들어, 코드가 오류가 생겼을 때 AI가 다시 작성하도록 제어하는 능력을 평가합니다.",
+      "eli12": "이 논문은 자동으로 코드를 만드는 AI가 일을 어떻게 할지 결정하는 방법을 테스트하는 게임을 만든 것입니다. AI가 잘못된 선택을 하지 않도록 보장하고, 더 적은 자원으로 더 잘 작동하는지 확인합니다. 이 방법은 게임처럼 AI의 능력을 비교해 보는 것입니다.",
+      "background": [
+        {
+          "term": "Loop Engineering",
+          "explain": "AI가 스스로 반복 작업을 처리하도록 설계하는 개발 방식입니다."
+        },
+        {
+          "term": "Coding Agent",
+          "explain": "사람이 직접 코딩 대신 자동으로 코드를 생성하는 인공지능입니다."
+        },
+        {
+          "term": "Controller",
+          "explain": "작업을 진행하는 AI를 제어하고 지시하는 주요 모델입니다."
+        },
+        {
+          "term": "Benchmarking",
+          "explain": "기술이나 시스템의 능력을 비교해 평가하는 방법입니다."
+        },
+        {
+          "term": "Inference Cost",
+          "explain": "AI가 계산을 하기 위한 자원(예: 전력, 시간)의 비용을 말합니다."
+        }
+      ],
+      "keywords": [
+        "LoopArena",
+        "Controller",
+        "Benchmarking",
+        "Coding Agent",
+        "Inference Cost"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:44:37.112839+00:00",
+    "week": "2026-W36"
+  },
+  "2609.00028": {
+    "id": "2609.00028",
+    "title": "UI-Venus-2 Technical Report",
+    "authors": [
+      "Venus Team",
+      "Zhuohan Cai",
+      "Haoxing Chen",
+      "Jiaxuan Chen",
+      "Weizhi Chen",
+      "Changlong Gao",
+      "Zhangxuan Gu",
+      "Yuan Guo",
+      "Yusong Hu",
+      "Jianrong Jiang",
+      "Jianguo Li",
+      "Runze Li",
+      "Jinzhen Lin",
+      "Zhenyu Ma",
+      "Changhua Meng",
+      "Han Peng",
+      "Xinyu Qiu",
+      "Shuheng Shen",
+      "Zhongyi Shui",
+      "Weiqiang Wang",
+      "Ming Wen",
+      "Zhuoer Xu",
+      "Hang Yan",
+      "Kaiwen Yang",
+      "Ruilin Yao",
+      "Nanjun Yu",
+      "Zhengwen Zeng",
+      "Lianrui Zhang",
+      "Yunzhu Zhang",
+      "Zhe Zhao",
+      "Beitong Zhou"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-08-27T17:15:33Z",
+    "updated": "2026-08-27T17:15:33Z",
+    "abstract": "Multimodal GUI agents have emerged as a promising paradigm for digital task automation, yet transitioning from benchmark-oriented models to dependable real-world applications remains challenging due to limited environment coverage, brittle task construction, and unreliable reward verification. In this work, we present UI-Venus-2, a general-purpose foundation GUI agent designed to operate across mobile, web, and desktop environments through a unified closed-loop reasoning-action framework. To bridge the gap toward practical deployment, we jointly scale three critical dimensions: (1) Environments, expanding coverage to more than 170 multilingual mobile apps and native desktop operating systems; (2) Tasks, employing a deep-research pipeline for function-grounded instruction generation; and (3) Verification, adopting trace-level and sample-level evaluators with visual keypoints and multi-model voting to ensure reliable RL signals for training. Furthermore, we integrate safety-aware mechanisms to ensure controlled execution of consequential actions. By offering a capable, efficient, and open-source foundation, UI-Venus-2 advances the field toward more generalizable, verifiable, and self-reflective agents for real-world applications.",
+    "pdf_url": "https://arxiv.org/pdf/2609.00028v1",
+    "arxiv_url": "https://arxiv.org/abs/2609.00028",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 52,
+    "citations": null,
+    "summary": {
+      "tldr": "UI-Venus-2는 다양한 환경에서 안정적으로 작업을 수행하는 인터페이스 에이전트를 개발했습니다.",
+      "problem": "기존 GUI 에이전트는 환경 범위가 제한적이었고, 작업 설계가 약하고 보상 검증이 불안정해 실제 적용이 어려웠습니다. 이 논문은 이러한 한계를 해결하기 위해 환경, 작업, 검증 세 가지 측면을 확장했습니다.",
+      "method": "일관된 사고-행동 프레임워크를 통해 모바일, 웹, 데스크탑 환경을 통합하고, 다단계 연구 파이프라인으로 작업을 생성하며, 추적 수준과 샘플 수준의 검증기를 통해 학습 신호를 안정화했습니다. 또한 위험 관리 기능을 추가해 안전한 실행을 보장했습니다.",
+      "result": "170개 이상의 다국어 앱과 데스크탑 OS를 지원하며, 신뢰할 수 있는 강화학습 신호와 안전한 실행을 달성했습니다. 오픈소스로 제공해 실제 작업 자동화에 적용 가능한 일반화된 에이전트 개발을 촉진했습니다.",
+      "example": "비행기 예약을 자동화할 때, 모바일 앱에서 항공사 선택, 웹사이트에서 결제, 데스크탑에서 인쇄까지 다양한 환경에서 원활하게 처리할 수 있습니다. 에이전트가 실수를 했을 때 자동으로 검증해 다시 시도합니다.",
+      "eli12": "이 기술은 스마트폰, 컴퓨터, 인터넷을 모두 사용해 사람 대신 일할 수 있는 로봇을 만드는 거예요. 로봇이 스스로 배우고 실수를 하지 않도록 체크하는 방법을 개선했어요. 예를 들어, 친구가 카페에서 커피 주문하는 걸 도와줄 수 있어요.",
+      "background": [
+        {
+          "term": "다중 모달 GUI 에이전트",
+          "explain": "화면, 키보드, 마우스 등 다양한 입력 방식을 동시에 사용해 작업을 수행하는 프로그램"
+        },
+        {
+          "term": "강화학습(RL)",
+          "explain": "정답을 모르고 반복해서 시도해 오류를 수정하며 학습하는 방법"
+        },
+        {
+          "term": "검증기",
+          "explain": "작업이 올바르게 수행되었는지 확인하는 도구"
+        },
+        {
+          "term": "안전 메커니즘",
+          "explain": "위험한 행동을 방지해 안전하게 실행하는 시스템"
+        },
+        {
+          "term": "오픈소스",
+          "explain": "누구나 자유롭게 사용하고 개선할 수 있는 소프트웨어"
+        }
+      ],
+      "keywords": [
+        "GUI 에이전트",
+        "강화학습",
+        "다중 환경",
+        "검증",
+        "오픈소스"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:46:01.193396+00:00",
+    "week": "2026-W36"
+  },
+  "2608.26530": {
+    "id": "2608.26530",
+    "title": "PILOT in the Loop: Live Self-Improvement for Long-Horizon Agents",
+    "authors": [
+      "Yang Xiao",
+      "Yusong Sun",
+      "Haoyi Wu",
+      "Wenyang Hui",
+      "Wen Da",
+      "Zhaokai Luo",
+      "Mu Chuan",
+      "Yao Hu",
+      "Wenjie Li",
+      "Chengyue Jiang"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-08-27T02:06:22Z",
+    "updated": "2026-08-27T02:06:22Z",
+    "abstract": "Long-horizon agent runs generate experience that can improve both the current run and future work. Most self-improvement methods process this experience only after execution ends, so they cannot redirect the active run or immediately apply and validate lessons learned from it. We argue that self-improvement should instead be live, using emerging experience both to redirect the active run and to update the persistent harness. Existing agent architectures do not fully support this goal. Single-agent self-correction combines task execution and trajectory assessment within one context, while subagent delegation separates execution but typically cannot redirect an active subagent. We present PILOT, a supervisor-worker harness for live self-improvement through two coupled mechanisms: (1) live steering lets a separate supervisor redirect or abort the active worker during execution; and (2) live self-evolution distils procedures and failure modes revealed during execution into reusable skills and memory. Across two frozen backbones and three benchmarks, PILOT ranks first in five of six configurations. On Terminal-Bench 2.0, PILOT outperforms counterpart harnesses by up to 9.8 percentage points. In the self-improvement setting, PILOT gains 14.6 points with GLM-5.1 and 12.4 points with Kimi-K2.6. Mean output tokens fall by 42.9% and 47.4%, while successful evaluations per million output tokens rise by 110.3% and 134.0%, respectively.",
+    "pdf_url": "https://arxiv.org/pdf/2608.26530v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.26530",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 31,
+    "citations": null,
+    "summary": {
+      "tldr": "PILOT은 AI가 실행 중에도 스스로 개선되도록 실시간으로 조정하는 시스템입니다.",
+      "problem": "기존 AI는 작업이 끝난 후 경험을 분석해 개선하지만, 실행 중에는 조정이 불가능합니다. 이로 인해 학습 속도와 효율성이 낮아졌습니다.",
+      "method": "PILOT은 '실시간 조정'과 '실시간 학습' 두 기능을 통해 작동합니다. 하나의 감시자가 실행 중인 작업을 중단하거나 방향을 바꾸고, 실패 사례를 분석해 재사용 가능한 기술로 변환합니다.",
+      "result": "테스트 결과, PILOT은 기존 시스템보다 최대 9.8% 성능 향상과 47.4%의 출력 토큰 감소를 달성했습니다. 효율성도 134% 증가했습니다.",
+      "example": "AI가 장시간 작업을 할 때, 중간에 실수를 하면 즉시 방향을 바로잡고, 그 실수를 다음 작업에 적용해 더 빠르게 배웁니다. 예를 들어, 레시피 따라 요리 중에 재료 부족하면 즉시 대체재를 찾고, 그 경험을 다음 요리에 활용합니다.",
+      "eli12": "AI가 일을 할 때, 중간에 실수하면 바로 고치고, 그 실수를 기억해 다음 일을 더 잘하게 만드는 시스템이에요. 마치 아이가 과제를 할 때, 틀리면 즉시 고쳐서 다음 문제를 더 빠르게 풀어요.",
+      "background": [
+        {
+          "term": "장기 목표 AI",
+          "explain": "오랜 시간 동안 복잡한 목표를 달성하려는 인공지능"
+        },
+        {
+          "term": "실시간 학습",
+          "explain": "작업 중에도 경험을 즉시 분석해 배우는 능력"
+        },
+        {
+          "term": "감시자-작업자 시스템",
+          "explain": "작업을 감독하는 AI와 실제 실행하는 AI가 분리되어 작동하는 구조"
+        },
+        {
+          "term": "실패 사례 분석",
+          "explain": "실수를 통해 얻은 정보를 정리해 다음에 사용할 수 있도록 만드는 과정"
+        },
+        {
+          "term": "출력 토큰",
+          "explain": "AI가 생성하는 텍스트의 단위로, 토큰 수가 줄어들면 효율성이 높아집니다"
+        }
+      ],
+      "keywords": [
+        "실시간 개선",
+        "감시자-작업자 시스템",
+        "장기 목표 AI",
+        "실패 사례 분석",
+        "출력 효율성"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:47:11.655316+00:00",
+    "week": "2026-W36"
+  },
+  "2608.27550": {
+    "id": "2608.27550",
+    "title": "Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models",
+    "authors": [
+      "Senqiao Yang",
+      "Chengyao Wang",
+      "Yuxin Chen",
+      "Zixuan Wang",
+      "Longxiang Tang",
+      "Haokun Gui",
+      "Jinhui Ye",
+      "Changsheng Lu",
+      "Xiaoyang Wu",
+      "Mingkang Zhu",
+      "Pengguang Chen",
+      "Shu Liu",
+      "Zhuotao Tian",
+      "Hengshuang Zhao",
+      "Bei Yu",
+      "Jiaya Jia"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-08-27T17:59:40Z",
+    "updated": "2026-08-27T17:59:40Z",
+    "abstract": "Scaling robot data is crucial for building generalist Vision-Language-Action (VLA) models, yet robot trajectories are harder to scale than web-scale image-text data because embodied collection is costly and sparsely covers the physical world. This makes representation quality a central bottleneck: under a fixed robot-data budget, continued pre-training must turn limited trajectories into transferable visual-action knowledge rather than merely fit actions. We propose VLAct, a VLA-oriented VLM backbone trained on broad, heterogeneous, multi-embodiment robot data before task-specific fine-tuning. VLAct preserves the broad VLM prior and encourages shared action semantics across embodiments through VLM-prior preservation, multi-head continuous action co-supervision, and a partially unified cross-embodiment action layout, while allowing task-specific action heads during fine-tuning. Across simulation, real-world, and unseen-embodiment transfer, VLAct consistently improves downstream performance under fixed fine-tuning protocols. On LIBERO-Plus and RoboTwin 2.0, VLAct surpasses industrial VLA systems including ABot-M0 and LingBot-VLA, achieving success rates of 82.6% and 92.5%. On RoboDojo, VLAct ranks sixth among all policies by success rate and outperforms all explicitly designated world-action model (WAM) entries on both metrics. Most notably, on RoboCasa-GR1, an unseen humanoid embodiment, VLAct using only 20% of downstream trajectories outperforms the full-data GR00T-N1.6 baseline. These results are obtained using fully open-source data and only a 16-GPU training setup, showing that representation-centric continued pre-training can deliver highly competitive performance under a modest compute budget and is an important independent axis of VLA progress beyond data scaling.",
+    "pdf_url": "https://arxiv.org/pdf/2608.27550v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.27550",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 86,
+    "citations": null,
+    "summary": {
+      "tldr": "VLAct는 제한된 로봇 데이터로도 우수한 시각-언어-행동 모델을 만드는 방법",
+      "problem": "로봇 데이터는 웹 이미지-텍스트 데이터보다 확장이 어려워 표현 품질이 핵심 문제입니다. 제한된 데이터로도 일반화된 모델을 만드는 것이 어려웠습니다.",
+      "method": "VLAct는 다양한 로봇 데이터로 사전 학습 후 작업별 조정합니다. 표현 보존, 다중 헤드 감독, 통합된 행동 레이아웃 기법으로 공유된 행동 의미를 강화합니다.",
+      "result": "LIBERO-Plus에서 82.6%, RoboTwin 2.0에서 92.5% 성공률 달성. 20% 데이터로 GR00T-N1.6 기준을 넘어서는 성과를 보입니다.",
+      "example": "집안에서 로봇이 물건을 들고 이동하는 작업을 배우는 예시. 제한된 데이터로도 다양한 상황을 이해하게 만드는 기술입니다.",
+      "eli12": "로봇이 집안에서 물건을 들고 이동하는 걸 배우는 거예요. 책을 많이 읽기보다는, 이미 본 예시를 통해 스스로 규칙을 알아내는 방법이죠.",
+      "background": [
+        {
+          "term": "비전-언어-행동(VLA) 모델",
+          "explain": "시각, 언어, 행동을 모두 학습하는 로봇용 모델"
+        },
+        {
+          "term": "계속된 사전 학습",
+          "explain": "처음 학습 후 추가로 학습해 모델을 개선하는 방법"
+        },
+        {
+          "term": "로봇 트라젝토리",
+          "explain": "로봇이 움직이는 경로와 행동을 기록한 데이터"
+        },
+        {
+          "term": "다중 신체 데이터",
+          "explain": "다양한 형태의 로봇(예: 인간oid, 드론) 데이터를 함께 학습"
+        },
+        {
+          "term": "표현 학습",
+          "explain": "데이터의 본질적인 특징을 추출해 모델이 이해하는 방법"
+        }
+      ],
+      "keywords": [
+        "비전-언어-행동(VLA) 모델",
+        "계속된 사전 학습",
+        "표현 학습",
+        "로봇 트라젝토리",
+        "다중 신체 데이터"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:48:19.909418+00:00",
+    "week": "2026-W36"
+  },
+  "2608.30935": {
+    "id": "2608.30935",
+    "title": "LightNav-0: Eliciting VLM Spatial Intelligence for Generalist Embodied Navigation",
+    "authors": [
+      "Shaoan Wang",
+      "Aocheng Luo",
+      "Fei Huang",
+      "Jingyi Xu",
+      "Xiaoyang Wang",
+      "Yueyu Wang",
+      "Qianli Ma",
+      "Fan Yang",
+      "Ran Mei",
+      "Jia Wei",
+      "Jiangpeng Hu",
+      "Xuhao Liu",
+      "Hongming Chen",
+      "Yuanbin Shao",
+      "Yiyang Lin",
+      "Ziliang Li",
+      "Liang Pan",
+      "Xinhang Liu",
+      "Yuntao Ma",
+      "Tingxiang Fan"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-08-31T15:08:53Z",
+    "updated": "2026-08-31T15:08:53Z",
+    "abstract": "Embodied navigation requires agents to translate heterogeneous goals and visual observations into actions across tasks, environments, and robot embodiments. Modern vision-language models (VLMs) already encode spatial priors for visual grounding, spatial reasoning, and pointing, but these capabilities are rarely elicited directly for robot control. Existing navigation systems instead rely on task- or embodiment-specific components, fragmenting perception, reasoning, and action while offering limited generalization. Here we present LightNav-0, a compact generalist embodied navigation model that elicits the spatial intelligence of a pretrained VLM and aligns it with navigation, without task-specific prediction heads. LightNav-0 represents diverse navigation tasks through a unified token interface: dual-channel pointing expresses task-, scene-, and embodiment-agnostic spatial intent, while a residual vector-quantized action tokenizer maps this intent to precise, embodiment-specific trajectories. Together with temporally aware visual history compression, ER mid-training, supervised fine-tuning, and reinforcement learning, this formulation supports instruction following, open-vocabulary object navigation, and visual tracking within a single model. The navigation training corpus spans 2K+ scenes and 4K+ hours of embodied navigation data. LightNav-ER, the embodied-reasoning checkpoint used to initialize LightNav-0, attains the highest complete-set average across 8 embodied-reasoning benchmarks, while LightNav-0 achieves state-of-the-art monocular success rates across all 10 public navigation simulation settings. Real-world evaluations further demonstrate zero-shot generalization across robot embodiments, diverse scenes, and static and dynamic targets. These results establish compact VLMs as a unified and transferable backbone for generalist embodied navigation.",
+    "pdf_url": "https://arxiv.org/pdf/2608.30935v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.30935",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 26,
+    "citations": null,
+    "summary": {
+      "tldr": "LightNav-0은 시각 모델을 이용해 로봇이 다양한 환경에서 이동하는 방법을 개발했습니다.",
+      "problem": "기존 로봇 이동 시스템은 특정 작업이나 환경에만 맞춰져 있어 일반화가 어려웠고, 인식, 추론, 행동이 분리되어 있었습니다.",
+      "method": "LightNav-0은 사전 학습된 시각-언어 모델의 공간 지능을 활용해 이동을 제어하며, 단일 모델로 다양한 작업을 처리할 수 있도록 통합된 토큰 인터페이스를 사용했습니다.",
+      "result": "시뮬레이션에서 최고 성능을 보이며, 실제 환경에서도 새로운 장치와 장애물에 대응할 수 있는 일반화 능력을 입증했습니다.",
+      "example": "로봇이 방을 돌아다니며 '컵'을 찾아가는 작업에서, 이미지와 말을 이해해 직접 경로를 계산합니다. 기존 방식은 특정 방식만 알았지만, LightNav-0은 다양한 상황을 스스로 처리합니다.",
+      "eli12": "로봇이 방에서 물건을 찾을 때, 사진을 보고 스스로 어떻게 가는지 배우는 거예요. 기존 방식은 특정 방법만 알았지만, 이 방법은 다양한 방식을 배워서 더 유연하게 움직일 수 있어요.",
+      "background": [
+        {
+          "term": "Embodied Navigation",
+          "explain": "로봇이 실제 환경에서 움직이며 목표를 달성하는 기술"
+        },
+        {
+          "term": "Vision-Language Models",
+          "explain": "사진과 말을 동시에 이해하는 인공지능 모델"
+        },
+        {
+          "term": "Vector Quantization",
+          "explain": "데이터를 작은 코드로 압축해 저장하는 방법"
+        },
+        {
+          "term": "Reinforcement Learning",
+          "explain": "로봇이 행동을 반복하며 성공할 때 보상받아 배우는 방식"
+        },
+        {
+          "term": "Tokenization",
+          "explain": "문장을 작은 단위로 나누어 처리하는 기술"
+        }
+      ],
+      "keywords": [
+        "LightNav-0",
+        "Vision-Language Models",
+        "Embodied Navigation",
+        "Vector Quantization",
+        "Reinforcement Learning"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:49:16.045109+00:00",
+    "week": "2026-W36"
+  },
+  "2609.01404": {
+    "id": "2609.01404",
+    "title": "Evaluating Multimodal LLMs as Generalist Vision-Language-Action Agents for Drone Control: Commanding, Approaching, Tracking and Searching",
+    "authors": [
+      "Jaewoo Park",
+      "Minyoung Lee",
+      "Sukmin Seo",
+      "Moonbin Yim",
+      "Hyunwook Yoon",
+      "Dohoon Ryu",
+      "Daehee Kim",
+      "Myungseo Song",
+      "Jihyuk Byun",
+      "Seunggyu Chang",
+      "Taeho Kil",
+      "Jiseob Kim",
+      "Bado Lee",
+      "Geewook Kim"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-09-01T15:27:43Z",
+    "updated": "2026-09-01T15:27:43Z",
+    "abstract": "Multimodal Large Language Models (MLLMs) are strong perceivers of images and video. We ask how far that reach extends into acting: dropping an MLLM directly into a drone's control loop, with its entire action space declared solely in the prompt. Recent systems approach this setting but increasingly narrow the model's decision-making. We widen it back. We introduce DroneCATS-Agent, an architecture where the MLLM is a swappable component, and DroneCATS, a benchmark treating the model as the independent variable. Beyond merely flying toward a pixel, our agent entrusts the model to yaw and search, deliberate when unsure, and self-declare arrival---all without fine-tuning or function-calling schemas. Evaluating frontier and open models across four core capabilities---approaching a visible target, tracking a moving one, searching outside the initial view, and commanding a multi-drone fleet---reveals that even the simplest embodied settings are far from solved. Crucially, to identify what breaks first at the edge, our roster scales down to 2B parameters. The findings expose a stark paradox: it is not the flying that fails. Small open models often navigate into the success radius more reliably than frontier models, yet lose the episode by declaring arrival prematurely or not at all. Multi-drone commanding amplifies this divide, with small models failing by blindly copying a single coordinate across distinct views. Viewed as vision-language-action agents, the models' spatial perception holds up, but their action protocol does not. What separates a deployable edge model from a frontier model is not navigation, but the discipline to sustain a declared protocol and emit the correct terminating action. The open problem is closing this gap at onboard compute costs---yielding a fast model that plans persistently and knows exactly when it is done---and DroneCATS is built to measure that distance.",
+    "pdf_url": "https://arxiv.org/pdf/2609.01404v1",
+    "arxiv_url": "https://arxiv.org/abs/2609.01404",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 19,
+    "citations": 0,
+    "summary": {
+      "tldr": "드론 제어에 MLLM의 능력을 평가하는 실험 결과 공유",
+      "problem": "드론을 제어할 수 있는 MLLM의 한계를 파악하고, 작동 방식을 개선하기 위한 실험 필요",
+      "method": "DroneCATS-Agent 아키텍처를 통해 MLLM을 드론 제어에 적용하고, 다양한 모델을 테스트하는 벤치마크 시스템 개발",
+      "result": "작은 모델이 드론 이동보다는 행동 판단에서 우수했으며, 다중 드론 제어 시 문제가 발생하는 것을 발견",
+      "example": "재난 시 구조를 찾는 드론을 제어하거나, 물류 창고에서 물품을 찾아주는 로봇에 활용 가능",
+      "eli12": "드론을 조종하는 컴퓨터가 스스로 판단해서 움직이는 걸 테스트해봤어요. 작은 컴퓨터는 잘 움직이지만, 큰 컴퓨터는 때로 잘못 판단해요. 이걸 고치는 방법을 찾고 있어요",
+      "background": [
+        {
+          "term": "멀티모달 대규모 언어 모델",
+          "explain": "이미지와 텍스트를 동시에 이해하는 큰 컴퓨터"
+        },
+        {
+          "term": "드론 제어 루프",
+          "explain": "드론이 스스로 움직이는 시스템"
+        },
+        {
+          "term": "비전-언어-행동 에이전트",
+          "explain": "보는 것, 말하는 것, 움직이는 것을 모두 처리하는 컴퓨터"
+        },
+        {
+          "term": "벤치마크",
+          "explain": "기술을 비교해보는 실험 틀"
+        },
+        {
+          "term": "행동 프로토콜",
+          "explain": "컴퓨터가 어떻게 움직일지 정해놓은 규칙"
+        }
+      ],
+      "keywords": [
+        "멀티모달 LLM",
+        "드론 제어",
+        "비전-언어-행동 에이전트",
+        "벤치마크",
+        "행동 프로토콜"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:50:07.941251+00:00",
+    "week": "2026-W36"
+  },
+  "2608.31046": {
+    "id": "2608.31046",
+    "title": "Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement",
+    "authors": [
+      "Yi Ding",
+      "Ruqi Zhang"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-08-31T16:22:10Z",
+    "updated": "2026-08-31T16:22:10Z",
+    "abstract": "On-policy distillation (OPD) offers dense token-level supervision as an alternative to the sparse outcome-level advantages of reinforcement learning with verifiable rewards (RLVR). However, the teacher scores student-generated trajectories that are inherently off-policy for it, so the reliability of its supervision, and hence the source of the student's improvement, remains unclear. We quantitatively analyze teacher supervision during OPD training and find substantial noise whose prevalence increases with teacher scale. Surprisingly, the student policy is insensitive to such noise, converging to comparable performance regardless of whether noisy supervision is retained or removed. Does OPD distill at all? By analyzing what drives its gains, we find that learning concentrates on low log-probability tokens, and using a single fixed negative advantage matches the performance of teacher-provided ones. This suggests that OPD works largely by suppressing low log-probability tokens, which requires no teacher. These findings motivate On-Policy Self-Adaptation (OPSA), a supervision-free method using entropy-adaptive negative advantages. It assigns stronger learning signals to high-entropy positions, suppressing tail tokens, and evenly redistributing probability mass among head tokens. Compared with the base \\texttt{Qwen3-1.7B}, OPSA improves Avg@32 by 35.41 points on AIME24, corresponding to a 263\\% relative gain, and more than doubles Pass@32 across all three benchmarks. It also outperforms OPD by 16.77 points in Avg@32 on AIME24. Extensive experiments and analyses across model families and tasks further demonstrate its effectiveness and generalizability.",
+    "pdf_url": "https://arxiv.org/pdf/2608.31046v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.31046",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 123,
+    "citations": 0,
+    "summary": {
+      "tldr": "OPD는 효과적이지 않으며, 스스로 학습하는 방법이 더 나은 결과를 보인다.",
+      "problem": "OPD는 교사 모델의 피드백을 학생 모델에 전달하지만, 교사의 피드백이 불확실해 학생의 성장 원인을 파악하기 어려웠다. 교사 규모가 커질수록 피드백의 노이즈가 증가하는 문제가 있었다.",
+      "method": "OPSA는 교사 없이 엔트로피에 따라 학습 신호를 조정하는 방법으로, 고엔트로피 위치에 더 강한 학습을 적용해 꼬리 토큰을 억제하고 머리 토큰의 확률을 균등하게 분배한다.",
+      "result": "OPSA는 기존 모델 대비 성능을 263% 개선하고, OPD보다 16.77점 더 우수한 결과를 보이며 일반화 능력도 입증했다.",
+      "example": "챗봇이 대화 중에 중요한 단어를 강조하고, 부수적인 단어는 무시해 더 명확하게 대화하는 것처럼, OPDA는 불필요한 정보를 제거해 효율성을 높인다.",
+      "eli12": "선생님의 조언을 따라 배우는 대신, 스스로 잘하는 방법을 찾는 게 더 쉬워요. 선생님의 말이 틀려도, 스스로 연습하면 더 잘할 수 있어요. 이 방법은 게임에서 승리하는 법을 스스로 배우는 것처럼 작동해요.",
+      "background": [
+        {
+          "term": "강화학습",
+          "explain": "보상으로 학습하는 방법으로, 올바른 행동을 반복해 늘리는 것"
+        },
+        {
+          "term": "지식증류",
+          "explain": "복잡한 모델을 간단한 모델로 가르치는 방법"
+        },
+        {
+          "term": "엔트로피",
+          "explain": "확률 분포의 불확실성을 측정하는 수치로, 예측이 어려울수록 값이 커진다"
+        },
+        {
+          "term": "토큰",
+          "explain": "텍스트를 구성하는 가장 작은 단위로, 문장의 의미를 결정한다"
+        },
+        {
+          "term": "성능 지표",
+          "explain": "모델의 능력을 측정하는 수치로, 예측 정확도나 효율성을 보여준다"
+        }
+      ],
+      "keywords": [
+        "강화학습",
+        "지식증류",
+        "엔트로피",
+        "토큰",
+        "성능지표"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:51:14.831613+00:00",
+    "week": "2026-W36"
+  },
+  "2609.01343": {
+    "id": "2609.01343",
+    "title": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers",
+    "authors": [
+      "Shaowen Wang",
+      "Ge Zhang",
+      "Kairong Luo",
+      "Yuhao Wu",
+      "Shaofan Liu",
+      "Jiaheng Liu",
+      "Wenhao Huang",
+      "Shen Yan",
+      "Jian Li"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-09-01T14:52:57Z",
+    "updated": "2026-09-01T14:52:57Z",
+    "abstract": "Looped Transformers increase effective depth by iterating a shared block of layers, but most evaluations compare at fixed model size, conflating architectural advantage with extra FLOPs. We study looping on Mixture-of-Experts Transformers while closely matching per-token FLOPs, total non-embedding parameters, and KV cache. Through a series of ablations, we arrive at a recipe we call SMELT (Sparse MoE Transformer, middle layers Loop Twice), which loops the middle half of layers twice while matching the unlooped Baseline on all three budgets. We scale SMELT across four sizes up to 54B non-embedding parameters and fit a separate Chinchilla-style scaling law for each architecture. SMELT's loss drops faster with compute, saving 6.8--18.0\\% of training FLOPs on the compute-optimal frontier. The advantage transfers to downstream benchmarks beyond what validation loss predicts, is largest on Code, and grows with sample length and the number of in-context examples. Mechanistic analysis shows that the second visit reduces the attention sink and redirects mass toward content-relevant tokens, an inductive bias that may underlie the observed performance gains. These results show that looping can improve Transformers even under budget matching, offering a practical recipe that turns depth reuse into measurable gains.",
+    "pdf_url": "https://arxiv.org/pdf/2609.01343v1",
+    "arxiv_url": "https://arxiv.org/abs/2609.01343",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 65,
+    "citations": null,
+    "summary": {
+      "tldr": "SMELT는 계산 효율을 유지하면서 트랜스포머 모델의 성능을 향상시킵니다.",
+      "problem": "기존 연구는 모델 크기 고정으로 성능 비교를 해서 계산량과 구조적 이점을 혼동했기 때문에, 실제 효과를 파악하기 어려웠습니다. 이 논문은 계산량을 동일하게 유지하면서 모델 구조를 개선하는 방법을 탐구했습니다.",
+      "method": "SMELT는 중간 레이어를 두 번 반복해 깊이를 늘리면서, 토큰당 FLOPs와 파라미터, KV 캐시를 동일하게 유지합니다. 이 방법은 계산량을 줄이고도 성능을 높이는 데 중점을 뒀습니다.",
+      "result": "SMEL,트는 계산량이 늘수록 손실을 더 빠르게 줄이고, 코드 생성 등 특정 작업에서 더 좋은 성능을 보입니다. 이는 모델이 중요한 정보에 집중하도록 도와줍니다.",
+      "example": "코드를 자동으로 생성할 때, SMELT는 더 긴 문장도 처리할 수 있고, 예측이 더 정확해집니다. 이는 레시피를 반복해 따라가면서 더 잘 만드는 것처럼 생각할 수 있습니다.",
+      "eli12": "우리가 레시피를 따라 요리할 때, 같은 재료로 더 많은 요리법을 만드는 것처럼, SMELT는 같은 자원으로 더 좋은 결과를 만듭니다. 이는 중요한 재료에 더 집중해서 요리하는 것이 더 맛있게 만든다는 생각입니다.",
+      "background": [
+        {
+          "term": "MoE(믹스 오브 에크스피츠)",
+          "explain": "전문가들이 협업해 문제를 해결하는 방식으로, 일부 레이어만 활성화해 효율을 높입니다."
+        },
+        {
+          "term": "FLOPs",
+          "explain": "컴퓨터가 계산하는 작업량을 나타내는 단위로, 계산량이 많을수록 더 많은 자원이 필요합니다."
+        },
+        {
+          "term": "KV 캐시",
+          "explain": "이전 토큰의 정보를 저장해 빠르게 참조할 수 있도록 하는 메모리 공간입니다."
+        },
+        {
+          "term": "스케일링 법칙",
+          "explain": "모델 크기와 성능 간의 관계를 수학적으로 표현한 법칙으로, 더 큰 모델이 더 좋은 결과를 낳는 경우를 설명합니다."
+        },
+        {
+          "term": "에니메이션 싱크",
+          "explain": "모델이 중요한 정보에 집중하지 못해 계산이 낭비되는 현상을 말합니다."
+        }
+      ],
+      "keywords": [
+        "SMELT",
+        "MoE",
+        "Looped Transformers",
+        "Scaling Laws",
+        "FLOPs"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:52:21.487557+00:00",
+    "week": "2026-W36"
+  },
+  "2608.31036": {
+    "id": "2608.31036",
+    "title": "Normalized Low-Rank Adaptation",
+    "authors": [
+      "Jiale Kang",
+      "Ziyin Yue",
+      "Zheng Zhan",
+      "Yangyi Huang",
+      "Weiyang Liu"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-08-31T16:15:36Z",
+    "updated": "2026-08-31T16:15:36Z",
+    "abstract": "While low-rank adaptation (LoRA) is widely used for parameter-efficient model adaptation, how to regularize its training dynamics for stable and effective optimization remains underexplored. Because LoRA initializes the up-projection to zero, its early optimization dynamics are largely governed by the down-projection. Building on this observation, we introduce Normalized Low-Rank Adaptation (NoRA), a simple yet effective method that normalizes the down-projection matrices during training. We further show that the same normalization can be applied only at initialization, improving standard LoRA without requiring repeated normalization throughout training. Across pretraining, supervised finetuning, and reinforcement learning, NoRA consistently accelerates convergence, improves performance and training stability, and mitigates catastrophic forgetting. These benefits require neither additional trainable parameters nor inference-time computation, making NoRA a simple and broadly applicable enhancement to LoRA.",
+    "pdf_url": "https://arxiv.org/pdf/2608.31036v1",
+    "arxiv_url": "https://arxiv.org/abs/2608.31036",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 47,
+    "citations": null,
+    "summary": {
+      "tldr": "NoRA는 LoRA의 학습 안정성과 성능을 개선하는 간단한 방법입니다.",
+      "problem": "LoRA는 파라미터 효율적 모델 조정에 널리 사용되지만, 학습 동작을 안정적으로 조절하는 방법이 부족해 수렴이 어려웠습니다. 초기 학습 단계에서 다운 프로젝션에 의존하는 문제가 있었기 때문입니다.",
+      "method": "NoRA는 학습 중 다운 프로젝션 행렬을 정규화해 안정적인 최적화를 도모했습니다. 초기화 시점에만 정규화를 적용해 기존 LoRA를 개선할 수 있음을 보여주었습니다.",
+      "result": "NoRA는 사전 학습, 감독 토닝, 강화 학습 등 다양한 시나리오에서 수렴 속도를 빠르게 하고 성능을 향상시켰으며, 파라미터 추가나 추론 시간 증가 없이도 효과를 발휘했습니다.",
+      "example": "대형 언어 모델이 특정 작업을 학습할 때, NoRA는 모델이 과도하게 변하지 않도록 조절해 오래된 지식을 잃지 않도록 도와줍니다. 예를 들어, 번역 모델이 새로운 언어를 배우면서 기존 언어의 능력을 유지합니다.",
+      "eli12": "차가 길을 달릴 때 방향을 잘 조절하는 것처럼, NoRA는 모델이 학습할 때 방향을 안정적으로 잡아줘 실수를 줄이고 빠르게 배울 수 있게 해요. 이 방법은 복잡한 장비를 추가하지 않고도 차량을 더 안전하게 만드는 것처럼 작동해요.",
+      "background": [
+        {
+          "term": "LoRA",
+          "explain": "대규모 모델을 효율적으로 조정하기 위해 작은 행렬로 파라미터를 수정하는 기법입니다."
+        },
+        {
+          "term": "정규화",
+          "explain": "학습 과정에서 데이터를 일정한 범위로 조절해 모델이 안정적으로 학습하도록 돕는 방법입니다."
+        },
+        {
+          "term": "catastrophic forgetting",
+          "explain": "모델이 새로운 정보를 배우면서 기존 지식을 잃는 현상으로, 학습 과정에서 문제가 됩니다."
+        },
+        {
+          "term": "파라미터 효율적 적응",
+          "explain": "모델을 조정할 때 전체 파라미터를 바꾸지 않고, 일부만 수정해 효율적으로 학습하는 방법입니다."
+        },
+        {
+          "term": "학습 동작",
+          "explain": "모델이 데이터를 보고 스스로 학습하는 과정에서 일어나는 변화와 조정을 의미합니다."
+        }
+      ],
+      "keywords": [
+        "LoRA",
+        "정규화",
+        "catastrophic forgetting",
+        "파라미터 효율적 적응",
+        "학습 동작"
+      ]
+    },
+    "fetched_at": "2026-09-02T15:53:34.643524+00:00",
+    "week": "2026-W36"
   }
 }

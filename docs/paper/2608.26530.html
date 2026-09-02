@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>주차별 아카이브 · AI 논문 요약</title>
+<title>PILOT in the Loop: Live Self-Improvement for Long-Horizon Agents · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -92,16 +92,24 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="index.html">← 최신 이슈로</a>
-<header style="padding-top:8px"><h1 class="title">📚 주차별 아카이브</h1>
-  <p class="subtitle">지난 주간 이슈를 분야별로 다시 볼 수 있습니다.</p></header>
-<a class="issue-row" href="issue/2026-W36.html">
-  <div><div class="wk">2026-W36</div><div class="sub">컴퓨터비전 (CV), 기타 AI, 자연어처리 (NLP), AI 일반·에이전트, 강화학습·로보틱스, 머신러닝 (ML)</div></div>
-  <div class="badges"><span class="badge">18편</span>
-    <span class="date">2026.09.02</span></div></a><a class="issue-row" href="issue/2026-W34.html">
-  <div><div class="wk">2026-W34</div><div class="sub">자연어처리 (NLP), 머신러닝 (ML), AI 일반·에이전트, 컴퓨터비전 (CV), 강화학습·로보틱스, 음성·오디오</div></div>
-  <div class="badges"><span class="badge">15편</span>
-    <span class="date">2026.08.18</span></div></a>
+<a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">PILOT in the Loop: Live Self-Improvement for Long-Horizon Agents</h1>
+<p class="authors">Yang Xiao, Yusong Sun, Haoyi Wu, Wenyang Hui, Wen Da, Zhaokai Luo, Mu Chuan, Yao Hu 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">인공지능</span><span class="pop">👍 31</span>
+  <span class="date">2026.08.27 · arXiv:2608.26530</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>PILOT은 AI가 실행 중에도 스스로 개선되도록 실시간으로 조정하는 시스템입니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>AI가 일을 할 때, 중간에 실수하면 바로 고치고, 그 실수를 기억해 다음 일을 더 잘하게 만드는 시스템이에요. 마치 아이가 과제를 할 때, 틀리면 즉시 고쳐서 다음 문제를 더 빠르게 풀어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>AI가 장시간 작업을 할 때, 중간에 실수를 하면 즉시 방향을 바로잡고, 그 실수를 다음 작업에 적용해 더 빠르게 배웁니다. 예를 들어, 레시피 따라 요리 중에 재료 부족하면 즉시 대체재를 찾고, 그 경험을 다음 요리에 활용합니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>기존 AI는 작업이 끝난 후 경험을 분석해 개선하지만, 실행 중에는 조정이 불가능합니다. 이로 인해 학습 속도와 효율성이 낮아졌습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>PILOT은 &#x27;실시간 조정&#x27;과 &#x27;실시간 학습&#x27; 두 기능을 통해 작동합니다. 하나의 감시자가 실행 중인 작업을 중단하거나 방향을 바꾸고, 실패 사례를 분석해 재사용 가능한 기술로 변환합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>테스트 결과, PILOT은 기존 시스템보다 최대 9.8% 성능 향상과 47.4%의 출력 토큰 감소를 달성했습니다. 효율성도 134% 증가했습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>장기 목표 AI</b><span>오랜 시간 동안 복잡한 목표를 달성하려는 인공지능</span></div><div class="bg-item"><b>실시간 학습</b><span>작업 중에도 경험을 즉시 분석해 배우는 능력</span></div><div class="bg-item"><b>감시자-작업자 시스템</b><span>작업을 감독하는 AI와 실제 실행하는 AI가 분리되어 작동하는 구조</span></div><div class="bg-item"><b>실패 사례 분석</b><span>실수를 통해 얻은 정보를 정리해 다음에 사용할 수 있도록 만드는 과정</span></div><div class="bg-item"><b>출력 토큰</b><span>AI가 생성하는 텍스트의 단위로, 토큰 수가 줄어들면 효율성이 높아집니다</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">실시간 개선</span><span class="kw">감시자-작업자 시스템</span><span class="kw">장기 목표 AI</span><span class="kw">실패 사례 분석</span><span class="kw">출력 효율성</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Long-horizon agent runs generate experience that can improve both the current run and future work. Most self-improvement methods process this experience only after execution ends, so they cannot redirect the active run or immediately apply and validate lessons learned from it. We argue that self-improvement should instead be live, using emerging experience both to redirect the active run and to update the persistent harness. Existing agent architectures do not fully support this goal. Single-agent self-correction combines task execution and trajectory assessment within one context, while subagent delegation separates execution but typically cannot redirect an active subagent. We present PILOT, a supervisor-worker harness for live self-improvement through two coupled mechanisms: (1) live steering lets a separate supervisor redirect or abort the active worker during execution; and (2) live self-evolution distils procedures and failure modes revealed during execution into reusable skills and memory. Across two frozen backbones and three benchmarks, PILOT ranks first in five of six configurations. On Terminal-Bench 2.0, PILOT outperforms counterpart harnesses by up to 9.8 percentage points. In the self-improvement setting, PILOT gains 14.6 points with GLM-5.1 and 12.4 points with Kimi-K2.6. Mean output tokens fall by 42.9% and 47.4%, while successful evaluations per million output tokens rise by 110.3% and 134.0%, respectively.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2608.26530v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2608.26530" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>
 </body>
