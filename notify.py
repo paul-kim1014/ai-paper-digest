@@ -61,58 +61,30 @@ def _fit(s: str, width: int) -> str:
     return out + " " * max(0, width - cur)
 
 
-def _pad(s: str, width: int) -> str:
-    """이미 폭 안에 들어가는 문자열을 오른쪽 공백으로 채운다(자르지 않음)."""
-    return s + " " * max(0, width - _dw(s))
-
-
-def _wrap(s: str, width: int) -> list[str]:
-    """표시 폭 기준으로 줄바꿈. 내용을 자르지 않고 여러 줄로 펼친다."""
-    s = " ".join((s or "").split())
-    if not s:
-        return [""]
-    lines, cur, cw = [], "", 0
-    for ch in s:
-        w = 2 if unicodedata.east_asian_width(ch) in "WF" else 1
-        if cw + w > width:
-            lines.append(cur)
-            cur, cw = ch, w
-        else:
-            cur += ch
-            cw += w
-    if cur:
-        lines.append(cur)
-    return lines
-
-
 def build_top3_table(papers: list[dict]) -> str:
-    """인기 1~3위를 구분/주제/핵심 원리 및 기술/개선효과/미비점 및 우려사항 표로.
+    """인기 1~3위를 항목별로 정리해 반환한다.
 
-    셀 내용은 자르지 않고 열 폭에 맞춰 줄바꿈하여 전체 내용을 보여준다.
+    Slack 코드블록의 고정폭 표는 쓰지 않는다. 한글 글자폭이 영문의 정확히 2배가
+    아니어서 줄마다 어긋남이 누적돼 세로선이 맞지 않기 때문이다. 대신 순위별로
+    블록을 나누고 항목명을 굵게 붙여, 가로 정렬 없이도 항목 구분이 명확하게 한다.
     """
     top = sorted(papers, key=lambda x: x.get("upvotes", 0), reverse=True)[:3]
     if not top:
         return ""
-    cols = [("구분", 5), ("주제", 20), ("핵심 원리 및 기술", 28),
-            ("개선효과", 22), ("미비점 및 우려사항", 24)]
-    sep = "+".join("-" * w for _, w in cols)
-    out = ["|".join(_fit(h, w) for h, w in cols), sep]
-
-    for i, p in enumerate(top, 1):
+    medals = ["🥇", "🥈", "🥉"]
+    blocks = []
+    for i, p in enumerate(top):
         s = p.get("summary", {})
-        improve = s.get("improvement") or s.get("result", "")
-        limits = s.get("limitations") or "요약에 명시된 한계 없음"
-        cells = [f"{i}위 👍{p.get('upvotes', 0)}",
-                 s.get("tldr") or p.get("title", ""),
-                 s.get("method", ""), improve, limits]
-        wrapped = [_wrap(c, w) for c, (_, w) in zip(cells, cols)]
-        height = max(len(w) for w in wrapped)
-        for r in range(height):
-            line = [_pad(w[r] if r < len(w) else "", cw)
-                    for w, (_, cw) in zip(wrapped, cols)]
-            out.append("|".join(line))
-        out.append(sep)
-    return "```\n" + "\n".join(out) + "\n```"
+        rows = [
+            ("주제", s.get("tldr") or p.get("title", "")),
+            ("핵심 원리 및 기술", s.get("method", "")),
+            ("개선효과", s.get("improvement") or s.get("result", "")),
+            ("미비점 및 우려사항", s.get("limitations") or "요약에 명시된 한계 없음"),
+        ]
+        head = f"{medals[i]} *{i + 1}위*  ·  👍 {p.get('upvotes', 0)}"
+        body = "\n".join(f"> *{k}*\n> {' '.join(str(v).split())}" for k, v in rows)
+        blocks.append(f"{head}\n{body}")
+    return "\n\n".join(blocks)
 
 
 def build_message(cfg: dict, label: str, fields: dict, top_paper: dict | None,
@@ -130,6 +102,7 @@ def build_message(cfg: dict, label: str, fields: dict, top_paper: dict | None,
             lines.append("")
             lines.append("*🏆 이번 주 인기 1~3위 요약*")
             lines.append(table)
+            lines.append("")  # 링크와 간격
     elif top_paper:
         up = top_paper.get("upvotes", 0)
         lines.append(f"🔥 이번 주 인기 1위: {top_paper['title']} (👍 {up})")
