@@ -44,9 +44,18 @@ def load_json(path: str, default):
 
 
 def save_json(path: str, data) -> None:
+    """원자적 저장: 임시 파일에 쓴 뒤 교체한다.
+
+    open(path,"w")는 파일을 먼저 비우므로, 쓰기 도중 중단되면 누적 데이터가
+    통째로 날아간다. 임시 파일 → fsync → os.replace(원자적 교체) 순서로 막는다.
+    """
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
+    tmp = f"{path}.tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
 
 
 def week_label(d: date) -> str:

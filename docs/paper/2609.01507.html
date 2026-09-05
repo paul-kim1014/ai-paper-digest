@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving · AI 논문 요약</title>
+<title>LatentPress: Context Compression Beyond Text and Vision · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -93,22 +93,22 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 <body>
 <div class="wrap">
 <a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
-<h1 class="title" style="font-size:1.4rem">Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving</h1>
-<p class="authors">Xin Zhou, Zongchuang Zhao, Zhibo Yang, Mingsheng Li, Humen Zhong, Shuai Bai, Du Chu, Ruizhe Chen 외</p>
-<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="pop">👍 370</span>
-  <span class="date">2026.08.31 · arXiv:2609.00111</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>자율주행차가 시각과 언어를 통합해 안전하게 운전하는 기술</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>자동차가 스스로 운전할 때, 눈으로 보는 것과 말을 듣는 것을 동시에 이해해 도로를 안전하게 달리는 기술입니다. 예를 들어, &#x27;왼쪽으로 회전&#x27;이라는 말을 듣고, 주변 차량을 보며 정확하게 움직이는 거죠.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>자율주행차가 교차로에서 신호등을 보고 &#x27;정지&#x27;라는 지시를 받아 멈추는 모습입니다. 주변 차량과 보행자를 인식하고, 도로 상태를 이해해 안전하게 운전합니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>자율주행차가 주변을 보고 판단하는 데 시각 정보만으로는 한계가 있어, 시각과 언어를 결합해 더 정확하게 판단해야 합니다. 기존 시스템은 복잡한 도로 상황을 이해하는 데 어려움이 있습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>시각-언어 모델을 기반으로 3D 인식, 시각 질문 답변, 운전 계획을 하나의 시스템에 통합했습니다. 비행기 위에서 본 시야(BEV)로 주변을 분석하고, 운전 전략을 생성하는 전문가 모듈을 추가했습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>3D 인식과 운전 계획에서 뛰어난 성능을 보이며, 일반적인 시각-언어 이해 능력도 유지했습니다. 실제 도로 상황에서 안정적인 운전이 가능해졌습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>시각-언어 모델</b><span>사진이나 영상을 보고 그 내용을 말로 설명하는 기술</span></div><div class="bg-item"><b>BEV 시야</b><span>비행기에서 바라보는 듯한 위에서 본 도로 모습을 분석하는 방식</span></div><div class="bg-item"><b>운동 계획</b><span>자동차가 앞으로 어떻게 움직일지 계산하는 방법</span></div><div class="bg-item"><b>3D 인식</b><span>자동차가 주변 물체의 위치와 형태를 공간적으로 이해하는 기술</span></div><div class="bg-item"><b>자율주행</b><span>사람이 직접 운전하지 않고 차량이 스스로 주행하는 기술</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">자율주행</span><span class="kw">시각-언어 모델</span><span class="kw">BEV</span><span class="kw">운동 계획</span><span class="kw">3D 인식</span></div></div>
-<div class="section"><h4>원문 초록</h4><p class="abstract">We present Qwen-Drive-1.0, an initial step towards a vision-language foundation model for autonomous driving. Qwen-Drive-1.0 retains the architecture of the pretrained vision-language model (VLM) and integrates 3D perception, visual question answering, and motion planning within a unified framework. An external bird&#x27;s-eye-view (BEV) perception head jointly performs 3D object detection, semantic occupancy prediction, and BEV map segmentation. It serves as a probe of the 3D information accessible from the shared representations and provides an explicit, inspectable interface to 3D scene structure. A Planning Expert conditions on shared VLM representations to generate future ego trajectories. A staged training recipe combines driving supervision with general-purpose vision-language data to acquire driving-specific competence while helping preserve broad visual understanding and instruction-following capabilities. Experiments demonstrate strong 3D perception and driving scene understanding while largely preserving general vision-language capability. Comprehensive evaluations across open-loop, pseudo-closed-loop, and closed-loop settings further show highly competitive motion-planning performance.</p>
+<h1 class="title" style="font-size:1.4rem">LatentPress: Context Compression Beyond Text and Vision</h1>
+<p class="authors">Zhengze Zhou, Hejian Sang</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="badge">인공지능</span><span class="pop">👍 107</span>
+  <span class="date">2026.09.01 · arXiv:2609.01507</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>문맥을 압축해 모델이 더 빠르게 읽을 수 있게 합니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>우리가 편지나 책을 읽을 때, 글자 대신 숫자로 바꿔서 읽는다고 생각해요. 그러면 더 빨리 읽을 수 있어요. 이 기술은 컴퓨터가 많은 정보를 빠르게 처리할 수 있게 해요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>대화 기록이나 긴 문서를 숫자로 압축해 저장하고, 모델이 그 숫자를 바로 읽어 내용을 이해하는 것처럼요. 이는 책을 읽기 위해 페이지 번호 대신 숫자를 보는 것처럼 생각하면 쉬워요.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>대량의 텍스트나 이미지 정보를 처리할 때, 모델이 느리거나 메모리가 부족해 문제가 생깁니다. 이 문제를 해결하기 위해 더 효율적인 방법이 필요합니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>LatentPress는 텍스트나 이미지 대신, 모델이 직접 읽을 수 있는 숫자 형태의 정보를 만듭니다. 이는 모델이 텍스트를 다시 생성할 필요 없이 바로 읽을 수 있도록 합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>이 방법은 텍스트 요약이나 OCR보다 더 잘 작동하며, 처리 속도도 빠릅니다. 이는 대규모 데이터 처리에 유용합니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>모델</b><span>데이터를 학습해 정보를 이해하고 처리하는 컴퓨터 프로그램</span></div><div class="bg-item"><b>압축</b><span>큰 데이터를 더 작은 크기로 바꿔 저장하거나 전송하는 방법</span></div><div class="bg-item"><b>텍스트</b><span>글자로 된 정보, 예를 들어 책이나 메시지</span></div><div class="bg-item"><b>이미지</b><span>사진이나 그림 같은 시각 정보</span></div><div class="bg-item"><b>속도</b><span>작업이 얼마나 빠르게 이루어지는지 나타내는 것</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LatentPress</span><span class="kw">문맥 압축</span><span class="kw">모델 처리</span><span class="kw">속도 향상</span><span class="kw">데이터 저장</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Compressed context is usually carried as human-readable text or as rendered images that must be decoded, even when its consumer is a language model. We introduce LatentPress, which writes conversational histories and long documents into a third representation: continuous memory tokens that a frozen decoder reads directly through its input-embedding interface, with no text reconstruction at inference. A small reader-matched writer compresses $4$-$16\times$ while training only an adapter (4.2M-26.2M parameters, $\sim\!0.1\%$ of the decoder). On LongMemEval, LatentPress reaches $0.504$ accuracy at $7.70\times$ compression versus $0.490$ for uncompressed evidence, outperforming text summaries (0.184) and OCR-based compression (0.426 to 0.312). On LongBench-QA, in-domain writers match or exceed raw-context reading at $4$-$8\times$ compression, while $16\times$ trails raw. Writing takes 43ms per conversation, roughly an order of magnitude faster than text summarization or OCR reconstruction, and reading is $5$-$9\times$ faster than raw context or cached OCR. We validate the interface under two transfer settings, zero-shot from UltraChat to LongMemEval memory QA and from LongMemEval-derived QA to unseen LongBench document domains, establishing direct soft tokens as a practical machine-facing context interface beyond text and vision. The implementation of the experiments could be found at: https://github.com/HJSang/LatentPress .</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2609.00111v1" target="_blank" rel="noopener">PDF 원문</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2609.00111" target="_blank" rel="noopener">arXiv 페이지</a>
+    <a class="btn" href="https://arxiv.org/pdf/2609.01507v2" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.01507" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>

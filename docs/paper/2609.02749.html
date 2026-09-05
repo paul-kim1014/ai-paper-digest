@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving · AI 논문 요약</title>
+<title>Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -93,22 +93,22 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 <body>
 <div class="wrap">
 <a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
-<h1 class="title" style="font-size:1.4rem">Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving</h1>
-<p class="authors">Xin Zhou, Zongchuang Zhao, Zhibo Yang, Mingsheng Li, Humen Zhong, Shuai Bai, Du Chu, Ruizhe Chen 외</p>
-<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="pop">👍 370</span>
-  <span class="date">2026.08.31 · arXiv:2609.00111</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>자율주행차가 시각과 언어를 통합해 안전하게 운전하는 기술</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>자동차가 스스로 운전할 때, 눈으로 보는 것과 말을 듣는 것을 동시에 이해해 도로를 안전하게 달리는 기술입니다. 예를 들어, &#x27;왼쪽으로 회전&#x27;이라는 말을 듣고, 주변 차량을 보며 정확하게 움직이는 거죠.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>자율주행차가 교차로에서 신호등을 보고 &#x27;정지&#x27;라는 지시를 받아 멈추는 모습입니다. 주변 차량과 보행자를 인식하고, 도로 상태를 이해해 안전하게 운전합니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>자율주행차가 주변을 보고 판단하는 데 시각 정보만으로는 한계가 있어, 시각과 언어를 결합해 더 정확하게 판단해야 합니다. 기존 시스템은 복잡한 도로 상황을 이해하는 데 어려움이 있습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>시각-언어 모델을 기반으로 3D 인식, 시각 질문 답변, 운전 계획을 하나의 시스템에 통합했습니다. 비행기 위에서 본 시야(BEV)로 주변을 분석하고, 운전 전략을 생성하는 전문가 모듈을 추가했습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>3D 인식과 운전 계획에서 뛰어난 성능을 보이며, 일반적인 시각-언어 이해 능력도 유지했습니다. 실제 도로 상황에서 안정적인 운전이 가능해졌습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>시각-언어 모델</b><span>사진이나 영상을 보고 그 내용을 말로 설명하는 기술</span></div><div class="bg-item"><b>BEV 시야</b><span>비행기에서 바라보는 듯한 위에서 본 도로 모습을 분석하는 방식</span></div><div class="bg-item"><b>운동 계획</b><span>자동차가 앞으로 어떻게 움직일지 계산하는 방법</span></div><div class="bg-item"><b>3D 인식</b><span>자동차가 주변 물체의 위치와 형태를 공간적으로 이해하는 기술</span></div><div class="bg-item"><b>자율주행</b><span>사람이 직접 운전하지 않고 차량이 스스로 주행하는 기술</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">자율주행</span><span class="kw">시각-언어 모델</span><span class="kw">BEV</span><span class="kw">운동 계획</span><span class="kw">3D 인식</span></div></div>
-<div class="section"><h4>원문 초록</h4><p class="abstract">We present Qwen-Drive-1.0, an initial step towards a vision-language foundation model for autonomous driving. Qwen-Drive-1.0 retains the architecture of the pretrained vision-language model (VLM) and integrates 3D perception, visual question answering, and motion planning within a unified framework. An external bird&#x27;s-eye-view (BEV) perception head jointly performs 3D object detection, semantic occupancy prediction, and BEV map segmentation. It serves as a probe of the 3D information accessible from the shared representations and provides an explicit, inspectable interface to 3D scene structure. A Planning Expert conditions on shared VLM representations to generate future ego trajectories. A staged training recipe combines driving supervision with general-purpose vision-language data to acquire driving-specific competence while helping preserve broad visual understanding and instruction-following capabilities. Experiments demonstrate strong 3D perception and driving scene understanding while largely preserving general vision-language capability. Comprehensive evaluations across open-loop, pseudo-closed-loop, and closed-loop settings further show highly competitive motion-planning performance.</p>
+<h1 class="title" style="font-size:1.4rem">Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills</h1>
+<p class="authors">Jianlyu Chen, Yuyang Hu, Hongjin Qian, Jiawei Liu, Wenqing Wei, Xiaolong Chen, Defu Lian, Zhicheng Dou 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">인공지능</span><span class="badge">자연어처리</span><span class="pop">👍 517</span>
+  <span class="date">2026.09.02 · arXiv:2609.02749</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>GitHub 저장소를 AI 기술로 변환해 연구 자동화</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 논문은 GitHub에 있는 사람들의 지식을 AI가 읽고, 그걸 작은 기술로 만든다. 이 기술을 사용하면 AI가 연구를 더 잘하고 빠르게 할 수 있어요. 예를 들어, AI가 사람처럼 코드를 읽고, 그걸 기술로 만든 다음, 다른 문제에도 쓸 수 있어요. 이걸로 AI가 연구를 더 쉽게 할 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>예를 들어, 머신러닝 모델을 개선하는 작업에서, DisCo는 GitHub에 있는 코드와 설명을 읽고, &#x27;데이터 정제&#x27;와 같은 기술을 만들어 연구자에게 제공한다. 이 기술은 다른 작업에도 재사용할 수 있어 연구 시간을 절약한다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>AI 연구 자동화 에이전트가 특정 분야의 실무 지식을 부족하게 하여 연구 효율이 낮다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>DisCo라는 에이전트가 GitHub 저장소와 논문에서 실무 지식을 추출해 작은 &#x27;기술&#x27;로 만든다. 이 기술은 다양한 연구 작업에 재사용할 수 있다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>기술을 사용한 에이전트가 여러 연구 평가에서 기존 에이전트보다 성능이 10~134% 향상되었다. 이는 기술이 연구 과정에서 실무 지식을 효과적으로 제공하기 때문이다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>머신러닝</b><span>컴퓨터가 데이터를 보고 스스로 학습해 문제를 해결하는 기술</span></div><div class="bg-item"><b>GitHub</b><span>개발자들이 코드를 저장하고 공유하는 온라인 저장소</span></div><div class="bg-item"><b>AI 에이전트</b><span>사람처럼 스스로 결정하고 행동하는 인공지능</span></div><div class="bg-item"><b>기술 추출</b><span>큰 데이터에서 작은, 재사용 가능한 정보를 뽑는 과정</span></div><div class="bg-item"><b>연구 자동화</b><span>AI가 연구 과정을 스스로 수행하는 것</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">AI 연구 자동화</span><span class="kw">GitHub 저장소</span><span class="kw">기술 추출</span><span class="kw">DisCo 에이전트</span><span class="kw">실무 지식</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Autonomous agents are beginning to carry out machine-learning (ML) research end to end. These agents combine a model backbone with a harness for planning, execution, memory, and verification, but this architecture still leaves domain-specific know-how outside the agent. We call this missing layer operational knowledge, the know-how that separates knowing a method from making it work. That knowledge is not absent from the field. It appears in repositories and papers, but in forms written for human readers and too large to load during a task. Once distilled into compact, verified skills, this knowledge can be reused across tasks rather than rediscovered during each run. We present DisCo, a skill-powered research agent that creates skills and uses them during research. Its distillation runs in two complementary forms: task-agnostic, condensing the field&#x27;s widely used repositories into reusable skills, and task-oriented, producing the skills a concrete task calls for. The former, applied across the open ecosystem, yields the AREX-Skill Library, with 5,000+ verified skills distilled from 1,000 widely used ML repositories and organized into 20 areas and 178 capability families. With the GPT-5.5 backbone, research harness, and downstream execution budget held fixed, the skill-equipped research agent scores 134.3% higher on MLE-bench, 34.4% higher on PaperBench, 9.2% higher on FrontierCS, and 14.0% higher on PassNet than the same agent without skills. These gains come from adding distilled operating context under that fixed setup.</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2609.00111v1" target="_blank" rel="noopener">PDF 원문</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2609.00111" target="_blank" rel="noopener">arXiv 페이지</a>
+    <a class="btn" href="https://arxiv.org/pdf/2609.02749v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.02749" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>

@@ -24,7 +24,7 @@ fi
 [ -f .env ] && set -a && . ./.env && set +a
 
 # 선별·요약·사이트 생성·Slack 발송
-"$PYTHON" main.py >> "$LOG" 2>&1
+"$PYTHON" -u main.py >> "$LOG" 2>&1
 STATUS=$?
 
 if [ $STATUS -eq 0 ]; then

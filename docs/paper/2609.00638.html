@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>It Takes Two to Match: Co-Evolving Generative Retriever with Reinforcement Learning · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">It Takes Two to Match: Co-Evolving Generative Retriever with Reinforcement Learning</h1>
+<p class="authors">Runpeng Dai, Kaili Huang, Changsung Kang, Ciya Liao</p>
+<div class="badges" style="margin:12px 0"><span class="badge">정보검색</span><span class="badge">자연어처리</span><span class="pop">👍 70</span>
+  <span class="date">2026.09.01 · arXiv:2609.00638</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>LLM을 쿼리와 아이템 모두에 적용해 검색 성능을 향상시킨 방법</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 논문은 검색을 더 잘 하기 위해, 사용자의 질문과 상품을 모두 분석하는 방법을 소개합니다. 사용자의 질문에 맞는 키워드를 만들고, 상품도 같은 키워드를 만들면, 검색 결과가 더 정확해집니다. 이 방법은 검색 엔진이 더 똑똑해지게 도와줍니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>검색 엔진이 사용자의 검색어와 상품을 모두 분석해 더 정확하게 결과를 보여주는 기술입니다. 예를 들어, &#x27;운동화&#x27; 검색 시, 쿼리 측은 &#x27;운동&#x27;, &#x27;신발&#x27; 같은 키워드를 생성하고, 아이템 측은 &#x27;스포츠&#x27;, &#x27;편안한 신발&#x27; 같은 키워드를 생성해 서로 매칭합니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>현존하는 검색 시스템은 쿼리 확장이나 데이터 합성으로 검색을 개선하지만, 최종 매칭은 여전히 다른 모델에 의존합니다. 이로 인해 검색 성능 향상이 제한되며, LLM의 역할이 제한적입니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>CoGR는 LLM을 쿼리와 아이템 측 모두에서 키워드를 생성하도록 훈련시켜 검색을 개선합니다. 쿼리와 아이템 측의 생성기는 서로 다른 인덱스를 기반으로 반복적으로 최적화되며, 동일한 검색 F1 지표를 최대화합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>CoGR는 내부 앱 마켓 데이터셋과 공개 WANDS 벤치마크에서 최고 성능을 보이며, 최고 기준 대비 F1 지표를 각각 10.9%와 36.1% 향상시켰습니다. 또한, 학습 과정에서 쿼리와 아이템의 키워드 공간이 점점 일치해가는 것을 확인했습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>검색 엔진</b><span>사용자의 질문에 맞는 정보를 찾아주는 시스템입니다.</span></div><div class="bg-item"><b>LLM</b><span>대규모 언어 모델로, 다양한 문장이나 질문을 이해하고 생성할 수 있습니다.</span></div><div class="bg-item"><b>F1 지표</b><span>검색 결과의 정확도와 완전도를 동시에 평가하는 방법입니다.</span></div><div class="bg-item"><b>인덱스</b><span>검색 시스템이 빠르게 정보를 찾을 수 있도록 정리한 데이터입니다.</span></div><div class="bg-item"><b>반환 학습</b><span>모델이 결과를 보고 다시 학습하는 방식으로, 더 나은 성능을 얻을 수 있습니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">검색</span><span class="kw">LLM</span><span class="kw">F1 지표</span><span class="kw">인덱스</span><span class="kw">반환 학습</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Retrieval is the first stage of modern search and advertising systems, selecting a candidate set from a large item universe for downstream ranking and auction. Recent work increasingly leverages LLMs to improve retrieval through query expansion, data synthesis, and retrieval-feedback training. However, the generative component is typically used for query-side augmentation, while final matching is still delegated to a downstream retriever. We introduce CoGR, a retrieval framework that instead trains LLMs to directly construct retrieval representations on both query and item sides. Each generator produces a compact set of keywords, which are matched directly through an inverted index, preserving compatibility with existing keyword-based retrieval infrastructure. CoGR uses a two-stage training pipeline. Supervised fine-tuning first establishes an aligned keyword space, after which co-evolving reinforcement learning alternately optimizes the query- and item-side generators with GRPO against the opposite side&#x27;s frozen index. Both sides optimize the same query-to-item retrieval $F_1$ objective: the query side receives retrieval $F_1$ directly, while the item side receives a counterfactual marginal reward measuring the change in query-side $F_1$ caused by its generated keywords. Across 10 representative sparse, dense, and generative baselines, CoGR achieves the best performance on both an internal APP Marketplace dataset and the public WANDS benchmark, improving $F_1$ over the strongest baseline by $10.9\%$ and $36.1\%$, respectively. Further analysis shows stable co-evolution and increasingly aligned query--item keyword spaces over training.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.00638v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.00638" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

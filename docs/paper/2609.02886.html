@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving · AI 논문 요약</title>
+<title>SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -93,22 +93,22 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 <body>
 <div class="wrap">
 <a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
-<h1 class="title" style="font-size:1.4rem">Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving</h1>
-<p class="authors">Xin Zhou, Zongchuang Zhao, Zhibo Yang, Mingsheng Li, Humen Zhong, Shuai Bai, Du Chu, Ruizhe Chen 외</p>
-<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="pop">👍 370</span>
-  <span class="date">2026.08.31 · arXiv:2609.00111</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>자율주행차가 시각과 언어를 통합해 안전하게 운전하는 기술</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>자동차가 스스로 운전할 때, 눈으로 보는 것과 말을 듣는 것을 동시에 이해해 도로를 안전하게 달리는 기술입니다. 예를 들어, &#x27;왼쪽으로 회전&#x27;이라는 말을 듣고, 주변 차량을 보며 정확하게 움직이는 거죠.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>자율주행차가 교차로에서 신호등을 보고 &#x27;정지&#x27;라는 지시를 받아 멈추는 모습입니다. 주변 차량과 보행자를 인식하고, 도로 상태를 이해해 안전하게 운전합니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>자율주행차가 주변을 보고 판단하는 데 시각 정보만으로는 한계가 있어, 시각과 언어를 결합해 더 정확하게 판단해야 합니다. 기존 시스템은 복잡한 도로 상황을 이해하는 데 어려움이 있습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>시각-언어 모델을 기반으로 3D 인식, 시각 질문 답변, 운전 계획을 하나의 시스템에 통합했습니다. 비행기 위에서 본 시야(BEV)로 주변을 분석하고, 운전 전략을 생성하는 전문가 모듈을 추가했습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>3D 인식과 운전 계획에서 뛰어난 성능을 보이며, 일반적인 시각-언어 이해 능력도 유지했습니다. 실제 도로 상황에서 안정적인 운전이 가능해졌습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>시각-언어 모델</b><span>사진이나 영상을 보고 그 내용을 말로 설명하는 기술</span></div><div class="bg-item"><b>BEV 시야</b><span>비행기에서 바라보는 듯한 위에서 본 도로 모습을 분석하는 방식</span></div><div class="bg-item"><b>운동 계획</b><span>자동차가 앞으로 어떻게 움직일지 계산하는 방법</span></div><div class="bg-item"><b>3D 인식</b><span>자동차가 주변 물체의 위치와 형태를 공간적으로 이해하는 기술</span></div><div class="bg-item"><b>자율주행</b><span>사람이 직접 운전하지 않고 차량이 스스로 주행하는 기술</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">자율주행</span><span class="kw">시각-언어 모델</span><span class="kw">BEV</span><span class="kw">운동 계획</span><span class="kw">3D 인식</span></div></div>
-<div class="section"><h4>원문 초록</h4><p class="abstract">We present Qwen-Drive-1.0, an initial step towards a vision-language foundation model for autonomous driving. Qwen-Drive-1.0 retains the architecture of the pretrained vision-language model (VLM) and integrates 3D perception, visual question answering, and motion planning within a unified framework. An external bird&#x27;s-eye-view (BEV) perception head jointly performs 3D object detection, semantic occupancy prediction, and BEV map segmentation. It serves as a probe of the 3D information accessible from the shared representations and provides an explicit, inspectable interface to 3D scene structure. A Planning Expert conditions on shared VLM representations to generate future ego trajectories. A staged training recipe combines driving supervision with general-purpose vision-language data to acquire driving-specific competence while helping preserve broad visual understanding and instruction-following capabilities. Experiments demonstrate strong 3D perception and driving scene understanding while largely preserving general vision-language capability. Comprehensive evaluations across open-loop, pseudo-closed-loop, and closed-loop settings further show highly competitive motion-planning performance.</p>
+<h1 class="title" style="font-size:1.4rem">SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models</h1>
+<p class="authors">Junchao Huang, Guian Fang, Shengju Qian, Xianghao Kong, Zhuoran Zhao, Wei Huang, Yihua Du, Zixin Zhang 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="pop">👍 138</span>
+  <span class="date">2026.09.02 · arXiv:2609.02886</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>SolarWM은 다양한 영상 데이터를 통합해 세계 모델을 쉽게 만들 수 있는 기술입니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>우리가 다양한 영상들을 하나로 묶어서, 그 안에서 게임처럼 움직일 수 있는 세계를 만들 수 있어요. 이걸로 아이들이 좋아하는 캐릭터가 영상 속에서 살아 움직일 수 있게 해요. 이렇게 만든 세계는 계속해서 더 나은 게 되도록 만들 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>영화, 게임, 카메라 영상 등 다양한 영상 데이터를 하나의 형식으로 바꿔 모델을 훈련시키고, 사용자가 영상 속에서 실시간으로 행동할 수 있도록 만드는 기술입니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>다양한 영상 데이터와 생성기에서 오는 차이로 인해 모델 훈련이 어려웠고, 결과도 일관되지 않았습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>다양한 데이터를 하나의 형식으로 통합하고, 모델에 맞게 조정하는 방법을 사용해 일관된 훈련을 가능하게 했습니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>이 기술로 5초짜리 데이터만으로도 몇 시간 동안의 상호작용이 가능한 모델을 만들 수 있게 되었고, 연구에 재사용이 가능해졌습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>데이터 통합</b><span>다양한 출처의 데이터를 하나로 모아서 사용하는 방법입니다.</span></div><div class="bg-item"><b>모델 훈련</b><span>머신러닝 모델이 데이터를 보고 스스로 배우는 과정입니다.</span></div><div class="bg-item"><b>영상 세계 모델</b><span>영상 속 세상을 이해하고, 그 안에서 행동할 수 있는 인공지능 모델입니다.</span></div><div class="bg-item"><b>캡션</b><span>영상에 대한 설명이나 설명문을 말로 적은 것입니다.</span></div><div class="bg-item"><b>프레임 정렬</b><span>영상의 각 프레임(한 장의 사진)을 정확하게 일치시키는 방법입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">영상 세계 모델</span><span class="kw">데이터 통합</span><span class="kw">모델 훈련</span><span class="kw">캡션</span><span class="kw">프레임 정렬</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">We introduce SolarWM, a fully open foundation for building interactive video world models from data preparation through long-horizon inference. Training across heterogeneous data sources and video backbones is challenging: datasets differ in temporal scale, camera geometry, visual quality, motion, and captioning styles, while video generators use distinct representations and architectures. Naive data mixing and model-specific implementations therefore produce inconsistent supervision and make results difficult to reproduce and compare. SolarWM addresses this coupling with a reconfigurable multi-source data engine and a backbone-native adaptation framework. The engine converts 1.43 million canonical clips from 10 datasets into a unified, frame-aligned contract covering visual observations, metric camera geometry, captions, quality metadata, selection decisions, and provenance, while decoupling source processing from mixture construction. Under shared camera-conditioning, training, and inference interfaces, we instantiate four 5B--33B models based on Wan2.2, LTX-2.5, and MiniMax-H3 while preserving their native representations and objectives. A unified three-stage recipe combines bidirectional adaptation, teacher-forced autoregressive initialization, and distribution matching distillation. The resulting causal models enable real-time interaction over rollouts ranging from minutes to hours after being trained on only 5s sequences. By releasing the resulting data, pipeline, recipes, weights, and framework, SolarWM provides a reproducible and extensible foundation for interactive world-model research.</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2609.00111v1" target="_blank" rel="noopener">PDF 원문</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2609.00111" target="_blank" rel="noopener">arXiv 페이지</a>
+    <a class="btn" href="https://arxiv.org/pdf/2609.02886v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.02886" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>

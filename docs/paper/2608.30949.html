@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving · AI 논문 요약</title>
+<title>MULTI3IR: A Benchmark for Multi-perspective Multi-domain Multi-modal Information Retrieval · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -93,22 +93,22 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 <body>
 <div class="wrap">
 <a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
-<h1 class="title" style="font-size:1.4rem">Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving</h1>
-<p class="authors">Xin Zhou, Zongchuang Zhao, Zhibo Yang, Mingsheng Li, Humen Zhong, Shuai Bai, Du Chu, Ruizhe Chen 외</p>
-<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="pop">👍 370</span>
-  <span class="date">2026.08.31 · arXiv:2609.00111</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>자율주행차가 시각과 언어를 통합해 안전하게 운전하는 기술</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>자동차가 스스로 운전할 때, 눈으로 보는 것과 말을 듣는 것을 동시에 이해해 도로를 안전하게 달리는 기술입니다. 예를 들어, &#x27;왼쪽으로 회전&#x27;이라는 말을 듣고, 주변 차량을 보며 정확하게 움직이는 거죠.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>자율주행차가 교차로에서 신호등을 보고 &#x27;정지&#x27;라는 지시를 받아 멈추는 모습입니다. 주변 차량과 보행자를 인식하고, 도로 상태를 이해해 안전하게 운전합니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>자율주행차가 주변을 보고 판단하는 데 시각 정보만으로는 한계가 있어, 시각과 언어를 결합해 더 정확하게 판단해야 합니다. 기존 시스템은 복잡한 도로 상황을 이해하는 데 어려움이 있습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>시각-언어 모델을 기반으로 3D 인식, 시각 질문 답변, 운전 계획을 하나의 시스템에 통합했습니다. 비행기 위에서 본 시야(BEV)로 주변을 분석하고, 운전 전략을 생성하는 전문가 모듈을 추가했습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>3D 인식과 운전 계획에서 뛰어난 성능을 보이며, 일반적인 시각-언어 이해 능력도 유지했습니다. 실제 도로 상황에서 안정적인 운전이 가능해졌습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>시각-언어 모델</b><span>사진이나 영상을 보고 그 내용을 말로 설명하는 기술</span></div><div class="bg-item"><b>BEV 시야</b><span>비행기에서 바라보는 듯한 위에서 본 도로 모습을 분석하는 방식</span></div><div class="bg-item"><b>운동 계획</b><span>자동차가 앞으로 어떻게 움직일지 계산하는 방법</span></div><div class="bg-item"><b>3D 인식</b><span>자동차가 주변 물체의 위치와 형태를 공간적으로 이해하는 기술</span></div><div class="bg-item"><b>자율주행</b><span>사람이 직접 운전하지 않고 차량이 스스로 주행하는 기술</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">자율주행</span><span class="kw">시각-언어 모델</span><span class="kw">BEV</span><span class="kw">운동 계획</span><span class="kw">3D 인식</span></div></div>
-<div class="section"><h4>원문 초록</h4><p class="abstract">We present Qwen-Drive-1.0, an initial step towards a vision-language foundation model for autonomous driving. Qwen-Drive-1.0 retains the architecture of the pretrained vision-language model (VLM) and integrates 3D perception, visual question answering, and motion planning within a unified framework. An external bird&#x27;s-eye-view (BEV) perception head jointly performs 3D object detection, semantic occupancy prediction, and BEV map segmentation. It serves as a probe of the 3D information accessible from the shared representations and provides an explicit, inspectable interface to 3D scene structure. A Planning Expert conditions on shared VLM representations to generate future ego trajectories. A staged training recipe combines driving supervision with general-purpose vision-language data to acquire driving-specific competence while helping preserve broad visual understanding and instruction-following capabilities. Experiments demonstrate strong 3D perception and driving scene understanding while largely preserving general vision-language capability. Comprehensive evaluations across open-loop, pseudo-closed-loop, and closed-loop settings further show highly competitive motion-planning performance.</p>
+<h1 class="title" style="font-size:1.4rem">MULTI3IR: A Benchmark for Multi-perspective Multi-domain Multi-modal Information Retrieval</h1>
+<p class="authors">Seokwon Song, Sohyeon Kim, Gunhee Kim</p>
+<div class="badges" style="margin:12px 0"><span class="badge">정보검색</span><span class="pop">👍 8</span>
+  <span class="date">2026.08.31 · arXiv:2608.30949</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>다양한 관점에서 질문을 처리하는 검색 기술을 개발했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>우리가 &#x27;지구 온난화&#x27;라고 물으면, 과학, 경제, 환경 등 여러 가지 방법으로 설명할 수 있어요. 이 논문은 그런 다양한 방법으로 답을 찾는 방법을 만들었어요. 기존 방법은 한 가지 방법만 생각해요. 이 기법은 여러 방법을 고려해 더 좋은 답을 찾을 수 있어요. 이 기법은 인터넷 검색이나 학교 과제에도 쓸 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>예를 들어, &#x27;지구 온난화&#x27;라는 질문은 과학, 경제, 환경 등 다양한 관점에서 답변이 필요합니다. 이 기술은 이러한 다양한 관점을 모두 고려해 더 풍부한 답변을 제공합니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>현재 검색 기술은 한 가지 관점만 고려해 질문을 처리하지만, 실제 질문에는 다양한 관점이 포함됩니다. 이 논문은 다양한 분야와 형식의 질문을 다루는 새로운 검색 기준을 제안합니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>SPIN이라는 기법을 사용해 검색 결과를 다양한 관점으로 이끌어냅니다. 이 기법은 기존 데이터를 적게 사용하면서도 효과적인 결과를 만듭니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>SPIN은 기존 검색 기법보다 다양한 관점을 처리할 수 있으며, 새로운 검색 기준에서도 잘 작동합니다. 이 기법은 실제 검색 시스템에서 더 나은 성능을 보입니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>검색 기술</b><span>사람이 원하는 정보를 찾는 방법으로, 인터넷 검색엔진이 대표예요.</span></div><div class="bg-item"><b>다양한 관점</b><span>같은 질문에도 여러 가지 생각이나 방법으로 답할 수 있어요.</span></div><div class="bg-item"><b>모델</b><span>데이터를 학습해 특정 작업을 수행하는 컴퓨터 프로그램이에요.</span></div><div class="bg-item"><b>검색 기준</b><span>검색 결과를 평가하거나 비교하기 위한 기준이나 데이터셋이에요.</span></div><div class="bg-item"><b>모달리티</b><span>텍스트, 이미지, 음성 등 다양한 형태의 데이터를 말해요.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">다양한 관점</span><span class="kw">검색 기술</span><span class="kw">SPIN</span><span class="kw">모달리티</span><span class="kw">검색 기준</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Information retrieval (IR) increasingly targets open-ended queries that admit diverse perspectives. Existing IR benchmarks, however, focus primarily on closed-ended queries, while even open-ended benchmarks largely consist of queries whose supporting documents span a single subject domain and modality. We introduce Multi$^3$IR, a benchmark that evaluates how well retrievers cover the multifaceted perspectives of open-ended queries across diverse domains and modalities. It comprises 104.9K Stack Exchange queries, each annotated with perspective descriptions that capture the query&#x27;s implicit viewpoints. We further propose SPIN, a parameter- and label-efficient method that learns noise vectors to steer embeddings toward diverse yet meaningful semantic directions. Experiments show that existing multimodal retrievers suffer from single-perspective bias, while SPIN substantially improves perspective coverage on Multi$^3$IR and generalizes well to unseen open-ended IR benchmarks. The dataset and experimental code are available at https://github.com/seokwon99/Multi3IR.</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2609.00111v1" target="_blank" rel="noopener">PDF 원문</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2609.00111" target="_blank" rel="noopener">arXiv 페이지</a>
+    <a class="btn" href="https://arxiv.org/pdf/2608.30949v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2608.30949" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>

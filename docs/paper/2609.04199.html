@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving · AI 논문 요약</title>
+<title>Compile by Training: Turning Natural-Language Specifications into Local Neural Functions · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -93,22 +93,22 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 <body>
 <div class="wrap">
 <a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
-<h1 class="title" style="font-size:1.4rem">Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving</h1>
-<p class="authors">Xin Zhou, Zongchuang Zhao, Zhibo Yang, Mingsheng Li, Humen Zhong, Shuai Bai, Du Chu, Ruizhe Chen 외</p>
-<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="pop">👍 370</span>
-  <span class="date">2026.08.31 · arXiv:2609.00111</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>자율주행차가 시각과 언어를 통합해 안전하게 운전하는 기술</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>자동차가 스스로 운전할 때, 눈으로 보는 것과 말을 듣는 것을 동시에 이해해 도로를 안전하게 달리는 기술입니다. 예를 들어, &#x27;왼쪽으로 회전&#x27;이라는 말을 듣고, 주변 차량을 보며 정확하게 움직이는 거죠.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>자율주행차가 교차로에서 신호등을 보고 &#x27;정지&#x27;라는 지시를 받아 멈추는 모습입니다. 주변 차량과 보행자를 인식하고, 도로 상태를 이해해 안전하게 운전합니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>자율주행차가 주변을 보고 판단하는 데 시각 정보만으로는 한계가 있어, 시각과 언어를 결합해 더 정확하게 판단해야 합니다. 기존 시스템은 복잡한 도로 상황을 이해하는 데 어려움이 있습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>시각-언어 모델을 기반으로 3D 인식, 시각 질문 답변, 운전 계획을 하나의 시스템에 통합했습니다. 비행기 위에서 본 시야(BEV)로 주변을 분석하고, 운전 전략을 생성하는 전문가 모듈을 추가했습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>3D 인식과 운전 계획에서 뛰어난 성능을 보이며, 일반적인 시각-언어 이해 능력도 유지했습니다. 실제 도로 상황에서 안정적인 운전이 가능해졌습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>시각-언어 모델</b><span>사진이나 영상을 보고 그 내용을 말로 설명하는 기술</span></div><div class="bg-item"><b>BEV 시야</b><span>비행기에서 바라보는 듯한 위에서 본 도로 모습을 분석하는 방식</span></div><div class="bg-item"><b>운동 계획</b><span>자동차가 앞으로 어떻게 움직일지 계산하는 방법</span></div><div class="bg-item"><b>3D 인식</b><span>자동차가 주변 물체의 위치와 형태를 공간적으로 이해하는 기술</span></div><div class="bg-item"><b>자율주행</b><span>사람이 직접 운전하지 않고 차량이 스스로 주행하는 기술</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">자율주행</span><span class="kw">시각-언어 모델</span><span class="kw">BEV</span><span class="kw">운동 계획</span><span class="kw">3D 인식</span></div></div>
-<div class="section"><h4>원문 초록</h4><p class="abstract">We present Qwen-Drive-1.0, an initial step towards a vision-language foundation model for autonomous driving. Qwen-Drive-1.0 retains the architecture of the pretrained vision-language model (VLM) and integrates 3D perception, visual question answering, and motion planning within a unified framework. An external bird&#x27;s-eye-view (BEV) perception head jointly performs 3D object detection, semantic occupancy prediction, and BEV map segmentation. It serves as a probe of the 3D information accessible from the shared representations and provides an explicit, inspectable interface to 3D scene structure. A Planning Expert conditions on shared VLM representations to generate future ego trajectories. A staged training recipe combines driving supervision with general-purpose vision-language data to acquire driving-specific competence while helping preserve broad visual understanding and instruction-following capabilities. Experiments demonstrate strong 3D perception and driving scene understanding while largely preserving general vision-language capability. Comprehensive evaluations across open-loop, pseudo-closed-loop, and closed-loop settings further show highly competitive motion-planning performance.</p>
+<h1 class="title" style="font-size:1.4rem">Compile by Training: Turning Natural-Language Specifications into Local Neural Functions</h1>
+<p class="authors">Yuntian Deng, Pengyu Nie, Stuart Shieber</p>
+<div class="badges" style="margin:12px 0"><span class="badge">자연어처리</span><span class="badge">인공지능</span><span class="badge">머신러닝</span><span class="pop">👍 274</span>
+  <span class="date">2026.09.03 · arXiv:2609.04199</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>자연어로 쓴 규칙을 컴퓨터가 이해할 수 있는 함수로 변환합니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>우리가 &#x27;가방에 물건을 넣는 법&#x27;을 말로 설명하면, 컴퓨터는 이 말을 듣고, 가방에 물건을 넣는 작은 기계를 만들어 줍니다. 이 기계는 계속 쓸 수 있고, 다른 기계와도 잘 어울립니다. 이 기술은 큰 기계 없이도 복잡한 일을 할 수 있게 해줍니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>예를 들어, &#x27;문장에서 사람 이름을 찾는&#x27; 기능을 자연어로 설명하면, 이 기술은 이를 컴퓨터가 이해할 수 있는 작은 모델로 변환해 줍니다. 이 모델은 다른 기능과 함께 쓰거나, 저장해 두어 언제든 사용할 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>텍스트 기반 기능은 설명이 쉬워도 코드로 구현하기 어려우며, 큰 모델을 계속 호출하면 비용과 지연이 발생합니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>자연어 명세를 기반으로 작은 모델을 학습시켜, 큰 모델 없이도 동작하는 함수를 만듭니다. 학습 과정에서 선생 모델이 예시를 만들어 줍니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>FuzzyBench-Hard라는 테스트에서 83.6%의 정확도를 달성하며, 기존 방법보다 정확도는 높지만 컴파일 시간이 더 걸립니다. 실제 서비스에서 다양한 애플리케이션에 적용되었습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>자연어 처리</b><span>컴퓨터가 사람의 말을 이해하고 처리하는 기술입니다.</span></div><div class="bg-item"><b>머신러닝</b><span>컴퓨터가 데이터를 보고 스스로 배워서 예측하거나 판단하는 기술입니다.</span></div><div class="bg-item"><b>컴파일러</b><span>인간이 쓴 코드를 컴퓨터가 실행할 수 있는 형식으로 변환하는 프로그램입니다.</span></div><div class="bg-item"><b>정확도</b><span>예측이나 판단이 얼마나 올바르게 이루어졌는지를 나타내는 수치입니다.</span></div><div class="bg-item"><b>모델</b><span>데이터를 기반으로 예측이나 판단을 할 수 있는 컴퓨터의 규칙이나 구조입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">자연어 처리</span><span class="kw">머신러닝</span><span class="kw">컴파일러</span><span class="kw">정확도</span><span class="kw">모델</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a provider. We present compile by training, which turns a natural-language specification into a reusable neural function. At compile time, teacher models generate task-specific examples that are used to train a small adapter for a compact interpreter. The resulting function runs without the teachers and can be stored, versioned, and composed like ordinary software. On FuzzyBench-Hard, a subset on which the Program-as-Weights fast compiler produced no exact matches, compile by training reaches 83.6% semantic accuracy. This higher accuracy comes with a higher compile-time cost: roughly a minute rather than seconds for the fast compiler. We deploy the compiler in a public interactive service and demonstrate compiled functions in a multi-site website helper, a language-controlled 3D avatar, and a bidirectional English-Claudish translator.</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2609.00111v1" target="_blank" rel="noopener">PDF 원문</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2609.00111" target="_blank" rel="noopener">arXiv 페이지</a>
+    <a class="btn" href="https://arxiv.org/pdf/2609.04199v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.04199" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>
