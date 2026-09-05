@@ -14,14 +14,23 @@
     "per_field": 3
   },
   "arxiv": {
-    "categories": ["cs.AI", "cs.LG", "cs.CL", "cs.CV", "cs.NE", "cs.RO", "stat.ML"]
+    "categories": [
+      "cs.AI",
+      "cs.LG",
+      "cs.CL",
+      "cs.CV",
+      "cs.NE",
+      "cs.RO",
+      "stat.ML"
+    ]
   },
   "claude": {
     "model": "claude-sonnet-5",
-    "max_tokens": 1600
+    "max_tokens": 2400
   },
   "ollama": {
     "host": "http://localhost:11434",
-    "model": "qwen3:8b"
+    "model": "qwen3:8b",
+    "num_predict": 2400
   }
 }

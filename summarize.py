@@ -20,8 +20,9 @@ PROMPT_TEMPLATE = """당신은 인공지능 논문을 한국어로 쉽게 풀어
   "problem": "이 논문이 풀려는 문제 (2~3문장)",
   "method": "제안한 방법의 핵심 아이디어 (2~3문장)",
   "result": "주요 결과와 의의 (2~3문장)",
-  "improvement": "이 연구로 무엇이 얼마나 좋아졌는지 (수치가 있으면 포함, 1~2문장)",
-  "limitations": "이 연구의 미비점·한계·우려사항 (1~2문장, 없으면 일반적 한계를 추론해 서술)",
+  "method_easy": "핵심 원리와 기술을 12살 아이에게 설명하듯 아주 쉬운 말로 풀어쓰고, 이해를 돕는 구체적인 예시나 비유를 반드시 포함할 것 (3~4문장). 전문용어를 쓸 수밖에 없으면 곧바로 쉬운 말로 풀어줄 것",
+  "improvement": "반드시 이 순서로 서술할 것 (3~4문장): (1) 기존에는 어떤 한계·불편이 있었는지 (2) 이 연구로 그게 어떻게 좋아졌는지(수치가 있으면 포함) (3) 그래서 현실에서 어떤 의미가 있는지. 이해를 돕는 구체적 예시를 반드시 들 것. 수치만 나열하지 말 것",
+  "limitations": "이 연구의 미비점·부족한 점·우려되는 점을 먼저 쓰고, 이어서 '이렇게 하면 보완할 수 있을 것으로 보인다' 식으로 구체적인 보완 방안을 반드시 함께 제시할 것 (3~4문장)",
   "example": "이 기술이 현실에서 어떻게 쓰이는지 구체적 사용 예시, 또는 이해를 돕는 쉬운 비유 (3~4문장)",
   "eli12": "12살 아이에게 이야기하듯 아주 쉬운 말과 친근한 비유로 풀어 설명 (3~4문장, 전문용어 금지)",
   "background": [
@@ -29,7 +30,13 @@ PROMPT_TEMPLATE = """당신은 인공지능 논문을 한국어로 쉽게 풀어
   ],
   "keywords": ["키워드", "3~5개"]
 }}
-background 항목은 3~5개를 넣으세요."""
+background 항목은 3~5개를 넣으세요.
+
+작성 규칙:
+- 모든 문장은 "~습니다/~합니다" 존댓말로 통일하세요. 반말("~거야", "~한다")을 섞지 마세요.
+- method_easy, improvement, example에 드는 예시는 서로 겹치지 않게 각각 다른 예시를 드세요.
+  같은 문장을 두 항목에 반복해 쓰지 마세요.
+- limitations의 보완 방안은 "~하면 보완할 수 있을 것으로 보입니다" 형태로 자연스럽게 이어 쓰세요."""
 
 
 def _extract_json(text: str) -> dict:
@@ -70,6 +77,7 @@ def _normalize(data: dict) -> dict:
         "problem": str(data.get("problem", "")).strip(),
         "method": str(data.get("method", "")).strip(),
         "result": str(data.get("result", "")).strip(),
+        "method_easy": str(data.get("method_easy", "")).strip(),
         "improvement": str(data.get("improvement", "")).strip(),
         "limitations": str(data.get("limitations", "")).strip(),
         "example": str(data.get("example", "")).strip(),

@@ -12,7 +12,7 @@ import sys
 import main as m
 import summarize
 
-NEW_FIELDS = ("improvement", "limitations")
+NEW_FIELDS = ("method_easy", "improvement", "limitations")
 
 
 def needs_backfill(p: dict) -> bool:
@@ -23,6 +23,7 @@ def needs_backfill(p: dict) -> bool:
 def run() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--top", type=int, default=None, help="최신 이슈 인기 상위 N편만")
+    ap.add_argument("--force", action="store_true", help="이미 값이 있어도 다시 생성")
     args = ap.parse_args()
 
     m.load_env()
@@ -39,7 +40,7 @@ def run() -> int:
     else:
         cand = list(store.values())
 
-    targets = [p for p in cand if needs_backfill(p)]
+    targets = cand if args.force else [p for p in cand if needs_backfill(p)]
     print(f"백엔드 {backend} · 백필 대상 {len(targets)}편")
 
     ok = 0

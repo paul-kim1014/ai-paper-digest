@@ -77,7 +77,7 @@ def build_top3_table(papers: list[dict]) -> str:
         s = p.get("summary", {})
         rows = [
             ("주제", s.get("tldr") or p.get("title", "")),
-            ("핵심 원리 및 기술", s.get("method", "")),
+            ("핵심 원리 및 기술", s.get("method_easy") or s.get("method", "")),
             ("개선효과", s.get("improvement") or s.get("result", "")),
             ("미비점 및 우려사항", s.get("limitations") or "요약에 명시된 한계 없음"),
         ]
