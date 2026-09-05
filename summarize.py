@@ -20,6 +20,8 @@ PROMPT_TEMPLATE = """당신은 인공지능 논문을 한국어로 쉽게 풀어
   "problem": "이 논문이 풀려는 문제 (2~3문장)",
   "method": "제안한 방법의 핵심 아이디어 (2~3문장)",
   "result": "주요 결과와 의의 (2~3문장)",
+  "improvement": "이 연구로 무엇이 얼마나 좋아졌는지 (수치가 있으면 포함, 1~2문장)",
+  "limitations": "이 연구의 미비점·한계·우려사항 (1~2문장, 없으면 일반적 한계를 추론해 서술)",
   "example": "이 기술이 현실에서 어떻게 쓰이는지 구체적 사용 예시, 또는 이해를 돕는 쉬운 비유 (3~4문장)",
   "eli12": "12살 아이에게 이야기하듯 아주 쉬운 말과 친근한 비유로 풀어 설명 (3~4문장, 전문용어 금지)",
   "background": [
@@ -68,6 +70,8 @@ def _normalize(data: dict) -> dict:
         "problem": str(data.get("problem", "")).strip(),
         "method": str(data.get("method", "")).strip(),
         "result": str(data.get("result", "")).strip(),
+        "improvement": str(data.get("improvement", "")).strip(),
+        "limitations": str(data.get("limitations", "")).strip(),
         "example": str(data.get("example", "")).strip(),
         "eli12": str(data.get("eli12", "")).strip(),
         "background": background[:5],

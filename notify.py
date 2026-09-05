@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import os
+import unicodedata
 import urllib.parse
 import urllib.request
 
@@ -39,7 +40,83 @@ def _get_json(url: str, token: str) -> dict:
         return json.loads(resp.read().decode("utf-8"))
 
 
-def build_message(cfg: dict, label: str, fields: dict, top_paper: dict | None) -> str:
+# ---------------------------------------------------------------- 표 렌더링
+def _dw(s: str) -> int:
+    """표시 폭. 한글·CJK는 2칸으로 센다."""
+    return sum(2 if unicodedata.east_asian_width(c) in "WF" else 1 for c in s)
+
+
+def _fit(s: str, width: int) -> str:
+    """표시 폭 기준으로 자르고(넘치면 …) 오른쪽을 공백으로 채운다."""
+    s = " ".join((s or "").split())
+    out, cur = "", 0
+    for ch in s:
+        w = 2 if unicodedata.east_asian_width(ch) in "WF" else 1
+        if cur + w > width - 1:
+            out += "…"
+            cur += 1
+            break
+        out += ch
+        cur += w
+    return out + " " * max(0, width - cur)
+
+
+def _pad(s: str, width: int) -> str:
+    """이미 폭 안에 들어가는 문자열을 오른쪽 공백으로 채운다(자르지 않음)."""
+    return s + " " * max(0, width - _dw(s))
+
+
+def _wrap(s: str, width: int) -> list[str]:
+    """표시 폭 기준으로 줄바꿈. 내용을 자르지 않고 여러 줄로 펼친다."""
+    s = " ".join((s or "").split())
+    if not s:
+        return [""]
+    lines, cur, cw = [], "", 0
+    for ch in s:
+        w = 2 if unicodedata.east_asian_width(ch) in "WF" else 1
+        if cw + w > width:
+            lines.append(cur)
+            cur, cw = ch, w
+        else:
+            cur += ch
+            cw += w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def build_top3_table(papers: list[dict]) -> str:
+    """인기 1~3위를 구분/주제/핵심 원리 및 기술/개선효과/미비점 및 우려사항 표로.
+
+    셀 내용은 자르지 않고 열 폭에 맞춰 줄바꿈하여 전체 내용을 보여준다.
+    """
+    top = sorted(papers, key=lambda x: x.get("upvotes", 0), reverse=True)[:3]
+    if not top:
+        return ""
+    cols = [("구분", 5), ("주제", 20), ("핵심 원리 및 기술", 28),
+            ("개선효과", 22), ("미비점 및 우려사항", 24)]
+    sep = "+".join("-" * w for _, w in cols)
+    out = ["|".join(_fit(h, w) for h, w in cols), sep]
+
+    for i, p in enumerate(top, 1):
+        s = p.get("summary", {})
+        improve = s.get("improvement") or s.get("result", "")
+        limits = s.get("limitations") or "요약에 명시된 한계 없음"
+        cells = [f"{i}위 👍{p.get('upvotes', 0)}",
+                 s.get("tldr") or p.get("title", ""),
+                 s.get("method", ""), improve, limits]
+        wrapped = [_wrap(c, w) for c, (_, w) in zip(cells, cols)]
+        height = max(len(w) for w in wrapped)
+        for r in range(height):
+            line = [_pad(w[r] if r < len(w) else "", cw)
+                    for w, (_, cw) in zip(wrapped, cols)]
+            out.append("|".join(line))
+        out.append(sep)
+    return "```\n" + "\n".join(out) + "\n```"
+
+
+def build_message(cfg: dict, label: str, fields: dict, top_paper: dict | None,
+                  all_papers: list[dict] | None = None) -> str:
     site = cfg.get("site_url", "").rstrip("/")
     issue_link = f"{site}/issue/{label}.html" if site else ""
     total = sum(len(v) for v in fields.values())
@@ -47,7 +124,13 @@ def build_message(cfg: dict, label: str, fields: dict, top_paper: dict | None) -
         f"📚 *{cfg.get('site_title','AI 논문 요약 다이제스트')}* — 이번 주 이슈(*{label}*)가 나왔어요!",
         f"{len(fields)}개 분야 · 총 {total}편",
     ]
-    if top_paper:
+    if all_papers:
+        table = build_top3_table(all_papers)
+        if table:
+            lines.append("")
+            lines.append("*🏆 이번 주 인기 1~3위 요약*")
+            lines.append(table)
+    elif top_paper:
         up = top_paper.get("upvotes", 0)
         lines.append(f"🔥 이번 주 인기 1위: {top_paper['title']} (👍 {up})")
     if issue_link:

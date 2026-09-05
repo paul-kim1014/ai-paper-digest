@@ -143,7 +143,7 @@ def main() -> int:
     if not args.no_notify and fields:
         all_papers = [store[i] for lst in fields.values() for i in lst if i in store]
         top = max(all_papers, key=lambda x: x.get("upvotes", 0)) if all_papers else None
-        msg = notify.build_message(cfg, label, fields, top)
+        msg = notify.build_message(cfg, label, fields, top, all_papers)
         notify.send_slack(cfg, msg)
     return 0
 
