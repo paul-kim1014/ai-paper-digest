@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W39.html">← 2026-W39 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control</h1>
+<p class="authors">Mingyang Chen, Shengdong Chen, Xiaoxiao Fu, Bosheng Gong, Haoyuan Guo, Bowen Li, Jiawen Li, Kejun Li 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="badge">머신러닝</span><span class="pop">👍 31</span>
+  <span class="date">2026.09.15 · arXiv:2609.17909</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>Zing-0.5는 사용자가 텍스트와 키보드로 생성된 세계를 조작할 수 있는 모델입니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 기술은 사용자가 키보드로 움직이고, 텍스트로 사건을 바꿀 수 있는 세계를 만드는 것입니다. 예를 들어, &#x27;왼쪽으로 가라&#x27;고 말하면, 자동차가 왼쪽으로 움직입니다. 이 기술은 게임이나 가상 현실에서 사용자가 자유롭게 세계를 조작할 수 있게 해 줍니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 게임에서 사용자가 텍스트로 캐릭터를 조작할 수 있게 합니다. 예를 들어, &#x27;도움을 요청하라&#x27;고 말하면, 캐릭터가 자동으로 도움을 받을 수 있습니다. 이 기술은 가상 현실에서 사용자가 자유롭게 세계를 조작할 수 있게 해 줍니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>사용자가 생성된 세계에서 자유롭게 움직이고 사건을 조절할 수 없었습니다. 이로 인해 생성된 세계의 상호작용이 제한적이었습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>Zing-0.5는 키보드 입력과 텍스트 지시를 하나로 통합하고, 영상과 함께 학습합니다. 생성된 세계에서 사건을 조절할 수 있도록 텍스트와 동기화된 학습을 합니다. 또한, 실시간으로 사용자 입력을 처리하여 빠른 반응을 가능하게 합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>Zing-0.5는 158개의 네비게이션 테스트에서 81점의 점수를 얻었고, 일관성도 88.5점입니다. 사용자는 텍스트로 사건을 변경할 수 있어, 생성된 세계를 더 자연스럽게 조작할 수 있습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>자연어 처리</b><span>사람이 말하는 말을 컴퓨터가 이해하고 처리하는 기술입니다.</span></div><div class="bg-item"><b>영상 생성</b><span>컴퓨터가 영상을 만들어내는 기술로, 예를 들어, 텍스트로 영상을 만들 수 있습니다.</span></div><div class="bg-item"><b>실시간 처리</b><span>사용자의 입력을 즉시 반응하여 처리하는 기술로, 지연이 없어 사용자가 자연스럽게 조작할 수 있습니다.</span></div><div class="bg-item"><b>모델 학습</b><span>컴퓨터가 데이터를 통해 스스로 배우는 기술로, 예를 들어, 텍스트와 영상을 함께 학습해서 세계를 만들 수 있습니다.</span></div><div class="bg-item"><b>해상도</b><span>영상의 선명도를 나타내는 수치로, 높은 해상도는 더 선명한 영상을 보여줍니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">Zing-0.5</span><span class="kw">생성된 세계</span><span class="kw">텍스트 조작</span><span class="kw">실시간 반응</span><span class="kw">영상 생성</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">We introduce Zing-0.5, a 5B autoregressive world model designed for playability: users can explore generated worlds, influence unfolding events, and respond to the resulting feedback through joint keyboard and online text control. Our approach brings together three technical contributions: (1) Unified action and text conditioning, combining magnitude-aware keyboard inputs with temporally aligned text instructions and jointly annotated videos to learn navigation and event control within the same sequence; (2) Event-scale supervision for incremental generation, using a segment-level teacher trained on connected multi-prompt videos to supervise a block-level causal student through distribution-matching distillation; and (3) Low-cost real-time interaction, combining four-step generation with context-preserving streaming to support 832 x 480 inference at 24 FPS at an estimated server rental cost of approximately USD 0.009 per stream-minute. Zing-0.5 achieves an overall score of 81.0 and a consistency score of 88.5 across 158 WBench Navigation cases. A joint-control demonstration shows a text-directed event change during continued navigation without restarting generation. We release the model weights, inference code, and Zing-SGLang serving implementation to support further work on playable generated worlds.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.17909v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.17909" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Can MiniMax-H3 Reason About the Physical World? An Evaluation of Omni-Modal Generative Model · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W39.html">← 2026-W39 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Can MiniMax-H3 Reason About the Physical World? An Evaluation of Omni-Modal Generative Model</h1>
+<p class="authors">Haoyu Zhao, Zihao Zhao, Tianyu Deng, Ziqin Xu, Zihao Zhang, Xudong Wang, Jinxiang Guo, Chen Gao 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="pop">👍 114</span>
+  <span class="date">2026.09.16 · arXiv:2609.18323</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>다양한 모드의 정보를 통합해 세계를 이해할 수 있는지 테스트했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 논문은 사진, 음악, 텍스트 등 여러 종류의 정보를 보고, 그걸로 세계를 이해할 수 있는지 테스트합니다. 예를 들어, 사진에 있는 사람의 움직임과 함께 들리는 소리를 보고, 그 사람이 어디로 가는지 예측하는 것입니다. 이렇게 하면 실제 상황에서 더 정확하게 판단할 수 있을 거예요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 실제 CCTV 영상과 함께 들리는 소리를 분석해, 범죄가 일어났는지 판단하는 데 사용할 수 있습니다. 예를 들어, CCTV 영상에서 사람이 뛰고 있고, 동시에 소리로는 경찰 경적 소리가 들린다면, 그 사람이 도주 중일 가능성이 높습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>다양한 모드(텍스트, 이미지, 오디오 등)를 함께 사용해 세계를 이해할 수 있는지 확인하는 것이 필요합니다. 기존 방법은 한 모드에만 집중해 제한적이었기 때문에, 더 나은 방법이 필요했습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>이 논문에서는 텍스트, 이미지, 오디오 등 다양한 모드의 입력을 사용해 모델이 세계를 어떻게 이해하는지 평가했습니다. 네 가지 다른 시나리오를 통해 모델이 여러 정보를 결합해 판단하는 능력을 점검했습니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>MiniMax-H3는 41.97%의 성공률을 기록했고, 비디오 기반 판단은 가장 잘 수행했으며, 오디오 기반 해석은 가장 약했습니다. 이는 다양한 모드를 통합하는 것이 중요하다는 것을 보여줍니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>다중 모달리티</b><span>텍스트, 이미지, 오디, 비디오 등 여러 종류의 정보를 함께 사용하는 방법입니다.</span></div><div class="bg-item"><b>유니버설 모델</b><span>텍스트, 이미지, 오디오 등 다양한 정보를 하나의 모델로 처리할 수 있는 모델입니다.</span></div><div class="bg-item"><b>유추</b><span>주어진 정보를 바탕으로 없는 정보를 추측하는 능력입니다.</span></div><div class="bg-item"><b>성공률</b><span>모델이 올바르게 판단한 비율을 나타내는 수치입니다.</span></div><div class="bg-item"><b>비디오 생성</b><span>컴퓨터가 영상 콘텐츠를 생성하는 기술입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">다중 모달리티</span><span class="kw">유니버설 모델</span><span class="kw">유추</span><span class="kw">성공률</span><span class="kw">비디오 생성</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Recent Omni-Modal Generative Models (Omni-Models) have advanced content generation toward unified modeling of text, images, video, and audio. MiniMax-H3 exemplifies this transition by combining multimodal context understanding with joint audio-visual generation in a shared latent framework. Its unified architecture raises a fundamental question: Can multimodal alignment improve the model&#x27;s world reasoning, and what new evaluation paradigms do omni-modal inputs enable? To investigate this question, this work introduces a comprehensive evaluation framework organized around four complementary dimensions of physical world reasoning. Unlike existing evaluation frameworks for video generation and world models, which are often constrained by limited input modalities and evaluation settings where prompts closely match the target video content, our evaluation is specifically designed to exploit the multimodal inputs of Omni-Model. We construct a diverse set of novel tasks that require models to integrate complementary information across modalities. Specifically, we consider four scenarios, including implicit prompts paired with multiple frames, audio-image, prefix-videos, and audio-video inputs. Every single modality provides only partial evidence about the underlying event, requiring the model to jointly reason over the complementary semantic cues to infer latent event states and future dynamics. Across 517 evaluation instances, MiniMax-H3 achieves an overall success rate of 41.97%. Video-based Decision Reasoning yields the highest success rate at 56.00%, while Audio-based Disambiguation Reasoning is the weakest, reaching only 27.40%. These results indicate that effective multimodal integration remains key to fully exploiting the benefits of diverse input modalities. The project is available at https://github.com/gulucaptain/MiniMax-H3-Reason.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.18323v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.18323" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

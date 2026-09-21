@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>주차별 아카이브 · AI 논문 요약</title>
+<title>Self-Evolving Search Index · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -92,19 +92,24 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="index.html">← 최신 이슈로</a>
-<header style="padding-top:8px"><h1 class="title">📚 주차별 아카이브</h1>
-  <p class="subtitle">지난 주간 이슈를 분야별로 다시 볼 수 있습니다.</p></header>
-<a class="issue-row" href="issue/2026-W39.html">
-  <div><div class="wk">2026-W39</div><div class="sub">AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 머신러닝 (ML), 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">16편</span>
-    <span class="date">2026.09.21</span></div></a><a class="issue-row" href="issue/2026-W36.html">
-  <div><div class="wk">2026-W36</div><div class="sub">머신러닝 (ML), 기타 AI, AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 음성·오디오, 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">21편</span>
-    <span class="date">2026.09.05</span></div></a><a class="issue-row" href="issue/2026-W34.html">
-  <div><div class="wk">2026-W34</div><div class="sub">자연어처리 (NLP), 머신러닝 (ML), AI 일반·에이전트, 컴퓨터비전 (CV), 강화학습·로보틱스, 음성·오디오</div></div>
-  <div class="badges"><span class="badge">15편</span>
-    <span class="date">2026.08.18</span></div></a>
+<a class="back" href="../issue/2026-W39.html">← 2026-W39 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Self-Evolving Search Index</h1>
+<p class="authors">Sangam Lee, Wonjae Lee, Sunghwan Kim, Deogyong Kim, Jaehoon Kim, Daye Nam, SeongKu Kang, Dongha Lee</p>
+<div class="badges" style="margin:12px 0"><span class="badge">정보검색</span><span class="badge">인공지능</span><span class="pop">👍 45</span>
+  <span class="date">2026.09.17 · arXiv:2609.19656</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>검색 인덱스가 스스로 개선할 수 있는 시스템을 만든다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>SELF-INDEX는 검색 인덱스가 스스로 문제를 찾고, 필요한 부분만 고쳐 검색을 더 잘하게 만든다. 예를 들어, 책을 읽고 내용을 요약하는 사람이, 책이 잘못된 내용을 담고 있다면, 스스로 내용을 수정해 더 정확하게 요약할 수 있다. 이는 검색 엔반이 더 빠르고 정확해지며, 사용자에게 더 나은 정보를 제공한다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>SELF-INDEX는 검색 엔진이 사용자의 질문을 이해하고, 필요한 정보를 빠르게 찾아주는 데 사용된다. 예를 들어, 사용자가 &#x27;최근에 발표된 과학 논문&#x27;을 검색할 때, SELF-INDEX는 인덱스를 스스로 조정해 더 정확한 결과를 보여준다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>검색 인덱스는 고정된 방식으로 만들어져, 다양한 환경에서 효과적이지 않아 검색 성능이 떨어진다. 사람의 도움 없이 인덱스를 개선하는 방법이 부족하다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>SELF-INDEX는 인덱스가 스스로 문제를 진단하고, 필요한 부분만 수정해 검색 성능을 높이는 시스템이다. 검색 실패를 분석하고, 인덱스 키를 조정해 검색을 개선한다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>다양한 데이터와 검색 도구에서 SELF-INDEX는 기존 방법보다 검색 성능을 향상시켰다. 검색 에이전트의 효율성도 높아졌다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>검색 엔진</b><span>사용자의 질문에 따라 정보를 찾아주는 시스템입니다.</span></div><div class="bg-item"><b>인덱스</b><span>문서를 정리해 검색이 빠르게 되도록 만든 데이터입니다.</span></div><div class="bg-item"><b>LLM</b><span>큰 언어 모델로, 다양한 질문에 답을 제공하는 인공지능입니다.</span></div><div class="bg-item"><b>검색 성능</b><span>검색 엔진이 얼마나 빠르고 정확하게 정보를 찾아주는지를 나타냅니다.</span></div><div class="bg-item"><b>최적화</b><span>시스템을 더 잘 작동하도록 개선하는 과정입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">검색 인덱스</span><span class="kw">자기 개선</span><span class="kw">검색 성능</span><span class="kw">LLM</span><span class="kw">최적화</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Information retrieval is increasingly important as LLM agents tackle complex tasks involving diverse information needs. Because retrieval relies on an index that represents each document through index keys, retrieval quality depends heavily on how effectively these keys expose the knowledge contained in each document. However, effective index representations vary across retrieval environments, making it difficult for any fixed optimization strategy to perform consistently. Yet evolving an index to its retrieval environment remains largely human-driven, requiring humans to diagnose retrieval failures, refine the optimization strategy, and reprocess the index accordingly. We propose SELF-INDEX, a framework that enables an index to self-evolve without human intervention. Its Optimizer autonomously diagnoses retrieval shortfalls, selectively revises the responsible index keys, and validates each revision before updating the index. Beyond reacting to observed retrieval demands, SELF-INDEX proactively explores additional demands through a Query Simulator, allowing the index to evolve beyond the queries already available for optimization. Across diverse corpora and retrievers, SELF-INDEX consistently improves retrieval performance while outperforming existing index optimization methods. We further show that these benefits extend to downstream applications, improving the effectiveness and efficiency of search agents and helping agent memory systems retrieve useful past interactions.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.19656v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.19656" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>
 </body>

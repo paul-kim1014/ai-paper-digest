@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>주차별 아카이브 · AI 논문 요약</title>
+<title>Modality-Autoregressive World-Action Models · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -92,19 +92,24 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="index.html">← 최신 이슈로</a>
-<header style="padding-top:8px"><h1 class="title">📚 주차별 아카이브</h1>
-  <p class="subtitle">지난 주간 이슈를 분야별로 다시 볼 수 있습니다.</p></header>
-<a class="issue-row" href="issue/2026-W39.html">
-  <div><div class="wk">2026-W39</div><div class="sub">AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 머신러닝 (ML), 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">16편</span>
-    <span class="date">2026.09.21</span></div></a><a class="issue-row" href="issue/2026-W36.html">
-  <div><div class="wk">2026-W36</div><div class="sub">머신러닝 (ML), 기타 AI, AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 음성·오디오, 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">21편</span>
-    <span class="date">2026.09.05</span></div></a><a class="issue-row" href="issue/2026-W34.html">
-  <div><div class="wk">2026-W34</div><div class="sub">자연어처리 (NLP), 머신러닝 (ML), AI 일반·에이전트, 컴퓨터비전 (CV), 강화학습·로보틱스, 음성·오디오</div></div>
-  <div class="badges"><span class="badge">15편</span>
-    <span class="date">2026.08.18</span></div></a>
+<a class="back" href="../issue/2026-W39.html">← 2026-W39 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Modality-Autoregressive World-Action Models</h1>
+<p class="authors">Adam Hung, Bardienus P. Duisterhof, Deva Ramanan, Jeffrey Ichnowski</p>
+<div class="badges" style="margin:12px 0"><span class="badge">로보틱스</span><span class="pop">👍 10</span>
+  <span class="date">2026.09.15 · arXiv:2609.17524</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>미래의 다양한 데이터를 순차적으로 예측해 행동을 더 잘 예측합니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>ModAR은 로봇이 미래의 모습을 여러 가지 데이터로 하나씩 예측해 행동을 결정합니다. 예를 들어, 로봇이 물건을 잡을 때, 먼저 물건이 어디에 있는지 예측하고, 그 다음에 물건이 얼마나 멀리 있는지 예측해 행동을 합니다. 이렇게 하면 로봇이 사람처럼 자연스럽게 움직일 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>ModAR은 로봇이 물건을 잡을 때, 물건의 위치와 깊이를 먼저 예측해 행동을 결정합니다. 이는 로봇이 사람처럼 자연스럽게 움직일 수 있도록 도와줍니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>현재의 월드 액션 모델은 미래의 영상 데이터만 예측해 행동을 예측하지만, 다른 데이터(예: 깊이, 포인트트랙)를 활용해 더 정확하게 예측할 수 있는 방법이 부족합니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>ModAR은 여러 가지 데이터를 순차적으로 예측해 행동을 예측하는 방식으로, 이전에 예측한 데이터를 기반으로 다음 데이터를 예측합니다. 이 방법은 데이터를 더 잘 활용해 행동 예측을 개선합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>ModAR은 기존 방법보다 성공률이 높아졌고, 훈련 데이터와 모델 구조에 따라 성능이 달라진다는 점을 밝혔습니다. 실제 작업에서도 기존 방법보다 더 잘 작동했습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>월드 액션 모델(WAM)</b><span>미래의 영상과 행동을 함께 예측하는 모델로, 로봇이 미래를 예측해 행동을 결정하는 데 사용됩니다.</span></div><div class="bg-item"><b>모달리티</b><span>데이터의 종류를 말하며, 예를 들어 영상, 깊이, 포인트트랙 등이 있습니다.</span></div><div class="bg-item"><b>자연어 처리</b><span>문장을 이해하고 생성하는 기술로, 이 논문에서는 비슷한 방식으로 데이터를 처리합니다.</span></div><div class="bg-item"><b>FLOPs</b><span>모델이 계산하는 작업량을 나타내며, 작을수록 훈련이 빠릅니다.</span></div><div class="bg-item"><b>점트랙</b><span>물체의 위치가 시간에 따라 어떻게 변하는지 추적한 데이터로, 움직임을 이해하는 데 사용됩니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">월드 액션 모델</span><span class="kw">모달리티</span><span class="kw">점트랙</span><span class="kw">FLOPs</span><span class="kw">자연어 처리</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">World-action models (WAMs) jointly model future observations and actions, typically predicting the future as RGB images. Other visual modalities such as depth, pretrained visual features, and point tracks can more efficiently capture geometric, semantic, and motion features. However, how best to combine these modalities within WAMs remains an open question. We introduce ModAR, the first WAM to autoregressively denoise multiple future modalities before predicting actions. This allows each prediction to condition on previously generated modalities. We train from scratch to systematically study how training-data mixtures, predicted modalities, and WAM formulations affect performance. In our evaluations, WAMs benefit from predicting point tracks, DINO features, and depth maps, while additionally predicting future RGB does not provide a consistent benefit. We also find that ModAR&#x27;s sequential generation outperforms existing WAM formulations, with the highest average success rate at all evaluated data scales. We also fine-tune the video-model-initialized WAM Flex-$π$ on the same data; ModAR achieves a slightly higher observed average success rate (75% vs. 72%) while using approximately $20\times$ fewer training FLOPs and no pretraining. On three real-world bimanual tasks, ModAR outperforms baselines and improves with human videos.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.17524v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.17524" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>주차별 아카이브 · AI 논문 요약</title>
+<title>Rethinking Critic Learning in PPO: Understanding and Mitigating Value Flattening · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -92,19 +92,24 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="index.html">← 최신 이슈로</a>
-<header style="padding-top:8px"><h1 class="title">📚 주차별 아카이브</h1>
-  <p class="subtitle">지난 주간 이슈를 분야별로 다시 볼 수 있습니다.</p></header>
-<a class="issue-row" href="issue/2026-W39.html">
-  <div><div class="wk">2026-W39</div><div class="sub">AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 머신러닝 (ML), 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">16편</span>
-    <span class="date">2026.09.21</span></div></a><a class="issue-row" href="issue/2026-W36.html">
-  <div><div class="wk">2026-W36</div><div class="sub">머신러닝 (ML), 기타 AI, AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 음성·오디오, 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">21편</span>
-    <span class="date">2026.09.05</span></div></a><a class="issue-row" href="issue/2026-W34.html">
-  <div><div class="wk">2026-W34</div><div class="sub">자연어처리 (NLP), 머신러닝 (ML), AI 일반·에이전트, 컴퓨터비전 (CV), 강화학습·로보틱스, 음성·오디오</div></div>
-  <div class="badges"><span class="badge">15편</span>
-    <span class="date">2026.08.18</span></div></a>
+<a class="back" href="../issue/2026-W39.html">← 2026-W39 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Rethinking Critic Learning in PPO: Understanding and Mitigating Value Flattening</h1>
+<p class="authors">Yizhuo Li, Jianhao Yan, Yun Luo, Zhi Wang, Futing Wang, Rong-Xi Tan, Kanghui Tian, Ganqu Cui 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="badge">인공지능</span><span class="pop">👍 65</span>
+  <span class="date">2026.09.16 · arXiv:2609.18708</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>PPO에서 가치 평평화 문제를 해결하기 위한 새로운 방법을 제안했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>비평가가 모든 상태를 다 보는 대신, 몇 개만 보고 판단하게 해서 더 잘 예측할 수 있어요. 예를 들어, 선생님이 학생들을 모두 보는 대신, 몇 명만 보고 평가를 해서 더 정확하게 판단하게 만드는 것처럼요. 이렇게 하면 학습이 더 잘되고, AI가 더 잘 작동해요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 자율주행차에서 사용할 수 있어요. 차가 다양한 상황에서 안전하게 주행하기 위해, 비평가가 중요한 상태만 보고 판단하게 해서 더 정확한 의사결정을 도와요.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>PPO 알고리즘에서 비평가의 예측이 너무 평평해져서 정책 개선이 효과적이지 않아요. 이는 상태 간 가치 차이를 잘못 평가하게 되는 문제입니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>SP$^3$O는 각 응답에서 몇 개의 상태만 선택해 비평가를 훈련시켜, 가치 평평화 문제를 줄이려고 합니다. 이렇게 하면 비평가의 예측이 더 정확해지고 정책 개선이 더 잘 이루어집니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>SP$^3$O는 가치 평평화 문제를 해결해 정책 성능을 향상시켰습니다. 다양한 모델 크기와 평가 세트에서 효과가 입증되었습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>PPO</b><span>강화학습 알고리즘으로, 정책을 안정적으로 개선하기 위해 사용됩니다.</span></div><div class="bg-item"><b>비평가</b><span>현재 상태의 가치를 예측해 정책 개선을 도와주는 모델입니다.</span></div><div class="bg-item"><b>강화학습</b><span>AI가 환경에서 행동을 통해 보상받으며 학습하는 방법입니다.</span></div><div class="bg-item"><b>모니터링</b><span>AI가 학습하는 과정을 관찰하고 조정하는 방법입니다.</span></div><div class="bg-item"><b>상태</b><span>AI가 현재 있는 상황을 나타내는 정보입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">PPO</span><span class="kw">비평가</span><span class="kw">강화학습</span><span class="kw">가치 평평화</span><span class="kw">SP$^3$O</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">In reinforcement learning for large language models, Proximal Policy Optimization (PPO) commonly uses a critic to estimate state values and reduce the variance of policy updates. However, we uncover a systematic failure mode in PPO critics, which we call Value Flattening: state values, estimated from multiple Monte Carlo continuations, change sharply across intermediate states while critic predictions remain comparatively flat. We further observe this phenomenon in a controlled FrozenLake environment and find that it becomes more pronounced as the state space grows. Our theoretical and empirical analyses relate Value Flattening to an implicit variance penalty in the critic loss and redundant updates from temporally correlated states with similar gradients. Motivated by these findings, we introduce SParse Proximal Policy Optimization (SP$^3$O), which applies the value loss to only a few well-separated states in each response to mitigate both effects. Experiments on Qwen3-Base show that SP$^3$O with only three states supervised per response can mitigate Value Flattening and consistently improve the learned policy across model sizes and evaluation suites. Together, our results identify Value Flattening as an important yet overlooked failure mode of critic learning in standard PPO and show that a simple sparse supervision strategy can mitigate it.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.18708v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.18708" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>
 </body>

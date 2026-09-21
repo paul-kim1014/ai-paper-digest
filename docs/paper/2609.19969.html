@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepSeek-V4.1-Flash: Pushing the Limits of KV Cache Compression · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W39.html">← 2026-W39 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">DeepSeek-V4.1-Flash: Pushing the Limits of KV Cache Compression</h1>
+<p class="authors">DeepSeek-AI, :, Anyi Xu, B. Li, Bangcai Lin, Bing Xue, BingCheng Xian, Bingzheng Xu 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">자연어처리</span><span class="pop">👍 135</span>
+  <span class="date">2026.09.17 · arXiv:2609.19969</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>DeepSeek-V4.1-Flash는 메모리 사용을 줄여 모델 성능을 향상시켰습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 모델은 책을 읽을 때 중요한 문장을만 기억해 메모리 공간을 절약합니다. 예를 들어, 책을 읽고 중요한 내용만 기억해 두면, 책 전체를 기억할 필요가 없어요. 이렇게 하면 더 빠르고 효율적으로 읽을 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 대규모 문서를 처리할 때 사용됩니다. 예를 들어, 고객의 문의를 처리할 때, 많은 데이터를 빠르게 분석하여 답변을 제공할 수 있어요. 이는 기업의 고객 서비스 효율성을 높이는 데 도움이 됩니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>긴 문맥 처리 시 메모리 사용량이 많아 비용이 높고 처리 속도가 느려졌습니다. 이로 인해 실제 서비스에서 효율성이 떨어졌습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>DeepSeek-V4.1-Flash는 메모리 사용을 줄이기 위해 키-값 캐시 압축 기술을 개선했습니다. 이 기술은 메모리 공간을 절약하면서도 빠르게 처리할 수 있도록 설계되었습니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>이 기술로 메모리 사용량이 4분의 1로 줄었고, 성능도 크게 향상되었습니다. 다양한 작업에서 빠르고 효율적으로 실행할 수 있게 되었습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>KV 캐시</b><span>모델이 처리할 때 필요한 데이터를 임시로 저장하는 공간입니다. 이 데이터를 적절히 관리하면 처리 속도가 빨라집니다.</span></div><div class="bg-item"><b>메모리</b><span>컴퓨터가 데이터를 임시로 저장하는 공간입니다. 메모리가 많을수록 더 많은 데이터를 처리할 수 있지만, 비용이 더 많이 듭니다.</span></div><div class="bg-item"><b>모델</b><span>데이터를 처리하고 예측하는 프로그램입니다. 예를 들어, 문장을 읽고 다음 문장을 예측하는 프로그램이 모델입니다.</span></div><div class="bg-item"><b>전송 대역폭</b><span>데이터가 컴퓨터 간에 이동할 때의 속도입니다. 대역폭이 많을수록 데이터가 빠르게 이동할 수 있습니다.</span></div><div class="bg-item"><b>효율성</b><span>작업을 수행할 때 사용하는 자원이 적을수록 효율성이 높습니다. 예를 들어, 같은 일을 더 적은 시간에 빨리 마치는 것이 효율적입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">KV 캐시</span><span class="kw">메모리</span><span class="kw">모델</span><span class="kw">전송 대역폭</span><span class="kw">효율성</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">The widespread adoption of long-horizon agents has made model workloads increasingly input-heavy. Although prior work has substantially reduced the cost of long-context computation, prefill remains computationally expensive, and large KV caches continue to strain HBM and SSD capacity and data-transfer bandwidth. Together, these compute, storage, and bandwidth demands constitute the primary bottleneck to further lowering deployment costs. To address this challenge, we introduce DeepSeek-V4.1-Flash, a multimodal Mixture-of-Experts (MoE) model with 552B backbone parameters and support for contexts of up to one million tokens. With its Causal Encoder-Decoder (CED) architecture, the model activates 16B parameters per token during decode but only 8B parameters during prefill, substantially improving cost efficiency for agentic workloads. To push the limits of KV cache compression, DeepSeek-V4.1-Flash combines cross-layer KV cache reuse in Compressed Sparse Attention 2 (CSA2) with FP4 KV caching. These designs reduce its global KV cache footprint (always in HBM) to 890 bytes per token, roughly 1/4 of the corresponding footprint of DeepSeek-V4-Flash. Further, through a dedicated deployment optimization known as SWA Bounded Replay, DeepSeek-V4.1-Flash reduces its persistent KV cache footprint (always on SSD or in host memory) to roughly 1/8 of that of DeepSeek-V4-Flash. Despite its much smaller KV cache footprint, the model delivers substantially better performance than the baseline. In addition, we streamline the DeepSeek-V4 architecture and introduce several efficient architectural extensions. We pretrain DeepSeek-V4.1-Flash on a multimodal corpus comprising 45T tokens and conduct comprehensive post-training, yielding strong performance across diverse text-based and multimodal agentic scenarios. Model checkpoints are available at https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.19969v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.19969" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

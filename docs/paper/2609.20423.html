@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WeVisDoc: From Coverage to Capability for Robust End-to-End Document Parsing · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W39.html">← 2026-W39 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">WeVisDoc: From Coverage to Capability for Robust End-to-End Document Parsing</h1>
+<p class="authors">Hao Yu, Kang Liu, Linnan Zhao, Jiabo Zhan, Chong Sun, Chen Li, Jing Lyu</p>
+<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="pop">👍 35</span>
+  <span class="date">2026.09.17 · arXiv:2609.20423</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>문서를 정확하게 분석하는 AI를 더 강하게 만드는 방법을 제안했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>우리가 문서를 읽는 AI를 만들었어요. 첫 번째는 다양한 종류의 문서를 보여주고, AI가 그걸 다 이해하도록 훈련합니다. 두 번째는 AI가 아직 잘 못하는 부분을 찾고, 그 부분에 더 많은 훈련 데이터를 주면 AI가 더 잘해요. 예를 들어, 흠집된 문서를 보여주면 AI가 그걸도 읽을 수 있게 됩니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 병원에서 환자의 병력이나 진단서를 자동으로 정리하는 데 사용할 수 있어요. 병원의 문서는 종종 흠집되어 있고, AI가 그걸 읽을 수 있게 되면 병원 업무가 훨씬 빨라집니다. 또, 회사에서 고객의 요청서나 계약서를 자동으로 분석해도 도움이 됩니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>문서 이미지를 구조화된 데이터로 변환하는 AI는 다양한 형태의 문서를 처리하는 데 어려움이 있습니다. 기존 데이터는 흔한 문서만 포함해 있고, 단순히 더 많은 데이터를 넣는 것만으로는 AI의 약점을 해결하지 못합니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>WeVisDoc은 두 단계로 이루어져 있습니다. 첫 번째 단계에서는 다양한 문서 데이터를 사용해 AI가 다양한 형태를 이해하도록 훈련시킵니다. 두 번째 단계에서는 AI가 아직 잘하지 못하는 부분을 찾아내고, 그 부분에 더 집중해 훈련합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>WeVisDoc은 다른 AI보다 문서 분석 정확도가 더 높아졌고, 특히 흠집된 문서를 분석할 때 더 잘합니다. 이는 실제 문서 처리에 큰 도움이 됩니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>문서 파싱</b><span>문서 이미지를 구조화된 데이터로 변환하는 일입니다.</span></div><div class="bg-item"><b>데이터 집중형 프레임워크</b><span>AI가 잘하는 부분에 더 많은 데이터를 주어 훈련하는 방법입니다.</span></div><div class="bg-item"><b>시각-구조 클러스터</b><span>AI가 문서를 읽을 때, 문서의 형태와 내용을 분류해 그룹을 만드는 방법입니다.</span></div><div class="bg-item"><b>모델 훈련</b><span>AI가 데이터를 보고 학습하여 특정 작업을 할 수 있도록 만드는 과정입니다.</span></div><div class="bg-item"><b>정밀도</b><span>AI가 얼마나 정확하게 작업을 수행하는지를 나타내는 수치입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">문서 파싱</span><span class="kw">데이터 집중형</span><span class="kw">시각-구조 클러스터</span><span class="kw">모델 훈련</span><span class="kw">정밀도</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Document parsing converts document images into structured content and requires reliable performance across diverse layouts and acquisition conditions. Yet training corpora are biased toward common document types and clean digital pages, while expanding coverage alone does not specify how to address a parser&#x27;s remaining weaknesses. We present WeVisDoc, a two-stage data-centric framework for robust end-to-end document parsing. Stage I broadens semantic, structural, and appearance coverage through heterogeneous data and structure-preserving degradation synthesis. Stage II uses a held-out probe to measure the Stage I parser&#x27;s residual errors within fixed visual-structural clusters. These diagnostics guide targeted data construction and reallocation of the target-token budget. WeVisDoc-4B achieves an Overall score of 95.38 on OmniDocBench v1.6 and a mean Overall score of 75.54 across the three PureDocBench tracks, ranking first among the compared end-to-end parsers in all four settings. Compared with Stage I, Stage II improves Overall scores for the 2B and 4B models on both benchmarks, with larger gains on the degraded PureDocBench tracks, including a 4.03-point gain for the 4B model on the Real Degraded track.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.20423v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.20423" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>
