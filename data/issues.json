@@ -216,7 +216,7 @@
       ]
     },
     "delivered": {
-      "slack": false
+      "slack": true
     },
     "teams_steps": {
       "post": true
