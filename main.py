@@ -34,7 +34,9 @@ def load_env() -> None:
             line = line.strip()
             if line and not line.startswith("#") and "=" in line:
                 k, v = line.split("=", 1)
-                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+                k, v = k.strip(), v.strip().strip('"').strip("'")
+                if not os.environ.get(k):  # 비어 있거나 없을 때만 채움
+                    os.environ[k] = v
 
 
 def load_json(path: str, default):

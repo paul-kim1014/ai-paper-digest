@@ -20,8 +20,8 @@ if ! curl -s -o /dev/null http://localhost:11434/api/tags; then
   sleep 8
 fi
 
-# .env 로드 (Slack/Claude 키)
-[ -f .env ] && set -a && . ./.env && set +a
+# .env는 main.py가 직접 읽는다. bash로 source하면 URL의 '&'나 경로의 공백 때문에
+# 값이 잘리거나 명령으로 해석되므로(웹훅 URL·동기화 경로가 실제로 손상됐었음) 여기서 읽지 않는다.
 
 push_changes() {
   "$GIT" add -A >> "$LOG" 2>&1

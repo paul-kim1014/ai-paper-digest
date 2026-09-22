@@ -2,7 +2,7 @@
 
 매주 하는 일
   1) 주간 Word 보고서 생성: docs/reports/<주차>.docx (웹에서도 내려받을 수 있게 docs 아래 둔다)
-  2) 채널 파일 폴더에 업로드: OneDrive로 동기화한 SharePoint 폴더(config teams.sync_dir)에 복사
+  2) 채널 파일 폴더에 업로드: OneDrive로 동기화한 SharePoint 폴더(.env TEAMS_SYNC_DIR)에 복사
      → OneDrive 앱이 채널 '파일' 탭으로 올린다. 계정 비밀번호·API 키를 코드가 다루지 않는다.
   3) 채널 게시물(게시판): Teams '워크플로' 웹훅(.env TEAMS_WEBHOOK_URL)으로 카드 게시
 
@@ -183,9 +183,14 @@ def build_report(label: str, issue: dict, papers: list[dict], cfg: dict) -> str:
 
 
 # ---------------------------------------------------------------- 채널 파일 업로드
+def _sync_dir() -> str:
+    # 조직 폴더 경로·링크는 공개 저장소에 올리지 않도록 .env에서 읽는다
+    return os.path.expanduser(os.getenv("TEAMS_SYNC_DIR", "").strip())
+
+
 def upload_to_folder(report: str, label: str, tcfg: dict) -> bool | None:
     """OneDrive 동기화 폴더에 복사. 미설정이면 None."""
-    sync_dir = os.path.expanduser(tcfg.get("sync_dir", "") or "")
+    sync_dir = _sync_dir()
     if not sync_dir:
         return None
     if not os.path.isdir(sync_dir):
@@ -239,8 +244,8 @@ def build_card(label: str, issue: dict, papers: list[dict], cfg: dict) -> dict:
     if site:
         actions.append({"type": "Action.OpenUrl", "title": "웹에서 보기", "url": f"{site}/issue/{label}.html"})
         actions.append({"type": "Action.OpenUrl", "title": "주간 보고서(Word)", "url": f"{site}/reports/{label}.docx"})
-    if tcfg.get("folder_url"):
-        actions.append({"type": "Action.OpenUrl", "title": "채널 폴더", "url": tcfg["folder_url"]})
+    if os.getenv("TEAMS_FOLDER_URL"):
+        actions.append({"type": "Action.OpenUrl", "title": "채널 폴더", "url": os.getenv("TEAMS_FOLDER_URL")})
     return {
         "type": "message",
         "attachments": [{
@@ -280,7 +285,7 @@ def report_path(label: str) -> str:
 def configured(cfg: dict) -> set[str]:
     """지금 설정돼 있는 Teams 전달 단계."""
     steps = set()
-    if (cfg.get("teams", {}).get("sync_dir") or "").strip():
+    if _sync_dir():
         steps.add("folder")
     if os.getenv("TEAMS_WEBHOOK_URL"):
         steps.add("post")

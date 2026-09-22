@@ -35,7 +35,8 @@
       "teams": false
     },
     "teams_steps": {
-      "post": true
+      "post": true,
+      "folder": true
     }
   },
   "2026-W36": {
@@ -84,7 +85,8 @@
       "teams": false
     },
     "teams_steps": {
-      "post": true
+      "post": true,
+      "folder": true
     }
   },
   "2026-W39": {
@@ -124,7 +126,8 @@
       "teams": false
     },
     "teams_steps": {
-      "post": true
+      "post": true,
+      "folder": true
     }
   },
   "2026-W37": {
@@ -168,7 +171,8 @@
       "teams": false
     },
     "teams_steps": {
-      "post": true
+      "post": true,
+      "folder": true
     }
   },
   "2026-W38": {
@@ -219,7 +223,8 @@
       "slack": true
     },
     "teams_steps": {
-      "post": true
+      "post": true,
+      "folder": true
     }
   }
 }

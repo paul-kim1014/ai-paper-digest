@@ -6,7 +6,6 @@
 from __future__ import annotations
 
 import argparse
-import json
 import os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -44,22 +43,22 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--set", help="채널 파일 폴더의 로컬 동기화 경로")
     args = ap.parse_args()
-    cfg = json.load(open(CFG, encoding="utf-8"))
-    tcfg = cfg.setdefault("teams", {})
 
     if args.set:
         path = os.path.expanduser(args.set)
         if not os.path.isdir(path) or not os.access(path, os.W_OK):
             print(f"✗ 쓰기 가능한 폴더가 아닙니다: {path}")
             return 1
-        tcfg["sync_dir"] = path
-        tmp = CFG + ".tmp"
-        json.dump(cfg, open(tmp, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-        os.replace(tmp, CFG)
-        print(f"✓ 채널 폴더 설정: {path}")
+        # 조직 경로는 공개 저장소에 올리지 않도록 .env에 저장
+        env_path = os.path.join(BASE, ".env")
+        lines = [l for l in open(env_path, encoding="utf-8").read().splitlines()
+                 if not l.startswith("TEAMS_SYNC_DIR=")] if os.path.exists(env_path) else []
+        lines.append(f'TEAMS_SYNC_DIR="{path}"')
+        open(env_path, "w", encoding="utf-8").write("\n".join(lines) + "\n")
+        print(f"✓ 채널 폴더 설정(.env): {path}")
 
     print("\n[Teams 연결 상태]")
-    sd = os.path.expanduser(tcfg.get("sync_dir", "") or "")
+    sd = os.path.expanduser(load_env_keys().get("TEAMS_SYNC_DIR", "").strip('"'))
     print(f"  채널 파일 폴더 : {'✓ ' + sd if sd and os.path.isdir(sd) else '✗ 미설정'}")
     wh = load_env_keys().get("TEAMS_WEBHOOK_URL", "")
     print(f"  채널 게시 웹훅 : {'✓ 설정됨' if wh.startswith('https://') else '✗ 미설정 (.env TEAMS_WEBHOOK_URL)'}")
