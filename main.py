@@ -11,13 +11,14 @@ import argparse
 import json
 import os
 import sys
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 
 import curate
 import fetch
 import generate
 import notify
 import summarize
+import teams
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 PAPERS_FILE = os.path.join(BASE, "data", "papers.json")
@@ -63,17 +64,127 @@ def week_label(d: date) -> str:
     return f"{iso[0]}-W{iso[1]:02d}"
 
 
+def week_monday(label: str) -> date:
+    """'2026-W37' → 그 주 월요일."""
+    y, w = label.split("-W")
+    return date.fromisocalendar(int(y), int(w), 1)
+
+
 def has_full_summary(p: dict) -> bool:
-    """새 스키마(예시·12살·배경지식)까지 갖춘 요약인지."""
+    """현재 스키마(예시·12살·배경지식·쉬운 원리·개선효과·미비점)를 모두 갖춘 요약인지."""
     s = p.get("summary", {})
-    return bool(s and "eli12" in s and "example" in s and "background" in s)
+    need = ("eli12", "example", "background", "method_easy", "improvement", "limitations")
+    return bool(s) and all(k in s for k in need)
+
+
+def delivered(issue: dict) -> dict:
+    # 전달 기록이 없는 과거 이슈: Slack은 이미 보냈거나 시점이 지났으므로 완료로 간주,
+    # Teams는 아직 올린 적이 없으므로 미완료로 둔다(게시판에 전체 이력을 채우기 위해).
+    return issue.setdefault("delivered", {"slack": True, "teams": False})
+
+
+def create_issue(label: str, args, cfg: dict, store: dict, issues: dict) -> bool:
+    """label 주차 이슈를 선별·요약해 만든다. 한 편이라도 실리면 True."""
+    backend = summarize.resolve_backend(cfg)
+    print(f"요약 백엔드: {backend}", flush=True)
+    if backend == "claude" and not os.getenv("ANTHROPIC_API_KEY"):
+        print("경고: ANTHROPIC_API_KEY가 없어 Claude 호출이 실패합니다.", file=sys.stderr)
+
+    sel = cfg.get("selection", {})
+    days, per_field = sel.get("days", 7), sel.get("per_field", 3)
+    fallback = cfg.get("arxiv", {}).get("categories", ["cs.AI", "cs.LG", "cs.CL", "cs.CV"])
+
+    # 창: 그 주 월요일 직전 7일 (월요일에 못 돌고 화요일에 돌아도 같은 구간을 본다)
+    monday = week_monday(label)
+    start = monday - timedelta(days=days)
+    print(f"[{label}] {start} ~ {monday - timedelta(days=1)} 논문 선별 (분야별 최대 {per_field}편)", flush=True)
+
+    other = {pid for wk, m in issues.items() if wk != label
+             for lst in m.get("fields", {}).values() for pid in lst}
+    selected = curate.select_weekly(monday, days, per_field, fallback, exclude_ids=other)
+    if not selected:
+        print("선별 결과 없음 — 이슈를 만들지 않습니다.", file=sys.stderr)
+        return False
+
+    reusable = {p["id"] for p in selected if p["id"] in store and has_full_summary(store[p["id"]])}
+    todo = [p for p in selected if p["id"] not in reusable]
+    if args.limit is not None:
+        todo = todo[: args.limit]
+        keep = reusable | {p["id"] for p in todo}
+        selected = [p for p in selected if p["id"] in keep]
+    todo_ids = {p["id"] for p in todo}
+    print(f"신규 요약 {len(todo)}편 (기존 재사용 {len(reusable & {p['id'] for p in selected})}편)", flush=True)
+
+    fields: dict[str, list[str]] = {}
+    ok = fail = 0
+    for i, p in enumerate(selected, 1):
+        pid = p["id"]
+        if pid in todo_ids:
+            print(f"  [{i}/{len(selected)}] 요약: {p['title'][:55]}...", flush=True)
+            try:
+                p["summary"] = summarize.summarize(p, cfg, backend)
+            except Exception as e:  # noqa: BLE001
+                fail += 1
+                print(f"    요약 실패: {e}", file=sys.stderr, flush=True)
+                continue
+            p["fetched_at"] = datetime.now(timezone.utc).isoformat()
+            p["week"] = label
+            store[pid] = p
+            ok += 1
+            save_json(PAPERS_FILE, store)  # 한 편마다 원자적 저장
+        else:
+            store[pid]["upvotes"] = p.get("upvotes", store[pid].get("upvotes", 0))
+            store[pid]["citations"] = p.get("citations", store[pid].get("citations"))
+            store[pid]["week"] = label
+        fields.setdefault(store[pid]["subfield"], []).append(pid)
+
+    if not fields:
+        print("요약에 모두 실패 — 이슈를 만들지 않습니다.", file=sys.stderr)
+        return False
+
+    is_backfill = monday < week_monday(week_label(date.today()))
+    issues[label] = {
+        # 소급 생성분은 아카이브 정렬이 맞도록 그 주 월요일을 발행일로 둔다
+        "date": (datetime.combine(monday, datetime.min.time(), timezone.utc) if is_backfill
+                 else datetime.now(timezone.utc)).isoformat(),
+        "window": [start.isoformat(), (monday - timedelta(days=1)).isoformat()],
+        "fields": fields,
+        "delivered": {"slack": False, "teams": False},
+    }
+    save_json(PAPERS_FILE, store)
+    save_json(ISSUES_FILE, issues)
+    print(f"완료: {label} 이슈 발행 · 신규 {ok}편, 실패 {fail}편, 전체 축적 {len(store)}편", flush=True)
+    return True
+
+
+def issue_papers(label: str, store: dict, issues: dict) -> list[dict]:
+    return [store[i] for lst in issues[label]["fields"].values() for i in lst if i in store]
+
+
+def deliver(label: str, args, cfg: dict, store: dict, issues: dict) -> None:
+    """아직 끝나지 않은 전달 단계(Slack, Teams)만 수행하고 결과를 기록한다."""
+    d = delivered(issues[label])
+    papers = issue_papers(label, store, issues)
+    fields = issues[label]["fields"]
+
+    if not d["slack"] and not args.no_notify:
+        top = max(papers, key=lambda x: x.get("upvotes", 0)) if papers else None
+        d["slack"] = notify.send_slack(cfg, notify.build_message(cfg, label, fields, top, papers))
+
+    if not d["teams"] and not args.no_teams:
+        d["teams"] = teams.publish(label, issues[label], papers, cfg)
+
+    save_json(ISSUES_FILE, issues)
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=None, help="이번 실행 신규 요약 개수 제한")
     ap.add_argument("--rebuild", action="store_true", help="선별 없이 사이트만 재생성")
+    ap.add_argument("--week", help="특정 주차 이슈 생성 (예: 2026-W37, 소급 생성용)")
+    ap.add_argument("--force", action="store_true", help="이미 발행된 주차도 다시 선별")
     ap.add_argument("--no-notify", action="store_true", help="Slack 발송 건너뛰기")
+    ap.add_argument("--no-teams", action="store_true", help="Teams 업로드 건너뛰기")
     args = ap.parse_args()
 
     load_env()
@@ -85,66 +196,20 @@ def main() -> int:
         generate.build_site(store, issues, cfg)
         return 0
 
-    backend = summarize.resolve_backend(cfg)
-    print(f"요약 백엔드: {backend}")
-    if backend == "claude" and not os.getenv("ANTHROPIC_API_KEY"):
-        print("경고: ANTHROPIC_API_KEY가 없어 Claude 호출이 실패합니다.", file=sys.stderr)
+    label = args.week or week_label(date.today())
+    if label in issues and not args.force:
+        print(f"[{label}] 이미 발행됨 — 선별·요약 생략", flush=True)
+    elif not create_issue(label, args, cfg, store, issues):
+        return 1  # 실패: 다음 날 스케줄이 다시 시도한다
 
-    sel_cfg = cfg.get("selection", {})
-    days = sel_cfg.get("days", 7)
-    per_field = sel_cfg.get("per_field", 3)
-    fallback_cats = cfg.get("arxiv", {}).get("categories", ["cs.AI", "cs.LG", "cs.CL", "cs.CV"])
-
-    print(f"지난 {days}일 우수 논문 선별 (분야별 최대 {per_field}편)")
-    selected = curate.select_weekly(days, per_field, fallback_cats)
-
-    label = week_label(date.today())
-    fields: dict[str, list[str]] = {}
-    to_summarize = [p for p in selected if not (p["id"] in store and has_full_summary(store[p["id"]]))]
-    if args.limit is not None:
-        # 요약 개수를 제한하되, 이미 요약된 논문은 이슈에 그대로 포함
-        keep_ids = {p["id"] for p in selected if p["id"] in store and has_full_summary(store[p["id"]])}
-        to_summarize = to_summarize[: args.limit]
-        allow = keep_ids | {p["id"] for p in to_summarize}
-        selected = [p for p in selected if p["id"] in allow]
-
-    print(f"신규 요약 {len(to_summarize)}편 (기존 재사용 {len(selected) - len(to_summarize)}편)")
-    ok, fail = 0, 0
-    to_sum_ids = {p["id"] for p in to_summarize}
-    for i, p in enumerate(selected, 1):
-        pid = p["id"]
-        if pid in to_sum_ids:
-            print(f"  [{i}/{len(selected)}] 요약: {p['title'][:55]}...")
-            try:
-                p["summary"] = summarize.summarize(p, cfg, backend)
-                p["fetched_at"] = datetime.now(timezone.utc).isoformat()
-                p["week"] = label
-                store[pid] = p
-                ok += 1
-                save_json(PAPERS_FILE, store)  # 중간 저장: 중단돼도 요약이 날아가지 않음
-            except Exception as e:  # noqa: BLE001
-                fail += 1
-                print(f"    요약 실패: {e}", file=sys.stderr)
-                continue
-        else:
-            # 기존 요약 재사용하되 이번 주 인기 신호/소속 주차 갱신
-            store[pid]["upvotes"] = p.get("upvotes", store[pid].get("upvotes", 0))
-            store[pid]["citations"] = p.get("citations", store[pid].get("citations"))
-            store[pid].setdefault("week", label)
-        fields.setdefault(store[pid]["subfield"], []).append(pid)
-
-    issues[label] = {"date": datetime.now(timezone.utc).isoformat(), "fields": fields}
-    save_json(PAPERS_FILE, store)
-    save_json(ISSUES_FILE, issues)
     generate.build_site(store, issues, cfg)
-    print(f"완료: {label} 이슈 발행 · 신규 {ok}편, 실패 {fail}편, 전체 축적 {len(store)}편")
-
-    # Slack 자동 발송 (설정된 경우)
-    if not args.no_notify and fields:
-        all_papers = [store[i] for lst in fields.values() for i in lst if i in store]
-        top = max(all_papers, key=lambda x: x.get("upvotes", 0)) if all_papers else None
-        msg = notify.build_message(cfg, label, fields, top, all_papers)
-        notify.send_slack(cfg, msg)
+    # 이번 주차 + 과거에 전달이 덜 끝난 주차까지 함께 처리 (예: Teams 게시판 이력 채우기)
+    for wk in sorted(issues):
+        if wk == label or not all(delivered(issues[wk]).values()):
+            if wk != label:
+                # 과거 주차는 Slack 재발송하지 않는다
+                delivered(issues[wk])["slack"] = True
+            deliver(wk, args, cfg, store, issues)
     return 0
 
 

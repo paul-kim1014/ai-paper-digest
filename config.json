@@ -32,5 +32,10 @@
     "host": "http://localhost:11434",
     "model": "qwen3:8b",
     "num_predict": 2400
+  },
+  "teams": {
+    "folder_url": "https://yuhsac0.sharepoint.com/:f:/s/ai_a5b47d/IgAhaq2aELZ-Sr3C60ssbwFaAeJUJCJKPOWicLGyprVvKCc?e=8Q7Gkx",
+    "sync_dir": "",
+    "subfolder": "AI 논문 다이제스트"
   }
 }

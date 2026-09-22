@@ -6,7 +6,7 @@
 set -o pipefail
 cd "$HOME/ai-paper-digest" || exit 1
 
-PYTHON="/opt/homebrew/bin/python3"
+PYTHON="$HOME/ai-paper-digest/venv/bin/python"
 GIT="/usr/bin/git"
 OLLAMA="/usr/local/bin/ollama"
 LOG="$HOME/ai-paper-digest/data/cron.log"

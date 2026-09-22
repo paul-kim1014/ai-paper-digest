@@ -7,7 +7,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, asdict
 
-ARXIV_API = "http://export.arxiv.org/api/query"
+ARXIV_API = "https://export.arxiv.org/api/query"
 ATOM = "{http://www.w3.org/2005/Atom}"
 ARXIV_NS = "{http://arxiv.org/schemas/atom}"
 
@@ -69,30 +69,42 @@ def _parse_entries(raw: str) -> list[Paper]:
     return papers
 
 
-def _get(url: str) -> str:
+def _get(url: str, tries: int = 4) -> str:
+    """arXiv GET. 429면 Retry-After를 존중하고 10→30→60초로 물러난다."""
     req = urllib.request.Request(url, headers={"User-Agent": "ai-paper-digest/1.0"})
-    for attempt in range(4):
+    for attempt in range(tries):
         try:
-            with urllib.request.urlopen(req, timeout=30) as resp:
+            with urllib.request.urlopen(req, timeout=60) as resp:
                 return resp.read().decode("utf-8")
         except Exception as e:  # noqa: BLE001
-            if attempt == 3:
+            if attempt == tries - 1:
                 raise
-            wait = 6 * (attempt + 1)  # 429 대비 점증 백오프
-            print(f"  arXiv 요청 재시도 ({attempt + 1}/4, {wait}s 대기): {e}")
+            wait = (10, 30, 60)[min(attempt, 2)]
+            retry_after = getattr(e, "headers", None) and e.headers.get("Retry-After")
+            if retry_after and str(retry_after).isdigit():
+                wait = max(wait, int(retry_after))
+            print(f"  arXiv 요청 재시도 ({attempt + 1}/{tries}, {wait}s 대기): {e}", flush=True)
             time.sleep(wait)
     return ""
 
 
 def fetch_by_ids(ids: list[str]) -> list[Paper]:
-    """arXiv id 목록으로 메타데이터를 배치 조회한다 (50개씩 나눠서)."""
+    """arXiv id 목록으로 메타데이터를 배치 조회한다 (20개씩, 3초 간격).
+
+    한 배치가 끝내 실패하면 예외를 던지지 않고 그때까지의 결과만 돌려준다.
+    호출 측이 나머지를 다른 방법(키워드 분류)으로 메우게 하기 위해서다.
+    """
     results: list[Paper] = []
-    for i in range(0, len(ids), 50):
-        chunk = ids[i : i + 50]
+    for i in range(0, len(ids), 20):
+        chunk = ids[i : i + 20]
         url = f"{ARXIV_API}?id_list={','.join(chunk)}&max_results={len(chunk)}"
-        results.extend(_parse_entries(_get(url)))
-        if i + 50 < len(ids):
-            time.sleep(3)  # arXiv 예의상 간격
+        try:
+            results.extend(_parse_entries(_get(url)))
+        except Exception as e:  # noqa: BLE001
+            print(f"  arXiv 메타데이터 조회 중단({len(results)}/{len(ids)}편 확보): {e}", flush=True)
+            break
+        if i + 20 < len(ids):
+            time.sleep(3)  # arXiv 권장 간격
     return results
 
 
