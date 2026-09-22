@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Normalized Low-Rank Adaptation · AI 논문 요약</title>
+<title>SpatialBlock: Enhancing Spatial Intelligence in LVLMs via Synthetic Block-Stacking Problem · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -92,23 +92,23 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="../issue/2026-W37.html">← 2026-W37 이슈로</a>
-<h1 class="title" style="font-size:1.4rem">Normalized Low-Rank Adaptation</h1>
-<p class="authors">Jiale Kang, Ziyin Yue, Zheng Zhan, Yangyi Huang, Weiyang Liu</p>
-<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="pop">👍 55</span>
-  <span class="date">2026.08.31 · arXiv:2608.31036</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>모델을 빠르고 안정적으로 조정하는 새로운 방법을 제안합니다.</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>모든 사람이 같은 규칙을 따라야 하면 더 잘 움직일 수 있어요. 예를 들어, 학교에서 선생님이 수업을 시작할 때 모든 학생이 같은 규칙을 따라야 하죠. NoRA는 이렇게 학습을 더 잘하게 도와요.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>NoRA는 번역 모델에서 사용될 수 있어요. 예를 들어, 영어를 한국어로 번역할 때 문장이 더 정확하게 번역됩니다. 이 기술은 의료 분야에서도 사용되어 병력 정보를 정확하게 분석할 수 있습니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>기존의 LoRA 기법은 조정 과정에서 불안정하고 성능이 떨어질 수 있습니다. 특히 초기 학습 단계에서 문제가 발생할 수 있습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>NoRA는 하향 프로젝션을 정규화하여 학습을 안정적으로 만듭니다. 이 정규화는 초기화 시에만 적용해도 기존 LoRA의 성능을 개선할 수 있습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>NoRA는 학습 속도를 빠르게 하고, 성능과 안정성을 높이며, 학습 중 중요한 정보를 잃는 문제를 해결합니다. 이는 추가 파라미터나 추론 시 계산이 필요하지 않습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>LoRA</b><span>모델을 조정할 때 파라미터를 적게 사용하는 기법입니다.</span></div><div class="bg-item"><b>하향 프로젝션</b><span>데이터를 줄여서 처리하는 과정을 말합니다.</span></div><div class="bg-item"><b>정규화</b><span>모든 데이터가 공평하게 처리되도록 규칙을 만드는 방법입니다.</span></div><div class="bg-item"><b>학습 안정성</b><span>모델이 학습할 때 예측이 일관되게 유지되는 상태입니다.</span></div><div class="bg-item"><b>catastrophic forgetting</b><span>모델이 학습하면서 이전에 배운 내용을 잃는 현상입니다.</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LoRA</span><span class="kw">NoRA</span><span class="kw">정규화</span><span class="kw">학습 안정성</span><span class="kw">catastrophic forgetting</span></div></div>
-<div class="section"><h4>원문 초록</h4><p class="abstract">While low-rank adaptation (LoRA) is widely used for parameter-efficient model adaptation, how to regularize its training dynamics for stable and effective optimization remains underexplored. Because LoRA initializes the up-projection to zero, its early optimization dynamics are largely governed by the down-projection. Building on this observation, we introduce Normalized Low-Rank Adaptation (NoRA), a simple yet effective method that normalizes the down-projection matrices during training. We further show that the same normalization can be applied only at initialization, improving standard LoRA without requiring repeated normalization throughout training. Across pretraining, supervised finetuning, and reinforcement learning, NoRA consistently accelerates convergence, improves performance and training stability, and mitigates catastrophic forgetting. These benefits require neither additional trainable parameters nor inference-time computation, making NoRA a simple and broadly applicable enhancement to LoRA.</p>
+<a class="back" href="../issue/2026-W38.html">← 2026-W38 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">SpatialBlock: Enhancing Spatial Intelligence in LVLMs via Synthetic Block-Stacking Problem</h1>
+<p class="authors">Soohyun Ryu, Sohee Kim, Eunho Yang</p>
+<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="badge">인공지능</span><span class="pop">👍 143</span>
+  <span class="date">2026.09.07 · arXiv:2609.07064</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>LVLM의 공간 지능을 향상시키는 새로운 방법을 제안했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>블록을 쌓는 게임을 통해 공간 감각을 키우는 방법입니다. 블록을 쌓고 &#x27;이 블록이 위에 있어?&#x27;라고 물어보는 게임을 합니다. 이렇게 하면 공간을 더 잘 이해할 수 있어요. 예를 들어, 블록을 쌓고 사진을 찍어 블록의 위치를 맞추는 게임을 할 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 가구 배치나 건물 설계에 사용될 수 있습니다. 예를 들어, 집 안의 구조를 이해해 가구를 효율적으로 배치하는 데 도움을 줄 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>LVLM은 2D 이미지에서 3D 구조를 이해하는 공간 지능이 부족합니다. 실제 데이터를 사용하면 라벨링이 어렵고 비용이 많이 듭니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>인간의 사고 발달을 모방해 블록 조작 문제를 통해 공간 능력을 키우는 방법을 제안했습니다. 15,000개의 합성 데이터셋을 사용해 3D-2D 투영, 시점 변환, 구조 결합을 학습시켰습니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>제안된 데이터셋을 사용한 LVLM은 기존 모델보다 성능이 향상되었고, 실제 공간 작업에도 적용 가능했습니다. 합성 데이터임에도 불구하고 일반화 능력이 뛰어납니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>LVLM</b><span>이미지와 텍스트를 이해하는 대규모 인공지능 모델입니다.</span></div><div class="bg-item"><b>공간 지능</b><span>2D 이미지에서 3, 3D 구조를 이해하는 능력입니다.</span></div><div class="bg-item"><b>합성 데이터</b><span>실제 데이터가 아닌 컴퓨터로 만든 데이터입니다.</span></div><div class="bg-item"><b>시점 변환</b><span>이미지의 시점이 바뀌었을 때도 내용을 이해하는 능력입니다.</span></div><div class="bg-item"><b>기하학적 어노테이션</b><span>이미지에 정확한 위치나 형태 정보를 추가하는 작업입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LVLM</span><span class="kw">공간 지능</span><span class="kw">합성 데이터</span><span class="kw">블록 조작</span><span class="kw">시점 변환</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Large Vision-Language Models (LVLMs) have achieved strong performance on diverse visual tasks, yet their ability to reconstruct and reason about the 3D structure of the scene depicted in 2D images -- referred to as spatial intelligence -- remains limited. Existing approaches attempt to address this gap by using real-scene spatial question answering datasets that require dense geometric annotations. However, constructing such labels is costly, time-consuming, and often noisy due to reliance on external perception modules. In this work, we propose a novel paradigm inspired by human cognitive development: learning foundational spatial skills through structured block-manipulation tasks. We introduce SpatialBlock-15k, a synthetic dataset of 15,000 block-stacking problems covering 3D-to-2D projection, viewpoint transformation, and structural combination. The dataset further incorporates controlled color modulation as visual cues to encourage anchor-based reasoning in visually complex conditions. Experiments demonstrate that LVLMs trained on our dataset through either direct answering or reasoning-based prediction significantly outperform baselines and generalize to real-world spatial tasks, despite the dataset&#x27;s synthetic and compact nature. Code and data are available at https://github.com/rsoohyun/SpatialBlock.</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2608.31036v1" target="_blank" rel="noopener">PDF 원문</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2608.31036" target="_blank" rel="noopener">arXiv 페이지</a>
+    <a class="btn" href="https://arxiv.org/pdf/2609.07064v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.07064" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>

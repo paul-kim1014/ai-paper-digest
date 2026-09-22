@@ -78,9 +78,9 @@ def has_full_summary(p: dict) -> bool:
 
 
 def delivered(issue: dict) -> dict:
-    # 전달 기록이 없는 과거 이슈: Slack은 이미 보냈거나 시점이 지났으므로 완료로 간주,
-    # Teams는 아직 올린 적이 없으므로 미완료로 둔다(게시판에 전체 이력을 채우기 위해).
-    return issue.setdefault("delivered", {"slack": True, "teams": False})
+    # 전달 기록이 없는 과거 이슈는 Slack을 이미 보냈거나 시점이 지났으므로 완료로 간주.
+    # Teams는 단계별로 teams.pending()이 따로 판단한다.
+    return issue.setdefault("delivered", {"slack": True})
 
 
 def create_issue(label: str, args, cfg: dict, store: dict, issues: dict) -> bool:
@@ -121,11 +121,18 @@ def create_issue(label: str, args, cfg: dict, store: dict, issues: dict) -> bool
         pid = p["id"]
         if pid in todo_ids:
             print(f"  [{i}/{len(selected)}] 요약: {p['title'][:55]}...", flush=True)
-            try:
-                p["summary"] = summarize.summarize(p, cfg, backend)
-            except Exception as e:  # noqa: BLE001
+            # 로컬 모델은 가끔 JSON을 끝까지 닫지 않고 멈춘다 → 한 번 더 시도
+            err = None
+            for attempt in range(2):
+                try:
+                    p["summary"] = summarize.summarize(p, cfg, backend)
+                    err = None
+                    break
+                except Exception as e:  # noqa: BLE001
+                    err = e
+                    print(f"    요약 실패({attempt + 1}/2): {str(e)[:80]}", file=sys.stderr, flush=True)
+            if err is not None:
                 fail += 1
-                print(f"    요약 실패: {e}", file=sys.stderr, flush=True)
                 continue
             p["fetched_at"] = datetime.now(timezone.utc).isoformat()
             p["week"] = label
@@ -149,7 +156,7 @@ def create_issue(label: str, args, cfg: dict, store: dict, issues: dict) -> bool
                  else datetime.now(timezone.utc)).isoformat(),
         "window": [start.isoformat(), (monday - timedelta(days=1)).isoformat()],
         "fields": fields,
-        "delivered": {"slack": False, "teams": False},
+        "delivered": {"slack": False},
     }
     save_json(PAPERS_FILE, store)
     save_json(ISSUES_FILE, issues)
@@ -171,7 +178,7 @@ def deliver(label: str, args, cfg: dict, store: dict, issues: dict) -> None:
         top = max(papers, key=lambda x: x.get("upvotes", 0)) if papers else None
         d["slack"] = notify.send_slack(cfg, notify.build_message(cfg, label, fields, top, papers))
 
-    if not d["teams"] and not args.no_teams:
+    if not args.no_teams and teams.pending(issues[label], cfg):
         d["teams"] = teams.publish(label, issues[label], papers, cfg)
 
     save_json(ISSUES_FILE, issues)
@@ -197,19 +204,28 @@ def main() -> int:
         return 0
 
     label = args.week or week_label(date.today())
+    created = False
     if label in issues and not args.force:
         print(f"[{label}] 이미 발행됨 — 선별·요약 생략", flush=True)
-    elif not create_issue(label, args, cfg, store, issues):
+    elif create_issue(label, args, cfg, store, issues):
+        created = True
+    else:
         return 1  # 실패: 다음 날 스케줄이 다시 시도한다
 
     generate.build_site(store, issues, cfg)
-    # 이번 주차 + 과거에 전달이 덜 끝난 주차까지 함께 처리 (예: Teams 게시판 이력 채우기)
+    # 주간 Word 보고서도 사이트와 함께 만들어 둔다. 채널 카드의 [주간 보고서] 버튼이
+    # 가리키는 파일이 게시 시점에 이미 GitHub Pages에 올라가 있게 하기 위해서다.
     for wk in sorted(issues):
-        if wk == label or not all(delivered(issues[wk]).values()):
-            if wk != label:
-                # 과거 주차는 Slack 재발송하지 않는다
-                delivered(issues[wk])["slack"] = True
+        if (wk == label and created) or not os.path.exists(teams.report_path(wk)):
+            teams.build_report(wk, issues[wk], issue_papers(wk, store, issues), cfg)
+
+    # 이번 주차 + 전달이 덜 끝난 과거 주차(오래된 것부터 — 게시판에 시간순으로 쌓이도록)
+    for wk in sorted(issues):
+        if wk != label:
+            delivered(issues[wk])["slack"] = True  # 과거 주차는 Slack 재발송하지 않음
+        if wk == label or teams.pending(issues[wk], cfg) or not delivered(issues[wk])["slack"]:
             deliver(wk, args, cfg, store, issues)
+    save_json(ISSUES_FILE, issues)
     return 0
 
 

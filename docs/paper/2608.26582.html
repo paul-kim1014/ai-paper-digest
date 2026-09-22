@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Normalized Low-Rank Adaptation · AI 논문 요약</title>
+<title>J-Zero: Unified Challenger--Solver--Judge Co-Evolution from Zero Data · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -93,22 +93,22 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 <body>
 <div class="wrap">
 <a class="back" href="../issue/2026-W37.html">← 2026-W37 이슈로</a>
-<h1 class="title" style="font-size:1.4rem">Normalized Low-Rank Adaptation</h1>
-<p class="authors">Jiale Kang, Ziyin Yue, Zheng Zhan, Yangyi Huang, Weiyang Liu</p>
-<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="pop">👍 55</span>
-  <span class="date">2026.08.31 · arXiv:2608.31036</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>모델을 빠르고 안정적으로 조정하는 새로운 방법을 제안합니다.</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>모든 사람이 같은 규칙을 따라야 하면 더 잘 움직일 수 있어요. 예를 들어, 학교에서 선생님이 수업을 시작할 때 모든 학생이 같은 규칙을 따라야 하죠. NoRA는 이렇게 학습을 더 잘하게 도와요.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>NoRA는 번역 모델에서 사용될 수 있어요. 예를 들어, 영어를 한국어로 번역할 때 문장이 더 정확하게 번역됩니다. 이 기술은 의료 분야에서도 사용되어 병력 정보를 정확하게 분석할 수 있습니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>기존의 LoRA 기법은 조정 과정에서 불안정하고 성능이 떨어질 수 있습니다. 특히 초기 학습 단계에서 문제가 발생할 수 있습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>NoRA는 하향 프로젝션을 정규화하여 학습을 안정적으로 만듭니다. 이 정규화는 초기화 시에만 적용해도 기존 LoRA의 성능을 개선할 수 있습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>NoRA는 학습 속도를 빠르게 하고, 성능과 안정성을 높이며, 학습 중 중요한 정보를 잃는 문제를 해결합니다. 이는 추가 파라미터나 추론 시 계산이 필요하지 않습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>LoRA</b><span>모델을 조정할 때 파라미터를 적게 사용하는 기법입니다.</span></div><div class="bg-item"><b>하향 프로젝션</b><span>데이터를 줄여서 처리하는 과정을 말합니다.</span></div><div class="bg-item"><b>정규화</b><span>모든 데이터가 공평하게 처리되도록 규칙을 만드는 방법입니다.</span></div><div class="bg-item"><b>학습 안정성</b><span>모델이 학습할 때 예측이 일관되게 유지되는 상태입니다.</span></div><div class="bg-item"><b>catastrophic forgetting</b><span>모델이 학습하면서 이전에 배운 내용을 잃는 현상입니다.</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LoRA</span><span class="kw">NoRA</span><span class="kw">정규화</span><span class="kw">학습 안정성</span><span class="kw">catastrophic forgetting</span></div></div>
-<div class="section"><h4>원문 초록</h4><p class="abstract">While low-rank adaptation (LoRA) is widely used for parameter-efficient model adaptation, how to regularize its training dynamics for stable and effective optimization remains underexplored. Because LoRA initializes the up-projection to zero, its early optimization dynamics are largely governed by the down-projection. Building on this observation, we introduce Normalized Low-Rank Adaptation (NoRA), a simple yet effective method that normalizes the down-projection matrices during training. We further show that the same normalization can be applied only at initialization, improving standard LoRA without requiring repeated normalization throughout training. Across pretraining, supervised finetuning, and reinforcement learning, NoRA consistently accelerates convergence, improves performance and training stability, and mitigates catastrophic forgetting. These benefits require neither additional trainable parameters nor inference-time computation, making NoRA a simple and broadly applicable enhancement to LoRA.</p>
+<h1 class="title" style="font-size:1.4rem">J-Zero: Unified Challenger--Solver--Judge Co-Evolution from Zero Data</h1>
+<p class="authors">Gyouk Chu, Myeongho Jeon, Eunho Yang</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="badge">인공지능</span><span class="badge">자연어처리</span><span class="pop">👍 40</span>
+  <span class="date">2026.08.27 · arXiv:2608.26582</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>J-Zero는 데이터 없이 스스로 진화하는 AI 프레임워크입니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>J-Zero는 세 명의 친구가 서로 도전하고 배우는 게임입니다. 도전자는 어려운 문제를 만든다, 해결자는 그 문제에 대해 더 잘 답하는 법을 배운다. 심사자는 답의 순서를 결정하는 것이 아니라, 답이 어떻게 만들어졌는지에 따라 순서를 정합니다. 예를 들어, 해결자가 먼저 답을 만들고, 그 답을 다시 조합해서 더 나은 답을 만든다면, 심의자는 그 순서를 따릅니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 게임에서 AI가 스스로 문제를 만들어 해결하는 방식으로 사용될 수 있습니다. 예를 들어, AI가 게임 내에서 어려운 미션을 만든 후, 다른 AI가 그 미션을 해결하고, 심사자가 해결의 과정을 보고 점수를 매깁니다. 이 과정에서 AI는 점점 더 나은 전략을 배울 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>검증이 불가능한 영역에서 AI가 스스로 진화하는 방법이 부족합니다. 기존 방법은 데이터와 감독이 필요해 제한이 있습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>J-Zero는 도전자, 해결자, 심사자의 세 가지 요소가 함께 진화하는 구조입니다. 도전자는 어려운 문제를 만드는 반면, 해결자는 그 문제에 대한 더 나은 답변을 배웁니다. 심사자는 답변의 질을 평가하지 않고, 답변이 어떻게 만들어졌는지에 따라 순서를 결정합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>J-Zero는 검증 가능한 영역에서 4.2점, 검증 불가능 영역에서 8.0점 더 좋은 성능을 보였습니다. 10회 이상 반복해도 성능이 계속 향상되며, 기존 방법은 2회 후에 성능이 떨어집니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>자기 진화 AI</b><span>사람의 도움 없이 스스로 학습하고 개선하는 인공지능입니다.</span></div><div class="bg-item"><b>검증 가능한 영역</b><span>AI의 답변이 사람이 직접 확인할 수 있는 영역입니다.</span></div><div class="bg-item"><b>검증 불가능 영역</b><span>AI의 답변이 사람이 직접 확인하기 어려운 영역입니다.</span></div><div class="bg-item"><b>경쟁적 학습</b><span>두 개 이상의 AI가 서로 도전하며 학습하는 방식입니다.</span></div><div class="bg-item"><b>심사자</b><span>AI의 답변을 평가하고, 어떤 답변이 더 나은지를 판단하는 역할을 합니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">자기 진화 AI</span><span class="kw">J-Zero</span><span class="kw">경쟁적 학습</span><span class="kw">심사자</span><span class="kw">검증 불가능 영역</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Self-evolving language models have recently emerged as a promising path toward superintelligence, with the advantage of reducing the cost of human supervision. While considerable progress has been made in verifiable domains, self-evolution in unverifiable domains remains substantially less explored. We propose Judge co-adaptation from Zero data (J-Zero), a unified Challenger--Solver--Judge co-evolution framework that supports self-improvement across both domains. The Challenger and Solver co-evolve through an adversarial interaction: the Challenger generates increasingly difficult tasks, while the Solver learns to produce higher-quality responses to them. In parallel, the Judge co-adapts using preference pairs whose ordering is known in advance from how each response was produced, i.e., the Solver&#x27;s answer over the Challenger&#x27;s, and its decomposed-and-recombined answer over its one-shot answer, rather than from the Judge&#x27;s own scores. J-Zero outperforms the baselines by an average of 4.2 points on verifiable and 8.0 points on unverifiable domains, and continues to improve through at least ten iterations, whereas the baselines degrade after two.</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2608.31036v1" target="_blank" rel="noopener">PDF 원문</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2608.31036" target="_blank" rel="noopener">arXiv 페이지</a>
+    <a class="btn" href="https://arxiv.org/pdf/2608.26582v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2608.26582" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>

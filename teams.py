@@ -273,23 +273,41 @@ def post_card(card: dict) -> bool | None:
 
 
 # ---------------------------------------------------------------- 진입점
+def report_path(label: str) -> str:
+    return os.path.join(REPORT_DIR, f"{label}.docx")
+
+
+def configured(cfg: dict) -> set[str]:
+    """지금 설정돼 있는 Teams 전달 단계."""
+    steps = set()
+    if (cfg.get("teams", {}).get("sync_dir") or "").strip():
+        steps.add("folder")
+    if os.getenv("TEAMS_WEBHOOK_URL"):
+        steps.add("post")
+    return steps
+
+
+def pending(issue: dict, cfg: dict) -> set[str]:
+    """설정돼 있지만 이 주차에서 아직 성공하지 못한 단계.
+
+    단계별로 따로 기록하므로, 나중에 새 단계를 설정해도(예: OneDrive 동기화 추가)
+    지난 주차까지 그 단계만 이어서 수행된다.
+    """
+    done = issue.get("teams_steps", {})
+    return {s for s in configured(cfg) if not done.get(s)}
+
+
 def publish(label: str, issue: dict, papers: list[dict], cfg: dict) -> bool:
-    """보고서 생성 → 폴더 업로드 → 채널 게시. 설정된 단계가 모두 성공하면 True."""
-    if not papers:
-        return False
-    report = build_report(label, issue, papers, cfg)
-    print(f"  주간 보고서 생성: {os.path.relpath(report, BASE)}", flush=True)
-    tcfg = cfg.get("teams", {})
+    """남은 Teams 단계(폴더 업로드, 채널 게시)를 수행. 남은 단계가 없으면 True."""
+    todo = pending(issue, cfg)
+    if not papers or not todo:
+        return not todo
+    report = report_path(label)
+    if not os.path.exists(report):
+        build_report(label, issue, papers, cfg)
     steps = issue.setdefault("teams_steps", {})
-    if not steps.get("folder"):
-        r = upload_to_folder(report, label, tcfg)
-        if r is not None:
-            steps["folder"] = r
-    if not steps.get("post"):
-        r = post_card(build_card(label, issue, papers, cfg))
-        if r is not None:
-            steps["post"] = r
-    if not steps:
-        print("  Teams 미설정(teams.sync_dir / TEAMS_WEBHOOK_URL) — 보고서만 생성", flush=True)
-        return False
-    return all(steps.values())
+    if "folder" in todo:
+        steps["folder"] = bool(upload_to_folder(report, label, cfg.get("teams", {})))
+    if "post" in todo:
+        steps["post"] = bool(post_card(build_card(label, issue, papers, cfg)))
+    return not pending(issue, cfg)

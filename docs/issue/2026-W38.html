@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-W38 주간 이슈 · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../archive.html">← 아카이브로</a>
+<header style="padding-top:8px">
+  <h1 class="title">2026-W38 주간 이슈</h1>
+  <p class="subtitle">2026.09.14 발행 · 총 20편 · <a href="../index.html" style="color:var(--accent)">최신 이슈 →</a></p>
+</header>
+<input id="search" type="search" placeholder="제목·키워드로 검색…" oninput="doSearch()"><div class="field"><h2 class="field-h">자연어처리 (NLP)<span class="cnt">3편</span></h2><a class="card" href="../paper/2609.10715.html" data-search="ncp-archpreview technical report: moving towards latent space language models through next concept prediction ncp-archpreview는 토큰보다 더 큰 개념을 예측해 언어 모델을 개선했습니다. 자연어 처리 자연어 모델 자연어 생성 자연어 예측 자연어 개념 자연어처리 (nlp)">
+  <h3>NCP-ArchPreview Technical Report: Moving towards Latent Space Language Models through Next Concept Prediction</h3>
+  <p class="tldr">NCP-ArchPreview는 토큰보다 더 큰 개념을 예측해 언어 모델을 개선했습니다.</p>
+  <div class="badges"><span class="badge">자연어처리</span>
+    <span class="pop">👍 328</span><span class="kw">자연어 처리</span><span class="kw">자연어 모델</span><span class="kw">자연어 생성</span><span class="date">2026.09.09</span></div>
+</a>
+<a class="card" href="../paper/2609.08183.html" data-search="neohorse-1: towards recursive self-improvement via agentic post-training with routing harness ai가 스스로 개선되도록 새로운 방법을 제안했습니다. 자기 개선 모델 풀 경로 선택 학습 데이터 성능 향상 자연어처리 (nlp)">
+  <h3>NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness</h3>
+  <p class="tldr">AI가 스스로 개선되도록 새로운 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">자연어처리</span>
+    <span class="pop">👍 171</span><span class="kw">자기 개선</span><span class="kw">모델 풀</span><span class="kw">경로 선택</span><span class="date">2026.09.08</span></div>
+</a>
+<a class="card" href="../paper/2609.11699.html" data-search="negative self-distillation: learning to reason by avoiding flaws 모델이 스스로 학습하며 실수를 피하는 방법을 개발했습니다. 자기학습 자기강화 학습 언어 모델 실수 정확성 자연어처리 (nlp)">
+  <h3>Negative Self-Distillation: Learning to Reason by Avoiding Flaws</h3>
+  <p class="tldr">모델이 스스로 학습하며 실수를 피하는 방법을 개발했습니다.</p>
+  <div class="badges"><span class="badge">자연어처리</span>
+    <span class="pop">👍 33</span><span class="kw">자기학습</span><span class="kw">자기강화 학습</span><span class="kw">언어 모델</span><span class="date">2026.09.10</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">컴퓨터비전 (CV)<span class="cnt">3편</span></h2><a class="card" href="../paper/2609.11929.html" data-search="sensenova-u1.5: towards native unified visual intelligence sensenova-u1.5는 시각과 텍스트를 하나로 합쳐서 이해하고 생성하는 모델입니다. 다중 모달리티 모델 재강화 학습 데이터 편집 컴퓨터비전 (cv)">
+  <h3>SenseNova-U1.5: Towards Native Unified Visual Intelligence</h3>
+  <p class="tldr">SenseNova-U1.5는 시각과 텍스트를 하나로 합쳐서 이해하고 생성하는 모델입니다.</p>
+  <div class="badges"><span class="badge">컴퓨터비전</span>
+    <span class="pop">👍 273</span><span class="kw">다중 모달리티</span><span class="kw">모델</span><span class="kw">재강화 학습</span><span class="date">2026.09.10</span></div>
+</a>
+<a class="card" href="../paper/2609.07064.html" data-search="spatialblock: enhancing spatial intelligence in lvlms via synthetic block-stacking problem lvlm의 공간 지능을 향상시키는 새로운 방법을 제안했습니다. lvlm 공간 지능 합성 데이터 블록 조작 시점 변환 컴퓨터비전 (cv)">
+  <h3>SpatialBlock: Enhancing Spatial Intelligence in LVLMs via Synthetic Block-Stacking Problem</h3>
+  <p class="tldr">LVLM의 공간 지능을 향상시키는 새로운 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">컴퓨터비전</span>
+    <span class="pop">👍 143</span><span class="kw">LVLM</span><span class="kw">공간 지능</span><span class="kw">합성 데이터</span><span class="date">2026.09.07</span></div>
+</a>
+<a class="card" href="../paper/2609.10540.html" data-search="programmable world model 영상 세계를 프로그래밍처럼 조작할 수 있는 새로운 기술입니다. 영상 세계 모델 자연어 지시 3d 바운딩 박스 게임 메커니즘 정확도 컴퓨터비전 (cv)">
+  <h3>Programmable World Model</h3>
+  <p class="tldr">영상 세계를 프로그래밍처럼 조작할 수 있는 새로운 기술입니다.</p>
+  <div class="badges"><span class="badge">컴퓨터비전</span>
+    <span class="pop">👍 113</span><span class="kw">영상 세계 모델</span><span class="kw">자연어 지시</span><span class="kw">3D 바운딩 박스</span><span class="date">2026.09.09</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">머신러닝 (ML)<span class="cnt">3편</span></h2><a class="card" href="../paper/2608.12564.html" data-search="scaling automatic research agents via world models ai 연구 자동화를 더 빠르고 효율적으로 만드는 방법을 제안했습니다. autoresearch world model rl bias denoising 머신러닝 (ml)">
+  <h3>Scaling Automatic Research Agents via World Models</h3>
+  <p class="tldr">AI 연구 자동화를 더 빠르고 효율적으로 만드는 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">머신러닝</span>
+    <span class="pop">👍 474</span><span class="kw">AutoResearch</span><span class="kw">World Model</span><span class="kw">RL</span><span class="date">2026.08.12</span></div>
+</a>
+<a class="card" href="../paper/2609.04010.html" data-search="unlocking lossless speedups in llms via discrete diffusion llm의 생성 속도를 빠르게 개선하는 새로운 방법을 제안했습니다. llm 확산 모델 토큰 자연어 처리 추측 해석 머신러닝 (ml)">
+  <h3>Unlocking Lossless Speedups in LLMs via Discrete Diffusion</h3>
+  <p class="tldr">LLM의 생성 속도를 빠르게 개선하는 새로운 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">머신러닝</span>
+    <span class="pop">👍 105</span><span class="kw">LLM</span><span class="kw">확산 모델</span><span class="kw">토큰</span><span class="date">2026.09.03</span></div>
+</a>
+<a class="card" href="../paper/2609.08798.html" data-search="eliciting weak-to-strong generalization with on-policy reverse distillation 강한 모델이 약한 감독으로부터 배우며 더 잘하는 방법을 제안합니다. 강화학습 역산전달 정책 모델 강-약 모델 머신러닝 (ml)">
+  <h3>Eliciting Weak-to-Strong Generalization with On-Policy Reverse Distillation</h3>
+  <p class="tldr">강한 모델이 약한 감독으로부터 배우며 더 잘하는 방법을 제안합니다.</p>
+  <div class="badges"><span class="badge">머신러닝</span>
+    <span class="pop">👍 80</span><span class="kw">강화학습</span><span class="kw">역산전달</span><span class="kw">정책</span><span class="date">2026.09.08</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">강화학습·로보틱스<span class="cnt">3편</span></h2><a class="card" href="../paper/2609.10522.html" data-search="show-harness: just a vlm agent can play robots vlm을 통해 로봇을 제어하는 새로운 방법을 제안했습니다. vlm 로봇 제어 show-harness gui 제로샷 학습 강화학습·로보틱스">
+  <h3>Show-Harness: Just a VLM Agent Can Play Robots</h3>
+  <p class="tldr">VLM을 통해 로봇을 제어하는 새로운 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">로보틱스</span>
+    <span class="pop">👍 160</span><span class="kw">VLM</span><span class="kw">로봇 제어</span><span class="kw">Show-Harness</span><span class="date">2026.09.09</span></div>
+</a>
+<a class="card" href="../paper/2609.07398.html" data-search="openwam: an open, modular exploration towards systematic world-action model pretraining openwam은 세계-행동 모델을 훈련하는 방법을 개방하고 모듈화하여 연구를 쉽게 만듭니다. 세계-행동 모델 모듈화 훈련 데이터 시뮬레이션 로봇 제어 강화학습·로보틱스">
+  <h3>OpenWAM: An Open, Modular Exploration Towards Systematic World-Action Model Pretraining</h3>
+  <p class="tldr">OpenWAM은 세계-행동 모델을 훈련하는 방법을 개방하고 모듈화하여 연구를 쉽게 만듭니다.</p>
+  <div class="badges"><span class="badge">로보틱스</span>
+    <span class="pop">👍 76</span><span class="kw">세계-행동 모델</span><span class="kw">모듈화</span><span class="kw">훈련 데이터</span><span class="date">2026.09.07</span></div>
+</a>
+<a class="card" href="../paper/2609.05588.html" data-search="ge-act 2.0: pretraining and scaling a world-action model for robotic manipulation 로봇이 스스로 배워서 물건을 조작하는 방법을 개선했습니다. 로봇 조작 자연 이미지 생성 강화학습 자연어 처리 데이터 전처리 강화학습·로보틱스">
+  <h3>GE-Act 2.0: Pretraining and Scaling a World-Action Model for Robotic Manipulation</h3>
+  <p class="tldr">로봇이 스스로 배워서 물건을 조작하는 방법을 개선했습니다.</p>
+  <div class="badges"><span class="badge">로보틱스</span>
+    <span class="pop">👍 56</span><span class="kw">로봇 조작</span><span class="kw">자연 이미지 생성</span><span class="kw">강화학습</span><span class="date">2026.09.04</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">AI 일반·에이전트<span class="cnt">3편</span></h2><a class="card" href="../paper/2609.02750.html" data-search="bilevel coordinated reflection: a game-theoretic approach to multi-agent llm systems 다양한 ai들이 협력하는 시스템을 더 잘 조율하는 방법을 제안했습니다. 게임 이론 반성 메모리 확률 알고리즘 ai 일반·에이전트">
+  <h3>Bilevel Coordinated Reflection: A Game-Theoretic Approach to Multi-Agent LLM Systems</h3>
+  <p class="tldr">다양한 AI들이 협력하는 시스템을 더 잘 조율하는 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">인공지능</span>
+    <span class="pop">👍 142</span><span class="kw">게임 이론</span><span class="kw">반성</span><span class="kw">메모리</span><span class="date">2026.09.02</span></div>
+</a>
+<a class="card" href="../paper/2609.08572.html" data-search="agentgrad: intervention-guided prompt optimization for multi agent systems agentgrad는 여러 인공지능을 함께 사용할 때 더 잘 작동하도록 도와주는 방법입니다. agentgrad 다중 인공지능 최적화 문제 해결 대화형 시스템 ai 일반·에이전트">
+  <h3>AgentGrad: Intervention-guided Prompt Optimization for Multi Agent Systems</h3>
+  <p class="tldr">AgentGrad는 여러 인공지능을 함께 사용할 때 더 잘 작동하도록 도와주는 방법입니다.</p>
+  <div class="badges"><span class="badge">인공지능</span>
+    <span class="pop">👍 80</span><span class="kw">AgentGrad</span><span class="kw">다중 인공지능</span><span class="kw">최적화</span><span class="date">2026.09.08</span></div>
+</a>
+<a class="card" href="../paper/2609.04304.html" data-search="iris: climbing to the search frontier iris는 검색 능력이 탁월한 대규모 ai 모델입니다. ai 검색 훈련 모델 검증 ai 일반·에이전트">
+  <h3>Iris: Climbing to the Search Frontier</h3>
+  <p class="tldr">Iris는 검색 능력이 탁월한 대규모 AI 모델입니다.</p>
+  <div class="badges"><span class="badge">인공지능</span>
+    <span class="pop">👍 69</span><span class="kw">AI</span><span class="kw">검색</span><span class="kw">훈련</span><span class="date">2026.09.03</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">음성·오디오<span class="cnt">3편</span></h2><a class="card" href="../paper/2609.08936.html" data-search="auk technical report: an open-source foundational model for speech generation and editing auk는 음성 생성과 편집을 하나의 인터페이스로 통합한 오픈소스 모델입니다. auk 음성 생성 음성 편집 오픈소스 모델 음성·오디오">
+  <h3>AuK Technical Report: An Open-Source Foundational Model for Speech Generation and Editing</h3>
+  <p class="tldr">AuK는 음성 생성과 편집을 하나의 인터페이스로 통합한 오픈소스 모델입니다.</p>
+  <div class="badges"><span class="badge">음성</span>
+    <span class="pop">👍 163</span><span class="kw">AuK</span><span class="kw">음성 생성</span><span class="kw">음성 편집</span><span class="date">2026.09.08</span></div>
+</a>
+<a class="card" href="../paper/2609.08977.html" data-search="multimodal duplex interaction agent gander는 대화 중에 중단하거나 질문을 던질 수 있는 자연스러운 대화를 가능하게 합니다. 다중 모달 실시간 대화 도구 호출 대화형 에이전트 비동기 음성·오디오">
+  <h3>Multimodal Duplex Interaction Agent</h3>
+  <p class="tldr">Gander는 대화 중에 중단하거나 질문을 던질 수 있는 자연스러운 대화를 가능하게 합니다.</p>
+  <div class="badges"><span class="badge">오디오</span>
+    <span class="pop">👍 94 · 📊 인용 1</span><span class="kw">다중 모달</span><span class="kw">실시간 대화</span><span class="kw">도구 호출</span><span class="date">2026.09.08</span></div>
+</a>
+<a class="card" href="../paper/2609.11412.html" data-search="x-aut: progressive audio-encoder compression for speech llms with cross-scale distillation 음성 인코더를 줄여 모델 성능을 유지하면서 효율을 높였습니다. 음성 인코더 lora 디스티л리 크로스 스케일 추론 비용 음성·오디오">
+  <h3>X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation</h3>
+  <p class="tldr">음성 인코더를 줄여 모델 성능을 유지하면서 효율을 높였습니다.</p>
+  <div class="badges"><span class="badge">음성</span>
+    <span class="pop">👍 46</span><span class="kw">음성 인코더</span><span class="kw">LoRA</span><span class="kw">디스티л리</span><span class="date">2026.09.10</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">정보검색·추천<span class="cnt">1편</span></h2><a class="card" href="../paper/2609.11808.html" data-search="generative late-interaction embeddings for visual document retrieval 문서 검색 시 저장 공간을 효율적으로 사용하는 새로운 방법을 제안했습니다. 비디오 검색 벡터 ndcg 저장 공간 검색 엔진 정보검색·추천">
+  <h3>Generative Late-Interaction Embeddings For Visual Document Retrieval</h3>
+  <p class="tldr">문서 검색 시 저장 공간을 효율적으로 사용하는 새로운 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">정보검색</span>
+    <span class="pop">👍 26</span><span class="kw">비디오 검색</span><span class="kw">벡터</span><span class="kw">nDCG</span><span class="date">2026.09.10</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">기타 AI<span class="cnt">1편</span></h2><a class="card" href="../paper/2609.05903.html" data-search="evosafeharness: evolving model- and domain-specific harnesses for securing agents 모델과 도메인에 맞는 안전 보호장치를 자동으로 만드는 방법을 제안했습니다. 안전 보호장치 대규모 언어 모델 도메인 자연어 정책 실행 가능한 코드 기타 ai">
+  <h3>EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents</h3>
+  <p class="tldr">모델과 도메인에 맞는 안전 보호장치를 자동으로 만드는 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">cs.CR</span>
+    <span class="pop">👍 39</span><span class="kw">안전 보호장치</span><span class="kw">대규모 언어 모델</span><span class="kw">도메인</span><span class="date">2026.09.05</span></div>
+</a></div><footer>arXiv · Hugging Face 트렌딩 기반 자동 선별</footer><script>
+function doSearch(){var q=document.getElementById('search').value.toLowerCase().trim();
+document.querySelectorAll('.field').forEach(function(f){var any=0;
+f.querySelectorAll('.card').forEach(function(c){var ok=!q||c.dataset.search.indexOf(q)>-1;
+c.style.display=ok?'block':'none';if(ok)any++;});
+f.style.display=any?'block':'none';});}
+</script>
+</div>
+</body>
+</html>

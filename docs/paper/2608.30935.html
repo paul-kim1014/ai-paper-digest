@@ -92,22 +92,22 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
+<a class="back" href="../issue/2026-W37.html">← 2026-W37 이슈로</a>
 <h1 class="title" style="font-size:1.4rem">LightNav-0: Eliciting VLM Spatial Intelligence for Generalist Embodied Navigation</h1>
 <p class="authors">Shaoan Wang, Aocheng Luo, Fei Huang, Jingyi Xu, Xiaoyang Wang, Yueyu Wang, Qianli Ma, Fan Yang 외</p>
-<div class="badges" style="margin:12px 0"><span class="badge">로보틱스</span><span class="badge">인공지능</span><span class="pop">👍 26</span>
+<div class="badges" style="margin:12px 0"><span class="badge">로보틱스</span><span class="badge">인공지능</span><span class="pop">👍 31</span>
   <span class="date">2026.08.31 · arXiv:2608.30935</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>LightNav-0은 시각 모델을 이용해 로봇이 다양한 환경에서 이동하는 방법을 개발했습니다.</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>로봇이 방에서 물건을 찾을 때, 사진을 보고 스스로 어떻게 가는지 배우는 거예요. 기존 방식은 특정 방법만 알았지만, 이 방법은 다양한 방식을 배워서 더 유연하게 움직일 수 있어요.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>로봇이 방을 돌아다니며 &#x27;컵&#x27;을 찾아가는 작업에서, 이미지와 말을 이해해 직접 경로를 계산합니다. 기존 방식은 특정 방식만 알았지만, LightNav-0은 다양한 상황을 스스로 처리합니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>기존 로봇 이동 시스템은 특정 작업이나 환경에만 맞춰져 있어 일반화가 어려웠고, 인식, 추론, 행동이 분리되어 있었습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>LightNav-0은 사전 학습된 시각-언어 모델의 공간 지능을 활용해 이동을 제어하며, 단일 모델로 다양한 작업을 처리할 수 있도록 통합된 토큰 인터페이스를 사용했습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>시뮬레이션에서 최고 성능을 보이며, 실제 환경에서도 새로운 장치와 장애물에 대응할 수 있는 일반화 능력을 입증했습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>Embodied Navigation</b><span>로봇이 실제 환경에서 움직이며 목표를 달성하는 기술</span></div><div class="bg-item"><b>Vision-Language Models</b><span>사진과 말을 동시에 이해하는 인공지능 모델</span></div><div class="bg-item"><b>Vector Quantization</b><span>데이터를 작은 코드로 압축해 저장하는 방법</span></div><div class="bg-item"><b>Reinforcement Learning</b><span>로봇이 행동을 반복하며 성공할 때 보상받아 배우는 방식</span></div><div class="bg-item"><b>Tokenization</b><span>문장을 작은 단위로 나누어 처리하는 기술</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LightNav-0</span><span class="kw">Vision-Language Models</span><span class="kw">Embodied Navigation</span><span class="kw">Vector Quantization</span><span class="kw">Reinforcement Learning</span></div></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>작은 모델로 다양한 환경에서 로봇이 스스로 움직일 수 있게 했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 기술은 로봇이 스스로 움직일 수 있도록 도와주는 작은 지도 같은 것이라고 생각해요. 로봇이 &#x27;왼쪽에 있는 사과로 가라&#x27;는 말을 듣면, 이 지도를 사용해 사과 위치를 찾아 움직이죠. 이 지도는 다양한 장소에서도 사용할 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 집안에서 로봇이 &#x27;문 앞으로 가라&#x27;는 말을 듣고 스스로 움직일 수 있도록 도와줍니다. 또한, 병원에서 로봇이 환자에게 필요한 약을 찾아 줄 수도 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>로봇이 다양한 환경에서 스스로 움직일 때, 기존 시스템은 복잡하고 제한적이었습니다. 이는 인식, 판단, 행동을 분리해 제한적인 일반화 능력을 가졌습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>LightNav-0은 이미 학습된 시각-언어 모델의 공간 지능을 활용해 로봇 제어를 합니다. 이 모델은 단일 모델로 지시 따르기, 물체 이동, 시각 추적을 모두 처리합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>LightNav-0은 다양한 시뮬레이션 환경에서 최고 성과를 보였고, 실제 로봇에서도 새로운 환경에 빠르게 적응할 수 있었습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>시각-언어 모델(VLM)</b><span>이미 학습된 모델로, 사진이나 영상에서 말을 이해하고, 말로 된 지시를 사진으로 변환할 수 있어요.</span></div><div class="bg-item"><b>로봇 제어</b><span>로봇이 스스로 움직일 수 있도록 지시를 해주는 일로, 이는 복잡한 환경에서 정확하게 움직일 수 있어야 해요.</span></div><div class="bg-item"><b>시뮬레이션</b><span>실제로 하기 어려운 실험을 컴퓨터로 시뮬레이션하는 일로, 실제 환경을 테스트하기 전에 시뮬레이션에서 결과를 확인할 수 있어요.</span></div><div class="bg-item"><b>일반화</b><span>모든 환경에서 동일하게 잘 작동하는 능력을 말해요. 예를 들어, 모델이 한 환경에서 잘 작동하면 다른 환경에서도 잘 작동해야 해요.</span></div><div class="bg-item"><b>강화학습</b><span>로봇이 스스로 실패를 배우며 성공하는 방법을 찾는 학습 방식으로, 실패를 통해 더 나은 방법을 배울 수 있어요.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LightNav-0</span><span class="kw">시각-언어 모델</span><span class="kw">로봇 제어</span><span class="kw">일반화</span><span class="kw">강화학습</span></div></div>
 <div class="section"><h4>원문 초록</h4><p class="abstract">Embodied navigation requires agents to translate heterogeneous goals and visual observations into actions across tasks, environments, and robot embodiments. Modern vision-language models (VLMs) already encode spatial priors for visual grounding, spatial reasoning, and pointing, but these capabilities are rarely elicited directly for robot control. Existing navigation systems instead rely on task- or embodiment-specific components, fragmenting perception, reasoning, and action while offering limited generalization. Here we present LightNav-0, a compact generalist embodied navigation model that elicits the spatial intelligence of a pretrained VLM and aligns it with navigation, without task-specific prediction heads. LightNav-0 represents diverse navigation tasks through a unified token interface: dual-channel pointing expresses task-, scene-, and embodiment-agnostic spatial intent, while a residual vector-quantized action tokenizer maps this intent to precise, embodiment-specific trajectories. Together with temporally aware visual history compression, ER mid-training, supervised fine-tuning, and reinforcement learning, this formulation supports instruction following, open-vocabulary object navigation, and visual tracking within a single model. The navigation training corpus spans 2K+ scenes and 4K+ hours of embodied navigation data. LightNav-ER, the embodied-reasoning checkpoint used to initialize LightNav-0, attains the highest complete-set average across 8 embodied-reasoning benchmarks, while LightNav-0 achieves state-of-the-art monocular success rates across all 10 public navigation simulation settings. Real-world evaluations further demonstrate zero-shot generalization across robot embodiments, diverse scenes, and static and dynamic targets. These results establish compact VLMs as a unified and transferable backbone for generalist embodied navigation.</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2608.30935v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn" href="https://arxiv.org/pdf/2608.30935v2" target="_blank" rel="noopener">PDF 원문</a>
     <a class="btn ghost" href="https://arxiv.org/abs/2608.30935" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>

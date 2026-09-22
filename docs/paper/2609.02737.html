@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Normalized Low-Rank Adaptation · AI 논문 요약</title>
+<title>Language Models Can Control Their Own Attention · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -93,22 +93,22 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 <body>
 <div class="wrap">
 <a class="back" href="../issue/2026-W37.html">← 2026-W37 이슈로</a>
-<h1 class="title" style="font-size:1.4rem">Normalized Low-Rank Adaptation</h1>
-<p class="authors">Jiale Kang, Ziyin Yue, Zheng Zhan, Yangyi Huang, Weiyang Liu</p>
-<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="pop">👍 55</span>
-  <span class="date">2026.08.31 · arXiv:2608.31036</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>모델을 빠르고 안정적으로 조정하는 새로운 방법을 제안합니다.</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>모든 사람이 같은 규칙을 따라야 하면 더 잘 움직일 수 있어요. 예를 들어, 학교에서 선생님이 수업을 시작할 때 모든 학생이 같은 규칙을 따라야 하죠. NoRA는 이렇게 학습을 더 잘하게 도와요.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>NoRA는 번역 모델에서 사용될 수 있어요. 예를 들어, 영어를 한국어로 번역할 때 문장이 더 정확하게 번역됩니다. 이 기술은 의료 분야에서도 사용되어 병력 정보를 정확하게 분석할 수 있습니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>기존의 LoRA 기법은 조정 과정에서 불안정하고 성능이 떨어질 수 있습니다. 특히 초기 학습 단계에서 문제가 발생할 수 있습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>NoRA는 하향 프로젝션을 정규화하여 학습을 안정적으로 만듭니다. 이 정규화는 초기화 시에만 적용해도 기존 LoRA의 성능을 개선할 수 있습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>NoRA는 학습 속도를 빠르게 하고, 성능과 안정성을 높이며, 학습 중 중요한 정보를 잃는 문제를 해결합니다. 이는 추가 파라미터나 추론 시 계산이 필요하지 않습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>LoRA</b><span>모델을 조정할 때 파라미터를 적게 사용하는 기법입니다.</span></div><div class="bg-item"><b>하향 프로젝션</b><span>데이터를 줄여서 처리하는 과정을 말합니다.</span></div><div class="bg-item"><b>정규화</b><span>모든 데이터가 공평하게 처리되도록 규칙을 만드는 방법입니다.</span></div><div class="bg-item"><b>학습 안정성</b><span>모델이 학습할 때 예측이 일관되게 유지되는 상태입니다.</span></div><div class="bg-item"><b>catastrophic forgetting</b><span>모델이 학습하면서 이전에 배운 내용을 잃는 현상입니다.</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LoRA</span><span class="kw">NoRA</span><span class="kw">정규화</span><span class="kw">학습 안정성</span><span class="kw">catastrophic forgetting</span></div></div>
-<div class="section"><h4>원문 초록</h4><p class="abstract">While low-rank adaptation (LoRA) is widely used for parameter-efficient model adaptation, how to regularize its training dynamics for stable and effective optimization remains underexplored. Because LoRA initializes the up-projection to zero, its early optimization dynamics are largely governed by the down-projection. Building on this observation, we introduce Normalized Low-Rank Adaptation (NoRA), a simple yet effective method that normalizes the down-projection matrices during training. We further show that the same normalization can be applied only at initialization, improving standard LoRA without requiring repeated normalization throughout training. Across pretraining, supervised finetuning, and reinforcement learning, NoRA consistently accelerates convergence, improves performance and training stability, and mitigates catastrophic forgetting. These benefits require neither additional trainable parameters nor inference-time computation, making NoRA a simple and broadly applicable enhancement to LoRA.</p>
+<h1 class="title" style="font-size:1.4rem">Language Models Can Control Their Own Attention</h1>
+<p class="authors">Namgyu Ho, Huzama Ahmad, Woosung Koh, Se-Young Yun, Tal Schuster, Cicero Nogueira dos Santos</p>
+<div class="badges" style="margin:12px 0"><span class="badge">자연어처리</span><span class="badge">인공지능</span><span class="badge">머신러닝</span><span class="pop">👍 77 · 📊 인용 1</span>
+  <span class="date">2026.09.02 · arXiv:2609.02737</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>모델이 스스로 중요한 정보를 선택해 효율적으로 읽을 수 있게 했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>모델이 스스로 중요한 내용을 골라 읽도록 도와주는 방법이에요. 예를 들어, &#x27;이 부분만 집중해&#x27;라고 말하면, 모델은 그 부분만 읽고 나머지는 건너뜁니다. 이렇게 하면 시간이 줄고, 더 빠르게 대답할 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>대화가 길어지면, 모델이 중요한 부분만 읽도록 하여, 사용자의 질문에 더 빠르게 답변할 수 있습니다. 예를 들어, 1000개의 문장이 담긴 대화에서, 사용자가 100번째 문장에 대한 질문을 했을 때, 모델은 그 부분만 읽고 답변할 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>대화가 길어지면 모델이 전체 문맥을 읽어야 해서 속도가 느려졌습니다. 이로 인해 사용자의 질문에 대한 답변이 늦어지고 자원이 많이 소모됩니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>모델이 스스로 중요한 부분을 선택하도록 도와주는 &#x27;선언적 주의&#x27; 기법을 사용했습니다. 이 기법은 모델이 대화 중 어떤 부분에 집중해야 하는지 직접 선언하도록 해서, 불필요한 정보를 건너뛸 수 있게 합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>모델이 중요한 정보만 읽도록 하니, 전체 문맥을 읽는 시간이 크게 줄어들었습니다. 이는 대화가 길어질수록 더 큰 효과를 보이며, 실제 사용 시 효율성과 성능을 동시에 높였습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>KV 캐시</b><span>모델이 읽은 내용을 저장해 빠르게 사용할 수 있도록 하는 저장소입니다.</span></div><div class="bg-item"><b>선언적 주의</b><span>모델이 스스로 중요한 부분을 선택해 읽도록 도와주는 기법입니다.</span></div><div class="bg-item"><b>대화 흐름</b><span>대화가 어떻게 이어지는지를 나타내는 순서로, 모델이 이를 따라가야 합니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">선언적 주의</span><span class="kw">KV 캐시</span><span class="kw">대화 흐름</span><span class="kw">모델 효율성</span><span class="kw">대화 길이</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Language models spend most of their attention on a small fraction of context, yet they read the entire KV cache to find the few tokens that matter. If the user asks about a previous detail in a 1M-token conversation, global attention layers must scan the full context to generate each token of the reply. A prominent approach mitigates this cost by pre-selecting relevant tokens via lightweight proxy scores, but this extrinsic scoring still incurs O(N) per step. We take an intrinsic approach motivated by the simple question: wouldn&#x27;t the model already know which parts of the context are relevant? To this end, we introduce Declarative Attention (DA), a protocol that elicits the model to declare where it needs to attend within its chain-of-thought, partitioning generation into three modes: &lt;global&gt; (full context), &lt;focus&gt; (a specific region), and &lt;local&gt; (recent output only). The inference engine parses these declarations like tool calls and skips most of the KV cache read. Under zero-shot evaluation across 15 long-context tasks, DA on off-the-shelf models (Gemma-4-31B, Qwen-3.6-27B) significantly reduces total attended tokens during decoding (52.0%, 31.1%) with modest accuracy drops (1.27pp, 2.75pp) that shrink with model scale. DA unlocks a new axis of sparse attention, with further potential under training-based methods that future work can explore.</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2608.31036v1" target="_blank" rel="noopener">PDF 원문</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2608.31036" target="_blank" rel="noopener">arXiv 페이지</a>
+    <a class="btn" href="https://arxiv.org/pdf/2609.02737v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.02737" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>

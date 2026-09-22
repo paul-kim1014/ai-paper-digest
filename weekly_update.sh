@@ -23,21 +23,30 @@ fi
 # .env 로드 (Slack/Claude 키)
 [ -f .env ] && set -a && . ./.env && set +a
 
-# 선별·요약·사이트 생성·Slack 발송
-"$PYTHON" -u main.py >> "$LOG" 2>&1
+push_changes() {
+  "$GIT" add -A >> "$LOG" 2>&1
+  if ! "$GIT" diff --cached --quiet; then
+    "$GIT" commit -m "auto: $1 $(date '+%Y-%m-%d')" >> "$LOG" 2>&1
+    "$GIT" push origin main >> "$LOG" 2>&1 && echo "push 완료" >> "$LOG" && return 0
+    return 1
+  fi
+  return 2  # 변경 없음
+}
+
+# 1단계: 이슈 발행·사이트·주간 보고서 생성 (전달은 아직 안 함)
+"$PYTHON" -u main.py --no-notify --no-teams >> "$LOG" 2>&1
 STATUS=$?
 
 if [ $STATUS -eq 0 ]; then
-  "$GIT" add -A >> "$LOG" 2>&1
-  # 변경이 있을 때만 커밋/푸시
-  if ! "$GIT" diff --cached --quiet; then
-    "$GIT" commit -m "auto: 주간 이슈 $(date '+%Y-%m-%d')" >> "$LOG" 2>&1
-    "$GIT" push origin main >> "$LOG" 2>&1 && echo "push 완료" >> "$LOG"
-  else
-    echo "변경 없음 — 커밋 생략" >> "$LOG"
-  fi
+  # 2단계: 먼저 푸시해서 Slack·Teams 링크(웹 이슈, Word 보고서)가 열리는 상태로 만든다
+  push_changes "주간 이슈"
+  [ $? -eq 0 ] && sleep 90  # GitHub Pages 반영 대기
+  # 3단계: 남은 전달(Slack·Teams)만 수행 — 이슈는 이미 있으므로 선별·요약은 생략된다
+  "$PYTHON" -u main.py >> "$LOG" 2>&1
+  STATUS=$?
+  push_changes "전달 기록"
 else
-  echo "main.py 실패 (exit $STATUS)" >> "$LOG"
+  echo "main.py 실패 (exit $STATUS) — 내일 09:00에 다시 시도" >> "$LOG"
 fi
 
 echo "===== $(date '+%Y-%m-%d %H:%M:%S') 종료 (exit $STATUS) =====" >> "$LOG"

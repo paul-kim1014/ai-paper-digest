@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Normalized Low-Rank Adaptation · AI 논문 요약</title>
+<title>Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -93,22 +93,22 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 <body>
 <div class="wrap">
 <a class="back" href="../issue/2026-W37.html">← 2026-W37 이슈로</a>
-<h1 class="title" style="font-size:1.4rem">Normalized Low-Rank Adaptation</h1>
-<p class="authors">Jiale Kang, Ziyin Yue, Zheng Zhan, Yangyi Huang, Weiyang Liu</p>
-<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="pop">👍 55</span>
-  <span class="date">2026.08.31 · arXiv:2608.31036</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>모델을 빠르고 안정적으로 조정하는 새로운 방법을 제안합니다.</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>모든 사람이 같은 규칙을 따라야 하면 더 잘 움직일 수 있어요. 예를 들어, 학교에서 선생님이 수업을 시작할 때 모든 학생이 같은 규칙을 따라야 하죠. NoRA는 이렇게 학습을 더 잘하게 도와요.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>NoRA는 번역 모델에서 사용될 수 있어요. 예를 들어, 영어를 한국어로 번역할 때 문장이 더 정확하게 번역됩니다. 이 기술은 의료 분야에서도 사용되어 병력 정보를 정확하게 분석할 수 있습니다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>기존의 LoRA 기법은 조정 과정에서 불안정하고 성능이 떨어질 수 있습니다. 특히 초기 학습 단계에서 문제가 발생할 수 있습니다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>NoRA는 하향 프로젝션을 정규화하여 학습을 안정적으로 만듭니다. 이 정규화는 초기화 시에만 적용해도 기존 LoRA의 성능을 개선할 수 있습니다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>NoRA는 학습 속도를 빠르게 하고, 성능과 안정성을 높이며, 학습 중 중요한 정보를 잃는 문제를 해결합니다. 이는 추가 파라미터나 추론 시 계산이 필요하지 않습니다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>LoRA</b><span>모델을 조정할 때 파라미터를 적게 사용하는 기법입니다.</span></div><div class="bg-item"><b>하향 프로젝션</b><span>데이터를 줄여서 처리하는 과정을 말합니다.</span></div><div class="bg-item"><b>정규화</b><span>모든 데이터가 공평하게 처리되도록 규칙을 만드는 방법입니다.</span></div><div class="bg-item"><b>학습 안정성</b><span>모델이 학습할 때 예측이 일관되게 유지되는 상태입니다.</span></div><div class="bg-item"><b>catastrophic forgetting</b><span>모델이 학습하면서 이전에 배운 내용을 잃는 현상입니다.</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LoRA</span><span class="kw">NoRA</span><span class="kw">정규화</span><span class="kw">학습 안정성</span><span class="kw">catastrophic forgetting</span></div></div>
-<div class="section"><h4>원문 초록</h4><p class="abstract">While low-rank adaptation (LoRA) is widely used for parameter-efficient model adaptation, how to regularize its training dynamics for stable and effective optimization remains underexplored. Because LoRA initializes the up-projection to zero, its early optimization dynamics are largely governed by the down-projection. Building on this observation, we introduce Normalized Low-Rank Adaptation (NoRA), a simple yet effective method that normalizes the down-projection matrices during training. We further show that the same normalization can be applied only at initialization, improving standard LoRA without requiring repeated normalization throughout training. Across pretraining, supervised finetuning, and reinforcement learning, NoRA consistently accelerates convergence, improves performance and training stability, and mitigates catastrophic forgetting. These benefits require neither additional trainable parameters nor inference-time computation, making NoRA a simple and broadly applicable enhancement to LoRA.</p>
+<h1 class="title" style="font-size:1.4rem">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States</h1>
+<p class="authors">Kang Liao, Yihang Luo, Xiao-Ming Wu, Linyi Jin, Size Wu, Chunyu Lin, Yao Zhao, Fei Wang 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="pop">👍 70</span>
+  <span class="date">2026.09.03 · arXiv:2609.04196</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>Puffin-World는 3D 세계를 만들고 움직이는 데 도움을 주는 AI 모델입니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>Puffin-World는 집이나 공원 같은 세상을 만들고, 그 세상에서 사람이나 차가 움직일 때 자연스럽게 보이도록 도와요. 예를 들어, 집을 만들면 벽이 무너지지 않고, 사람이 걸어다닐 때도 자연스럽게 보이죠. 이 기술은 게임이나 가상 현실에서 쓸 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>Puffin-World는 가상 현실 게임에서 사용되어, 플레이어가 움직일 때 세상가 자연스럽게 변하도록 도와줍니다. 예를 들어, 산을 오를 때 중력이 작용해 실제처럼 움직일 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>3D 세계를 만들고 움직이는 데 외부 도구를 사용해야 했고, 시각과 물리가 분리되어 있어 현실감이 떨어졌습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>Puffin-World는 물리, 형태, 모습을 하나로 묶고, 카메라로 보는 방식을 통합해 다양한 작업을 처리합니다. 물리 법칙을 따라 미래의 움직임도 예측합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>Puffin-World는 복잡한 3D 세계를 생성하고, 시각과 물리가 일치해 안정적인 결과를 보여줍니다. 이는 자율 탐사와 같은 작업에 유용합니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>다중 모달</b><span>이미지, 음성, 텍스트 등 여러 형태의 정보를 함께 처리하는 기술입니다.</span></div><div class="bg-item"><b>3D 세계</b><span>세계를 길이, 너비, 높이 세 방향으로 표현해 실제처럼 보이는 세상입니다.</span></div><div class="bg-item"><b>시뮬레이션</b><span>실제 세상을 모방해 컴퓨터로 만들고, 그 안에서 실험하거나 테스트하는 방법입니다.</span></div><div class="bg-item"><b>자율 탐사</b><span>자신이 움직이며 새로운 장소를 탐색하는 기능입니다.</span></div><div class="bg-item"><b>시각 정보</b><span>눈으로 보는 정보를 말하며, AI가 이를 이해하고 처리하는 기술입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">Puffin-World</span><span class="kw">다중 모달</span><span class="kw">3D 세계</span><span class="kw">시뮬레이션</span><span class="kw">자율 탐사</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">We propose Puffin-World, a unified multimodal architecture that integrates physical understanding, spatial simulation, and 3D world generation and reconstruction without relying on external offline modules. To reliably construct and interact with 3D worlds, our framework jointly models three native world states: physics (gravity field and latitude), geometry (depth), and appearance (image), together with a unified Omni-Camera representation that supports diverse tasks and flexible motions. Beyond modeling these states, we introduce a strategy for propagating physical dynamics across future frames. By grounding absolute camera properties in the real world, Puffin-World enables physically consistent and visually stable world generation. We further couple appearance and geometry within a single generative process, jointly synthesizing each future view and reconstructing its underlying geometry. This unified paradigm enables interleaved closed-loop applications requiring synergy across multiple tasks, including mimic and self-calibrated world exploration. To scale Puffin-World to complex scenarios, we construct Puffin-16M, comprising 15 million vision-language-camera triplets and 1 million trajectories featuring various and challenging motions. To foster further research in this area, we released the code, models, and datasets.</p>
   <div class="links">
-    <a class="btn" href="https://arxiv.org/pdf/2608.31036v1" target="_blank" rel="noopener">PDF 원문</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2608.31036" target="_blank" rel="noopener">arXiv 페이지</a>
+    <a class="btn" href="https://arxiv.org/pdf/2609.04196v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.04196" target="_blank" rel="noopener">arXiv 페이지</a>
   </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>

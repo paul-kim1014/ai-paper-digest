@@ -92,19 +92,19 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="../issue/2026-W36.html">← 2026-W36 이슈로</a>
+<a class="back" href="../issue/2026-W37.html">← 2026-W37 이슈로</a>
 <h1 class="title" style="font-size:1.4rem">Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement</h1>
 <p class="authors">Yi Ding, Ruqi Zhang</p>
-<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="badge">자연어처리</span><span class="pop">👍 123</span>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="badge">자연어처리</span><span class="pop">👍 96</span>
   <span class="date">2026.08.31 · arXiv:2608.31046</span></div>
-<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>OPD는 효과적이지 않으며, 스스로 학습하는 방법이 더 나은 결과를 보인다.</p></div>
-<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>선생님의 조언을 따라 배우는 대신, 스스로 잘하는 방법을 찾는 게 더 쉬워요. 선생님의 말이 틀려도, 스스로 연습하면 더 잘할 수 있어요. 이 방법은 게임에서 승리하는 법을 스스로 배우는 것처럼 작동해요.</p></div>
-<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>챗봇이 대화 중에 중요한 단어를 강조하고, 부수적인 단어는 무시해 더 명확하게 대화하는 것처럼, OPDA는 불필요한 정보를 제거해 효율성을 높인다.</p></div>
-<div class="section"><h4>어떤 문제를 푸는가</h4><p>OPD는 교사 모델의 피드백을 학생 모델에 전달하지만, 교사의 피드백이 불확실해 학생의 성장 원인을 파악하기 어려웠다. 교사 규모가 커질수록 피드백의 노이즈가 증가하는 문제가 있었다.</p></div>
-<div class="section"><h4>핵심 방법</h4><p>OPSA는 교사 없이 엔트로피에 따라 학습 신호를 조정하는 방법으로, 고엔트로피 위치에 더 강한 학습을 적용해 꼬리 토큰을 억제하고 머리 토큰의 확률을 균등하게 분배한다.</p></div>
-<div class="section"><h4>결과와 의의</h4><p>OPSA는 기존 모델 대비 성능을 263% 개선하고, OPD보다 16.77점 더 우수한 결과를 보이며 일반화 능력도 입증했다.</p></div>
-<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>강화학습</b><span>보상으로 학습하는 방법으로, 올바른 행동을 반복해 늘리는 것</span></div><div class="bg-item"><b>지식증류</b><span>복잡한 모델을 간단한 모델로 가르치는 방법</span></div><div class="bg-item"><b>엔트로피</b><span>확률 분포의 불확실성을 측정하는 수치로, 예측이 어려울수록 값이 커진다</span></div><div class="bg-item"><b>토큰</b><span>텍스트를 구성하는 가장 작은 단위로, 문장의 의미를 결정한다</span></div><div class="bg-item"><b>성능 지표</b><span>모델의 능력을 측정하는 수치로, 예측 정확도나 효율성을 보여준다</span></div></div>
-<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">강화학습</span><span class="kw">지식증류</span><span class="kw">엔트로피</span><span class="kw">토큰</span><span class="kw">성능지표</span></div></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>OPD는 학습에 도움이 되는가? 연구는 그 답을 밝혔습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 논문은 AI가 스스로 배울 수 있는 방법을 찾고 있어요. 기존에는 AI가 사람의 도움을 받았지만, 이제는 스스로 더 잘 배울 수 있게 했습니다. 예를 들어, AI가 문제를 풀 때, 틀린 부분을 더 많이 반복해 배우는 거예요. 이 방법은 AI가 더 똑똑해지도록 도와요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 AI가 사람의 말을 이해할 때 사용됩니다. 예를 들어, AI가 사람의 질문을 듣고, 정확하게 답을 줄 수 있도록 도와줍니다. 이는 챗봇이나 번역기 등에 활용될 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>OPD는 교사의 피드백을 학생에게 전달하지만, 그 피드백이 신뢰할 수 없어 학생의 성장 원인을 알 수 없습니다. 이 연구는 OPD가 실제로 학습을 도와주는지 분석하고자 합니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>이 논문은 OPD의 학습 과정에서 발생하는 노이즈를 분석하고, 이를 해결하기 위해 학습 신호를 강화하는 새로운 방법 OPSA를 제안합니다. OPSA는 높은 엔트로피 위치에 더 강한 학습 신호를 주어, 학습 효율을 높입니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>OPSA는 기존 모델보다 성능이 크게 향상되었으며, 다양한 평가에서 우수한 결과를 보였습니다. 이는 OPD가 교사 없이도 학습을 가능하게 할 수 있음을 시사합니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>오피 정리</b><span>AI가 스스로 배우는 방법으로, 다른 AI의 도움을 받아 학습합니다.</span></div><div class="bg-item"><b>엔트로피</b><span>AI가 어떤 선택을 할 때, 선택이 얼마나 다양한지 나타내는 수치입니다.</span></div><div class="bg-item"><b>피드백</b><span>AI에게 어떤 행동이 옳은지, 잘못된지를 알려주는 정보입니다.</span></div><div class="bg-item"><b>모델</b><span>AI가 세상을 이해하고 예측하기 위해 사용하는 수학적 구조입니다.</span></div><div class="bg-item"><b>성능</b><span>AI가 얼마나 잘 작동하는지를 나타내는 수치입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">오피 정리</span><span class="kw">엔트로피</span><span class="kw">피드백</span><span class="kw">모델</span><span class="kw">성능</span></div></div>
 <div class="section"><h4>원문 초록</h4><p class="abstract">On-policy distillation (OPD) offers dense token-level supervision as an alternative to the sparse outcome-level advantages of reinforcement learning with verifiable rewards (RLVR). However, the teacher scores student-generated trajectories that are inherently off-policy for it, so the reliability of its supervision, and hence the source of the student&#x27;s improvement, remains unclear. We quantitatively analyze teacher supervision during OPD training and find substantial noise whose prevalence increases with teacher scale. Surprisingly, the student policy is insensitive to such noise, converging to comparable performance regardless of whether noisy supervision is retained or removed. Does OPD distill at all? By analyzing what drives its gains, we find that learning concentrates on low log-probability tokens, and using a single fixed negative advantage matches the performance of teacher-provided ones. This suggests that OPD works largely by suppressing low log-probability tokens, which requires no teacher. These findings motivate On-Policy Self-Adaptation (OPSA), a supervision-free method using entropy-adaptive negative advantages. It assigns stronger learning signals to high-entropy positions, suppressing tail tokens, and evenly redistributing probability mass among head tokens. Compared with the base \texttt{Qwen3-1.7B}, OPSA improves Avg@32 by 35.41 points on AIME24, corresponding to a 263\% relative gain, and more than doubles Pass@32 across all three benchmarks. It also outperforms OPD by 16.77 points in Avg@32 on AIME24. Extensive experiments and analyses across model families and tasks further demonstrate its effectiveness and generalizability.</p>
   <div class="links">
     <a class="btn" href="https://arxiv.org/pdf/2608.31046v1" target="_blank" rel="noopener">PDF 원문</a>
