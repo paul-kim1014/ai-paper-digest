@@ -102,8 +102,9 @@ python3 main.py --rebuild  # 새 선별 없이 기존 데이터로 사이트만 
 python3 main.py && git add -A && git commit -m "weekly update" && git push
 ```
 
-**자동 실행은 macOS `launchd`로 이미 설치되어 있습니다.** 매주 **월요일 오전 9시**에
-`weekly_update.sh`가 실행되어 선별→요약→사이트 갱신→git push→Slack 알림까지 한 번에 처리합니다.
+**자동 실행은 macOS `launchd`로 이미 설치되어 있습니다.** **매일 오전 9시**에 `weekly_update.sh`가
+실행되어, 이번 주 이슈가 아직 없으면 선별→요약→사이트 갱신→git push→Slack·Teams 전달까지 처리하고,
+이미 있으면 덜 끝난 전달 단계만 처리한 뒤 끝납니다. 보통 월요일에 발행되고, 실패하면 다음 날 재시도합니다.
 그 시각에 Mac이 잠들어 있으면 **깨어난 직후** 실행됩니다(cron과 달리 건너뛰지 않음).
 
 - 실행 스크립트: [`weekly_update.sh`](weekly_update.sh)
