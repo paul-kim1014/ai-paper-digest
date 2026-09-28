@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>주차별 아카이브 · AI 논문 요약</title>
+<title>WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -92,28 +92,24 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="index.html">← 최신 이슈로</a>
-<header style="padding-top:8px"><h1 class="title">📚 주차별 아카이브</h1>
-  <p class="subtitle">지난 주간 이슈를 분야별로 다시 볼 수 있습니다.</p></header>
-<a class="issue-row" href="issue/2026-W40.html">
-  <div><div class="wk">2026-W40</div><div class="sub">자연어처리 (NLP), 컴퓨터비전 (CV), 머신러닝 (ML), AI 일반·에이전트, 음성·오디오, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">17편</span>
-    <span class="date">2026.09.28</span></div></a><a class="issue-row" href="issue/2026-W39.html">
-  <div><div class="wk">2026-W39</div><div class="sub">AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 머신러닝 (ML), 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">16편</span>
-    <span class="date">2026.09.21</span></div></a><a class="issue-row" href="issue/2026-W38.html">
-  <div><div class="wk">2026-W38</div><div class="sub">머신러닝 (ML), 자연어처리 (NLP), 컴퓨터비전 (CV), 음성·오디오, 강화학습·로보틱스, AI 일반·에이전트, 기타 AI, 정보검색·추천</div></div>
-  <div class="badges"><span class="badge">20편</span>
-    <span class="date">2026.09.14</span></div></a><a class="issue-row" href="issue/2026-W37.html">
-  <div><div class="wk">2026-W37</div><div class="sub">AI 일반·에이전트, 자연어처리 (NLP), 머신러닝 (ML), 강화학습·로보틱스, 컴퓨터비전 (CV), 기타 AI</div></div>
-  <div class="badges"><span class="badge">16편</span>
-    <span class="date">2026.09.07</span></div></a><a class="issue-row" href="issue/2026-W36.html">
-  <div><div class="wk">2026-W36</div><div class="sub">머신러닝 (ML), 기타 AI, AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 음성·오디오, 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">21편</span>
-    <span class="date">2026.09.05</span></div></a><a class="issue-row" href="issue/2026-W34.html">
-  <div><div class="wk">2026-W34</div><div class="sub">자연어처리 (NLP), 머신러닝 (ML), AI 일반·에이전트, 컴퓨터비전 (CV), 강화학습·로보틱스, 음성·오디오</div></div>
-  <div class="badges"><span class="badge">15편</span>
-    <span class="date">2026.08.18</span></div></a>
+<a class="back" href="../issue/2026-W40.html">← 2026-W40 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory</h1>
+<p class="authors">Wangbo Yu, Kunhao Liu, Wenbo Hu, Shenghai Yuan, Chaoran Feng, Haiyang Zhou, Yukun Huang, Yiran Wang 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">컴퓨터비전</span><span class="badge">인공지능</span><span class="badge">cs.GR</span><span class="pop">👍 155</span>
+  <span class="date">2026.09.21 · arXiv:2609.24984</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>영상 세계 모델을 통해 한 장의 사진으로도 장시간 환경 탐색이 가능해졌습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 기술은 사진이나 문장으로부터 장시간 동안 계속해서 새로운 장면을 만들어내는 방법입니다. 예를 들어, 사진을 보고, 그 사진을 기반으로 10초 동안 계속해서 새로운 장망을 만들어내면서 세계를 탐색할 수 있습니다. 이는 게임이나 가상 현실에서 사용할 수 있는 멋진 기술입니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 가상 현실 게임에서 사용할 수 있습니다. 플레이어가 한 장의 사진을 보고, 그 사진을 기반으로 장시간 동안 새로운 장면을 만들어내면서 게임 세계를 탐색할 수 있습니다. 예를 들어, 플레이어가 한 장의 사진을 보고, 그 사진을 기반으로 10초 동안 계속해서 새로운 장면을 만들어내면서 게임 세계를 탐색할 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>영상 세계 모델은 장시간 동안 다양한 시점에서의 관찰을 정확히 유지하지 못했습니다. 또한, 한 장의 사진이나 문장으로 환경을 탐색하는 데 한계가 있었습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>WorldCrafter는 카메라 시점에 따라 영상 생성에 사용할 정보를 압축하고, 과거 관찰을 고정된 토큰에 통합합니다. 이는 깊이 기반의 매칭 없이도 이루어집니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>정적·동적 환경에서 장시간 일관성과 카메라 제어 정확도가 크게 향상되었고, 시각 품질도 유지되었습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>영상 세계 모델</b><span>영상 세계 모델은 사진이나 문장으로부터 장시간 동안 계속해서 새로운 장면을 만들어내는 기술입니다.</span></div><div class="bg-item"><b>토큰 예산</b><span>영상 생성에 사용할 수 있는 정보의 양을 제한하는 것입니다.</span></div><div class="bg-item"><b>시점</b><span>카메라가 보는 방향을 말하며, 이는 환경을 보는 방식에 영향을 줍니다.</span></div><div class="bg-item"><b>정적 환경</b><span>시간이 흐르지 않고 변하지 않는 환경입니다.</span></div><div class="bg-item"><b>동적 환경</b><span>시간이 흐르면서 계속해서 변하는 환경입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">영상 세계 모델</span><span class="kw">3D 인식</span><span class="kw">토큰 예산</span><span class="kw">시점</span><span class="kw">장시간 일관성</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Video world models enable interactive exploration of dynamic environments, yet struggle to respect prior observations over long horizons and across viewpoints. We present WorldCrafter, a video world model that learns a camera-queryable implicit 3D-aware memory for this purpose. The key insight is to let the requested viewpoint shape how multi-view evidence is compressed into the video generator&#x27;s limited token budget. Trained jointly with the video generator, a memory encoder and pose-conditioned readout module integrate historical observations into a fixed set of target view-specific tokens before denoising, without explicit depth-based correspondences. By combining this memory with recent temporal context and few-step distillation, WorldCrafter enables streaming scene exploration from a single input image or text prompt. Experiments across static and dynamic scenes show substantial gains in long-horizon consistency and camera-control accuracy while preserving visual quality during minute-scale exploration.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.24984v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.24984" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>
 </body>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OmniVChat: Synthesizing, Benchmarking, and Training for Native Audio-Visual Dialogue · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W40.html">← 2026-W40 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">OmniVChat: Synthesizing, Benchmarking, and Training for Native Audio-Visual Dialogue</h1>
+<p class="authors">Haolin He, Yunfei Chu, Qi Chen, Wen Huang, Yuan Feng, Muzhi Zhu, Zheqi Dai, Haoning Xu 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">오디오</span><span class="badge">인공지능</span><span class="badge">eess.IV</span><span class="pop">👍 149</span>
+  <span class="date">2026.09.18 · arXiv:2609.21465</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>오디오-비디오 대화를 합성하고 평가하는 새로운 시스템을 제안했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 논문은 사람의 말과 표정을 보고, 자연스럽게 대화를 만들어주는 시스템을 만듭니다. 예를 들어, 친구가 &#x27;나는 이걸 좋아해&#x27;라고 말하고, 얼굴이 기쁨을 보이면, 시스템이 &#x27;좋아요, 정말 멋진 물건이네요&#x27;라고 대답합니다. 이 시스템은 사람과 대화할 때 더 자연스럽고 친근하게 대화할 수 있게 도와줍니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 가상 챗봇이 사람과 대화할 때, 사람의 말과 표정을 보고 대답할 수 있도록 도와줍니다. 예를 들어, 사람에게 &#x27;오늘 날씨가 좋아&#x27;라고 말하고, 얼굴이 기쁨을 보이면, 챗봇이 &#x27;네, 오늘은 날씨가 정말 좋아요&#x27;라고 대답할 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>사용자의 오디오와 비디오로 대화를 생성하는 OmniVChat 연구는 데이터 부족과 평가 방법의 한계가 있습니다. 실제 대화에서 사용자의 환경, 표정, 물체 등을 고려해야 하기 때문에 단순 키워드 매칭으로는 평가가 어렵습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>OmniVChat-Studio라는 시스템을 만들고, 합성 대화로 모델을 훈련하고 평가합니다. 또한, 강화학습을 통해 대화의 정확성, 효율성, 스타일을 동시에 개선합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>합성 대화로 훈련한 모델은 실제 대화 평가에서도 성능이 향상되었고, 실제 대화로 이어질 수 있음을 보여주었습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>오디오-비디오 대화</b><span>사람이 말하고, 얼굴 표정과 몸짓을 보여주며, 컴퓨터가 이를 바탕으로 대화를 만드는 방식입니다.</span></div><div class="bg-item"><b>합성 대화</b><span>컴퓨터가 만들어낸 대화로, 실제 사람의 대화처럼 보이지만 실제로는 만들어낸 것입니다.</span></div><div class="bg-item"><b>강화학습</b><span>컴퓨터가 스스로 학습하며, 오류를 수정하고, 더 나은 결과를 만드는 방법입니다.</span></div><div class="bg-item"><b>평가 기준</b><span>모델이 얼마나 잘 작동하는지를 판단하는 방법이나 기준을 말합니다.</span></div><div class="bg-item"><b>비디오 생성</b><span>컴퓨터가 사람의 얼굴이나 행동을 보고, 그대로 복제하거나 새로운 모습으로 만들어내는 기술입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">오디오-비디오 대화</span><span class="kw">합성 대화</span><span class="kw">강화학습</span><span class="kw">평가 기준</span><span class="kw">비디오 생성</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">We define OmniVChat (Omni Video Chat) as the task of native audio-visual dialogue between a user and an omni model. In OmniVChat, omni models directly and simultaneously receive audio and video from a user and return text. The user&#x27;s query is embedded in the audio and video, without a separate text question, external captioning, or speech recognition. Direct audio-visual input reduces external latency and computation while preserving perceptual cues. However, research on OmniVChat faces two constraints: data availability and evaluation. Recordings of people using their own devices are scarce. Furthermore, a good reply often needs to account for the user&#x27;s surroundings, facial expressions, and nearby objects, and such responses can be expressed in many different ways, making keyword matching unreliable for evaluating reply quality. Recent progress in agent systems and video generation makes generation for comprehension viable, which means using synthesized dialogues for training and evaluation. Therefore, we present OmniVChat-Studio, a multi-agent data engine for synthesizing single- and multi-turn audio-visual dialogues. We use synthesized dialogues to build OmniVChat-Bench, an evaluation benchmark that evaluates omni models&#x27; basic dialogue abilities across five ability categories. We also present OmniVChat-RL, a reinforcement learning reward design that jointly targets reply correctness, efficiency, and style in OmniVChat. Training Qwen3-Omni-Instruct with OmniVChat-RL on synthesized dialogues improves its performance on both OmniVChat-Bench and the human-recorded OmniVChat-Bench-Human. These gains validate the reward design and show transfer to real-world dialogues in training and evaluation.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.21465v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.21465" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

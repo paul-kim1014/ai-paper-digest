@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>주차별 아카이브 · AI 논문 요약</title>
+<title>Bellman Policy Optimization · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -92,28 +92,24 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="index.html">← 최신 이슈로</a>
-<header style="padding-top:8px"><h1 class="title">📚 주차별 아카이브</h1>
-  <p class="subtitle">지난 주간 이슈를 분야별로 다시 볼 수 있습니다.</p></header>
-<a class="issue-row" href="issue/2026-W40.html">
-  <div><div class="wk">2026-W40</div><div class="sub">자연어처리 (NLP), 컴퓨터비전 (CV), 머신러닝 (ML), AI 일반·에이전트, 음성·오디오, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">17편</span>
-    <span class="date">2026.09.28</span></div></a><a class="issue-row" href="issue/2026-W39.html">
-  <div><div class="wk">2026-W39</div><div class="sub">AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 머신러닝 (ML), 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">16편</span>
-    <span class="date">2026.09.21</span></div></a><a class="issue-row" href="issue/2026-W38.html">
-  <div><div class="wk">2026-W38</div><div class="sub">머신러닝 (ML), 자연어처리 (NLP), 컴퓨터비전 (CV), 음성·오디오, 강화학습·로보틱스, AI 일반·에이전트, 기타 AI, 정보검색·추천</div></div>
-  <div class="badges"><span class="badge">20편</span>
-    <span class="date">2026.09.14</span></div></a><a class="issue-row" href="issue/2026-W37.html">
-  <div><div class="wk">2026-W37</div><div class="sub">AI 일반·에이전트, 자연어처리 (NLP), 머신러닝 (ML), 강화학습·로보틱스, 컴퓨터비전 (CV), 기타 AI</div></div>
-  <div class="badges"><span class="badge">16편</span>
-    <span class="date">2026.09.07</span></div></a><a class="issue-row" href="issue/2026-W36.html">
-  <div><div class="wk">2026-W36</div><div class="sub">머신러닝 (ML), 기타 AI, AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 음성·오디오, 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">21편</span>
-    <span class="date">2026.09.05</span></div></a><a class="issue-row" href="issue/2026-W34.html">
-  <div><div class="wk">2026-W34</div><div class="sub">자연어처리 (NLP), 머신러닝 (ML), AI 일반·에이전트, 컴퓨터비전 (CV), 강화학습·로보틱스, 음성·오디오</div></div>
-  <div class="badges"><span class="badge">15편</span>
-    <span class="date">2026.08.18</span></div></a>
+<a class="back" href="../issue/2026-W40.html">← 2026-W40 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Bellman Policy Optimization</h1>
+<p class="authors">Zhuoqing Song, Haotian Xu, Xikun Zhang, Lidong Bing</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="badge">자연어처리</span><span class="badge">math.OC</span><span class="pop">👍 48</span>
+  <span class="date">2026.09.14 · arXiv:2609.15987</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>BPO는 정책 최적화를 더 쉽게 만드는 새로운 방법입니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>BPO는 게임을 할 때, 내가 어떤 선택을 했는지 보는 대신, 내가 끝에 도달했을 때 어떤 결과가 나오는지 보는 방법입니다. 예를 들어, 스포츠 경기에서, 내가 몇 번째에 어떤 결정을 했는지 보는 대신, 마지막에 승패가 결정된 결과만 보는 것입니다. 이렇게 하면 중간 과정을 따르지 않아도 됩니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 수학 문제를 푸는 데 사용됩니다. 예를 들어, 문제를 푸는 과정에서 중간 단계를 따르지 않고, 마지막에 정답이 나오는지 확인하는 방식입니다. 이는 문제를 푸는 데 더 빠르게 도움을 줍니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>대규모 언어 모델이 보상이 확인 가능한 환경에서 학습하는 데 어려움이 있었습니다. 기존 방법은 중간 상태의 가치를 추정해야 했고, 이는 계산이 복잡했습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>BPO는 정책 미러 디센트(PMD)를 기반으로 한 비비판적 방법입니다. BPO는 벨만 방정식을 사용해 경로 수준의 목표로 문제를 재구성합니다. 이는 중간 상태의 가치를 추정하지 않아도 됩니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>BPO는 PMD와 동일한 최적 해를 제공하며, 수학적 추론 실험에서 효과적인 결과를 보였습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>강화 학습</b><span>머신러닝의 한 종류로, 모델이 환경에서 학습하며 최적의 행동을 배우는 방법입니다.</span></div><div class="bg-item"><b>벨만 방정식</b><span>강화 학습에서, 현재 상태에서 최적의 행동을 선택하기 위해 사용되는 수학적 방정식입니다.</span></div><div class="bg-item"><b>정책 미러 디센트</b><span>정책을 최적화하기 위해 사용되는 수학적 방법으로, BPO의 기반이 됩니다.</span></div><div class="bg-item"><b>비비판적 방법</b><span>정책을 최적화할 때, 외부의 평가(비판) 없이 직접 학습하는 방법입니다.</span></div><div class="bg-item"><b>중간 상태</b><span>게임이나 문제 해결 과정에서, 시작과 끝 사이에 있는 단계를 의미합니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">강화 학습</span><span class="kw">벨만 방정식</span><span class="kw">정책 미러 디센트</span><span class="kw">비비판적 방법</span><span class="kw">중간 상태</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Reinforcement learning with verifiable rewards (RLVR) improves the reasoning capabilities of large language models (LLMs). We introduce Bellman Policy Optimization (BPO), a critic-free method derived from Policy Mirror Descent (PMD). For autoregressive generation with terminal rewards, BPO uses the Bellman equations to reformulate PMD as a trajectory-level objective. The reformulation avoids estimating state values at intermediate states. We prove that it has the same unique optimal solution as the original PMD objective. We derive the practical BPO loss by approximating this objective. Its mismatch-correction weight is a smoothed ratio of complementary token probabilities. Experiments on mathematical reasoning benchmarks demonstrate the effectiveness of BPO.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.15987v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.15987" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>
 </body>

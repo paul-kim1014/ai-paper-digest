@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>주차별 아카이브 · AI 논문 요약</title>
+<title>Training Object Permanence in World Models · AI 논문 요약</title>
 <script>
 (function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
 if(s)r.setAttribute('data-theme',s);
@@ -92,28 +92,24 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="index.html">← 최신 이슈로</a>
-<header style="padding-top:8px"><h1 class="title">📚 주차별 아카이브</h1>
-  <p class="subtitle">지난 주간 이슈를 분야별로 다시 볼 수 있습니다.</p></header>
-<a class="issue-row" href="issue/2026-W40.html">
-  <div><div class="wk">2026-W40</div><div class="sub">자연어처리 (NLP), 컴퓨터비전 (CV), 머신러닝 (ML), AI 일반·에이전트, 음성·오디오, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">17편</span>
-    <span class="date">2026.09.28</span></div></a><a class="issue-row" href="issue/2026-W39.html">
-  <div><div class="wk">2026-W39</div><div class="sub">AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 머신러닝 (ML), 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">16편</span>
-    <span class="date">2026.09.21</span></div></a><a class="issue-row" href="issue/2026-W38.html">
-  <div><div class="wk">2026-W38</div><div class="sub">머신러닝 (ML), 자연어처리 (NLP), 컴퓨터비전 (CV), 음성·오디오, 강화학습·로보틱스, AI 일반·에이전트, 기타 AI, 정보검색·추천</div></div>
-  <div class="badges"><span class="badge">20편</span>
-    <span class="date">2026.09.14</span></div></a><a class="issue-row" href="issue/2026-W37.html">
-  <div><div class="wk">2026-W37</div><div class="sub">AI 일반·에이전트, 자연어처리 (NLP), 머신러닝 (ML), 강화학습·로보틱스, 컴퓨터비전 (CV), 기타 AI</div></div>
-  <div class="badges"><span class="badge">16편</span>
-    <span class="date">2026.09.07</span></div></a><a class="issue-row" href="issue/2026-W36.html">
-  <div><div class="wk">2026-W36</div><div class="sub">머신러닝 (ML), 기타 AI, AI 일반·에이전트, 컴퓨터비전 (CV), 자연어처리 (NLP), 음성·오디오, 정보검색·추천, 강화학습·로보틱스</div></div>
-  <div class="badges"><span class="badge">21편</span>
-    <span class="date">2026.09.05</span></div></a><a class="issue-row" href="issue/2026-W34.html">
-  <div><div class="wk">2026-W34</div><div class="sub">자연어처리 (NLP), 머신러닝 (ML), AI 일반·에이전트, 컴퓨터비전 (CV), 강화학습·로보틱스, 음성·오디오</div></div>
-  <div class="badges"><span class="badge">15편</span>
-    <span class="date">2026.08.18</span></div></a>
+<a class="back" href="../issue/2026-W40.html">← 2026-W40 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Training Object Permanence in World Models</h1>
+<p class="authors">Haotian Zhang, Fengyuan Yu, Dezhi Luo, Haoran Sun, Zehong Zhao, Qingying Gao, Yihan Li, Siyuan An 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">인공지능</span><span class="badge">컴퓨터비전</span><span class="pop">👍 202</span>
+  <span class="date">2026.09.23 · arXiv:2609.28654</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>영상 모델에 물체의 지속성을 학습시켜 인지 능력을 향상시켰습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 논문에서는 컴퓨터가 물체가 사라지지 않는다는 것을 배우게 해서 더 똑똑하게 만들었습니다. 예를 들어, 장난감을 던져도 계속 보이는 영상을 만들 수 있어요. 이는 게임이나 가상 현실에서 더 현실감 있게 만들 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 가상 현실에서 물체가 사라지지 않도록 보장해 사용자가 더 자연스럽게 상호작용할 수 있도록 도와줍니다. 예를 들어, 가상 세계에서 장난감을 던져도 계속 보이는 상황을 만들 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>현존하는 영상 생성 모델이 물체의 지속성과 같은 인지 능력을 갖추고 있는지 확인하고, 이를 향상시키는 방법을 연구했습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>WROP 데이터를 사용해 물체 지속성과 관련된 다양한 인지 과제를 설계하고, 블렌더를 이용해 다양한 조건을 만족시키면서도 인지 구조를 유지한 데이터를 생성했습니다. 이를 통해 영상 모델을 훈련시켰습니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>PWM-WROP 모델이 다른 모델들보다 우수한 성능을 보였고, 이는 영상 모델이 인지 능력을 갖춘다는 것을 시사합니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>영상 생성 모델</b><span>영상의 내용을 생성해주는 인공지능입니다. 예를 들어, 사진을 보고 그 사진을 기반으로 영상을 만드는 모델입니다.</span></div><div class="bg-item"><b>인지 능력</b><span>사람이 생각하고 판단하는 능력을 말합니다. 예를 들어, 물체가 사라지지 않는다는 것을 알 수 있는 능력입니다.</span></div><div class="bg-item"><b>데이터셋</b><span>모델이 학습할 데이터를 모아놓은 것입니다. 예를 들어, 사진이나 영상이 포함된 데이터셋입니다.</span></div><div class="bg-item"><b>블렌더</b><span>3D 모델을 만들고, 영상이나 애니메이션을 생성하는 소프트웨어입니다.</span></div><div class="bg-item"><b>모델</b><span>이 논문에서 말하는 모델은 인공지능이 학습하는 구조입니다. 예를 들어, 사람의 뇌처럼 데이터를 처리하는 시스템입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">영상 생성 모델</span><span class="kw">인지 능력</span><span class="kw">데이터셋</span><span class="kw">블렌더</span><span class="kw">모델</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Object permanence and solidity are hallmarks of human cognitive priors. Recent studies show that video generation models, a paradigmatic class of current world models, have begun to show emerged reasoning abilities, making them ideal candidates for building human-like physical intelligence. Do video models have emerged object permanence in them? If not, could we train them with a core-cognition inspired dataset? We introduce WROP (World Reasoning with Object Permanence), a data infrastructure of 150 hand-designed cognitive science inspired tasks, divided into six cognitive categories. We build Blender generators that randomize speed, lighting, camera angle, and other nuisance parameters while preserving each task&#x27;s cognitive structure, yielding 10,000+ samples per task. We release a 1.5M-sample training corpus and a 300-question exam. On this exam we evaluate 14 video models: 3 reference-to-video, 7 edit, and 4 continuation, among which PWM-WROP, our 16B world model. In a blind pairwise Elo study, PWM-WROP ranks first among continuation models and third overall, behind only a statistical tie between two reference-to-video models. We release the data, exam, model answers, scores, weights, and PWM, our native-PyTorch training stack on AWS Trainium2.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.28654v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.28654" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
 <footer>AI 논문 요약 다이제스트</footer>
 </div>
 </body>

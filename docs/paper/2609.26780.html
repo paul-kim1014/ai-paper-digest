@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SpeakerMem-R1: Speaker-Centered Dual-Track Memory for Multi-Party Dialogue · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W40.html">← 2026-W40 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">SpeakerMem-R1: Speaker-Centered Dual-Track Memory for Multi-Party Dialogue</h1>
+<p class="authors">Haobo Zheng, Tan Tang, Yan Chen, Weijie Wang, Yingcai Wu</p>
+<div class="badges" style="margin:12px 0"><span class="badge">자연어처리</span><span class="badge">인공지능</span><span class="badge">정보검색</span><span class="badge">머신러닝</span><span class="pop">👍 84</span>
+  <span class="date">2026.09.22 · arXiv:2609.26780</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>대화 중 사람별 말과 관계를 기억해 정확하게 이해합니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>SpeakerMem-R1은 여러 사람이 말하는 대화를 듣고, 누가 누구에게 말했는지, 그 말이 어떤 관계를 만든다고 생각해 기억합니다. 예를 들어, A가 B에게 &#x27;너는 잘못했다&#x27;고 말하면, 이걸 A가 B에게 불만을 했다고 생각해 기억합니다. 이걸로 사람 간 관계를 정확히 알 수 있어 더 잘 이해할 수 있어요.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>회사 회의에서 여러 사람이 의견을 나누는 경우, 누가 누구에게 어떤 말을 했는지, 그 말이 어떤 관계를 형성하는지를 정확히 파악해 의사결정을 도와줄 수 있습니다. 예를 들어, A가 B에게 &#x27;이 프로젝트는 너가 잘못 관리했다&#x27;고 말하면, 이걸 A가 B에게 불만을 했다는 걸 알 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>여러 사람이 대화하는 경우, 누가 누구에게 말했는지, 그 말이 어떤 관계를 형성하는지 정확히 기억하는 것이 어렵습니다. 기존 시스템은 사람 간 관계나 그룹 간 정보를 제대로 파악하지 못해 오류가 생깁니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>SpeakerMem-R1은 사람별로 말을 저장하고, 그 말이 어떤 관계를 형성하는지를 분석해 기억합니다. 사람과 그룹 단위로 정보를 정리해, 질문할 때 그 정보를 조합해 정확하게 답변합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>이 방법은 여러 대화 데이터에서 높은 정확도를 보이며, 최신 기술보다도 우수한 성능을 보입니다. 대화 중 사람 간 관계를 정확히 파악해 실제 대화 이해에 큰 도움이 됩니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>대화 이해</b><span>여러 사람이 말하는 대화를 듣고, 누가 누구에게 말했는지, 그 말이 어떤 의미인지 알아내는 능력입니다.</span></div><div class="bg-item"><b>기억 시스템</b><span>컴퓨터가 정보를 저장하고, 필요할 때 다시 불러오는 시스템입니다. 예를 들어, 학교에서 배운 내용을 기억해 시험에 쓰는 것처럼요.</span></div><div class="bg-item"><b>머신러닝</b><span>컴퓨터가 데이터를 학습해 새로운 정보를 스스로 이해하고 예측하는 기술입니다. 예를 들어, 사진을 보고 고양이인지 개인지 알아내는 것처럼요.</span></div><div class="bg-item"><b>대화 분석</b><span>사람들이 말하는 대화를 분석해 감정, 의도, 관계 등을 알아내는 기술입니다. 예를 들어, A가 B에게 화를 내는지 알아내는 것처럼요.</span></div><div class="bg-item"><b>정확도</b><span>예측이나 판단이 얼마나 올바른지를 나타내는 수치입니다. 예를 들어, 10개 중 8개를 맞추면 정확도는 80%입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">대화 이해</span><span class="kw">기억 시스템</span><span class="kw">머신러닝</span><span class="kw">대화 분석</span><span class="kw">정확도</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Long-term conversational memory in multi-party settings requires more than retrieving relevant content from long-term conversations: it must distinguish who said what, whom each statement concerns, how individuals perceive one another, what information is shared by the group, and how states change over time. Recent studies on multi-party dialogue benchmarks show that existing general-purpose LLM memory systems tend to lose person and group relations or struggle to integrate clues distributed across members, groups, and time. Together, these issues reveal two core bottlenecks: message attribution and relational understanding in multi-party dialogue, and state reconstruction from interleaved histories. To address both, we propose $\textbf{SpeakerMem-R1}$: its dual-track memory stores speaker-labeled verbatim messages and derived states organized into person-level and group-level views, then combines evidence from both tracks by entity, event, and time at query time. To reduce attribution and update errors during structured memory construction while enabling local deployment, we train Writer-R1 with SpeakerLevenshtein and speaker-conditioned GRPO. On GroupMemBench, SocialMemBench, and EverMemBench, SpeakerMem-R1 achieves binary accuracies of 47.9%, 69.2%, and 61.9%, respectively. On the publicly reported EverMemBench leaderboard from EverMind-AI, we achieves 62.33%, the best reported result among the latest state-of-the-art frameworks. It also achieves 70.85% on all 1,986 LoCoMo questions, which we use as a two-person long-term conversation boundary test. In a controlled evaluation of 305 questions, RL raises the SFT Writer&#x27;s mean accuracy from 57.38% to 68.20%. We report both binary accuracy and token-F1, and ablations show that the verbatim and structured tracks, as well as person-level and group-level views, are complementary under the standardized evaluation interface.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.26780v2" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.26780" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>
