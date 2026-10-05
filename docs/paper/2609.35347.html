@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy Distillation · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W41.html">← 2026-W41 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Beyond Teacher Assignment: Domain-Normalized Multi-Teacher On-Policy Distillation</h1>
+<p class="authors">Xin Li, Hao Jiang, Xin Gao, Annan Wang, Yuchen Xie, Jinghao Guo, Xingwei Qu, Yichi Zhang 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="pop">👍 179</span>
+  <span class="date">2026.09.28 · arXiv:2609.35347</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>다양한 전문가 모델을 하나로 합치는 방법을 개선했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>여러 전문가가 학생을 가르치는 걸 생각해보세요. 하지만 어떤 전문가가 너무 많이 가르치면 다른 전문가가 소홀해질 수 있어요. DN-MOP,는 전문가들이 가르치는 양을 조절해 모두가 공평하게 학생을 가르치도록 해요. 예를 들어, 수학 선생님이 너무 많이 가르치면 과학 선생님의 피드백이 줄어들 수 있으니, 그 양을 적절히 줄여 모두가 균형 있게 가르칩니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 학교에서 여러 선생님이 학생을 가르치는 방식을 개선할 수 있습니다. 예를 들어, 수학 선생님과 과학 선생님이 학생에게 가르치면, 수학 선생님의 피드백이 너무 많아서 과학 선생님의 피드백이 소홀해질 수 있습니다. DN-MOPD는 수학 선생님의 피드백을 적절히 줄이고, 과학 선생님의 피드백을 더 균형 있게 주어 학생이 두 분야 모두 잘 배울 수 있도록 도와줍니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>한 모델이 여러 기술을 다해야 하지만, 여러 전문가 모델을 합칠 때 학습 효과가 제한적이었습니다. 특히 수학 전문가의 효과가 줄어들었습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>DN-MOPD는 전문가 모델의 피드백을 분야별로 조정해 학습 효과를 균형 있게 만듭니다. 어떤 분야의 피드백이 더 희소한지 측정해 그에 따라 조절합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>DN-MOPD는 기존 방법보다 평균 점수를 높였고, 수학 전문가의 효과를 대부분 회복했습니다. 이는 학습에 영향을 주는 피드백의 균형을 맞춘 결과입니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>온-파olicy 디스틸레이션</b><span>모델이 실제 데이터를 기반으로 학습하며 다른 모델을 따라 배우는 방법입니다.</span></div><div class="bg-item"><b>피드백</b><span>모델이 학습할 때, 다른 모델이 주는 조언이나 수정을 의미합니다.</span></div><div class="bg-item"><b>분야 정규화</b><span>모든 분야의 피드백을 같은 기준으로 조정해 균형을 맞추는 방법입니다.</span></div><div class="bg-item"><b>전용 모델</b><span>특정 분야만 잘하는 모델로, 예를 들어 수학만 잘하는 모델입니다.</span></div><div class="bg-item"><b>학생 모델</b><span>다양한 전문가 모델의 피드백을 받아 학습하는 모델입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">온-파olicy 디스틸레이션</span><span class="kw">피드백</span><span class="kw">분야 정규화</span><span class="kw">전용 모델</span><span class="kw">학생 모델</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Reinforcement learning can turn one language model into several specialists, each excellent at a single skill such as mathematics, coding or following instructions, but users need one model with all of these skills. Multi-teacher on-policy distillation (MOPD) merges them by letting the specialists teach one student: the student answers each prompt, and the specialist for that prompt&#x27;s domain gives feedback on every token. This routing decides which specialist teaches, but not how strongly its feedback moves the shared student. In Qwen3.5 models at three sizes, we find that MOPD&#x27;s student does not beat one taught by the best single specialist and gains little of the mathematics specialist&#x27;s advantage. The feedback is unbalanced: instruction-following feedback is several times more spread out than mathematics feedback and dominates the student&#x27;s updates. We propose Domain-Normalized MOPD (DN-MOPD), which keeps the routing and rescales each domain&#x27;s feedback by its measured spread. On six public benchmarks, DN-MOPD improves the average score over MOPD at every size, across three random seeds and under two answer-length limits, and recovers most of the lost mathematics gain. Controls with fixed domain weights show that the gain comes mainly from turning down instruction-following feedback rather than turning up mathematics alone, and that fixed weights close to those DN-MOPD measures perform comparably. Combining specialists therefore requires deciding not only which one teaches, but also how strongly its feedback counts.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.35347v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.35347" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

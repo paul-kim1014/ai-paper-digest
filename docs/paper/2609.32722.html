@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scaling Properties of Same-Family On-Policy Distillation · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W41.html">← 2026-W41 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Scaling Properties of Same-Family On-Policy Distillation</h1>
+<p class="authors">Yuntai Bao, Qinfeng Li, Guoqing Jiang, Liwei Chen, Zhiheng Qin, Xuanping Li, Wenqi Zhang, Xuhong Zhang</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="pop">👍 320</span>
+  <span class="date">2026.09.26 · arXiv:2609.32722</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>모델 크기 증가 시 정책 이전 성능이 어떻게 변하는지 분석했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 논문은 큰 컴퓨터가 작은 컴퓨터에게 어떻게 지식을 전달하는지 보고합니다. 예를 들어, 선생님은 큰 컴퓨터이고, 학생은 작은 컴퓨터입니다. 선생님이 학생에게 문제를 풀고, 학선이 풀 수 있도록 도와주는 방식입니다. 이 연구는 작은 컴퓨터도 큰 컴퓨터처럼 잘 할 수 있음을 보여줍니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 게임 AI에서 사용할 수 있습니다. 예를 들어, 큰 AI 모델이 작은 AI 모델에게 게임 전략을 전달해, 작은 모델도 잘 할 수 있도록 합니다. 이는 자원이 제한된 환경에서 효율적인 AI 개발에 도움이 됩니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>대규모 언어 모델이 학습한 정책을 작은 모델에 이전할 때, 성능이 얼마나 잘 이전되는지 모릅니다. 이전 과정에서 어떤 요소가 중요한지 파악하지 못했습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>같은 기반 모델을 사용해 작은 모델에서 큰 모델로, 그리고 반대로 정책을 이전하는 실험을 했습니다. 이전 과정에서 성능 변화를 수치로 분석하고, 규칙을 찾아냈습니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>모든 실험에서 학습한 모델이 더 큰 모델보다 성능이 더 좋았고, 이전 과정에서 성능이 선형으로 증가했습니다. 이전 과정에서 교사 모델의 크기보다 학습 모델의 크기가 더 중요했습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>강화학습</b><span>컴퓨터가 스스로 경험을 통해 학습해 최적의 행동을 결정하는 방법입니다.</span></div><div class="bg-item"><b>정책</b><span>모델이 특정 상황에서 어떤 행동을 선택하는 방식을 말합니다.</span></div><div class="bg-item"><b>KL 발산</b><span>두 확률 분포가 얼마나 다른지를 측정하는 수치입니다.</span></div><div class="bg-item"><b>이전</b><span>큰 모델이 작은 모델에게 지식을 전달하는 과정을 말합니다.</span></div><div class="bg-item"><b>모델 크기</b><span>모델이 사용하는 파라미터의 수로, 모델의 복잡도를 나타냅니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">강화학습</span><span class="kw">정책 이전</span><span class="kw">KL 발산</span><span class="kw">모델 크기</span><span class="kw">이전 성능</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">*Reinforcement learning (RL)* can induce substantial reasoning capabilities in large language models (LLMs), but how much of this capability transfers across model scales, and how quickly, remains unclear. We study the scaling properties of *on-policy distillation (OPD)* across *weak-to-strong*, *same-base*, and *strong-to-weak* teacher--student setups. We find that early OPD training dynamics uniformly exhibit a regular *useful-transfer* regime, in which held-out accuracy (the *gold score*, $G$) rises approximately linearly in $d=\sqrt{\mathrm{KL}(π_θ\Vert π_{\mathrm{ref}})}$, the square root of token-level reverse KL divergence from the student initialization. In every observed weak-to-strong pair, the student&#x27;s peak gold score exceeds its teacher&#x27;s own, so a compact RL expert can transfer capability to a much larger student via OPD. To estimate OPD outcomes, we fit *power laws* for how $G_{\mathrm{peak}}$ and the slope of the useful-transfer regime scale with student and teacher parameter counts and with teacher gold score. These laws show that peak gold score improves with teacher scale only up to roughly the student&#x27;s scale, and that at a matched gold score smaller teachers transfer better, so a teacher&#x27;s score alone does not define its supervision value. We also study the scaling effects of two OPD variants, bootstrapping weak-to-strong OPD, and the degree of on-policy supervision.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.32722v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.32722" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

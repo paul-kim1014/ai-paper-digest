@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VoxMem: Benchmarking Multimodal Memory in Large Audio Language Models · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W41.html">← 2026-W41 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">VoxMem: Benchmarking Multimodal Memory in Large Audio Language Models</h1>
+<p class="authors">Yang Xiao, Vidhyasaharan Sethu, Eun-Jung Holden, Ting Dang</p>
+<div class="badges" style="margin:12px 0"><span class="badge">오디오</span><span class="badge">음성</span><span class="pop">👍 152</span>
+  <span class="date">2026.09.26 · arXiv:2609.32607</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>음성 대화 모델이 기억하는 방식을 체계적으로 평가하는 새로운 방법을 제안했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 논문은 대화를 할 때 우리가 기억해야 할 정보가 어떤 것인지, 그리고 그 정보를 어떻게 처리해야 하는지를 정리해서, 컴퓨터가 더 잘 기억하도록 도와주는 방법을 소개했습니다. 예를 들어, 누가 말했는지, 어떻게 말했는지, 어떤 소리가 들렸는지 등을 구분하고, 각각 다른 방법으로 처리합니다. 이렇게 하면 컴퓨터가 대화를 더 잘 이해하고, 사람에게 더 좋은 대답을 줄 수 있습니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 대화 중에 누가 누구에게 말했는지, 어떤 감정으로 말했는지, 주변 소리가 어떤지 등을 기억해 주는 시스템에 사용할 수 있습니다. 예를 들어, 고객센터에서 대화 중에 고객이 어떤 감정으로 말했는지 기억해 주면, 고객의 기분에 맞게 대답할 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>음성 대화 시스템은 이전 대화의 정보를 기억해야 하지만, 현재의 음성 정보는 텍스트로는 복구할 수 없습니다. 또한, 기억은 단순히 정보 저장을 넘어 다양한 작업이 필요합니다. 기존 평가 방법은 이 세 가지 측면을 모두 충분히 다루지 못합니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>이 논문은 기억의 두 가지 핵심 요소인 &#x27;음성 정보의 종류&#x27;와 &#x27;작업 유형&#x27;을 기준으로 분류체계를 만들고, 이를 바탕으로 VoxMem이라는 평가 데이터셋을 만듭니다. 이 데이터셋은 다양한 음성 정보와 작업을 포함하여 대화 기억의 복잡성을 반영합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>15개의 대화 모델을 평가한 결과, 모든 모델이 32K 토큰에서 40% 이하의 성능을 보였습니다. 복잡한 작업일수록 성능 차이가 커졌고, 이는 실제 대화에서의 다양한 실패 모드로 나타났습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>음성 인식</b><span>말을 들었을 때 그 말을 글로 변환하는 기술입니다.</span></div><div class="bg-item"><b>대화 시스템</b><span>사람이 말을 하면 그 말을 이해하고, 적절하게 대답해 주는 시스템입니다.</span></div><div class="bg-item"><b>기억</b><span>이전에 들은 정보를 현재의 대화에서 사용하는 능력입니다.</span></div><div class="bg-item"><b>데이터셋</b><span>모델을 훈련시키기 위해 사용하는 데이터의 모음입니다.</span></div><div class="bg-item"><b>토큰</b><span>문장이나 말을 작은 단위로 나누어 처리하는 기술입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">음성 대화 모델</span><span class="kw">기억 평가</span><span class="kw">VoxMem</span><span class="kw">다중 모달</span><span class="kw">대화 시스템</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Spoken conversational systems must recover information from prior interactions (i.e., memory), yet relevant information in speech extends beyond what was said to who said it, how it was spoken, and what was audible, information that exists only in the audio signal and cannot be recovered from a transcript. Beyond what to remember, memory also demands diverse operations: retrieving a single fact, integrating evidence across turns, tracking an evolving state. Real interactions further unfold across sessions, meaning information accumulates across distinct episodes rather than a single continuous recording. Existing benchmarks fall short on all three dimensions: they focus primarily on lexical content, adopt limited and ad hoc memory operations, and treat memory as a single-session problem. We argue that principled memory evaluation requires jointly characterizing the acoustic evidence to be retained and the operations applied to it, and introduce a taxonomy along these two axes. Building on this taxonomy, we present VoxMem: 3,196 evaluation instances over 34,743 spoken sessions (177 hours) crossing four acoustic evidence types (speech semantics, speaker identity, paralinguistic cues, environmental sound) with four memory operations (information extraction, multi-session reasoning, temporal tracking, and answer refusal), grounded in multi-session histories and stratified across context budgets from 8K to 64K tokens. Evaluating 15 LALMs, no model exceeds 40% at 32K. Models retain what was said far better than who said it, how, or what was audible, a gap that widens for complex operations, grows with history length, and manifests as qualitatively distinct failure modes across evidence types. VoxMem aims to provide a foundation to measure and drive progress on the full scope of spoken conversational memory.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.32607v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.32607" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>
