@@ -316,7 +316,12 @@
       ]
     },
     "delivered": {
-      "slack": false
+      "slack": true,
+      "teams": true
+    },
+    "teams_steps": {
+      "folder": true,
+      "post": true
     }
   }
 }
