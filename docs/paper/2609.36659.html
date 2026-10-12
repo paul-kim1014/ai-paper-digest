@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>On-Policy Parameter Update Direction Underlies Generalization in LLM Post-Training · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W42.html">← 2026-W42 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">On-Policy Parameter Update Direction Underlies Generalization in LLM Post-Training</h1>
+<p class="authors">Shufan Shen, Zhongni Hou, Junshu Sun, Yufei Zhang, Wei Lin, Guojun Yin, Qingming Huang, Shuhui Wang</p>
+<div class="badges" style="margin:12px 0"><span class="badge">머신러닝</span><span class="pop">👍 87</span>
+  <span class="date">2026.09.29 · arXiv:2609.36659</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>온-파이즈 방향을 이용해 SFT의 일반화 능력을 향상시켰습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 논문은 온-파이즈가 가는 길을 SFT에 따라가게 해서 더 잘 배울 수 있도록 했습니다. 예를 들어, 온-파이즈가 &#x27;오른쪽으로 가는 길&#x27;을 선택하면, SFT도 그 길을 따라가면 더 잘 가게 됩니다. 이렇게 하면 SFT도 더 똑똑해질 수 있습니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 챗봇 개발에서 사용됩니다. 예를 들어, 챗봇이 사용자 질문에 잘 대답하도록 SFT를 온-파이즈 방향에 따라 훈련하면, 더 자연스럽고 정확한 대답을 줄 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>온-파이즈 훈련이 일반화 성능이 좋지만, SFT의 일반화 능력은 부족합니다. 이 문제를 해결하기 위해 온-파이즈의 파라미터 업데이트 방향을 SFT에 적용할 수 있는 방법이 필요합니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>OPSFT는 온-파이즈의 파라미터 업데이트 방향을 SFT에 제약적으로 적용하여 일반화 성능을 향상시킵니다. 이 방향은 온-파이즈 훈련 중 누적된 업데이트 방향을 기반으로 결정됩니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>OPSFT는 SFT보다 일반화 성능이 향상되었으며, 훈련 효율도 높아졌습니다. 이는 온-파이즈의 일반화 이점을 SFT에 전달할 수 있음을 보여줍니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>온-파이즈 훈련</b><span>모델이 자신의 행동을 기반으로 학습하는 방식으로, 실제 상황에서 더 잘 작동합니다.</span></div><div class="bg-item"><b>SFT</b><span>모델이 사람의 지도를 따라 학습하는 방식으로, 정확한 답변을 얻을 수 있습니다.</span></div><div class="bg-item"><b>파라미터 업데이트 방향</b><span>모델이 학습하는 방향을 나타내며, 이 방향을 바꾸면 모델이 어떻게 변하는지 알 수 있습니다.</span></div><div class="bg-item"><b>일반화</b><span>모델이 학습한 내용을 새로운 상황에서도 잘 적용할 수 있는 능력을 말합니다.</span></div><div class="bg-item"><b>트랙터</b><span>모델이 학습하는 과정에서 사용하는 데이터나 경로를 말하며, 좋은 트랙터는 더 나은 결과를 줍니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">온-파이즈</span><span class="kw">SFT</span><span class="kw">파라미터 업데이트</span><span class="kw">일반화</span><span class="kw">트랙터</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">The strong generalization performance of on-policy post-training paradigms has motivated studies of their parameter update behaviors. However, these studies treat the observed behaviors only as byproducts in on-policy training, overlooking their potential to serve as optimization principles for improving the generalization of other paradigms such as supervised fine-tuning (SFT). To address this limitation, we investigate whether there exists a specific on-policy update behavior that can achieve such improvements. First, our analyses reveal that SFT updates parameters along consistent directions, while the on-policy paradigm continuously adjusts the direction during training. This difference inspires us to focus on the cumulative update direction of each parameter as a promising behavior. Then, we evaluate its effectiveness for improving generalization by proposing On-Policy direction-constrained Supervised Fine-Tuning (OPSFT), which constrains SFT updates to the direction identified by on-policy paradigms. The strong performance of OPSFT indicates that the generalization advantage of on-policy paradigms can be transferred to SFT through the parameter update direction. Once such a direction is identified, even SFT can generalize with its updates constrained to this direction. This finding offers two practical benefits by combining the strong generalization of on-policy paradigms with the advantages of SFT, including the high training efficiency and ability to leverage high-quality trajectories. For efficiency, we identify update directions that support strong generalization using a few on-policy training steps, and subsequently apply OPSFT to achieve high training efficiency. For leveraging high-quality trajectories, OPSFT can utilize these trajectories to continue improving a post-trained model along its update direction without disrupting the ability learned from on-policy training.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2609.36659v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2609.36659" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

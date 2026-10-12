@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LoGRA: Scaling LLM Reinforcement Learning with Low-Rank Gradient Sketches · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W42.html">← 2026-W42 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">LoGRA: Scaling LLM Reinforcement Learning with Low-Rank Gradient Sketches</h1>
+<p class="authors">Shaokun Zhang, Yifan Zhang, Jian Hu, Yueying Li, Hao Zhang, Binfeng Xu, Jan Kautz, Yi Dong</p>
+<div class="badges" style="margin:12px 0"><span class="badge">자연어처리</span><span class="pop">👍 147</span>
+  <span class="date">2026.10.05 · arXiv:2610.06647</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>LLM 강화학습을 효율적으로 할 수 있는 새로운 방법을 제안했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>이 방법은 학습하는 AI가 중요한 정보를 작은 그림으로 저장해 메모리 절약합니다. 예를 들어, 학습 중 중요한 단어를 작은 그림으로 저장해 기억하는 것처럼요. 이렇게 하면 AI가 더 많은 정보를 배우면서도 메모리가 덜 차게 됩니다. 이 방법은 큰 AI 모델도 훈련할 수 있게 해서 더 똑똑한 AI를 만들 수 있습니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 대형 AI 어시스턴트를 훈련할 때 사용됩니다. 예를 들어, 고객 질문에 정확하게 답변하는 AI가 더 많은 데이터를 학습해 더 나은 성능을 보일 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>대규모 언어 모델의 강화학습은 메모리 사용량이 많아 널리 사용되지 못했습니다. 이 문제를 해결하기 위해 새로운 방법이 필요했습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>LoGRA는 학습 신호를 작은 크기의 데이터로 압축해 메모리 사용을 줄입니다. 이 데이터는 모델을 업데이트하고 정책을 동기화하는 데 사용됩니다. 또한, 업데이트 크기를 조절해 학습이 안정적으로 유지됩니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>LoGRA는 메모리 사용량을 45.7% 줄이고, 27B 파라미터 모델을 1,100단계 이상 훈련할 수 있게 했습니다. 이는 기존 방법으로는 불가능했던 훈련을 가능하게 했습니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>강화학습</b><span>AI가 행동을 통해 보상받으며 학습하는 방법입니다.</span></div><div class="bg-item"><b>메모리</b><span>컴퓨터가 데이터를 저장하고 불러올 수 있는 공간입니다.</span></div><div class="bg-item"><b>파라미터</b><span>모델이 학습하는 과정에서 사용하는 숫자들입니다.</span></div><div class="bg-item"><b>정책</b><span>AI가 어떤 행동을 할지 결정하는 규칙입니다.</span></div><div class="bg-item"><b>그라디언트</b><span>AI가 학습할 때 오류를 수정하는 방향을 나타내는 숫자입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">LoGRA</span><span class="kw">강화학습</span><span class="kw">메모리 절약</span><span class="kw">대규모 모델</span><span class="kw">정책 동기화</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Reinforcement learning has greatly advanced the capabilities of large language models, but its memory demands remain a barrier to broader adoption. We introduce LoGRA, an approach to RL post-training that reduces memory by retaining useful learning signals in low-rank gradient sketches. These compact representations support both model updates and efficient policy synchronization. To prevent overly large updates from disrupting learning, we complement gradient compression with predicted-KL step control, which estimates policy changes before applying each update and adjusts its magnitude accordingly. With all techniques combined, LoGRA reduces average training memory usage by up to 45.7% across reasoning tasks without compromising performance. It also enables stable training of a 27B-parameter model for over 1,100 steps on a single eight-GPU node, where dense Adam runs out of memory, making previously memory-infeasible RL training practical. Code is available in the \href{https://github.com/skzhang1/labs-molt/tree/logra/examples/scripts/logra}{Molt library}.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2610.06647v2" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2610.06647" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>

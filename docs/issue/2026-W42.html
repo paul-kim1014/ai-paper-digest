@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026-W42 주간 이슈 · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../archive.html">← 아카이브로</a>
+<header style="padding-top:8px">
+  <h1 class="title">2026-W42 주간 이슈</h1>
+  <p class="subtitle">2026.10.12 발행 · 총 18편 · <a href="../index.html" style="color:var(--accent)">최신 이슈 →</a></p>
+</header>
+<input id="search" type="search" placeholder="제목·키워드로 검색…" oninput="doSearch()"><div class="field"><h2 class="field-h">자연어처리 (NLP)<span class="cnt">3편</span></h2><a class="card" href="../paper/2610.08448.html" data-search="rethinking cross-tokenizer on-policy distillation: from alignment coverage to supervision reliability 강한 감독 신호보다는 정확한 위치에서의 감독을 우선시하는 것이 더 효과적입니다. 오프라인 학습 토크나이저 정확도 감독 신호 학습 효율 자연어처리 (nlp)">
+  <h3>Rethinking Cross-Tokenizer On-Policy Distillation: From Alignment Coverage to Supervision Reliability</h3>
+  <p class="tldr">강한 감독 신호보다는 정확한 위치에서의 감독을 우선시하는 것이 더 효과적입니다.</p>
+  <div class="badges"><span class="badge">자연어처리</span>
+    <span class="pop">👍 208</span><span class="kw">오프라인 학습</span><span class="kw">토크나이저</span><span class="kw">정확도</span><span class="date">2026.10.06</span></div>
+</a>
+<a class="card" href="../paper/2610.06647.html" data-search="logra: scaling llm reinforcement learning with low-rank gradient sketches llm 강화학습을 효율적으로 할 수 있는 새로운 방법을 제안했습니다. logra 강화학습 메모리 절약 대규모 모델 정책 동기화 자연어처리 (nlp)">
+  <h3>LoGRA: Scaling LLM Reinforcement Learning with Low-Rank Gradient Sketches</h3>
+  <p class="tldr">LLM 강화학습을 효율적으로 할 수 있는 새로운 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">자연어처리</span>
+    <span class="pop">👍 147</span><span class="kw">LoGRA</span><span class="kw">강화학습</span><span class="kw">메모리 절약</span><span class="date">2026.10.05</span></div>
+</a>
+<a class="card" href="../paper/2610.12242.html" data-search="tokenrouter: efficient serving system for token-level llm routing tokenrouter는 토큰 단위로 모델을 분배해 효율을 높이는 시스템입니다. 토큰 라우팅 llm 서버 비동기 처리 스케줄러 효율성 자연어처리 (nlp)">
+  <h3>TokenRouter: Efficient Serving System for Token-Level LLM Routing</h3>
+  <p class="tldr">TokenRouter는 토큰 단위로 모델을 분배해 효율을 높이는 시스템입니다.</p>
+  <div class="badges"><span class="badge">자연어처리</span>
+    <span class="pop">👍 129</span><span class="kw">토큰 라우팅</span><span class="kw">LLM 서버</span><span class="kw">비동기 처리</span><span class="date">2026.10.08</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">컴퓨터비전 (CV)<span class="cnt">2편</span></h2><a class="card" href="../paper/2610.12374.html" data-search="agentgarten: code worlds for evolving agents ai 에이전트가 스스로 배우는 가상 세계를 만들었습니다. ai 에이전트 가상 세계 강화학습 신경망 렌더링 컴퓨터비전 (cv)">
+  <h3>AgentGarten: Code Worlds for Evolving Agents</h3>
+  <p class="tldr">AI 에이전트가 스스로 배우는 가상 세계를 만들었습니다.</p>
+  <div class="badges"><span class="badge">컴퓨터비전</span>
+    <span class="pop">👍 254</span><span class="kw">AI 에이전트</span><span class="kw">가상 세계</span><span class="kw">강화학습</span><span class="date">2026.10.08</span></div>
+</a>
+<a class="card" href="../paper/2610.05608.html" data-search="kandinsky 6.0 video: foundation models for synchronized video and audio generation kandinsky 6.0 video는 텍스트나 이미지로 동영상과 음성 생성이 가능합니다. kandinsky 동영상 생성 음성 생성 cross-attention mit 라이선스 컴퓨터비전 (cv)">
+  <h3>Kandinsky 6.0 Video: Foundation Models for Synchronized Video and Audio Generation</h3>
+  <p class="tldr">Kandinsky 6.0 Video는 텍스트나 이미지로 동영상과 음성 생성이 가능합니다.</p>
+  <div class="badges"><span class="badge">컴퓨터비전</span>
+    <span class="pop">👍 167</span><span class="kw">Kandinsky</span><span class="kw">동영상 생성</span><span class="kw">음성 생성</span><span class="date">2026.10.04</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">머신러닝 (ML)<span class="cnt">3편</span></h2><a class="card" href="../paper/2610.07767.html" data-search="trace: rollout-guided quantization-aware training for fp4 reinforcement learning of moe language models trace는 fp4 정밀도로 강력한 rl 학습을 가능하게 합니다. 강화학습 fp4 정밀도 moe 모델 롤아웃 정밀도 감소 머신러닝 (ml)">
+  <h3>TRACE: Rollout-Guided Quantization-Aware Training for FP4 Reinforcement Learning of MoE Language Models</h3>
+  <p class="tldr">TRACE는 FP4 정밀도로 강력한 RL 학습을 가능하게 합니다.</p>
+  <div class="badges"><span class="badge">머신러닝</span>
+    <span class="pop">👍 92</span><span class="kw">강화학습</span><span class="kw">FP4 정밀도</span><span class="kw">MoE 모델</span><span class="date">2026.10.06</span></div>
+</a>
+<a class="card" href="../paper/2609.36659.html" data-search="on-policy parameter update direction underlies generalization in llm post-training 온-파이즈 방향을 이용해 sft의 일반화 능력을 향상시켰습니다. 온-파이즈 sft 파라미터 업데이트 일반화 트랙터 머신러닝 (ml)">
+  <h3>On-Policy Parameter Update Direction Underlies Generalization in LLM Post-Training</h3>
+  <p class="tldr">온-파이즈 방향을 이용해 SFT의 일반화 능력을 향상시켰습니다.</p>
+  <div class="badges"><span class="badge">머신러닝</span>
+    <span class="pop">👍 87</span><span class="kw">온-파이즈</span><span class="kw">SFT</span><span class="kw">파라미터 업데이트</span><span class="date">2026.09.29</span></div>
+</a>
+<a class="card" href="../paper/2610.07967.html" data-search="decepeval: a benchmark for evaluating deception in llm agents llm 에이전트의 속임수를 평가하는 새로운 기준을 제안했습니다. llm 속임수 평가 기준 ai 신뢰성 데이터 머신러닝 (ml)">
+  <h3>DecepEval: A Benchmark for Evaluating Deception in LLM Agents</h3>
+  <p class="tldr">LLM 에이전트의 속임수를 평가하는 새로운 기준을 제안했습니다.</p>
+  <div class="badges"><span class="badge">머신러닝</span>
+    <span class="pop">👍 74</span><span class="kw">LLM</span><span class="kw">속임수</span><span class="kw">평가 기준</span><span class="date">2026.10.06</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">강화학습·로보틱스<span class="cnt">3편</span></h2><a class="card" href="../paper/2609.38078.html" data-search="motormind: scaffolding general vision language models for zero-shot robot manipulation 일반적인 비주얼-언어 모델로 로봇을 제어할 수 있었습니다. 비주얼-언어 모델 제로샷 학습 로봇 제어 비동기 모니터링 행동 표현 강화학습·로보틱스">
+  <h3>MotorMind: Scaffolding General Vision Language Models for Zero-Shot Robot Manipulation</h3>
+  <p class="tldr">일반적인 비주얼-언어 모델로 로봇을 제어할 수 있었습니다.</p>
+  <div class="badges"><span class="badge">로보틱스</span>
+    <span class="pop">👍 114</span><span class="kw">비주얼-언어 모델</span><span class="kw">제로샷 학습</span><span class="kw">로봇 제어</span><span class="date">2026.09.29</span></div>
+</a>
+<a class="card" href="../paper/2610.10528.html" data-search="long-wam: scaling the context of world-action models 로봇이 오래된 영상 정보를 활용해 더 정확하게 움직일 수 있도록 했습니다. 로봇 제어 영상 정보 실시간 처리 모델 훈련 성공률 강화학습·로보틱스">
+  <h3>Long-WAM: Scaling the Context of World-Action Models</h3>
+  <p class="tldr">로봇이 오래된 영상 정보를 활용해 더 정확하게 움직일 수 있도록 했습니다.</p>
+  <div class="badges"><span class="badge">로보틱스</span>
+    <span class="pop">👍 104</span><span class="kw">로봇 제어</span><span class="kw">영상 정보</span><span class="kw">실시간 처리</span><span class="date">2026.10.07</span></div>
+</a>
+<a class="card" href="../paper/2610.12126.html" data-search="supernav: an agentic navigation system for any task in any scene supernav는 다양한 환경에서 다양한 작업을 수행할 수 있는 네비게이션 시스템입니다. supernav 네비게이션 에이전트 멀티모달 로봇 강화학습·로보틱스">
+  <h3>SuperNav: An Agentic Navigation System for Any Task in Any Scene</h3>
+  <p class="tldr">SuperNav는 다양한 환경에서 다양한 작업을 수행할 수 있는 네비게이션 시스템입니다.</p>
+  <div class="badges"><span class="badge">로보틱스</span>
+    <span class="pop">👍 72</span><span class="kw">SuperNav</span><span class="kw">네비게이션</span><span class="kw">에이전트</span><span class="date">2026.10.08</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">AI 일반·에이전트<span class="cnt">3편</span></h2><a class="card" href="../paper/2610.01780.html" data-search="realcompanion: benchmarking human understanding from reasoning over longitudinal real-world conversations 실제 대화로 ai가 사람을 이해하는 능력을 테스트하는 새로운 방법을 제안했습니다. ai 챗봇 대화 데이터셋 의도 해석 사생활 f1 스코어 ai 일반·에이전트">
+  <h3>RealCompanion: Benchmarking Human Understanding from Reasoning over Longitudinal Real-World Conversations</h3>
+  <p class="tldr">실제 대화로 AI가 사람을 이해하는 능력을 테스트하는 새로운 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge">인공지능</span>
+    <span class="pop">👍 282</span><span class="kw">AI 챗봇</span><span class="kw">대화 데이터셋</span><span class="kw">의도 해석</span><span class="date">2026.10.01</span></div>
+</a>
+<a class="card" href="../paper/2610.08077.html" data-search="self-retrospection distillation: turning post-hoc experiences into prior foresight 경험을 미리 예측하는 힘으로 바꿔 학습을 개선합니다. 강화학습 보상 트라젝토리 자기강화학습 전망학습 ai 일반·에이전트">
+  <h3>Self-Retrospection Distillation: Turning Post-hoc Experiences into Prior Foresight</h3>
+  <p class="tldr">경험을 미리 예측하는 힘으로 바꿔 학습을 개선합니다.</p>
+  <div class="badges"><span class="badge">인공지능</span>
+    <span class="pop">👍 160</span><span class="kw">강화학습</span><span class="kw">보상</span><span class="kw">트라젝토리</span><span class="date">2026.10.06</span></div>
+</a>
+<a class="card" href="../paper/2610.08215.html" data-search="learn2play bench: how well do llm agents learn from experience in unfamiliar environments? llm 에이전트가 새로운 환경에서 경험을 통해 배우는 능력을 평가했습니다. llm 에이전트 경험 학습 게임 테스트 학습 능력 피드백 ai 일반·에이전트">
+  <h3>Learn2Play Bench: How Well Do LLM Agents Learn from Experience in Unfamiliar Environments?</h3>
+  <p class="tldr">LLM 에이전트가 새로운 환경에서 경험을 통해 배우는 능력을 평가했습니다.</p>
+  <div class="badges"><span class="badge">인공지능</span>
+    <span class="pop">👍 136</span><span class="kw">LLM 에이전트</span><span class="kw">경험 학습</span><span class="kw">게임 테스트</span><span class="date">2026.10.06</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">음성·오디오<span class="cnt">3편</span></h2><a class="card" href="../paper/2610.04292.html" data-search="lmbuild: evaluating llm agents for generating buildable and functional structures llm이 실제 구조물을 만들 수 있는지 평가하는 새로운 방법을 제안했습니다. llm lmbuild 기능성 구조물 cad 음성·오디오">
+  <h3>LMBuild: Evaluating LLM Agents for Generating Buildable and Functional Structures</h3>
+  <p class="tldr">LLM이 실제 구조물을 만들 수 있는지 평가하는 새로운 방법을 제안했습니다.</p>
+  <div class="badges"><span class="badge"></span>
+    <span class="pop">👍 38</span><span class="kw">LLM</span><span class="kw">LMBuild</span><span class="kw">기능성</span><span class="date">2026.10.02</span></div>
+</a>
+<a class="card" href="../paper/2609.38123.html" data-search="helixworld: a real-time interactive audio-visual world model 사용자의 상호작용에 따라 시각과 소리가 함께 움직이는 세계를 만들었습니다. helixworld 스테레오 소리 6-dof 모델 데이터셋 음성·오디오">
+  <h3>HelixWorld: A Real-time Interactive Audio-Visual World Model</h3>
+  <p class="tldr">사용자의 상호작용에 따라 시각과 소리가 함께 움직이는 세계를 만들었습니다.</p>
+  <div class="badges"><span class="badge"></span>
+    <span class="pop">👍 38</span><span class="kw">HelixWorld</span><span class="kw">스테레오 소리</span><span class="kw">6-DoF</span><span class="date">2026.09.28</span></div>
+</a>
+<a class="card" href="../paper/2610.03695.html" data-search="language models that play chess and explain their moves 말을 하며 체스를 잘하는 인공지능 모델을 만들었습니다. 체스 언어 모델 모델 훈련 elo 점수 크로스 어텐션 음성·오디오">
+  <h3>Language Models that Play Chess and Explain Their Moves</h3>
+  <p class="tldr">말을 하며 체스를 잘하는 인공지능 모델을 만들었습니다.</p>
+  <div class="badges"><span class="badge"></span>
+    <span class="pop">👍 37</span><span class="kw">체스</span><span class="kw">언어 모델</span><span class="kw">모델 훈련</span><span class="date">2026.10.01</span></div>
+</a></div>
+<div class="field"><h2 class="field-h">정보검색·추천<span class="cnt">1편</span></h2><a class="card" href="../paper/2610.04109.html" data-search="seer: self-evolving event reasoning and retrieval for time series forecasting 시간 시리즈 예측에 사건을 스스로 학습해 더 정확하게 예측합니다. 시간 시리즈 사건 분석 예측 오류 사건의 원인 데이터 유형 정보검색·추천">
+  <h3>SEER: Self-Evolving Event Reasoning and Retrieval for Time Series Forecasting</h3>
+  <p class="tldr">시간 시리즈 예측에 사건을 스스로 학습해 더 정확하게 예측합니다.</p>
+  <div class="badges"><span class="badge"></span>
+    <span class="pop">👍 35</span><span class="kw">시간 시리즈</span><span class="kw">사건 분석</span><span class="kw">예측 오류</span><span class="date">2026.10.01</span></div>
+</a></div><footer>arXiv · Hugging Face 트렌딩 기반 자동 선별</footer><script>
+function doSearch(){var q=document.getElementById('search').value.toLowerCase().trim();
+document.querySelectorAll('.field').forEach(function(f){var any=0;
+f.querySelectorAll('.card').forEach(function(c){var ok=!q||c.dataset.search.indexOf(q)>-1;
+c.style.display=ok?'block':'none';if(ok)any++;});
+f.style.display=any?'block':'none';});}
+</script>
+</div>
+</body>
+</html>

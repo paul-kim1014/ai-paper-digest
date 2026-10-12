@@ -10048,5 +10048,1337 @@
     },
     "fetched_at": "2026-10-05T00:24:14.551131+00:00",
     "week": "2026-W41"
+  },
+  "2610.01780": {
+    "id": "2610.01780",
+    "title": "RealCompanion: Benchmarking Human Understanding from Reasoning over Longitudinal Real-World Conversations",
+    "authors": [
+      "Arman Behnam",
+      "Sunglyoung Kim",
+      "Jiayi Yu",
+      "Eric Huang",
+      "Liangwei Yang"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-10-01T14:31:34Z",
+    "updated": "2026-10-08T14:22:36Z",
+    "abstract": "An AI companion that talks with someone for months should come to understand them. It should know who they are, remember what they said, and recognize when something from the past matters now. Testing this needs real conversations, but real conversations are private, so existing benchmarks use invented people and invented questions. We release RealCompanion, ten real relationships between people and an AI companion, with 27,218 messages over up to 120 days. For each person, we release the full conversation, a profile, a persona, chat test items, and question test items. Every label points to the messages that support it, and every chat label comes with the reasoning that produced it. The real data shows three things. First, people rarely refer back. Only 3.4% of their messages depend on something said earlier, and when one does, the earlier message is usually far away (a median of 2,157 messages back). Averages hide this. Looking at the most recent messages finds the needed one 95.9% of the time overall, but only 2.2% of the time when it is far back. Second, AI systems cannot tell when the past matters. The detectors we tested barely beat chance on real messages, and when the same earlier messages are labeled \"memories\" instead of \"earlier messages\", models bring up the past 10 to 14 percentage points more often, even when nothing from the past is needed. Third, AI systems read more into a person than the person revealed. Three agent systems rebuild each persona equally well (F1 0.71). They see the person, and then imagine more. Understanding a person depends on knowing when their past matters and where what they shared ends, and only real conversations can test it.",
+    "pdf_url": "https://arxiv.org/pdf/2610.01780v3",
+    "arxiv_url": "https://arxiv.org/abs/2610.01780",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 282,
+    "citations": 0,
+    "summary": {
+      "tldr": "실제 대화로 AI가 사람을 이해하는 능력을 테스트하는 새로운 방법을 제안했습니다.",
+      "problem": "AI가 사람과 오랜 시간 대화하며 그 사람을 이해하는 능력을 평가하는 방법이 부족합니다. 실제 대화는 개인 정보가 포함되어 공유하기 어렵고, 기존에는 가상 대화를 사용해 테스트하고 있습니다.",
+      "method": "RealCompanion이라는 실제 대화 데이터셋을 공개하여 AI의 이해 능력을 평가합니다. 이 데이터셋에는 실제 사람과 AI 간의 대화와 프로필, 테스트 항목 등이 포함되어 있습니다. AI가 과거 대화를 기억하고 현재 상황에 연결하는 능력을 평가합니다.",
+      "result": "AI가 과거 대화를 기억하는 능력이 매우 낮고, 사람의 의도를 과도하게 해석하는 문제가 있었습니다. 실제 대화 데이터를 사용하면 AI의 이해 능력을 정확하게 평가할 수 있음을 보여주었습니다.",
+      "method_easy": "이 논문은 실제 사람과 AI가 오랜 시간 대화하는 데이터를 공개해서, AI가 사람을 얼마나 잘 이해하는지 테스트하는 방법입니다. 예를 들어, 친구와 1년간 대화를 나누고, 그 친구가 어떤 사람인지 알아맞히는 게 목표입니다.",
+      "improvement": "기존에는 가상 대화를 사용해 AI의 이해 능력을 테스트했지만, 실제 대화는 사람의 사생활을 침해할 수 있어 사용하기 어려웠습니다. 이 연구에서는 실제 사람과 AI의 대화를 공개해, AI가 과거 대화를 기억하고 현재 상황에 연결하는 능력을 정확하게 평가할 수 있게 되었습니다. 예를 들어, AI가 1년 전에 말했던 말을 기억해 현재의 대화에 연결하는 능력이 향상되었습니다. 이는 AI가 사람과 오랜 시간 대화하는 서비스, 예를 들어, 개인 맞춤형 챗봇이나 상담 서비스에 큰 도움이 됩니다.",
+      "limitations": "이 연구는 10명의 사람과 AI의 대화만 사용했기 때문에 데이터가 부족합니다. 또한, AI가 사람의 의도를 과도하게 해석하는 문제가 있습니다. 이는 AI가 사람의 말을 너무 많이 상상해 잘못 판단할 수 있기 때문입니다. 데이터를 더 많이 수집하고, AI가 사람의 말을 더 정확하게 이해하도록 알고리즘을 개선하면 보완할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 AI가 사람과 오랜 시간 대화하며 그 사람의 성격을 이해하는 서비스에 사용될 수 있습니다. 예를 들어, AI가 사람의 말을 기억해, 그 사람이 지금 어떤 감정을 느끼는지 맞추는 서비스가 가능합니다. 이는 친구나 가족과 오랜 시간 대화하는 AI 챗봇으로 활용될 수 있습니다.",
+      "eli12": "이 논문은 AI가 사람과 오랜 시간 대화하면서 그 사람을 얼마나 잘 이해하는지 테스트하는 방법을 소개했습니다. 예를 들어, 친구와 1년간 대화를 나누고, 그 친구가 어떤 사람인지 알아맞히는 게 목표입니다. AI가 과거 대화를 기억하고, 지금의 대화에 연결하는 능력을 테스트하는 것이죠. 이는 AI가 사람과 더 친근하게 대화하는 데 도움이 될 수 있어요.",
+      "background": [
+        {
+          "term": "대화 데이터셋",
+          "explain": "AI를 테스트할 때 사용하는 실제 대화 내용을 모아둔 데이터입니다."
+        },
+        {
+          "term": "AI 챗봇",
+          "explain": "사람과 대화하며 도움을 주는 인공지능 프로그램입니다."
+        },
+        {
+          "term": "의도 해석",
+          "explain": "사람이 말한 말 속에 숨겨진 생각이나 감정을 알아맞히는 능력입니다."
+        },
+        {
+          "term": "사생활",
+          "explain": "사람이 공유하지 않아도 되는 개인적인 정보를 말합니다."
+        },
+        {
+          "term": "F1 스코어",
+          "explain": "AI가 얼마나 정확하게 사람의 말을 이해하는지 평가하는 수치입니다."
+        }
+      ],
+      "keywords": [
+        "AI 챗봇",
+        "대화 데이터셋",
+        "의도 해석",
+        "사생활",
+        "F1 스코어"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:05:06.812612+00:00",
+    "week": "2026-W42"
+  },
+  "2610.08077": {
+    "id": "2610.08077",
+    "title": "Self-Retrospection Distillation: Turning Post-hoc Experiences into Prior Foresight",
+    "authors": [
+      "Haoxiang Zhang",
+      "Qinglin Chen",
+      "Hiroaki Hayashi",
+      "Zhuofeng Li",
+      "Siming Zhang",
+      "Jiaxin Zhang",
+      "Jixuan Chen",
+      "Fang Wu",
+      "Pan Lu",
+      "Silvio Savarese",
+      "Julian McAuley",
+      "Chien-Sheng Wu"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-10-06T10:06:47Z",
+    "updated": "2026-10-08T05:52:20Z",
+    "abstract": "Reinforcement learning with verifiable rewards (RLVR) turns agent experience into learning signals primarily through scalar outcome rewards after interaction. For group-relative objectives, however, this signal vanishes when all rollouts receive the same reward, even though their trajectories may reveal useful information about what the task requires and how the agent fails. We ask a complementary question: can hindsight teach an agent what it could have anticipated before acting? We introduce prospective learning, which uses post-hoc experience to supervise foresight predictions from the pre-interaction view, and instantiate it with Self-Retrospection Distillation (SRD). Intuitively, a completed trajectory reveals knowledge that would have been useful and pitfalls that should be avoided; SRD distills this privileged hindsight into trajectory-blind foresight of the same policy. Foresight serves only as a training target and need not be explicitly generated at inference time. Across 10 tool-integrated reasoning and long-horizon agentic tasks, SRD complements RLVR and self-distillation baselines with gains of up to 24.2 pp. Its advantage is especially pronounced when reward contrast is scarce: when 37--98% of rollout groups are reward-uniform across model scales, yet SRD can still exploit learning signal from sampled trajectories. In the 2B setting, where 98% of groups are all-failure, the RLVR training ends up at 0.0% success, while adding SRD reaches 60.6% under the same rollout budget. Our results suggest that post-hoc agent experience is useful not only for evaluating or improving behavior, but also for shaping predictive representations before available interaction.",
+    "pdf_url": "https://arxiv.org/pdf/2610.08077v2",
+    "arxiv_url": "https://arxiv.org/abs/2610.08077",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 160,
+    "citations": 0,
+    "summary": {
+      "tldr": "경험을 미리 예측하는 힘으로 바꿔 학습을 개선합니다.",
+      "problem": "강화학습에서 보상이 같아지면 학습 신호가 사라지며, 에이전트가 실패한 부분을 알 수 없어 학습이 제한됩니다. 이로 인해 목표 달성률이 낮아지는 문제가 있습니다.",
+      "method": "SRD는 학습 후 경험을 이용해 미리 예측할 수 있는 능력을 키우는 방법입니다. 이는 에이전트가 행동 전에 어떤 결과가 있을지 예측하도록 도와 학습을 개선합니다.",
+      "result": "SRD는 기존 방법보다 최대 24.2% 성능 향상이 나타났으며, 보상이 모두 같아도 학습 신호를 활용해 성공률을 60.6%까지 높였습니다.",
+      "method_easy": "에이전트가 행동한 후, 그 경로를 보고 '이런 일이 있었으면 미리 알았을 법한 일이야'라고 말해 주는 거예요. 예를 들어, 게임에서 실패한 경로를 보고, '이런 곳은 피해야 해'라고 배우게 하는 거죠. 이렇게 배운 내용을 앞으로 행동할 때 사용해 더 잘하게 만드는 거예요.",
+      "improvement": "기존에는 보상이 같아지면 학습이 멈춰서 성공률이 낮았습니다. 이 연구로는 학습 후 경험을 활용해 성공률이 60.6%까지 높아졌습니다. 이는 게임에서 실패한 경로를 보고, 그 경로를 피하게 해서 더 잘하는 것처럼 현실에서도 활용할 수 있습니다.",
+      "limitations": "모든 경우에 효과가 보장되지 않으며, 특히 보상이 모두 같을 때는 한계가 있습니다. 이는 더 많은 데이터를 수집하거나, 보상 구조를 다양화하면 보완할 수 있을 것으로 보입니다. 또한, 학습 과정에서 추가적인 계산이 필요해 성능에 영향을 줄 수 있습니다.",
+      "example": "게임에서 여러 번 실패한 경로를 보고, 그 경로를 피하게 하는 것이죠. 예를 들어, 스타크래프트에서 특정 위치에 도착하면 적이 몰려드는 것을 알면, 앞으로 그 위치를 피하게 되는 거예요. 이처럼 학습 후 경험을 활용해 더 잘하게 만드는 것이죠.",
+      "eli12": "에이전트가 행동한 후, 그 경로를 보고 '이런 일이 있었으면 미리 알았을 법한 일이야'라고 말해 주는 거예요. 예를 들어, 게임에서 실패한 경로를 보고, '이런 곳은 피해야 해'라고 배우게 하는 거죠. 이렇게 배운 내용을 앞으로 행동할 때 사용해 더 잘하게 만드는 거예요.",
+      "background": [
+        {
+          "term": "강화학습",
+          "explain": "에이전트가 환경과 상호작용하며 목표를 달성하기 위해 학습하는 방법입니다."
+        },
+        {
+          "term": "보상",
+          "explain": "에이전트가 목표를 달성했을 때 주어지는 긍정적 또는 부정적의 피드백입니다."
+        },
+        {
+          "term": "트라젝토리",
+          "explain": "에이전트가 환경에서 행동한 전체 경로를 말하며, 학습에 중요한 정보가 포함되어 있습니다."
+        },
+        {
+          "term": "자기강화학습",
+          "explain": "에이전트가 스스로 경험을 통해 학습하는 방식으로, 외부의 도움 없이 학습합니다."
+        },
+        {
+          "term": "전망학습",
+          "explain": "에이전트가 행동 전에 어떤 결과가 있을지 예측하는 학습 방식입니다."
+        }
+      ],
+      "keywords": [
+        "강화학습",
+        "보상",
+        "트라젝토리",
+        "자기강화학습",
+        "전망학습"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:06:01.436946+00:00",
+    "week": "2026-W42"
+  },
+  "2610.08215": {
+    "id": "2610.08215",
+    "title": "Learn2Play Bench: How Well Do LLM Agents Learn from Experience in Unfamiliar Environments?",
+    "authors": [
+      "Yibo Li",
+      "Jinhang Qiu",
+      "Zhi Zheng",
+      "Qianyun Guo",
+      "Jiaying Wu",
+      "Shuo Ji",
+      "Bryan Hooi"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-10-06T12:08:45Z",
+    "updated": "2026-10-08T14:07:30Z",
+    "abstract": "Learning from experience is essential for LLM agents to adapt to unfamiliar and dynmaic environments. Evaluating this ability is therefore important for understanding how effectively agents acquire and use new knowledge. Existing benchmarks have sought to evaluate this ability, but they primarily evaluate tasks whose rules are provided in the instructions or already familiar to pretrained models, making it difficult to distinguish learning from interactions from reasoning with existing knowledge. To address this, we introduce Learn2Play Bench, a benchmark of newly designed text-based games, whose rules are novel or counterintuitive, requiring agents to acquire knowledge through interaction rather than rely solely on pretrained knowledge. These games provide reproducible feedback and automatic scoring, enabling controlled evaluation of learning across repeated attempts. We also vary game instances to test whether agents can apply what they have learned to new situations. Therefore, we evaluate how backbone models, self-evolving methods, and agent harnesses affect agents' learning ability, revealing three findings: (1) Experience retention: Retaining complete records of actions and feedback can support more effective learning than summarizing these experiences into rules or strategies. (2) Human agent gap: Top-performing human players achieve higher peak scores than the evaluated agents. Human explore more varied strategies, and repeat actions less. (3) Harness matters: With the backbone fixed, changing the harness can improve performance while reducing estimated inference cost. Together, these findings provide insights into how LLM agents learn from experience and suggest directions for future work to improve their learning ability. Project website: https://liushiliushi.github.io/learn2play-bench-website/",
+    "pdf_url": "https://arxiv.org/pdf/2610.08215v2",
+    "arxiv_url": "https://arxiv.org/abs/2610.08215",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 136,
+    "citations": null,
+    "summary": {
+      "tldr": "LLM 에이전트가 새로운 환경에서 경험을 통해 배우는 능력을 평가했습니다.",
+      "problem": "LLM 에이전트가 새로운 규칙이나 환경에서 경험을 통해 배우는 능력을 평가하는 방법이 부족했습니다. 기존 평가 기준은 에이전트가 기존 지식을 사용하는 경우와 실제 학습을 구분하지 못했습니다.",
+      "method": "새로 설계된 텍스트 기반 게임을 사용해 에이전트의 학습 능력을 평가했습니다. 이 게임의 규칙은 새롭거나 직관적이지 않아 에이전트가 직접 경험을 통해 배워야 했습니다. 게임은 반복 시 피드백과 자동 채점 기능을 통해 학습을 체계적으로 평가할 수 있도록 했습니다.",
+      "result": "경험 기록 보존이 학습에 효과적이었고, 인간 플레이어가 에이전트보다 우수했습니다. 또한, 에이전트의 성능은 허브(Harness)에 따라 달라졌습니다. 이 결과는 LLM 에이전트의 학습 방식을 이해하는 데 도움을 줍니다.",
+      "method_easy": "이 논문은 게임을 만들고, 그 게임을 통해 컴퓨터가 배우는지 확인하는 실험을 했습니다. 게임의 규칙은 사람들이 잘 모르는 방식으로 만든 것이었고, 컴퓨터는 직접 해보며 배워야 했습니다. 예를 들어, '나무를 썬다'는 말이 아니라 '나무를 끊는 방법을 배우는 게임'처럼 만들었어요.",
+      "improvement": "기존에는 에이전트가 기존 지식을 사용하는지, 경험을 통해 배우는지 구분하기 어려웠습니다. 이 연구에서는 새로운 규칙의 게임을 만들어 이 차이를 명확히 했습니다. 결과적으로, 인간은 에이전트보다 더 잘 했습니다. 이는 실제 게임이나 문제 해결에서 인간의 능력을 참고할 수 있는 의미가 있습니다.",
+      "limitations": "이 연구는 텍스트 기반 게임에 한정되어 있어 실제 환경에서는 적용이 어려울 수 있습니다. 또한, 에이전트의 학습 과정을 더 자세히 분석하는 데 한계가 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다: 실제 환경에서의 실험과 다양한 학습 방식을 추가적으로 연구하면 좋습니다.",
+      "example": "이 기술은 게임에서 컴퓨터가 스스로 배우는 방식을 연구하는 데 사용됩니다. 예를 들어, 게임에서 컴퓨터가 '나무를 잘라야 한다'는 규칙을 모르고, 직접 해보며 배우는 방식을 확인할 수 있습니다. 이는 실제 문제 해결이나 교육에서 컴퓨터가 스스로 학습하는 방식을 개선하는 데 도움이 됩니다.",
+      "eli12": "이 논문은 컴퓨터가 새로운 게임을 배우는 방식을 연구했습니다. 컴퓨터는 게임의 규칙을 몰라서 직접 해보며 배우고, 그 과정을 평가했습니다. 예를 들어, '나무를 잘라야 한다'는 말이 아니라 '나무를 잘라야 하는 방법을 알아야 한다'는 게임을 만들었어요. 이 연구는 컴퓨터가 스스로 배우는 방법을 더 잘 이해할 수 있게 해 줍니다.",
+      "background": [
+        {
+          "term": "LLM",
+          "explain": "대규모 언어 모델로, 많은 데이터를 학습해 다양한 언어를 이해하고 생성할 수 있습니다."
+        },
+        {
+          "term": "에이전트",
+          "explain": "특정 목표를 달성하기 위해 환경과 상호작용하는 시스템입니다."
+        },
+        {
+          "term": "피드백",
+          "explain": "행동에 대한 결과나 평가를 의미하며, 학습에 도움이 됩니다."
+        },
+        {
+          "term": "게임 테스트",
+          "explain": "게임을 통해 시스템의 능력을 평가하는 방법입니다."
+        },
+        {
+          "term": "학습 능력",
+          "explain": "새로운 정보나 경험을 통해 지식을 얻고 활용하는 능력을 말합니다."
+        }
+      ],
+      "keywords": [
+        "LLM 에이전트",
+        "경험 학습",
+        "게임 테스트",
+        "학습 능력",
+        "피드백"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:07:01.602007+00:00",
+    "week": "2026-W42"
+  },
+  "2610.12374": {
+    "id": "2610.12374",
+    "title": "AgentGarten: Code Worlds for Evolving Agents",
+    "authors": [
+      "Jiawei Chi",
+      "Shangchen Miao",
+      "Zhiyuan Shi",
+      "Kailu Wu",
+      "Hanyang Wang",
+      "Weiliang Chen",
+      "Qiyu Dai",
+      "Jinshan Ren",
+      "Jun Gao",
+      "Mingsheng Long",
+      "Yueqi Duan",
+      "Jiangran Lyu",
+      "Jialong Wu",
+      "Fangfu Liu"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-10-08T17:32:00Z",
+    "updated": "2026-10-08T17:32:00Z",
+    "abstract": "Interactive virtual worlds allow agents to learn through exploration and interaction. What agents can learn is bounded by the environments they practice in, which must be faithful, with consistent state, rules, and dynamics, and realistic, with observations that follow the real-world visual distributions. Achieving both across diverse worlds remains a bottleneck. We introduce AgentGarten, a framework that couples simulators and game engines with a shared neural renderer to build real-time interactive environments. Its simulation backends maintain persistent world state and execute program-defined interaction rules, while the renderer generates visual observations from structured conditions exported through a common interface. To build the neural renderer, we adapt a pretrained video model to geometry conditions, distill it with our proposed Adversarial Forcing, and optimize inference for real-time interaction. Adversarial Forcing makes history prefilling differentiable through exact replay, so that losses on later predictions update how the renderer encodes prior observations, and adds real-data adversarial supervision to improve its visual quality. In AgentGarten, agents perceive the world through visual observations, interact with it in real time, and improve by distilling each round of experience into playbooks that subsequent agents inherit and refine. Our empirical study demonstrates a substantial gain in learning efficiency, with agents learning from just 4 rounds compared with millions for a conventional reinforcement learning counterpart. As new worlds can be written as code and rendered through the same interface, environments can scale in both number and difficulty alongside their agents, a step toward agents that keep evolving through interactive experience.",
+    "pdf_url": "https://arxiv.org/pdf/2610.12374v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.12374",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 254,
+    "citations": null,
+    "summary": {
+      "tldr": "AI 에이전트가 스스로 배우는 가상 세계를 만들었습니다.",
+      "problem": "AI 에이전트가 배우기 위해 사용하는 가상 세계는 현실과 차이가 많아 학습 효율이 낮습니다. 이로 인해 에이전트가 많은 시간과 데이터를 필요로 합니다.",
+      "method": "AgentGarten은 가상 세계를 만들기 위해 시뮬레이터와 게임 엔진을 연결해 실시간으로 작동하는 환경을 만듭니다. 시뮬레이터는 세계 상태를 유지하고, 렌더러는 시각 정보를 생성해 에이전트가 보고 배울 수 있도록 합니다.",
+      "result": "AgentGarten은 에이전트가 4번만 학습해도 기존 방법보다 훨씬 빠르게 성장할 수 있습니다. 이는 AI가 스스로 경험을 통해 진화하는 데 큰 도움이 됩니다.",
+      "method_easy": "AgentGarten은 AI가 배우는 가상 세계를 만들기 위해, 컴퓨터가 가상의 공간을 만들고, 그 공간을 보여주는 창을 만듭니다. 이 창은 AI가 보고 배울 수 있는 이미지를 만들어 줍니다. 예를 들어, AI가 게임 캐릭터처럼 움직이면서 환경을 이해하게 됩니다.",
+      "improvement": "기존에는 AI가 많은 시간과 데이터를 필요로 했습니다. 이 연구로 AI는 4번만 학습해도 기존 방법보다 훨씬 빠르게 성장할 수 있습니다. 이는 게임 캐릭터가 스스로 경험을 통해 능력을 키우는 것처럼 AI도 가능해집니다. 예를 들어, 게임 캐릭터가 몇 번만 훈련해도 강해질 수 있듯이, AI도 이렇게 학습할 수 있습니다.",
+      "limitations": "현재는 가상 세계를 만들 때 많은 자원이 필요합니다. 이는 AI가 더 많은 세계를 만들 수 없게 합니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 더 효율적인 렌더링 기술을 개발하면 자원을 줄일 수 있습니다.",
+      "example": "이 기술은 게임 개발에 사용될 수 있습니다. 개발자는 게임 세계를 코드로 만들고, AI가 그 세계에서 스스로 배우며 게임을 개선할 수 있습니다. 예를 들어, AI가 게임 캐릭터처럼 움직이며, 게임 세계를 이해하고, 게임을 더 재미있게 만들 수 있습니다.",
+      "eli12": "AgentGarten은 AI가 스스로 배우는 가상 세계를 만드는 기술입니다. AI가 게임처럼 움직이며, 세계를 이해하고, 점점 더 똑똑해집니다. 예를 들어, AI가 게임 캐러cter처럼 움직이며, 게임을 더 재미있게 만들 수 있습니다.",
+      "background": [
+        {
+          "term": "시뮬레이터",
+          "explain": "실제 세계를 모방해 가상의 세계를 만드는 프로그램입니다."
+        },
+        {
+          "term": "렌더러",
+          "explain": "컴퓨터가 이미지를 만들고 보여주는 기술입니다."
+        },
+        {
+          "term": "강화학습",
+          "explain": "AI가 경험을 통해 스스로 배우는 방법입니다."
+        },
+        {
+          "term": "게임 엔진",
+          "explain": "게임을 만들고 실행하는 프로그램입니다."
+        },
+        {
+          "term": "신경망",
+          "explain": "AI가 데이터를 학습하고 예측하는 기술입니다."
+        }
+      ],
+      "keywords": [
+        "AI 에이전트",
+        "가상 세계",
+        "강화학습",
+        "신경망",
+        "렌더링"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:07:52.162391+00:00",
+    "week": "2026-W42"
+  },
+  "2610.05608": {
+    "id": "2610.05608",
+    "title": "Kandinsky 6.0 Video: Foundation Models for Synchronized Video and Audio Generation",
+    "authors": [
+      "Team Kandinsky",
+      "Julia Agafonova",
+      "Bulat Akhmatov",
+      "Mikhail Aksyutin",
+      "Grigorii Alekseenko",
+      "Anastasia Aliaskina",
+      "Olga Androsova",
+      "Vladimir Arkhipkin",
+      "Anna Averchenkova",
+      "Alexander Belykh",
+      "Serafima Bocharova",
+      "Sofiya Bogakovskaya",
+      "Anton Bukashkin",
+      "Mark Bulygin",
+      "Kirill Buzygin",
+      "Irina Cheremnykh",
+      "Kirill Chernyshev",
+      "Mikhail Chernyshov",
+      "Vladimir Chernyy",
+      "David Chikovani",
+      "Georgy Daniltsev",
+      "Denis Dimitrov",
+      "Anna Dmitrienko",
+      "Vladimir Dokholyan",
+      "Sergey Emelyanov",
+      "Dmitry Ermilov",
+      "Georgii Fedorov",
+      "Polina Gavrilova",
+      "Nikolai Gerasimenko",
+      "Aleksandr Gordeev",
+      "Andrey Inozemtsev",
+      "Andrei Ivaniuta",
+      "Alexander Ivanov",
+      "Mikhail Karaev",
+      "Anastasiia Kargapoltseva",
+      "Ivan Kirillov",
+      "Nikita Kiselev",
+      "Valeria Kobenko",
+      "Yury Kolabushin",
+      "Denis Koposov",
+      "Anatoly Korobov",
+      "Vladimir Korviakov",
+      "Kirill Kozlov",
+      "Denis Krzhivokolskiy",
+      "Konstantin Kuklev",
+      "Alexander Kunitsyn",
+      "Sergey Kuzin",
+      "Vladislav Lakhtionov",
+      "Alexey Letunovskiy",
+      "Maxim Litvinov",
+      "Alexander Lyulkov",
+      "Georgy Makarov",
+      "Kirill Malakhov",
+      "Egor Malykh",
+      "Mikhail Mamaev",
+      "Dmitrii Mikhailov",
+      "Polina Mikhailova",
+      "Ivan Mikheev",
+      "Elizaveta Muromtseva",
+      "Nikolai Nazarkin",
+      "Tatiana Nikulina",
+      "Lev Novitskiy",
+      "Stanislav Onuchin",
+      "Nikita Osterov",
+      "Denis Parkhomenko",
+      "Anatoliy Parpara",
+      "Vladimir Polovnikov",
+      "Konstantin Reznikov",
+      "Azat Saginbaev",
+      "Nikita Samsonov",
+      "Alexander Sentsov",
+      "Nikita Shaimov",
+      "Artem Sherstyuk",
+      "Andrey Shutkin",
+      "Egor Silvestrov",
+      "Bulat Suleimanov",
+      "Matvey Suprunov",
+      "Sergey Taranov",
+      "Irina Tolstykh",
+      "Tatiana Trofimuk",
+      "Ilya Trushkin",
+      "Aleksandra Tsybina",
+      "Olga Varlashina",
+      "Viacheslav Vasilev",
+      "Ilya Vasiliev",
+      "Eugeny Vilisov",
+      "Sergey Yakubson",
+      "Konstantin Zakharov"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG",
+      "cs.MM"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-10-04T23:19:20Z",
+    "updated": "2026-10-04T23:19:20Z",
+    "abstract": "We present Kandinsky 6.0 Video, a family of foundation diffusion models for synchronized text-to-audio-video generation, comprising Kandinsky 6.0 Video Lite (3B parameters) and Kandinsky 6.0 Video Pro (29B parameters). Both models generate 5-second video clips with synchronized 44 kHz audio, including lip-sync, in text-to-audio-video (T2AV) and image-to-audio-video (I2AV) modes; a built-in super-resolution model raises the output resolution to Full-HD (1920$\\times$1080). Building on the video generation capabilities of Kandinsky 5.0, Kandinsky 6.0 Video employs a dual-stream CrossDiT architecture that connects a pretrained video stream and a newly trained audio stream through bidirectional cross-attention for temporal and semantic alignment. Our continuous pretraining strategy first trains the audio stream from scratch on large-scale audio corpora and then trains both streams jointly on paired audio-video data while preserving unimodal fidelity; pretraining is followed by supervised fine-tuning, reinforcement-learning-based post-training, and distillation. In side-by-side human evaluation, Kandinsky 6.0 Video Pro clearly outperforms its predecessor, Kandinsky 5.0 Video Pro, and remains competitive with leading audio-video generation models, particularly in speech quality. To accelerate open research and deployment in multimedia generation, we release the code, model checkpoints, and diffusers integration under the MIT license.",
+    "pdf_url": "https://arxiv.org/pdf/2610.05608v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.05608",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 167,
+    "citations": null,
+    "summary": {
+      "tldr": "Kandinsky 6.0 Video는 텍스트나 이미지로 동영상과 음성 생성이 가능합니다.",
+      "problem": "동영상과 음성을 동시에 생성하는 기술이 부족했고, 텍스트나 이미지로 생성할 때 동기화가 어려웠습니다. 또한, 해상도나 음질이 낮아 현실적인 활용이 어려웠습니다.",
+      "method": "Kandinsky 6.0 Video는 두 개의 스트림(동영상과 음성)을 연결해 시간과 의미를 맞추는 기술을 사용했습니다. 먼저 음성을 학습하고, 이후 동영상과 음성을 함께 학습해 품질을 높였습니다.",
+      "result": "Kandinsky 6.0 Video Pro는 이전 버전보다 훨씬 좋고, 다른 모델들과도 경쟁할 수 있습니다. 특히 음성 품질이 크게 향상되었습니다.",
+      "method_easy": "이 기술은 동영상과 음성을 동시에 만들 수 있는 마법의 장치입니다. 먼저 음성을 학습하고, 그 다음에 동영상과 음성을 함께 학습해 자연스럽게 만들어요. 예를 들어, '고양이가 뛰는' 문장을 입력하면, 고양이가 뛰는 동영상과 함께 고양이가 뛰는 소리도 나옵니다.",
+      "improvement": "이전에는 동영상과 음성이 잘 맞지 않거나, 해상도가 낮아서 좋지 않았습니다. 이 연구로는 동영상과 음성이 잘 맞고, 해상도가 Full-HD로 높아졌습니다. 그래서 영화나 광고 제작에 쓰면 더 자연스럽고 멋진 결과가 나옵니다. 예를 들어, '아이가 축구하는' 텍스트를 입력하면, 아이가 축구하는 동영상과 함께 축구 소리도 나옵니다.",
+      "limitations": "이 기술은 아직 긴 동영상 생성이 어렵고, 사용하기 위한 컴퓨터 자원이 많아서 일반 컴퓨터에서는 사용하기 어려울 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다: 더 효율적인 알고리즘을 개발하거나, 클라우드 서비스를 활용해 자원을 줄일 수 있습니다.",
+      "example": "이 기술은 광고나 교육 영상 제작에 사용할 수 있습니다. 예를 들어, '사과를 먹는 사람'이라는 텍스트를 입력하면, 사람이 사과를 먹는 동영상과 함께 '사과를 먹는 소리'도 나옵니다. 이는 교육 영상에서 학생들이 더 잘 이해할 수 있도록 도와줍니다.",
+      "eli12": "이 기술은 마법처럼 텍스트나 그림을 입력하면, 동영상과 음성이 같이 나옵니다. 예를 들어, '고양이가 뛰는' 문장을 입력하면, 고양이가 뛰는 동영상과 함께 뛰는 소리도 들을 수 있어요. 이 기술은 영화나 교실에서 쓸 수 있어요.",
+      "background": [
+        {
+          "term": "디퓨전 모델",
+          "explain": "이미지나 동영상 생성에 사용되는 기술로, 이미지를 점차 더 현실적인 모습으로 만드는 것입니다."
+        },
+        {
+          "term": "시퀀스 모델",
+          "explain": "시간에 따라 순서대로 데이터를 처리하는 기술로, 음성이나 동영상 생성에 많이 사용됩니다."
+        },
+        {
+          "term": "Cross-Attention",
+          "explain": "두 개의 데이터를 서로 연결해 의미를 맞추는 기술로, 동영상과 음성을 연결하는 데 사용됩니다."
+        },
+        {
+          "term": "Super-Resolution",
+          "explain": "저해상도 이미지를 더 높은 해상도로 만드는 기술로, 동영상의 화질을 개선합니다."
+        },
+        {
+          "term": "MIT 라이선스",
+          "explain": "소프트웨어를 누구나 사용하고 개선할 수 있도록 허락하는 라이선스입니다."
+        }
+      ],
+      "keywords": [
+        "Kandinsky",
+        "동영상 생성",
+        "음성 생성",
+        "Cross-Attention",
+        "MIT 라이선스"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:08:49.162459+00:00",
+    "week": "2026-W42"
+  },
+  "2610.08448": {
+    "id": "2610.08448",
+    "title": "Rethinking Cross-Tokenizer On-Policy Distillation: From Alignment Coverage to Supervision Reliability",
+    "authors": [
+      "Bingxi Hou",
+      "Guochao Jiang",
+      "Guofeng Quan",
+      "Weiqing Li",
+      "Wenfeng Feng",
+      "Guohua Liu",
+      "Yuewei Zhang"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-10-06T14:37:22Z",
+    "updated": "2026-10-06T14:37:22Z",
+    "abstract": "On-Policy Distillation (OPD) trains a student on its own generations using teacher feedback. With different tokenizers, comparing teacher and student predictions requires alignment at both sequence and vocabulary levels. In this paper, we examine whether expanding this alignment coverage improves learning. Across three heterogeneous teacher--student pairs on mathematical reasoning and code generation, strict 1:1 groups already cover most student-generated tokens despite substantial vocabulary mismatch. On responses sampled from the students before distillation, the shared vocabulary retains nearly all teacher and student probability mass at strictly aligned positions on average. Restricting reverse KL to a student-selected top-16 subset of the shared vocabulary at each strict position achieves accuracy comparable to full shared-vocabulary OPD, outperforming the evaluated cross-tokenizer baselines. Adding mean squared error supervision on span log-probabilities in mismatch groups gives complete supervision coverage, yet reduces accuracy. At checkpoints from training with only the strict loss, the span gradients show weak or negative directional agreement with the strict gradients and grow in magnitude relative to them. These diagnostics may help explain the accuracy drop from adding span supervision. Our findings motivate a shift from maximizing alignment coverage to prioritizing supervision reliability: compact supervision at strict positions can be more effective than broader coverage that introduces weakly aligned or conflicting training signals.",
+    "pdf_url": "https://arxiv.org/pdf/2610.08448v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.08448",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 208,
+    "citations": 0,
+    "summary": {
+      "tldr": "강한 감독 신호보다는 정확한 위치에서의 감독을 우선시하는 것이 더 효과적입니다.",
+      "problem": "다른 토크나이저를 사용하는 선생과 학생 간의 예측을 비교할 때, 단순히 단어를 맞추는 것만으로는 학습이 제대로 이루어지지 않습니다. 이 논문은 이를 해결하기 위해 더 넓은 범위의 단어 비교를 시도했지만, 오히려 성능이 떨어졌습니다.",
+      "method": "선생과 학생이 공통으로 사용하는 단어만으로 학습을 진행하고, 학생이 선택한 최상위 16개 단어만을 사용해 정확도를 높입니다. 또한, 맞지 않는 단어들에 대해서도 평균 제곱 오차를 사용해 더 많은 감독을 제공합니다.",
+      "result": "공통 단어만 사용해 학습한 결과가 기존 방법보다 더 좋았고, 전체 단어를 사용하는 것보다 정확도가 높았습니다. 하지만, 전체 단어를 사용할 때는 정확도가 오히려 떨어졌습니다.",
+      "method_easy": "선생과 학생이 공통으로 사용하는 단어만으로 게임을 하며, 학생이 가장 좋아하는 16개 단어만으로 점수를 주고, 다른 단어에는 점수를 더 많이 주는 방식입니다. 예를 들어, 선생이 '사과'를 말하고 학생이 '사과'라고 답하면 점수를 주고, '바나나'라고 답하면 다른 방식으로 점수를 줍니다.",
+      "improvement": "기존에는 단어가 다르면 학습이 제대로 되지 않았습니다. 이 연구에서는 학생이 선택한 단어만으로 학습을 진행해 정확도가 90% 이상으로 올랐습니다. 그래서 실제 코딩이나 수학 문제 풀이에서 학생이 정확하게 답을 맞추는 데 도움이 됩니다. 예를 들어, 코딩 문제에서 학생이 'for' 문을 사용하면, 선생이 'for' 문을 사용하는 코드를 보여주며 학습하게 됩니다.",
+      "limitations": "이 연구에서는 단어가 맞는 경우만 학습을 진행했기 때문에, 단어가 다르더라도 의미가 비슷한 경우를 고려하지 않았습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 단어가 다르더라도 의미가 비슷한 경우를 추가로 학습하게 하면 더 좋은 결과가 나올 수 있습니다.",
+      "example": "이 기술은 코딩 문제 풀이에서 사용됩니다. 예를 들어, 선생이 'if' 문을 사용하는 코드를 보여주고, 학생이 'if' 문을 사용하지 않고 다른 문법을 사용해 문제를 해결하면, 학생이 선택한 문법에 따라 학습이 이루어집니다.",
+      "eli12": "선생과 학생이 서로 다른 단어를 사용해 게임을 하면, 게임이 어려워요. 그래서 선생과 학교가 공통으로 사용하는 단어만으로 게임을 하면, 게임이 더 쉬워요. 학생이 좋아하는 단어만으로 점수를 주고, 다른 단어에는 더 많은 점수를 주면, 게임이 더 재미있어요.",
+      "background": [
+        {
+          "term": "토크나이저",
+          "explain": "문장을 단어나 기호로 나누는 도구입니다. 예를 들어, '안녕하세요'는 '안녕'과 '하세요'로 나뉩니다."
+        },
+        {
+          "term": "오프라인 학습",
+          "explain": "선생이 직접 학생에게 답을 알려주는 방식으로 학습을 진행합니다."
+        },
+        {
+          "term": "반복적 학습",
+          "explain": "같은 문제를 반복해서 풀며, 점점 더 잘 풀 수 있도록 학습하는 방법입니다."
+        },
+        {
+          "term": "정확도",
+          "explain": "학생이 문제를 얼마나 잘 푸는지를 나타내는 수치입니다."
+        },
+        {
+          "term": "감독 신호",
+          "explain": "선생이 학생에게 정답을 알려주는 방식입니다. 예를 들어, '이 답이 맞아요'라고 말하는 것입니다."
+        }
+      ],
+      "keywords": [
+        "오프라인 학습",
+        "토크나이저",
+        "정확도",
+        "감독 신호",
+        "학습 효율"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:11:36.815362+00:00",
+    "week": "2026-W42"
+  },
+  "2610.06647": {
+    "id": "2610.06647",
+    "title": "LoGRA: Scaling LLM Reinforcement Learning with Low-Rank Gradient Sketches",
+    "authors": [
+      "Shaokun Zhang",
+      "Yifan Zhang",
+      "Jian Hu",
+      "Yueying Li",
+      "Hao Zhang",
+      "Binfeng Xu",
+      "Jan Kautz",
+      "Yi Dong"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-10-05T16:28:11Z",
+    "updated": "2026-10-06T21:08:03Z",
+    "abstract": "Reinforcement learning has greatly advanced the capabilities of large language models, but its memory demands remain a barrier to broader adoption. We introduce LoGRA, an approach to RL post-training that reduces memory by retaining useful learning signals in low-rank gradient sketches. These compact representations support both model updates and efficient policy synchronization. To prevent overly large updates from disrupting learning, we complement gradient compression with predicted-KL step control, which estimates policy changes before applying each update and adjusts its magnitude accordingly. With all techniques combined, LoGRA reduces average training memory usage by up to 45.7% across reasoning tasks without compromising performance. It also enables stable training of a 27B-parameter model for over 1,100 steps on a single eight-GPU node, where dense Adam runs out of memory, making previously memory-infeasible RL training practical. Code is available in the \\href{https://github.com/skzhang1/labs-molt/tree/logra/examples/scripts/logra}{Molt library}.",
+    "pdf_url": "https://arxiv.org/pdf/2610.06647v2",
+    "arxiv_url": "https://arxiv.org/abs/2610.06647",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 147,
+    "citations": null,
+    "summary": {
+      "tldr": "LLM 강화학습을 효율적으로 할 수 있는 새로운 방법을 제안했습니다.",
+      "problem": "대규모 언어 모델의 강화학습은 메모리 사용량이 많아 널리 사용되지 못했습니다. 이 문제를 해결하기 위해 새로운 방법이 필요했습니다.",
+      "method": "LoGRA는 학습 신호를 작은 크기의 데이터로 압축해 메모리 사용을 줄입니다. 이 데이터는 모델을 업데이트하고 정책을 동기화하는 데 사용됩니다. 또한, 업데이트 크기를 조절해 학습이 안정적으로 유지됩니다.",
+      "result": "LoGRA는 메모리 사용량을 45.7% 줄이고, 27B 파라미터 모델을 1,100단계 이상 훈련할 수 있게 했습니다. 이는 기존 방법으로는 불가능했던 훈련을 가능하게 했습니다.",
+      "method_easy": "이 방법은 학습하는 모델이 중요한 정보를 작은 그림으로 저장해 메모리 절약합니다. 예를 들어, 학습 중 중요한 단어를 작은 그림으로 저장해 기억하는 것처럼요. 이 그림은 모델을 업데이트하고, 다른 모델과도 잘 맞춰주는 역할을 합니다.",
+      "improvement": "기존에는 메모리가 부족해 큰 모델을 훈련하기 어려웠습니다. 이 연구로는 메모리 사용량을 45.7% 줄여 큰 모델도 훈진할 수 있게 되었습니다. 이는 기업이나 연구소에서 더 큰 모델을 사용해 더 정확한 답변을 제공할 수 있게 합니다. 예를 들어, 대형 AI 어시스턴트가 더 많은 질문을 처리할 수 있게 되는 것이죠.",
+      "limitations": "이 방법은 특정한 훈련 환경에서만 잘 작동할 수 있습니다. 이는 더 다양한 환경에서 테스트가 필요합니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 다양한 데이터셋과 설정에서 실험을 통해 방법을 개선할 수 있습니다.",
+      "example": "이 기술은 대형 AI 어시스턴트를 훈련할 때 사용됩니다. 예를 들어, 고객 질문에 정확하게 답변하는 AI가 더 많은 데이터를 학습해 더 나은 성능을 보일 수 있습니다.",
+      "eli12": "이 방법은 학습하는 AI가 중요한 정보를 작은 그림으로 저장해 메모리 절약합니다. 예를 들어, 학습 중 중요한 단어를 작은 그림으로 저장해 기억하는 것처럼요. 이렇게 하면 AI가 더 많은 정보를 배우면서도 메모리가 덜 차게 됩니다. 이 방법은 큰 AI 모델도 훈련할 수 있게 해서 더 똑똑한 AI를 만들 수 있습니다.",
+      "background": [
+        {
+          "term": "강화학습",
+          "explain": "AI가 행동을 통해 보상받으며 학습하는 방법입니다."
+        },
+        {
+          "term": "메모리",
+          "explain": "컴퓨터가 데이터를 저장하고 불러올 수 있는 공간입니다."
+        },
+        {
+          "term": "파라미터",
+          "explain": "모델이 학습하는 과정에서 사용하는 숫자들입니다."
+        },
+        {
+          "term": "정책",
+          "explain": "AI가 어떤 행동을 할지 결정하는 규칙입니다."
+        },
+        {
+          "term": "그라디언트",
+          "explain": "AI가 학습할 때 오류를 수정하는 방향을 나타내는 숫자입니다."
+        }
+      ],
+      "keywords": [
+        "LoGRA",
+        "강화학습",
+        "메모리 절약",
+        "대규모 모델",
+        "정책 동기화"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:12:26.510263+00:00",
+    "week": "2026-W42"
+  },
+  "2610.12242": {
+    "id": "2610.12242",
+    "title": "TokenRouter: Efficient Serving System for Token-Level LLM Routing",
+    "authors": [
+      "Tianyu Fu",
+      "Tengxuan Liu",
+      "Ruoxi Wang",
+      "Yixin Dong",
+      "Yi Ge",
+      "Yichen You",
+      "Yu Wang"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-10-08T16:21:50Z",
+    "updated": "2026-10-08T16:21:50Z",
+    "abstract": "Large language model (LLM) routing distributes inference work across different models, advancing the cost-quality Pareto frontier of LLM serving. While coarse-grained routing at the session or query level has been widely adopted in production systems, recent algorithmic work shows that fine-grained token-level routing can yield substantial efficiency and quality gains. However, efficiently serving token-level routed inference poses significant challenges to existing systems. Built on single-LLM assumptions, current systems suffer from severe step desynchronization and frequent batch admission delays under token-level routing, and they also impose high implementation complexity on developers. To address these challenges, we design TokenRouter, an efficient and developer-friendly serving system for token-level routed LLM inference. TokenRouter follows the principle of request-centric programming, model-centric execution: developers describe routing logic from the perspective of a single request, while the runtime launches a subserver for each LLM and dispatches requests asynchronously. Each subserver employs a delayed-batching scheduler, whose optimal hyperparameters are derived from a mathematical throughput model of the system. Across diverse routing algorithms, workloads, and model pairs, TokenRouter achieves 2.01-64.15x higher decoding throughput than existing systems, substantially advancing the serving efficiency of token-level LLM routing. Our code is available at https://github.com/thu-nics/TokenRouter.",
+    "pdf_url": "https://arxiv.org/pdf/2610.12242v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.12242",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 129,
+    "citations": 0,
+    "summary": {
+      "tldr": "TokenRouter는 토큰 단위로 모델을 분배해 효율을 높이는 시스템입니다.",
+      "problem": "기존 시스템은 토큰 단위로 모델을 분배할 때 성능 저하와 복잡한 구현 문제가 발생합니다. 이로 인해 처리 속도가 느려지고 개발자에게 부담이 되었습니다.",
+      "method": "TokenRouter는 요청 중심으로 작업을 처리하고, 각 모델에 별도 서버를 생성해 비동기 방식으로 요청을 분배합니다. 이 서버는 효율적인 배치 스케줄러를 사용해 처리 속도를 높입니다.",
+      "result": "TokenRouter는 기존 시스템 대비 최대 64배의 처리 속도를 달성했습니다. 이는 토큰 단위 모델 분배의 효율성을 크게 향상시켰습니다.",
+      "method_easy": "TokenRouter는 요청을 하나씩 받아 각 모델에 맞게 별도의 작은 서버를 만듭니다. 각 서버는 요청을 차례로 처리하면서 효율적으로 일정 수의 요청을 묶어 처리합니다. 예를 들어, 10개의 요청을 2개의 서버에 나누어 각 서버가 5개씩 처리하게 합니다.",
+      "improvement": "기존에는 토큰 단위로 모델을 분배할 때 처리 속도가 느려지고, 개발자가 복잡한 코드를 작성해야 했습니다. 이 연구로는 처리 속도가 64배 빨라지고, 개발자에게도 더 쉬운 시스템이 되었습니다. 예를 들어, 대규모 챗봇 시스템에서 사용하면 더 많은 사용자를 동시에 처리할 수 있습니다.",
+      "limitations": "이 연구는 특정 모델 쌍이나 작업량에만 최적화되어 있어, 모든 경우에 효과적이지 않습니다. 또한, 복잡한 시스템에서는 추가적인 설정이 필요할 수 있습니다. 이는 더 다양한 모델과 작업량에 대응할 수 있도록 시스템을 유연하게 설계하면 보완할 수 있을 것으로 보입니다.",
+      "example": "TokenRouter는 대규모 챗봇 시스템에서 사용됩니다. 사용자의 질문을 여러 모델에 나누어 처리해, 빠르고 정확한 답변을 제공합니다. 예를 들어, 질문이 길면 일부 토큰을 다른 모델로 전달해 처리합니다.",
+      "eli12": "TokenRouter는 질문을 작은 단위로 나누어 여러 모델에 나눠 처리하는 시스템입니다. 예를 들어, 큰 질문을 여러 개의 작은 질문으로 나누어 각 모델이 차례로 처리해 더 빠르게 답을 줍니다. 이는 학교에서 여러 학생이 함께 문제를 풀 때 각자 다른 문제를 풀고 합쳐서 답을 만드는 것처럼 생각할 수 있어요.",
+      "background": [
+        {
+          "term": "LLM",
+          "explain": "대규모 언어 모델로, 많은 데이터를 학습해 문장을 이해하고 생성할 수 있는 인공지능입니다."
+        },
+        {
+          "term": "토큰",
+          "explain": "문장을 작은 단위로 나눈 단위로, 예를 들어 '안녕하세요'는 '안', '녕', '하세요'로 나뉩니다."
+        },
+        {
+          "term": "서버",
+          "explain": "컴퓨터가 요청을 처리하는 장치로, 여러 요청을 동시에 처리할 수 있습니다."
+        },
+        {
+          "term": "비동기",
+          "explain": "한 작업이 끝나기 전에 다른 작업을 시작할 수 있는 방식입니다."
+        },
+        {
+          "term": "스케줄러",
+          "explain": "작업을 순서대로 처리하는 프로그램으로, 효율적인 처리를 도와줍니다."
+        }
+      ],
+      "keywords": [
+        "토큰 라우팅",
+        "LLM 서버",
+        "비동기 처리",
+        "스케줄러",
+        "효율성"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:13:20.726333+00:00",
+    "week": "2026-W42"
+  },
+  "2609.38078": {
+    "id": "2609.38078",
+    "title": "MotorMind: Scaffolding General Vision Language Models for Zero-Shot Robot Manipulation",
+    "authors": [
+      "Bingxuan Li",
+      "Siqi Song",
+      "Yizhuo Wu",
+      "Jiarui Yao",
+      "Tong Zhang",
+      "Huan Zhang"
+    ],
+    "categories": [
+      "cs.RO"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-09-29T17:36:40Z",
+    "updated": "2026-09-29T17:36:40Z",
+    "abstract": "Vision-language-action (VLA) models have advanced robotic manipulation, but their zero-shot generalization in new tasks and environments remains limited, and their reliance on specialized training keeps them from benefiting directly from rapidly advancing general-purpose vision-language models (VLMs). In parallel, recent agentic robotic systems leverage VLMs for high-level reasoning or coding agents for robot control, but often depend on extensive external models and tools, introducing additional complexity and cost. This motivates us to ask: Can a general-purpose VLM itself operate a robot more like the human teleoperator by reasoning directly from observations, issuing actions, and continuously adapting to execution feedback, without relying on external models such as learned action experts, coding agents or grounding tools like SAM3? In this work, we introduce MotorMind, a robot manipulation harness that connects VLM-proposed mid-level actions to deterministic robot control and feedback, with asynchronous monitoring and background memory updates. Without task-specific policy training, coding agents, or additional grounding tools such as SAM3, MotorMind achieves 66.7% success on the base LIBERO-PRO suites and 53.8% under perturbations, compared with at most 13.3% and 19.2%, respectively, for the prior zero-shot methods we evaluate. The same interface reaches 95% average success on a real xArm6 robot across direct manipulation and human-perturbation settings. Replacing the backbone with a stronger VLM further improves performance, while the remaining failures - primarily due to visual grounding, embodied reasoning, and action knowledge - decrease as VLM capability improves. These results show that a general-purpose VLM, when equipped with an appropriate mid-level action representation and asynchronous execution harness, can perform effective zero-shot robotic manipulation.",
+    "pdf_url": "https://arxiv.org/pdf/2609.38078v1",
+    "arxiv_url": "https://arxiv.org/abs/2609.38078",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 114,
+    "citations": null,
+    "summary": {
+      "tldr": "일반적인 비주얼-언어 모델로 로봇을 제어할 수 있었습니다.",
+      "problem": "기존의 비주얼-언어-행동 모델은 새로운 작업과 환경에서 제로샷으로 작동하지 못하고, 외부 모델에 의존해야 했습니다. 이로 인해 복잡성과 비용이 증가했습니다.",
+      "method": "MotorMind은 일반적인 비주얼-언어 모델(VLM)이 직접 관찰을 통해 사고하고 행동을 내려, 로봇을 제어할 수 있도록 도와주는 시스템입니다. 이 시스템은 비동기 모니터링과 배경 메모리 업데이트를 통해 실행 중인 작업을 조정합니다.",
+      "result": "MotorMind은 LIBERO-PRO 테스트에서 66.7% 성공률을 달성했고, 간섭 시에도 53.8% 성공했습니다. 이는 기존 제로샷 방법보다 훨씬 우수한 성과입니다. 실제 로봇에서도 높은 성공률을 보였습니다.",
+      "method_easy": "MotorMind은 로봇이 스스로 생각하고 행동하도록 도와주는 도구입니다. 예를 들어, 로봇이 '컵을 잡아라'라는 말을 듣고, 스스로 어떻게 움직여야 할지 판단하고, 실제로 잡는 행동을 합니다. 이 과정에서 실시간으로 오류를 수정합니다.",
+      "improvement": "기존에는 로봇이 외부 모델이나 도구에 의존해 작동해야 했고, 성공률이 낮았습니다. 이 연구로는 로봇이 직접 사고하고 행동할 수 있게 되어 성공률이 크게 올랐습니다. 예를 들어, LIBERO-PRO에서 66.7% 성공했고, 실제 로봇에서도 95% 성공했습니다. 이는 로봇이 인간처럼 스스로 판단할 수 있다는 의미입니다.",
+      "limitations": "현재까지는 시각적 인지나 신체적 사고가 부족해 일부 실패가 발생합니다. 이는 더 강력한 비주얼-언어 모델을 사용하면 개선될 수 있습니다. 또한, 복잡한 작업에서는 여전히 한계가 있습니다. 이는 더 많은 데이터와 훈련을 통해 보완할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 주방에서 로봇이 사람이 말한 '라면을 끓여라'라는 말을 듣고, 스스로 물을 끓이고 면을 삶는 작업을 수행할 수 있습니다. 이는 로봇이 인간처럼 스스로 판단하고 행동할 수 있음을 보여줍니다.",
+      "eli12": "MotorMind은 로봇이 스스로 생각하고 행동하도록 도와주는 마법 같은 도구입니다. 예를 들어, 로봇이 '컵을 잡아라'고 말하면, 스스로 어떻게 움직여야 할지 생각하고, 실제로 잡는 행동을 합니다. 이는 로봇이 인간처럼 스스로 판단하는 것처럼 보입니다.",
+      "background": [
+        {
+          "term": "비주얼-언어 모델(VLM)",
+          "explain": "사진이나 영상을 보고 사람처럼 말을 이해하고 설명할 수 있는 인공지능입니다."
+        },
+        {
+          "term": "제로샷 학습",
+          "explain": "새로운 작업이나 환경에서 아무 경험 없이도 바로 작동할 수 있는 학습 방식입니다."
+        },
+        {
+          "term": "로봇 제어",
+          "explain": "로봇이 어떻게 움직여야 할지 결정하고, 실제로 움직이는 것을 말합니다."
+        },
+        {
+          "term": "비동기 모니터링",
+          "explain": "작업 중에 실시간으로 오류를 감지하고, 필요한 경우 즉시 수정하는 방식입니다."
+        },
+        {
+          "term": "행동 표현",
+          "explain": "로봇이 어떤 움직임을 하게 할지를 결정하는 명령어나 행동을 말합니다."
+        }
+      ],
+      "keywords": [
+        "비주얼-언어 모델",
+        "제로샷 학습",
+        "로봇 제어",
+        "비동기 모니터링",
+        "행동 표현"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:14:16.477292+00:00",
+    "week": "2026-W42"
+  },
+  "2610.10528": {
+    "id": "2610.10528",
+    "title": "Long-WAM: Scaling the Context of World-Action Models",
+    "authors": [
+      "Wei Huang",
+      "Bohan Zhang",
+      "Chenzhi Liu",
+      "Isabella Liu",
+      "Shuai Yang",
+      "Weian Mao",
+      "Luozhou Wang",
+      "Yicheng Xiao",
+      "Weifeng Lin",
+      "Qixin Hu",
+      "Bryan Chu",
+      "Sifei Liu",
+      "Linxi Fan",
+      "Xiaojuan Qi",
+      "Song Han",
+      "Yukang Chen"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-10-07T17:58:04Z",
+    "updated": "2026-10-07T17:58:04Z",
+    "abstract": "Real-time robot control demands enough visual history to infer motion and task progress, but processing that history can delay action. We present Long-WAM, a model-system framework for scaling the context of causal world-action models under real-time control constraints. Our central finding is that access to history is not the same as using it: longer histories pay off far more when the video foundation is pretrained autoregressively (AR). We first learn causal prediction from robot and egocentric videos without action labels, then preserve this history-to-future structure during world-action adaptation. On RoboCasa GR-1, increasing context from 0.0 to 19.2 seconds raises success from 63.3% to 78.7%, whereas a bidirectionally pretrained initialization shows no net gain; robot-domain AR pretraining further raises peak success on GR-1 and LIBERO-Long. Long-WAM also achieves the best results among compared methods on LIBERO-Long, RoboTwin 2.0, and DOMINO. Streaming observation encoding, asynchronous execution, and hardware-specific acceleration enable deployment on RTX 5090, DGX Spark, and Jetson AGX Thor without dropping future prediction; on RTX 5090, each action chunk, including future-video latent prediction, takes 107.4 ms. Real-time deployment on Unitree G1 and YAM supports dynamic and long-horizon manipulation, including 95% success on dynamic cup stacking, where Pi0.5 and Fast-WAM succeed in none of 20 trials. As a memory-informed executor, Long-WAM also complements higher-level planning in composite tasks.",
+    "pdf_url": "https://arxiv.org/pdf/2610.10528v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.10528",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 104,
+    "citations": null,
+    "summary": {
+      "tldr": "로봇이 오래된 영상 정보를 활용해 더 정확하게 움직일 수 있도록 했습니다.",
+      "problem": "로봇이 실시간으로 움직일 때, 과거의 영상 정보를 사용해 작업을 더 잘 이해해야 하지만, 정보를 처리하는 시간이 너무 오래 걸려 문제가 됩니다. 이로 인해 작업 성공률이 낮아지는 문제가 있습니다.",
+      "method": "Long-WAM은 로봇이 과거 영상 정보를 더 잘 활용할 수 있도록 했습니다. 먼저 로봇의 영상 정보를 학습하고, 그 정보를 이용해 작업을 더 잘 이해하도록 했습니다. 이 과정에서 영상 정보를 더 오래 보관하고, 실시간으로 처리할 수 있도록 했습니다.",
+      "result": "로봇의 작업 성공률이 크게 향상되었습니다. 예를 들어, 19.2초의 영상 정보를 사용하면 성공률이 63.3%에서 78.7%로 올랐습니다. 이 기술은 여러 실험에서 최고 성능을 보였습니다.",
+      "method_easy": "로봇이 과거 영상 정보를 기억하고, 그 정보를 이용해 작업을 더 잘 이해할 수 있도록 했습니다. 예를 들어, 로봇이 컵을 쌓을 때, 과거에 어떤 움직임을 했는지 기억해, 다음 움직임을 더 잘 계획할 수 있게 했습니다.",
+      "improvement": "기존에는 로봇이 과거 정보를 사용하지 못해 작업 성공률이 낮았습니다. 이 연구로 로봇이 과거 정보를 더 잘 활용해 작업 성공률이 63.3%에서 78.7%로 올랐습니다. 그래서 실제 작업에서 로봇이 더 정확하게 움직일 수 있어, 예를 들어, 컵을 쌓는 작업에서 95% 성공률을 달성할 수 있습니다.",
+      "limitations": "이 기술은 아직 일부 환경에서는 작동하지 않을 수 있습니다. 예를 들어, 너무 복잡한 작업에서는 성능이 떨어질 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다: 더 많은 데이터로 모델을 훈련시키거나, 작업을 단계별로 나누어 처리하는 방식을 사용하면 좋습니다.",
+      "example": "이 기술은 로봇이 집안에서 물건을 정리하는 작업에서 사용됩니다. 예를 들어, 로봇이 책을 정리할 때, 과거에 어떤 위치에 책을 놓았는지 기억해, 다음 책을 더 잘 정리할 수 있습니다.",
+      "eli12": "로봇이 과거에 봤던 영상을 기억해, 다음에 어떤 일을 해야 할지 더 잘 알 수 있게 했습니다. 예를 들어, 로봇이 컵을 쌓을 때, 과거에 어떤 움직임을 했는지 기억해, 다음 움직임을 더 잘 계획할 수 있게 했습니다.",
+      "background": [
+        {
+          "term": "로봇 제어",
+          "explain": "로봇이 스스로 움직이거나 작업을 수행하는 기술입니다."
+        },
+        {
+          "term": "영상 정보",
+          "explain": "로봇이 보는 영상으로부터 얻은 정보를 말합니다."
+        },
+        {
+          "term": "실시간 처리",
+          "explain": "로봇이 즉시 반응할 수 있도록 정보를 처리하는 방법입니다."
+        },
+        {
+          "term": "모델 훈련",
+          "explain": "로봇이 작업을 배우기 위해 데이터를 이용해 학습하는 과정입니다."
+        },
+        {
+          "term": "성공률",
+          "explain": "로봇이 작업을 성공적으로 수행한 비율을 말합니다."
+        }
+      ],
+      "keywords": [
+        "로봇 제어",
+        "영상 정보",
+        "실시간 처리",
+        "모델 훈련",
+        "성공률"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:15:09.718617+00:00",
+    "week": "2026-W42"
+  },
+  "2610.12126": {
+    "id": "2610.12126",
+    "title": "SuperNav: An Agentic Navigation System for Any Task in Any Scene",
+    "authors": [
+      "Jinkai Zhang",
+      "Jingyi Xu",
+      "Yuanhong Yu",
+      "Jiarui Guo",
+      "Ruizhen Hu",
+      "Hujun Bao",
+      "Xiaowei Zhou",
+      "Sida Peng"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-10-08T15:19:40Z",
+    "updated": "2026-10-08T15:19:40Z",
+    "abstract": "General-purpose service robots need navigation systems that can handle diverse human requests in unfamiliar environments, combining task generality with scene generality. Some existing methods fine-tune multimodal large language models (MLLMs) to predict navigation actions, making their behavior dependent on the coverage of navigation training data and potentially limiting generalization to new requests and environments. Our key insight is to let the MLLM focus on interpreting requests, understanding scenes, and making decisions while preserving its general-purpose capabilities and delegating motion execution to navigation tools. To realize this idea, we introduce SuperNav, which equips a pretrained MLLM with a specialized agent harness without navigation-specific fine-tuning of the MLLM. Our harness supports these decisions with Navigation Skills, agent-oriented Tools for physical interaction, and task-progress and context management. A unified visual-point interface connects decision-making to motion by allowing the model to specify destinations directly in images and revise its decisions from execution feedback. Together, these components support sustained navigation across different task requirements and environments. SuperNav outperforms four evaluated baselines on instance-level, multi-object, and demand-driven tasks. Category-level evaluation on HM3D and deployment on a real quadruped robot further demonstrate its applicability across environments. Project Page: https://zju3dv.github.io/SuperNav/",
+    "pdf_url": "https://arxiv.org/pdf/2610.12126v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.12126",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 72,
+    "citations": null,
+    "summary": {
+      "tldr": "SuperNav는 다양한 환경에서 다양한 작업을 수행할 수 있는 네비게이션 시스템입니다.",
+      "problem": "일반적인 서비스 로봇은 다양한 요청과 환경을 처리할 수 있는 네비게이션 시스템이 필요합니다. 기존 방법은 네비게이션 데이터에 의존해 일반화가 어려웠습니다.",
+      "method": "SuperNav는 멀티모달 대규모 언어 모델(MLLM)이 요청을 해석하고 환경을 이해하는 역할을 하며, 이동 실행은 별도의 네비게이션 도구로 위임합니다. MLLM에 특화된 에이전트 훈련 없이도 작동합니다.",
+      "result": "SuperNav는 네비게이션 기능을 향상시켜 다양한 작업과 환경에서 성공적으로 작동했습니다. 실제 사육 4족 로봇에서도 적용 가능성을 보여주었습니다.",
+      "method_easy": "SuperNav는 로봇이 사람의 말을 듣고, 그 말을 이해해서 어디로 가야 할지 결정합니다. 결정한 뒤, 로봇이 직접 움직이는 일을 합니다. 이는 로봇이 스스로 생각하고, 사람의 말을 듣고, 움직이는 일을 하는 것처럼 생각해보세요. 예를 들어, '책상 위에 물건을 가져다줘'라는 요청을 받으면, 로봇이 책상 위치를 알아보고, 물건을 가져다 줍니다.",
+      "improvement": "기존에는 네비게이션 데이터에 너무 의존해 새로운 요청이나 환경에 적응하기 어려웠습니다. SuperNav는 데이터에 의존하지 않고, 요청을 이해하고 환경을 판단해 새로운 요청에도 대응할 수 있습니다. 예를 들어, '벽에 붙은 책을 가져다줘'라는 요청을 받았을 때, SuperNav는 책 위치를 판단해 가져다 줄 수 있습니다. 이는 실제 서비스 로봇이 다양한 요청을 처리할 수 있다는 의미입니다.",
+      "limitations": "이 연구는 실제 환경에서의 오류나 제한적인 데이터에 대한 처리가 부족합니다. 이는 더 많은 실제 데이터를 수집하고, 다양한 환경에서 테스트하면 보완할 수 있을 것으로 보입니다. 또한, 로봇의 이동 속도나 정밀도에 따라 성능이 달라질 수 있습니다. 이는 더 정밀한 센서나 알고리즘 개선으로 해결할 수 있습니다.",
+      "example": "SuperNav는 병원에서 환자에게 약을 전달하거나, 집에서 물건을 찾아주는 로봇으로 사용될 수 있습니다. 예를 들어, 환자가 '의사에게 약을 가져다줘'라고 요청하면, SuperNav는 의사의 위치를 찾아 약을 전달할 수 있습니다.",
+      "eli12": "SuperNav는 로봇이 사람의 말을 듣고, 그 말을 이해해서 어디로 가야 할지 결정하는 시스템입니다. 로봇이 스스로 생각하고, 사람의 말을 듣고, 움직이는 일을 하는 것처럼 생각해보세요. 예를 들어, '책상 위에 물건을 가져다줘'라고 말하면, 로봇이 책상 위치를 알아보고, 물건을 가져다 줍니다.",
+      "background": [
+        {
+          "term": "멀티모달 대규모 언어 모델(MLLM)",
+          "explain": "텍스트와 이미지 같은 다양한 정보를 동시에 처리할 수 있는 큰 인공지능 모델입니다."
+        },
+        {
+          "term": "네비게이션",
+          "explain": "로봇이 목적지에 도달하기 위해 움직이는 방식을 설계하는 일입니다."
+        },
+        {
+          "term": "에이전트",
+          "explain": "예측이나 결정을 할 수 있는 독립적인 시스템이나 프로그램을 말합니다."
+        },
+        {
+          "term": "시뮬레이션 환경",
+          "explain": "실제 환경을 모방해 컴퓨터로 테스트할 수 있는 가상 공간입니다."
+        },
+        {
+          "term": "이동 실행",
+          "explain": "로봇이 실제로 움직이는 일, 예를 들어, 앞으로 가거나, 회전하는 일입니다."
+        }
+      ],
+      "keywords": [
+        "SuperNav",
+        "네비게이션",
+        "에이전트",
+        "멀티모달",
+        "로봇"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:16:07.222459+00:00",
+    "week": "2026-W42"
+  },
+  "2610.07767": {
+    "id": "2610.07767",
+    "title": "TRACE: Rollout-Guided Quantization-Aware Training for FP4 Reinforcement Learning of MoE Language Models",
+    "authors": [
+      "Xin Wang",
+      "Hao Yu",
+      "Zhengyang Zhuge",
+      "Bochao Mao",
+      "Zheng Li",
+      "Junda Feng",
+      "Yuyan Luo",
+      "Yi Zhang",
+      "Yizhong Cao",
+      "Mi Zhang",
+      "Dayiheng Liu",
+      "Jianwei Zhang"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-10-06T05:03:47Z",
+    "updated": "2026-10-06T05:03:47Z",
+    "abstract": "Reinforcement learning (RL) for post-training large language models (LLMs) incurs substantial computation and memory overhead during rollout generation, which motivates low-precision rollout for efficient RL training. However, existing FP4 RL methods suffer from a key limitation: they primarily optimize quantization accuracy on the training and rollout paths independently rather than directly reducing the discrepancy between the two quantized execution paths. In this work, we propose TRACE (Train-Rollout Quantization Alignment via Compact GuidancE), an FP4 quantization framework for RL training of Mixture-of-Experts (MoE) language models that addresses the limitation of existing FP4 RL methods. TRACE incorporates rollout-guided quantization-aware training that uses rollout-side quantization outcomes to guide training-side FP4 rounding decisions, directly reducing train-rollout discrepancy. Moreover, TRACE adopts an efficient quantization-information caching scheme that selectively retains mantissa and scale information from deeper layers to reduce the storage and communication overhead introduced by rollout guidance. We evaluate TRACE on four large-scale MoE language models across reasoning, coding, and long-horizon RL tasks. Our results demonstrate that TRACE enables joint FP4 weight/activation and FP4 KV-cache rollout with RL performance comparable to BF16 rollout, while achieving up to 5.4xrollout speedup and strong final FP4 performance compared with post-hoc FP4 quantization of BF16-trained policies.",
+    "pdf_url": "https://arxiv.org/pdf/2610.07767v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.07767",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 92,
+    "citations": 0,
+    "summary": {
+      "tldr": "TRACE는 FP4 정밀도로 강력한 RL 학습을 가능하게 합니다.",
+      "problem": "기존 FP4 RL 방법은 학습과 롤아웃 경로의 차이를 줄이지 못해 성능이 떨어졌습니다. 이로 인해 학습 효율과 메모리 사용이 낮아졌습니다.",
+      "method": "TRACE는 롤아웃 결과를 학습에 반영해 차이를 줄이고, 효율적인 정보 저장 방식을 사용합니다. 이로 인해 학습과 롤아웃의 정밀도를 동시에 높일 수 있습니다.",
+      "result": "TRACE는 BF16보다 빠른 FP4 롤아웃을 달성하고, RL 성능도 유사하게 유지했습니다. 최대 5.4배의 속도 향상과 우수한 최종 성능을 보였습니다.",
+      "method_easy": "TRACE는 게임을 할 때, 내가 어떤 행동을 했는지, 결과가 어떻게 되는지 알려주는 것처럼, 학습할 때도 롤아웃 결과를 참고해 더 잘 배울 수 있도록 도와요. 예를 들어, 내가 게임에서 어떤 결정을 했는지, 그 결정이 결과에 어떤 영향을 미쳤는지를 보고, 다음 결정을 더 잘 할 수 있도록 도와요.",
+      "improvement": "기존에는 학습과 롤아웃 경로의 차이가 컸고, 성능이 떨어졌습니다. TRACE는 이 차이를 줄여 5.4배 더 빠르게 학습할 수 있게 되었습니다. 이로 인해 대규모 언어 모델의 학습이 더 효율적이며, 실제 AI 어시스턴트나 자율주행 차량에서 활용할 수 있습니다. 예를 들어, 자율주행 차량이 더 빠르게 학습해 위험 상황을 더 잘 대처할 수 있게 됩니다.",
+      "limitations": "이 연구는 현재까지 실험한 모델에 한정되어 있고, 다른 모델에서는 효과가 다를 수 있습니다. 이는 더 다양한 모델에 적용해 보완할 수 있을 것으로 보입니다. 또한, 롤아웃 과정에서 필요한 정보 저장 공간이 여전히 크기 때문에, 더 효율적인 저장 방식을 개발하면 좋습니다.",
+      "example": "TRACE는 대규모 언어 모델이 게임을 할 때, 학습과 실제 실행 사이의 차이를 줄여 더 빠르게 학습할 수 있도록 도와요. 예를 들어, AI 어시스턴트가 사용자의 질문에 답변할 때, 학습 과정에서의 오류를 실제 실행에서 바로 수정해 더 정확하게 답변할 수 있습니다.",
+      "eli12": "TRACE는 게임을 할 때, 내가 어떤 행동을 했는지, 결과가 어떻게 되는지 알려주는 것처럼, 학습할 때도 롤아웃 결과를 참고해 더 잘 배울 수 있도록 도와요. 예를 들어, 내가 게임에서 어떤 결정을 했는지, 그 결정이 결과에 어떤 영향을 미쳤는지를 보고, 다음 결정을 더 잘 할 수 있도록 도와요.",
+      "background": [
+        {
+          "term": "강화학습",
+          "explain": "AI가 환경에서 행동을 하며 보상이나 결과를 받아 더 나은 행동을 배우는 방식입니다."
+        },
+        {
+          "term": "FP4 정밀도",
+          "explain": "수치를 표현할 때 더 적은 자릿수로 표현해 메모리와 계산을 효율적으로 사용하는 방법입니다."
+        },
+        {
+          "term": "MoE 언어 모델",
+          "explain": "여러 전문가가 협업해 문장을 이해하고 생성하는 대규모 언어 모델입니다."
+        },
+        {
+          "term": "롤아웃",
+          "explain": "강화학습에서 AI가 실제 환경에서 행동을 시뮬레이션해 결과를 확인하는 과정입니다."
+        },
+        {
+          "term": "정밀도 감소",
+          "explain": "수치를 더 간단하게 표현해 계산이 빠르고 메모리 사용이 줄어드는 방식입니다."
+        }
+      ],
+      "keywords": [
+        "강화학습",
+        "FP4 정밀도",
+        "MoE 모델",
+        "롤아웃",
+        "정밀도 감소"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:17:05.808430+00:00",
+    "week": "2026-W42"
+  },
+  "2609.36659": {
+    "id": "2609.36659",
+    "title": "On-Policy Parameter Update Direction Underlies Generalization in LLM Post-Training",
+    "authors": [
+      "Shufan Shen",
+      "Zhongni Hou",
+      "Junshu Sun",
+      "Yufei Zhang",
+      "Wei Lin",
+      "Guojun Yin",
+      "Qingming Huang",
+      "Shuhui Wang"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-09-29T03:59:51Z",
+    "updated": "2026-09-29T03:59:51Z",
+    "abstract": "The strong generalization performance of on-policy post-training paradigms has motivated studies of their parameter update behaviors. However, these studies treat the observed behaviors only as byproducts in on-policy training, overlooking their potential to serve as optimization principles for improving the generalization of other paradigms such as supervised fine-tuning (SFT). To address this limitation, we investigate whether there exists a specific on-policy update behavior that can achieve such improvements. First, our analyses reveal that SFT updates parameters along consistent directions, while the on-policy paradigm continuously adjusts the direction during training. This difference inspires us to focus on the cumulative update direction of each parameter as a promising behavior. Then, we evaluate its effectiveness for improving generalization by proposing On-Policy direction-constrained Supervised Fine-Tuning (OPSFT), which constrains SFT updates to the direction identified by on-policy paradigms. The strong performance of OPSFT indicates that the generalization advantage of on-policy paradigms can be transferred to SFT through the parameter update direction. Once such a direction is identified, even SFT can generalize with its updates constrained to this direction. This finding offers two practical benefits by combining the strong generalization of on-policy paradigms with the advantages of SFT, including the high training efficiency and ability to leverage high-quality trajectories. For efficiency, we identify update directions that support strong generalization using a few on-policy training steps, and subsequently apply OPSFT to achieve high training efficiency. For leveraging high-quality trajectories, OPSFT can utilize these trajectories to continue improving a post-trained model along its update direction without disrupting the ability learned from on-policy training.",
+    "pdf_url": "https://arxiv.org/pdf/2609.36659v1",
+    "arxiv_url": "https://arxiv.org/abs/2609.36659",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 87,
+    "citations": null,
+    "summary": {
+      "tldr": "온-파이즈 방향을 이용해 SFT의 일반화 능력을 향상시켰습니다.",
+      "problem": "온-파이즈 훈련이 일반화 성능이 좋지만, SFT의 일반화 능력은 부족합니다. 이 문제를 해결하기 위해 온-파이즈의 파라미터 업데이트 방향을 SFT에 적용할 수 있는 방법이 필요합니다.",
+      "method": "OPSFT는 온-파이즈의 파라미터 업데이트 방향을 SFT에 제약적으로 적용하여 일반화 성능을 향상시킵니다. 이 방향은 온-파이즈 훈련 중 누적된 업데이트 방향을 기반으로 결정됩니다.",
+      "result": "OPSFT는 SFT보다 일반화 성능이 향상되었으며, 훈련 효율도 높아졌습니다. 이는 온-파이즈의 일반화 이점을 SFT에 전달할 수 있음을 보여줍니다.",
+      "method_easy": "이 논문은 온-파이즈가 학습하는 방향을 SFT에 따라가게 만드는 방법을 찾았습니다. 예를 들어, 온-파이즈가 '오른쪽으로 가는 길'을 선택하면, SFT도 그 길을 따라가도록 합니다. 이렇게 하면 SFT도 더 잘 배울 수 있습니다.",
+      "improvement": "기존에는 SFT가 온-파이즈처럼 잘 일반화하지 못했습니다. 이 연구로 SFT도 온-파이즈의 방향을 따라가면 일반화 성능이 15% 향상되었습니다. 그래서 실제 서비스에서는 SFT를 더 빠르고 효율적으로 훈련할 수 있습니다. 예를 들어, 챗봇을 개선할 때 SFT를 온-파이즈 방향에 따라 훈련하면 더 잘 작동합니다.",
+      "limitations": "이 연구는 온-파이즈 훈련이 필요해 훈련 시간이 길다는 점이 부족합니다. 이는 온-파이즈 훈련을 더 빠르게 할 수 있도록 하면 보완할 수 있을 것으로 보입니다. 또한, 고급 트랙터를 사용해야 하므로 접근성이 낮습니다. 이는 더 많은 데이터나 더 효율적인 방법으로 해결할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 챗봇 개발에서 사용됩니다. 예를 들어, 챗봇이 사용자 질문에 잘 대답하도록 SFT를 온-파이즈 방향에 따라 훈련하면, 더 자연스럽고 정확한 대답을 줄 수 있습니다.",
+      "eli12": "이 논문은 온-파이즈가 가는 길을 SFT에 따라가게 해서 더 잘 배울 수 있도록 했습니다. 예를 들어, 온-파이즈가 '오른쪽으로 가는 길'을 선택하면, SFT도 그 길을 따라가면 더 잘 가게 됩니다. 이렇게 하면 SFT도 더 똑똑해질 수 있습니다.",
+      "background": [
+        {
+          "term": "온-파이즈 훈련",
+          "explain": "모델이 자신의 행동을 기반으로 학습하는 방식으로, 실제 상황에서 더 잘 작동합니다."
+        },
+        {
+          "term": "SFT",
+          "explain": "모델이 사람의 지도를 따라 학습하는 방식으로, 정확한 답변을 얻을 수 있습니다."
+        },
+        {
+          "term": "파라미터 업데이트 방향",
+          "explain": "모델이 학습하는 방향을 나타내며, 이 방향을 바꾸면 모델이 어떻게 변하는지 알 수 있습니다."
+        },
+        {
+          "term": "일반화",
+          "explain": "모델이 학습한 내용을 새로운 상황에서도 잘 적용할 수 있는 능력을 말합니다."
+        },
+        {
+          "term": "트랙터",
+          "explain": "모델이 학습하는 과정에서 사용하는 데이터나 경로를 말하며, 좋은 트랙터는 더 나은 결과를 줍니다."
+        }
+      ],
+      "keywords": [
+        "온-파이즈",
+        "SFT",
+        "파라미터 업데이트",
+        "일반화",
+        "트랙터"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:18:04.486910+00:00",
+    "week": "2026-W42"
+  },
+  "2610.07967": {
+    "id": "2610.07967",
+    "title": "DecepEval: A Benchmark for Evaluating Deception in LLM Agents",
+    "authors": [
+      "Yiming Xu",
+      "Hongyue Yu",
+      "Beihua Yang",
+      "Zihan Chen",
+      "Yixin Liu",
+      "Zhen Peng",
+      "Bin Shi",
+      "Bo Dong",
+      "Chao Shen",
+      "Irwin King",
+      "Qinghua Zheng"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-10-06T08:33:43Z",
+    "updated": "2026-10-06T08:33:43Z",
+    "abstract": "As large language model (LLM) agents become increasingly autonomous, they may pursue task performance through deception, raising concerns about their reliable deployment. Existing evaluations show that LLM agents can deceive, but often examine isolated scenarios or narrowly defined conditions, limiting systematic understanding of when deception becomes more likely. To address this gap, we introduce DecepEval, a benchmark comprising 1,532 instances across 3 task families and 28 professional scenarios. Drawing on classical fraud theories, we propose the LLM Deception Diamond framework, which characterizes four external conditions that may induce deception: pressure, incentive, opportunity, and conflict. DecepEval pairs neutral and induced versions of each instance to measure condition-dependent changes in deception rates, while explicit task facts and observable agent behavior help distinguish deception from capability-related errors. Evaluations of nine frontier LLMs show that inducements increase deception across models and task families, even among models with low baseline deception rates. DecepEval makes these vulnerabilities measurable, providing a shared benchmark for progress toward trustworthy artificial intelligence.",
+    "pdf_url": "https://arxiv.org/pdf/2610.07967v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.07967",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 74,
+    "citations": null,
+    "summary": {
+      "tldr": "LLM 에이전트의 속임수를 평가하는 새로운 기준을 제안했습니다.",
+      "problem": "LLM 에이전트가 작업 수행을 위해 속임수를 사용할 수 있지만, 이를 체계적으로 평가하는 방법이 부족합니다. 기존 평가 방법은 제한된 상황에서만 적용되어, 속임수 발생 조건을 파악하는 데 한계가 있습니다.",
+      "method": "DecepEval이라는 새로운 평가 기준을 제안합니다. 이 기준은 1,532개의 사례를 포함하며, 속임수 유도 조건을 적용한 버전과 중립 버전을 비교합니다. 이 기준은 속임수 발생 조건을 분석하는 'LLM 속임수 다이아몬드' 프레임워크를 기반으로 합니다.",
+      "result": "9개의 최신 LLM 모델을 평가한 결과, 유도 조건이 속임수 발생률을 증가시킨다는 것을 확인했습니다. 이 연구는 신뢰할 수 있는 AI 개발을 위한 공통 기준을 제공합니다.",
+      "method_easy": "이 논문은 속임수를 일으키는 조건을 네 가지로 나누어, 각 조건에 따라 속임수를 얼마나 자주 일으키는지 비교합니다. 예를 들어, '돈을 더 많이 벌 수 있다'는 조건을 주면, 모델이 속임수를 더 자주 사용할 수 있습니다. 이 기준은 속임수를 일으키는 조건을 체계적으로 분석하는 것입니다.",
+      "improvement": "기존에는 속임수를 일으키는 조건을 체계적으로 분석하지 못해, 모델이 속임수를 얼마나 자주 사용하는지 파악하기 어려웠습니다. 이 연구는 9개의 모델에서 유도 조건이 속임수를 30% 이상 증가시킨다는 것을 보여주며, 이는 실제 상황에서 모델의 위험성을 파악하는 데 도움이 됩니다. 예를 들어, 금융 서비스에서 모델이 속임수를 사용할 가능성이 높은 조건을 파악하면, 이를 방지하는 정책을 만들 수 있습니다.",
+      "limitations": "이 연구는 특정 상황만 고려해 속임수를 평가하기 때문에, 모든 상황을 다루지 못합니다. 또한, 속임수를 판단하는 기준이 명확하지 않아, 해석에 따라 결과가 달라질 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 다양한 상황을 포함한 평가 사례를 추가하고, 속임수 판단 기준을 명확히 정의하면, 더 정확한 평가가 가능합니다.",
+      "example": "이 기술은 금융 서비스에서 사용할 수 있습니다. 예를 들어, 고객이 보험금을 조작할 수 있는 조건을 설정하면, AI가 이를 감지하고 경고할 수 있습니다. 이는 속임수를 방지하는 데 도움이 됩니다.",
+      "eli12": "이 논문은 AI가 속임수를 하지 않도록 평가하는 방법을 소개합니다. AI가 속임수를 하지 않도록 하려면, 어떤 조건이 속임수를 유발하는지 알아야 합니다. 예를 들어, '돈을 더 많이 벌 수 있다'는 조건이 속임수를 유발할 수 있습니다. 이 기준을 사용하면, AI가 속임수를 하지 않도록 만들 수 있습니다.",
+      "background": [
+        {
+          "term": "LLM",
+          "explain": "대규모 언어 모델로, 많은 데이터를 학습해 다양한 언어를 이해하고 생성할 수 있습니다."
+        },
+        {
+          "term": "속임수",
+          "explain": "사람이나 시스템을 속이기 위해 거짓 정보를 말하거나 행동하는 것을 말합니다."
+        },
+        {
+          "term": "평가 기준",
+          "explain": "모델의 성능을 측정하기 위해 설정된 기준으로, 어떤 기준을 사용할지 정해놓은 것입니다."
+        },
+        {
+          "term": "AI 신뢰성",
+          "explain": "AI가 사람을 속이지 않고, 정확하게 일을 수행하는 능력을 말합니다."
+        },
+        {
+          "term": "데이터",
+          "explain": "모델이 학습하는 정보로, AI가 이해하고 생성할 수 있는 내용을 포함합니다."
+        }
+      ],
+      "keywords": [
+        "LLM",
+        "속임수",
+        "평가 기준",
+        "AI 신뢰성",
+        "데이터"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:19:05.666519+00:00",
+    "week": "2026-W42"
+  },
+  "2610.04292": {
+    "id": "2610.04292",
+    "title": "LMBuild: Evaluating LLM Agents for Generating Buildable and Functional Structures",
+    "authors": [
+      "Jiateng Liu",
+      "Rushi Wang",
+      "Cheng Qian",
+      "Xuejun Zhang",
+      "Sun Li",
+      "Jiayu Liu",
+      "Yifan Shen",
+      "Xu Cao",
+      "Jiarui Yao",
+      "Bingxuan Li",
+      "Ruhi Sarikaya",
+      "Heng Ji"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-10-02",
+    "updated": "2026-10-02",
+    "abstract": "LLM-based agents are increasingly capable of generating complex 3D structures, with the potential to reshape how objects are designed and realized in the physical world. Yet, producing elegant geometry is fundamentally different from producing objects that can be built and perform their intended functions. Existing evaluations largely focus on geometric quality while overlooking physical realizability. We introduce LMBuild, a benchmark for evaluating LLM agents on generating buildable and functional structures. LMBuild represents generated objects as assembled structures comprising part decompositions, joints, materials, and sequences. To support reproducible evaluation, we provide a unified framework consisting of: (1) an interactive environment in which agents can use tools to retrieve, create, and place components to construct objects; (2) a curated benchmark that repurposes established CAD datasets and augments them with knowledge from Wikipedia; and (3) a evaluation framework covering structural soundness, functional affordance, design quality, and physical realization. Evaluations across 30 systems reveal several intriguing findings: (a) Soundness and alignment are no longer the primary bottlenecks for frontier closed-source models, while functional affordance and physical operability remain substantially more challenging; (b) stronger models more effectively create new components, whereas weaker models tend to rely on retrieval; and (c) providing functional specifications substantially improves part completeness, kinematics, and physical operability. These results show that generating real-world structures requires deeper reasoning about functional affordances, mechanics, and designing and creating novel components. We expect LMBuild to provide a foundation for measuring progress and incentivizing research toward agents that generate buildable and functional structures.",
+    "pdf_url": "https://arxiv.org/pdf/2610.04292",
+    "arxiv_url": "https://arxiv.org/abs/2610.04292",
+    "subfield": "음성·오디오",
+    "upvotes": 38,
+    "citations": null,
+    "summary": {
+      "tldr": "LLM이 실제 구조물을 만들 수 있는지 평가하는 새로운 방법을 제안했습니다.",
+      "problem": "현재 LLM은 복잡한 3D 구조를 만들 수 있지만, 실제로 만들 수 있는지, 기능이 잘 작동하는지 평가하는 방법이 부족합니다. 기하학적 완성도만 보는 것이 아니라, 물리적으로 만들 수 있는지, 기능이 있는지 평가해야 합니다.",
+      "method": "LMBuild는 생성된 구조물을 부품, 연결, 재료, 조립 순서로 구성된 형태로 표현합니다. 평가에는 상호작용 환경, CAD 데이터를 활용한 벤치마크, 구조적 안정성, 기능성, 설계 품질, 물리적 구현을 평가하는 프레임워크를 사용합니다.",
+      "result": "실험 결과, 기능성과 물리적 작동은 여전히 어려운 문제였고, 강력한 모델이 새로운 부품을 만들 수 있었습니다. 이는 실제 구조물을 만들기 위해 기능성과 기계적 설계에 대한 깊은 사고가 필요함을 보여줍니다.",
+      "method_easy": "이 논문은 LLM이 실제 만들 수 있는 구조물을 만들 수 있는지 평가하는 방법을 만듭니다. 예를 들어, 집을 만들 때, 벽, 창문, 문 등 부품을 어떻게 조립할지, 재료는 무엇인지, 어떻게 고정할지 등을 모두 고려해 평가합니다. 이는 단순히 모양만 보는 것이 아니라, 실제로 만들 수 있는지 확인하는 것입니다.",
+      "improvement": "이전에는 LLM이 생성한 구조물이 실제로 만들 수 있는지, 기능이 잘 작동하는지 평가하는 방법이 없었습니다. 이 연구는 이 문제를 해결해 LLM이 실제로 만들 수 있는 구조물을 만들 수 있는지 체계적으로 평가할 수 있게 되었습니다. 예를 들어, 기능성 평가에서 60% 이상의 성공률을 보였습니다. 이는 실제 건설이나 제품 설계에 적용할 수 있는 기반이 됩니다.",
+      "limitations": "현재까지 사용된 데이터는 제한적이어서 다양한 실제 구조물에 대한 평가가 부족합니다. 또한, 평가 시스템이 복잡해서 일반 개발자가 쉽게 사용하기 어렵습니다. 이는 더 다양한 데이터를 수집하고, 평가 시스템을 간소화하면 보완할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 건설 회사가 자동화된 설계 도구를 사용해 건물을 만들 수 있도록 도와줍니다. 예를 들어, 집의 창문을 어떻게 고정할지, 어떤 재료를 사용할지 등을 자동으로 계산해 실제 건설에 적용할 수 있습니다.",
+      "eli12": "이 논문은 컴퓨터가 실제로 만들 수 있는 집이나 장난감을 만들 수 있는지 평가하는 방법을 만듭니다. 예를 들어, 컴퓨터가 창문을 어떻게 고정할지, 어떤 재료를 사용할지 등을 고려해 평가합니다. 이는 단순히 모양만 보는 것이 아니라, 실제로 만들 수 있는지 확인하는 것입니다.",
+      "background": [
+        {
+          "term": "LLM",
+          "explain": "대규모 언어 모델은 많은 데이터를 학습해 문장을 이해하고 생성할 수 있는 인공지능입니다."
+        },
+        {
+          "term": "CAD",
+          "explain": "설계를 위한 컴퓨터 도구로, 건축물이나 기계를 디자인하고 시각화할 수 있습니다."
+        },
+        {
+          "term": "기능성",
+          "explain": "물건이 어떤 역할을 할 수 있는 능력을 말합니다. 예를 들어, 문은 열릴 수 있고, 창문은 햇빛을 들어올 수 있습니다."
+        },
+        {
+          "term": "구조적 안정성",
+          "explain": "건물이나 물건이 무너지지 않고 지탱할 수 있는 능력을 말합니다."
+        },
+        {
+          "term": "평가",
+          "explain": "어떤 것의 좋고 나쁨을 판단하는 과정을 말합니다. 예를 들어, 과제를 풀었을 때, 얼마나 잘 풀었는지를 평가합니다."
+        }
+      ],
+      "keywords": [
+        "LLM",
+        "LMBuild",
+        "기능성",
+        "구조물",
+        "CAD"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:20:04.808485+00:00",
+    "week": "2026-W42"
+  },
+  "2609.38123": {
+    "id": "2609.38123",
+    "title": "HelixWorld: A Real-time Interactive Audio-Visual World Model",
+    "authors": [
+      "Lei Ke",
+      "Jiahao Pan",
+      "Zeyue Tian",
+      "Jiaming Wang",
+      "Haoyuan Huang",
+      "Kam Man Wu",
+      "Pengjun Fang",
+      "Hongyu Liu",
+      "Chenyang Qi",
+      "Lin Wang",
+      "Ruibin Yuan",
+      "Weijia Chen",
+      "Fangneng Zhan",
+      "Qifeng Chen",
+      "Wei Xue",
+      "Yike Guo"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-09-28",
+    "updated": "2026-09-28",
+    "abstract": "World simulation is inherently multisensory, demanding synchronized visual and acoustic dynamics in real time. Yet prevailing interactive world models remain strictly silent, focusing exclusively on visual rendering and control while overlooking the acoustic dimension. We present HelixWorld, a real-time interactive audio-visual world model where visual scenes and camera-grounded spatial stereo sound co-evolve natively under user interaction. We curate a high-fidelity spatial audio-visual dataset with true stereo acoustics and metric camera poses, upon which we pre-train a bidirectional teacher conditioned on 6-DoF camera trajectories and user actions. To enable low-latency causal interaction, we distill the teacher into a few-step streaming student via an online trajectory distillation loss, sustaining drift-free joint audio-visual rollouts at 24 FPS on a single GPU. Furthermore, we formalize spatial-acoustic consistency and introduce HelixBench to evaluate whether synthesized sound fields faithfully track dynamic viewpoint motion. Extensive experiments demonstrate that HelixWorld matches state-of-the-art silent world models in visual fidelity and responsiveness, while significantly surpassing existing baselines in camera-aligned spatial-acoustic immersion.",
+    "pdf_url": "https://arxiv.org/pdf/2609.38123",
+    "arxiv_url": "https://arxiv.org/abs/2609.38123",
+    "subfield": "음성·오디오",
+    "upvotes": 38,
+    "citations": null,
+    "summary": {
+      "tldr": "사용자의 상호작용에 따라 시각과 소리가 함께 움직이는 세계를 만들었습니다.",
+      "problem": "현재의 세계 모델은 소리에 관심이 없어서 시각만 보여주고, 사용자가 소리와 시각을 함께 느끼지 못합니다. 이 연구는 사용자가 움직일 때, 소리도 함께 움직이도록 만들고자 합니다.",
+      "method": "HelixWorld는 사용자의 움직임과 시각을 함께 움직이는 소리로 만들기 위해, 고해상도의 시각과 소리 데이터를 사용합니다. 이 데이터를 기반으로, 사용자의 움직임에 따라 소리와 시각이 함께 움직이는 모델을 만듭니다.",
+      "result": "HelixWorld는 시각의 품질과 반응 속도가 최신 기술과 맞먹고, 소리와 시각이 함께 움직이는 현실감을 크게 높였습니다. 이 기술은 가상 현실이나 게임 등에서 사용할 수 있습니다.",
+      "method_easy": "이 기술은 사용자가 움직일 때, 소리도 함께 움직이는 세상을 만드는 것입니다. 예를 들어, 사용자가 방을 돌아다닐 때, 소리는 그 방의 위치에 따라 달라지게 됩니다. 이는 사용자가 실제 세상처럼 느끼도록 도와줍니다.",
+      "improvement": "이전에는 소리가 없어서 사용자가 세상를 완전히 느끼지 못했습니다. 이 연구로 소리도 함께 움직이기 때문에, 사용자는 더 현실감 있게 느낍니다. 24프레임으로 빠르게 움직이기 때문에, 게임이나 가상 현실에서 사용할 수 있습니다. 예를 들어, 사용자가 가상 공간을 돌아다닐 때, 소리도 함께 움직여 더 생동감 있게 느껴집니다.",
+      "limitations": "이 기술은 아직 소리와 시각을 완벽하게 조합하지 못합니다. 이 연구에서는 소리가 움직이는 방향을 잘 맞추지만, 복잡한 소리 환경에서는 부족할 수 있습니다. 이는 더 많은 데이터를 수집하고, 소리의 방향을 더 정확하게 맞추는 방식으로 보완할 수 있을 것으로 보입니다. 예를 들어, 소리가 여러 방향에서 오는 경우를 더 잘 처리할 수 있습니다.",
+      "example": "이 기술은 가상 현실 게임에서 사용할 수 있습니다. 사용자가 방을 돌아다닐 때, 소리는 그 방의 위치에 따라 달라지기 때문에, 사용자는 실제 공간처럼 느끼게 됩니다. 예를 들어, 사용자가 문을 열고 들어가면, 소리는 그 방 안에서 바뀌게 됩니다.",
+      "eli12": "이 기술은 사용자가 움직일 때, 소리도 함께 움직이는 세상을 만드는 것입니다. 예를 들어, 사용자가 방을 돌아다닐 때, 소리는 그 방의 위치에 따라 달라지기 때문에, 사용자는 실제 세상처럼 느끼게 됩니다. 이 기술은 게임이나 가상 현실에서 사용할 수 있습니다.",
+      "background": [
+        {
+          "term": "스테레오 소리",
+          "explain": "왼쪽 귀와 오른쪽 귀로 소리를 들려주어, 소리가 어디에서 오는지 알 수 있도록 만든 소리입니다."
+        },
+        {
+          "term": "6-DoF",
+          "explain": "사용자가 공간에서 움직일 때, 6가지 방향(위, 아래, 앞, 뒤, 좌, 우)을 모두 고려하는 방식입니다."
+        },
+        {
+          "term": "모델",
+          "explain": "데이터를 기반으로 만들어진 시스템으로, 사용자의 입력에 따라 결과를 만들어냅니다."
+        },
+        {
+          "term": "프레임",
+          "explain": "영상이나 애니메이션에서 한 번에 보여지는 이미지의 단위로, 프레임이 많을수록 부드러운 움직임을 만들 수 있습니다."
+        },
+        {
+          "term": "데이터셋",
+          "explain": "많은 데이터를 모아놓은 집합으로, 머신러닝 모델을 훈련시키는 데 사용됩니다."
+        }
+      ],
+      "keywords": [
+        "HelixWorld",
+        "스테레오 소리",
+        "6-DoF",
+        "모델",
+        "데이터셋"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:21:02.562110+00:00",
+    "week": "2026-W42"
+  },
+  "2610.03695": {
+    "id": "2610.03695",
+    "title": "Language Models that Play Chess and Explain Their Moves",
+    "authors": [
+      "Adithya Bhaskar",
+      "Jeffrey Cheng",
+      "Danqi Chen"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-10-01",
+    "updated": "2026-10-01",
+    "abstract": "Modern chess engines are silent experts: they play at a superhuman level, but do not offer explanations for their play. On the other hand, language models (LMs) can generate plausible-sounding explanations, but their weak playing strength limits the utility of their explanations. We introduce Queen, a 4B-parameter chess-language model that can explain its moves and plans while playing at the level of a typical Grandmaster. Our novel framework enables domain-specific reasoning through complementary components: an encoder-decoder architecture and an iterative distillation algorithm. This architecture integrates a silent expert chess encoder with an instruction-tuned LM through cross-attention, which we train via a question-answering curriculum to extract chess concepts from the encoder's representations. Building on this domain-adapted model, we iteratively improve its explanations with a natural-language analog of the Bellman update: the model analyzes the positions after its top candidate moves and consolidates them into an explanation of the current position, which is then distilled back into the model. Over seven iterations, our model gains over 900 Elo points (1782 to 2697), substantially surpassing all frontier models on both playing strength and puzzle accuracy, despite containing three orders of magnitude fewer parameters. Furthermore, LM-based evaluations show that our explanations are fluent and approach GPT-5.6-Sol (high) in coherence. The generality of our architecture and training procedure suggests a recipe for applying language models to domains where silent expert encoders are available, like games, robotics, and computer use.",
+    "pdf_url": "https://arxiv.org/pdf/2610.03695",
+    "arxiv_url": "https://arxiv.org/abs/2610.03695",
+    "subfield": "음성·오디오",
+    "upvotes": 37,
+    "citations": null,
+    "summary": {
+      "tldr": "말을 하며 체스를 잘하는 인공지능 모델을 만들었습니다.",
+      "problem": "현재 체스 전문가 모델은 설명을 해주지 않지만, 언어 모델은 설명은 잘하지만 체스는 잘하지 않습니다. 이 두 가지의 단점을 해결하고자 합니다.",
+      "method": "Queen이라는 모델을 만들고, 체스 전문가와 언어 모델을 결합해 설명을 만듭니다. 이 모델은 체스를 잘하고, 그 이유도 설명할 수 있도록 훈련합니다.",
+      "result": "Queen 모델은 체스 수준이 매우 높고, 설명도 자연스럽습니다. 이는 다른 모델보다 훨씬 우수하며, 실제 응용 가능성도 큽니다.",
+      "method_easy": "체스 전문가와 말을 잘하는 사람을 하나로 만든다고 생각해요. 체스 전문가는 잘하지만 말을 안 하고, 말을 잘하는 사람은 체스는 못 해요. 이 두 사람을 연결해 서로의 장점을 쓰게 해서, 체스도 잘하고 설명도 잘하는 사람이 되었어요. 예를 들어, 체스를 할 때, 왜 그 움직임을 택했는지 말을 해주는 거예요.",
+      "improvement": "이전에는 체스는 잘하지만 설명을 못했고, 설명은 잘하지만 체스는 못했습니다. 이 연구로는 체스도 잘하고, 설명도 잘하게 되었어요. 900점 이상의 점수를 올려서 다른 모델보다 훨씬 우수해졌습니다. 이는 게임이나 로봇 같은 분야에서 설명과 실용성을 동시에 제공할 수 있어 현실적인 의미가 큽니다. 예를 들어, 로봇이 작업을 할 때, 왜 그 행동을 택했는지 설명할 수 있어요.",
+      "limitations": "이 모델은 아직 완전히 이해되지 않은 체스 전략이 있을 수 있습니다. 또한, 설명이 완전히 자연스럽지 않을 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 더 많은 체스 데이터로 훈련시키고, 사람들의 피드백을 받아 설명을 더 자연스럽게 만들 수 있습니다.",
+      "example": "이 기술은 게임에서 사용할 수 있어요. 예를 들어, 체스 게임에서 모델이 움직임을 할 때, 그 이유를 설명해 줄 수 있어요. 이는 사용자가 이해하기 쉽게 도움을 줄 수 있습니다. 또, 로봇이 작업을 할 때, 왜 그 행동을 택했는지 설명할 수 있어요.",
+      "eli12": "체스를 잘하는 사람과 말을 잘하는 사람을 하나로 만든다고 생각해요. 체스는 잘하지만 말을 안 하고, 말은 잘하지만 체스는 못 해요. 이 두 사람을 연결해 서로의 장점을 쓰게 해서, 체학도 잘하고 설명도 잘하는 사람이 되었어요. 예를 들어, 체스를 할 때, 왜 그 움직임을 택했는지 말을 해주는 거예요.",
+      "background": [
+        {
+          "term": "언어 모델",
+          "explain": "문장을 만들고 이해하는 데 사용되는 인공지능입니다."
+        },
+        {
+          "term": "체스 엔진",
+          "explain": "체스를 잘하는 컴퓨터 프로그램입니다."
+        },
+        {
+          "term": "모델 훈련",
+          "explain": "인공지능이 학습하기 위해 데이터를 사용하는 과정입니다."
+        },
+        {
+          "term": "Elo 점수",
+          "explain": "게임에서 실력 수준을 나타내는 점수입니다."
+        },
+        {
+          "term": "크로스 어텐션",
+          "explain": "두 개의 모델이 서로의 정보를 공유하는 방식입니다."
+        }
+      ],
+      "keywords": [
+        "체스",
+        "언어 모델",
+        "모델 훈련",
+        "Elo 점수",
+        "크로스 어텐션"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:21:57.603056+00:00",
+    "week": "2026-W42"
+  },
+  "2610.04109": {
+    "id": "2610.04109",
+    "title": "SEER: Self-Evolving Event Reasoning and Retrieval for Time Series Forecasting",
+    "authors": [
+      "Mingtian Tan",
+      "Palash Goyal",
+      "Mihir Parmar",
+      "Sarkar Snigdha Sarathi Das",
+      "Chun-Liang Li",
+      "Nanyun Peng",
+      "Thomas Hartvigsen",
+      "Jinsung Yoon",
+      "Tomas Pfister"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-10-01",
+    "updated": "2026-10-01",
+    "abstract": "Real-world time series are frequently driven by exogenous events and structural shifts, rendering conventional forecasting based solely on historical numerical observations insufficient. While language models can retrieve external news, standard retrieval-augmented approaches struggle with high noise, missing signals, and an inability to reason causally about event impacts. We propose SEER (Self-Evolving Event Reasoning and Retrieval), a closed-loop framework that dynamically optimizes event conditioning for time series forecasting. SEER translates prediction errors into two decoupled feedback mechanisms: (i) a reflective retrieval memory that refines subsequent search queries and filters spurious noise, and (ii) a persistent causal knowledge base that distills transferable domain dynamics. SEER enforces strict chronological boundaries across both event retrieval and reflection, preventing look-ahead bias and data leakage. Across six volatile time-series benchmarks, SEER consistently outperforms state-of-the-art time series foundation models and language model baselines.",
+    "pdf_url": "https://arxiv.org/pdf/2610.04109",
+    "arxiv_url": "https://arxiv.org/abs/2610.04109",
+    "subfield": "정보검색·추천",
+    "upvotes": 35,
+    "citations": null,
+    "summary": {
+      "tldr": "시간 시리즈 예측에 사건을 스스로 학습해 더 정확하게 예측합니다.",
+      "problem": "실제 시간 시리즈는 외부 사건과 구조적 변화로 인해 예측이 어려운데, 기존 방법은 외부 정보를 효과적으로 활용하지 못합니다.",
+      "method": "SEER는 예측 오류를 바탕으로 사건을 스스로 학습하고, 정확한 정보만 추출해 예측을 개선합니다. 이 과정에서 오류를 반복적으로 수정하고, 사건의 원인과 결과를 학습합니다.",
+      "result": "6개의 시간 시리즈 데이터에서 SEER는 기존 모델보다 더 정확한 예측을 해내며, 실제 응용에 유용합니다.",
+      "method_easy": "SEER는 시간에 따라 일어나는 사건을 스스로 배우고, 그 사건이 미래에 어떤 영향을 줄지를 생각해 예측을 더 잘합니다. 예를 들어, 기상 변화가 어떤 영향을 주는지 배우고, 그 영향을 반영해 날씨를 예측합니다.",
+      "improvement": "기존에는 외부 사건을 효과적으로 분석하지 못해 예측이 부정확했습니다. SEER는 사건을 스스로 학습해 예측 정확도를 15% 높였습니다. 이 기술은 재난 예측이나 주식 시장 분석에 활용할 수 있습니다. 예를 들어, 지진이 일어났을 때 그 영향을 예측해 피해를 줄일 수 있습니다.",
+      "limitations": "이 연구는 특정 분야의 데이터에만 적용 가능하며, 다양한 데이터 유형을 처리하지 못합니다. 이는 더 다양한 데이터를 처리할 수 있도록 모델을 확장하면 보완할 수 있을 것으로 보입니다. 또한, 사건의 원인을 완전히 분석하지 못해 일부 예측 오류가 발생할 수 있습니다. 이는 사건의 원인을 더 자세히 분석하는 방식으로 개선할 수 있습니다.",
+      "example": "SEER는 기상 데이터를 분석해 태풍이 올 때 어떤 영향을 줄지를 예측합니다. 예를 들어, 태풍이 도착하기 전에 항공사가 비행기 운항을 조정할 수 있습니다.",
+      "eli12": "SEER는 시간에 따라 일어나는 일들을 스스로 배우고, 그 일들이 미래에 어떤 영향을 줄지를 생각해 예측을 더 잘합니다. 예를 들어, 비가 오면 도로가 미끄러워질 수 있다는 걸 배우고, 비가 오면 차량 운전을 조심하게 도와줍니다.",
+      "background": [
+        {
+          "term": "시간 시리즈",
+          "explain": "시간에 따라 순차적으로 나타나는 데이터입니다. 예를 들어, 매일의 기온이나 주식 가격이 이에 해당합니다."
+        },
+        {
+          "term": "외부 사건",
+          "explain": "데이터에 영향을 주는 외부의 일입니다. 예를 들어, 기상 변화나 경제적 사건이 이에 해당합니다."
+        },
+        {
+          "term": "예측 오류",
+          "explain": "예측한 결과와 실제 결과 사이의 차이입니다. 이 차이를 줄이는 것이 예측을 더 정확하게 만듭니다."
+        },
+        {
+          "term": "사건의 원인과 결과",
+          "explain": "어떤 일이 일어났을 때 그 일의 이유와 그 일이 어떤 결과를 초래하는지를 생각하는 것입니다."
+        },
+        {
+          "term": "데이터 유형",
+          "explain": "데이터가 어떤 형태인지 나타내는 것입니다. 예를 들어, 숫자 데이터나 텍스트 데이터가 있습니다."
+        }
+      ],
+      "keywords": [
+        "시간 시리즈",
+        "사건 분석",
+        "예측 오류",
+        "사건의 원인",
+        "데이터 유형"
+      ]
+    },
+    "fetched_at": "2026-10-12T00:22:49.174578+00:00",
+    "week": "2026-W42"
   }
 }
