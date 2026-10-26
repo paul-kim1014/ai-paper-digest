@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deep Search in Real-World Web Environments · AI 논문 요약</title>
+<script>
+(function(){var k='apd-theme',r=document.documentElement,s=localStorage.getItem(k);
+if(s)r.setAttribute('data-theme',s);
+window.toggleTheme=function(){var c=r.getAttribute('data-theme');
+var n=c==='dark'?'light':(c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));
+r.setAttribute('data-theme',n);localStorage.setItem(k,n);};})();
+</script>
+<style>
+:root{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1a1a1e; --muted:#6b6b78;
+  --border:#e4e4ea; --accent:#5b4bff; --accent-soft:#eceafe; --chip:#f0f0f4;
+  --kid:#0a7d5a; --kid-soft:#e2f6ee; --ex:#b35c00; --ex-soft:#fceede;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}}
+:root[data-theme=dark]{
+  --bg:#0f0f12; --card:#1a1a20; --text:#ececf1; --muted:#9a9aa8;
+  --border:#2a2a33; --accent:#8b7bff; --accent-soft:#26233f; --chip:#24242c;
+  --kid:#4fd6a6; --kid-soft:#123329; --ex:#f0a850; --ex-soft:#33260f;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.title{font-size:1.7rem;font-weight:750;letter-spacing:-.02em;margin:0}
+.subtitle{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.meta{color:var(--muted);font-size:.82rem;margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.meta a{color:var(--accent);font-weight:600}
+#search{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);color:var(--text);font-size:.95rem;outline:none;margin-bottom:24px}
+#search:focus{border-color:var(--accent)}
+.field{margin:0 0 30px}
+.field-h{font-size:1.02rem;font-weight:720;margin:0 0 12px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-soft);display:flex;align-items:center;gap:8px}
+.field-h .cnt{font-size:.75rem;color:var(--muted);font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s;display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:1.04rem;font-weight:680;margin:0 0 7px;letter-spacing:-.01em}
+.tldr{color:var(--text);font-size:.92rem;margin:0 0 11px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.kw{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.pop{font-size:.72rem;padding:3px 9px;border-radius:6px;background:var(--ex-soft);color:var(--ex);font-weight:600}
+.date{color:var(--muted);font-size:.75rem;margin-left:auto}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:36px 0}
+.empty{color:var(--muted);text-align:center;padding:50px 0}
+/* archive */
+.issue-row{display:flex;justify-content:space-between;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 18px;margin-bottom:11px;box-shadow:var(--shadow);transition:.15s}
+.issue-row:hover{border-color:var(--accent)}
+.issue-row .wk{font-weight:700;font-size:1rem}
+.issue-row .sub{color:var(--muted);font-size:.8rem;margin-top:3px}
+/* detail */
+.back{display:inline-block;color:var(--accent);font-size:.88rem;margin-bottom:16px}
+.authors{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;margin-bottom:13px;box-shadow:var(--shadow)}
+.section h4{margin:0 0 8px;font-size:.8rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.04em}
+.section p{margin:0}
+.section.kid{background:var(--kid-soft);border-color:transparent}
+.section.kid h4{color:var(--kid)}
+.section.ex{background:var(--ex-soft);border-color:transparent}
+.section.ex h4{color:var(--ex)}
+.bg-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.bg-item:last-child{border-bottom:none;padding-bottom:0}
+.bg-item b{display:block;font-size:.92rem;margin-bottom:2px}
+.bg-item span{color:var(--muted);font-size:.88rem}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:9px 16px;border-radius:9px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:600}
+.btn.ghost{background:var(--chip);color:var(--text)}
+.abstract{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="../issue/2026-W44.html">← 2026-W44 이슈로</a>
+<h1 class="title" style="font-size:1.4rem">Deep Search in Real-World Web Environments</h1>
+<p class="authors">Xiaomin Yu, Hongliang Chen, Zhe Huang, Shilin Yan, Shao-Rong Su, Xuqiao Ma, Feiyang Wang, Jiayu Chen 외</p>
+<div class="badges" style="margin:12px 0"><span class="badge">정보검색</span><span class="badge">cs.MM</span><span class="badge">cs.SE</span><span class="pop">👍 164</span>
+  <span class="date">2026.10.19 · arXiv:2610.30181</span></div>
+<div class="section" style="border-color:var(--accent)"><h4>한 줄 요약</h4><p>실제 웹 환경에서 AI가 자율적으로 정보를 찾아내는 능력을 평가하는 새로운 방법을 제안했습니다.</p></div>
+<div class="section kid"><h4>🧒 12살 버전 — 아주 쉽게</h4><p>AI가 인터넷에서 정보를 찾아내는 능력을 테스트하는 방법을 소개합니다. 예를 들어, AI가 &#x27;어떤 과학자가 우주를 처음 탐험했는가?&#x27;라는 질문을 받으면, 인터넷을 탐색해 관련 자료를 찾아내고, 그 중에서 정답을 찾는 과정을 테스트합니다. 이는 AI가 실제 인터넷에서 정보를 처리하는 능력을 평가하는 방법입니다.</p></div>
+<div class="section ex"><h4>💡 예시 — 이렇게 쓰여요</h4><p>이 기술은 AI가 인터넷에서 복잡한 정보를 찾아내는 데 사용됩니다. 예를 들어, AI가 &#x27;지구의 지름은 얼마인가?&#x27;라는 질문을 받으면, 인터넷을 탐색해 관련 자료를 찾아내고, 그 중에서 정답을 도출할 수 있습니다.</p></div>
+<div class="section"><h4>어떤 문제를 푸는가</h4><p>현재 AI는 실제 웹 환경에서 복잡한 정보를 자율적으로 찾아내는 능력이 부족합니다. 웹은 다양한 형태와 출처로 정보가 분산되어 있어 AI가 이를 처리하는 데 어려움이 있습니다.</p></div>
+<div class="section"><h4>핵심 방법</h4><p>OpenDS라는 새로운 작업을 설계하여 AI가 실제 웹에서 여러 단계로 정보를 찾아내는 능력을 평가했습니다. 이 작업은 웹 검색, 브라우저 사용, 정보 처리 등을 포함하여 AI가 자율적으로 정보를 연결하고 정답을 도출하도록 합니다.</p></div>
+<div class="section"><h4>결과와 의의</h4><p>최고 성능 모델은 39.0% 정확도를 달성했고, 인간의 평가에서는 21.1% 정확도를 보였습니다. 이는 AI가 실제 웹 환경에서 정보를 찾아내는 능력이 아직 미흡함을 보여줍니다.</p></div>
+<div class="section"><h4>📚 배경지식 — 알아두면 좋은 개념</h4><div class="bg-item"><b>웹 검색</b><span>인터넷에서 원하는 정보를 찾는 방법입니다. 예를 들어, &#x27;지구의 지름&#x27;을 검색하면 관련 자료가 나타납니다.</span></div><div class="bg-item"><b>자율적 학습</b><span>AI가 스스로 학습해 새로운 정보를 처리하는 능력입니다. 예를 들어, AI가 새로운 책을 읽고 내용을 이해하는 것입니다.</span></div><div class="bg-item"><b>정답 도출</b><span>AI가 다양한 정보를 바탕으로 정확한 답을 찾는 과정입니다. 예를 들어, AI가 여러 자료를 비교해 가장 정확한 정보를 선택하는 것입니다.</span></div><div class="bg-item"><b>도구 조율</b><span>AI가 여러 도구를 사용해 정보를 처리하는 능력입니다. 예를 들어, AI가 검색, 자료 정리, 정답 도출을 동시에 수행하는 것입니다.</span></div><div class="bg-item"><b>장기적인 전략</b><span>AI가 복잡한 문제를 해결하기 위해 장기적인 계획을 세우는 능력입니다. 예를 들어, AI가 여러 단계로 문제를 해결하는 전략을 세우는 것입니다.</span></div></div>
+<div class="section"><h4>키워드</h4><div class="badges"><span class="kw">AI</span><span class="kw">웹 검색</span><span class="kw">자율 학습</span><span class="kw">정답 도출</span><span class="kw">도구 조율</span></div></div>
+<div class="section"><h4>원문 초록</h4><p class="abstract">Despite substantial progress in Deep Search agents, their ability to conduct end-to-end research in real-world open Web environments remains insufficiently evaluated. Unlike static retrieval settings, information on the real-world Web is distributed across diverse sources, modalities, and heterogeneous formats, often involving complex interaction mechanisms that require agents to autonomously search for, access, and integrate relevant evidence during execution. To address this gap, we introduce the OpenDS task, designed to evaluate agents&#x27; ability to perform multi-step deep search in the live, open Web. This task requires agents to autonomously explore the real Web, discover and connect relevant evidence from multiple independent sources through Web search, browser interaction, and evidence processing, and ultimately determine a unique factual answer. Building on this task formulation, we construct OpenDS-World, a benchmark comprising 200 challenging tasks spanning diverse information modalities, heterogeneous file formats, and interactive access requirements, with independent human verification to ensure evidence validity and answer uniqueness. We evaluate 12 frontier models under a unified tool environment and execution protocol. The best-performing model achieves 39.0% accuracy, while human evaluation across 1,000 independent attempts yields 21.1% accuracy. Further analyses of tool usage, search cost, termination behavior, and failure recovery reveal substantial differences in research strategies across models, as well as persistent challenges in tool coordination and long-horizon search management. OpenDS-World provides a unified evaluation platform for systematically assessing and advancing agents&#x27; autonomous deep search capabilities in real-world open Web environments.</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/pdf/2610.30181v1" target="_blank" rel="noopener">PDF 원문</a>
+    <a class="btn ghost" href="https://arxiv.org/abs/2610.30181" target="_blank" rel="noopener">arXiv 페이지</a>
+  </div></div>
+<footer>AI 논문 요약 다이제스트</footer>
+</div>
+</body>
+</html>
