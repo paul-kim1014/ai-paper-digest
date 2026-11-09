@@ -15770,5 +15770,1325 @@
     },
     "fetched_at": "2026-11-02T00:22:24.358676+00:00",
     "week": "2026-W45"
+  },
+  "2611.01860": {
+    "id": "2611.01860",
+    "title": "Advances in Agentic Computer Graphics",
+    "authors": [
+      "Hengyu Liu",
+      "Jihyeon Je",
+      "Ruiqi Wang",
+      "Mingxuan Wu",
+      "Haven Feng",
+      "Qixing Huang",
+      "Georgios Pavlakos",
+      "Hao Zhang",
+      "Jiajun Wu",
+      "Maneesh Agrawala",
+      "Leonidas Guibas",
+      "R. Kenny Jones",
+      "Shangzhe Wu",
+      "Guandao Yang"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-11-01T12:52:13Z",
+    "updated": "2026-11-01T12:52:13Z",
+    "abstract": "Computer graphics is built on code. Large language model (LLM) agents can now generate graphics code and iteratively refine it through various feedback. This capability opens the door to a potentially new paradigm of computer graphics, with graphics algorithms increasingly built around agentic systems to automate progressively complex tasks. Over the past years, research on agentic graphics has expanded rapidly across a diverse range of tasks. This rapid growth makes it increasingly difficult for manual literature reviews to keep pace with new developments. At the same time, similar ideas are often described using different terminology across these tasks, further complicating efforts to develop a systematic understanding of the field. In this report, we address these challenges through two contributions. First, we introduce a unified taxonomy for characterizing agentic systems across diverse computer graphics tasks. Second, we develop an agentic literature system that can assist human researchers in analyzing existing and newly published papers at scale. Building on these contributions, we analyze emerging research trends and discuss open challenges in coordinating agents and tools across graphics tasks, designing interfaces and representations for human-agent collaboration, sustaining long-horizon planning and refinement, and reliably evaluating interactive graphics systems.",
+    "pdf_url": "https://arxiv.org/pdf/2611.01860v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.01860",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 144,
+    "citations": null,
+    "summary": {
+      "tldr": "그래픽스 작업에 AI 에이전트를 활용한 새로운 방식을 제안합니다.",
+      "problem": "그래픽스 코드 생성과 개선을 자동화하는 데 있어 기존 방법이 복잡하고, 연구 성과를 체계적으로 정리하기 어려웠습니다.",
+      "method": "그래픽스 작업에 사용되는 다양한 AI 에이전트를 통합적으로 분류하는 체계를 만들고, 이를 기반으로 대규모로 논문을 분석할 수 있는 도구를 개발했습니다.",
+      "result": "그래픽스 분야에서 AI 에이전트를 활용한 연구 동향을 분석하고, 향후 개선 방향을 제시했습니다.",
+      "method_easy": "이 논문은 컴퓨터 그래픽스 작업에서 AI가 스스로 코드를 만들고 개선하는 방식을 정리했습니다. 예를 들어, AI가 게임 캐릭터의 움직임을 자동으로 조정하는 것처럼, 다양한 작업에서 AI가 협업하는 방식을 분류했습니다.",
+      "improvement": "이전에는 AI가 그래픽스 작업을 할 때 복잡한 코드를 직접 작성해야 했고, 연구자들이 새로운 논문을 따라가기 어려웠습니다. 이 연구로는 AI가 스스로 코드를 만들고 개선하는 방식을 체계적으로 정리해 연구자들이 쉽게 이해할 수 있게 되었습니다. 예를 들어, AI가 게임 캐릭터의 움직임을 자동으로 조정하는 방식을 분류해 연구자들이 쉽게 비교할 수 있게 되었습니다. 이는 게임 개발자들이 AI 도구를 활용해 더 빠르게 게임을 만드는 데 도움이 됩니다.",
+      "limitations": "이 연구는 현재까지의 연구만 분석했기 때문에 미래의 연구 동향을 예측하는 데 한계가 있습니다. 또한, AI가 생성한 코드의 품질을 평가하는 방법이 아직 부족합니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 새로운 연구를 지속적으로 모니터링하고, AI 생성 코드의 품질을 자동으로 평가하는 시스템을 개발하면 좋습니다.",
+      "example": "이 기술은 게임 개발에서 AI가 캐릭터의 움직임을 자동으로 조정하거나, 애니메이션을 만들 때 자동으로 스타일을 조정하는 데 사용될 수 있습니다. 예를 들어, AI가 캐릭터가 걷는 동작을 자동으로 조정해 개발자가 더 많은 시간을 디자인에 할애할 수 있도록 도와줍니다.",
+      "eli12": "이 논문은 컴퓨터 그래픽스 작업에서 AI가 스스로 코드를 만들고 개선하는 방법을 정리했습니다. 예를 들어, AI가 게임 캐릭터가 걷는 동작을 자동으로 조정하는 것처럼, 다양한 작업에서 AI가 협업하는 방식을 분류했습니다. 이렇게 하면 게임 개발자가 더 쉽게 AI 도구를 사용할 수 있게 됩니다.",
+      "background": [
+        {
+          "term": "AI 에이전트",
+          "explain": "자신의 목표를 설정하고, 스스로 행동을 결정하는 인공지능입니다."
+        },
+        {
+          "term": "그래픽스 코드",
+          "explain": "게임이나 애니메이션을 만들 때 사용하는 컴퓨터 코드입니다."
+        },
+        {
+          "term": "문헌 분석",
+          "explain": "이미 발표된 논문을 읽고, 내용을 정리하고 이해하는 과정입니다."
+        },
+        {
+          "term": "분류 체계",
+          "explain": "다양한 것들을 유사점과 차이점을 기준으로 정리하는 방법입니다."
+        },
+        {
+          "term": "협업",
+          "explain": "사람과 AI가 함께 작업을 하며 서로 도움을 주는 방식입니다."
+        }
+      ],
+      "keywords": [
+        "AI 에이전트",
+        "그래픽스 코드",
+        "문헌 분석",
+        "분류 체계",
+        "협업"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:04:54.598852+00:00",
+    "week": "2026-W46"
+  },
+  "2611.00859": {
+    "id": "2611.00859",
+    "title": "Wave Forcing: Towards Speed-of-Light Streaming Video Generation",
+    "authors": [
+      "Yijie Jin",
+      "Yuxuan Liu",
+      "Jiajun Xu",
+      "Ye Huang",
+      "Chuzhi Wang",
+      "Jiayang Li",
+      "Ruiyang Chen",
+      "Chenling Hong",
+      "Xu Wang",
+      "Zhijie Deng"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.DC"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-10-31T12:04:25Z",
+    "updated": "2026-10-31T12:04:25Z",
+    "abstract": "Real-time long-video generation requires continuous output with consistent appearance and natural motion. Existing chunk-wise autoregressive methods face challenges in both generation efficiency and long-video quality: serialized denoising and history-cache refresh require two forward passes even with one-step denoising, and longer rollouts can degrade quality and cause camera drift. We propose Wave Forcing (WF), which co-designs generation, training, and execution for continuous video output with multi-step denoising. WF uses chunk-wise causal attention to access earlier, cleaner chunks before their denoising is complete, and distributes staggered denoising and cache-refresh stages across full-model replicas to achieve 1F1C: one output chunk per concurrent forward round after pipeline fill. To adapt the model to this continuous generation process, we develop a three-stage training procedure that successively introduces mixed-noise denoising, motion supervision, and causal adaptation using self-generated history. To execute this process efficiently, Wave Runtime (WaveRT) uses Wave Parallelism (WP) for early K/V delivery and communication-computation overlap, together with optimized kernels and pipelined VAE decoding. Experiments on Wan2.1-T2V-1.3B show that 5-step WF maintains overall quality comparable to Rolling Forcing while achieving higher Dynamic Degree on both short and long videos. Our system efficiency experiments show that 4-step WF achieves 147.6 DiT FPS and 134.8 end-to-end FPS on eight H200 GPUs, yielding 7.07x the single-GPU end-to-end throughput. In DiT-only tests with matched SageAttention+W8A8 backends, denoising steps, and GPU counts, WP delivers up to 2.53x the throughput of the faster of the Ulysses and Ring context-parallel baselines across six model scales (1.3B-14B).",
+    "pdf_url": "https://arxiv.org/pdf/2611.00859v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.00859",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 125,
+    "citations": null,
+    "summary": {
+      "tldr": "영상 생성 속도를 빠르게 개선한 새로운 기술입니다.",
+      "problem": "영상 생성 시 실시간으로 긴 영상을 생성하는 데 어려움이 있었고, 품질이 떨어졌습니다. 이전 방법은 생성 속도와 품질 모두에 문제가 있었습니다.",
+      "method": "Wave Forcing(WF)는 생성, 학습, 실행을 함께 설계해 영상 생성을 개선했습니다. 생성 과정에서 여러 단계로 영상 생성을 나누고, 각 단계별로 처리를 병렬화해 속도를 높였습니다.",
+      "result": "실험 결과, 5단계 WF는 Rolling Forcing과 비슷한 품질을 유지하면서도 더 나은 동적 효과를 보였습니다. GPU 사용 시 속도도 크게 향상되었습니다.",
+      "method_easy": "영상 생성을 여러 단계로 나누고, 각 단계에서 생성된 영상을 먼저 보여주고 나중에 완성합니다. 예를 들어, 영화를 여러 장면으로 나누어 각 장면을 차례로 만들고, 그 장면을 먼저 보여주면서 전체를 완성하는 것처럼요. 이렇게 하면 생성 속도가 빨라집니다.",
+      "improvement": "이전에는 생성 속도가 느려서 긴 영상 생성이 어려웠고, 품질도 떨어졌습니다. 이 연구로 생성 속도가 7배 빨라졌고, 품질도 유지되었습니다. 예를 들어, 1분 긴 영상을 10초만에 만들 수 있게 되었고, 이는 유튜브 영상 제작에 큰 도움이 됩니다.",
+      "limitations": "현재는 GPU 사용 시에만 빠르게 작동하며, 일반 컴퓨터에서는 속도가 느립니다. 이는 더 많은 하드웨어 지원이 필요합니다. GPU 수를 늘리거나, 하드웨어를 개선하면 보완할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 유튜브에서 실시간으로 긴 영상을 생성할 때 사용할 수 있습니다. 예를 들어, 라이브 스트리밍 중에 즉시 영상을 생성해 보여줄 수 있어, 관객에게 더 나은 경험을 제공할 수 있습니다.",
+      "eli12": "영상 만들기처럼, 여러 단계로 나누어 한 번에 만들고, 한 번에 보여주는 기술이에요. 예를 들어, 영화를 여러 장면으로 나누어 각 장면을 차례로 만들고, 그 장면을 먼저 보여주면서 전체를 완성하는 것처럼요. 이렇게 하면 영화를 더 빨리 만들 수 있어요.",
+      "background": [
+        {
+          "term": "자연어 처리",
+          "explain": "문장을 이해하고 생성하는 컴퓨터 기술입니다."
+        },
+        {
+          "term": "영상 생성",
+          "explain": "컴퓨터가 영상을 만들어내는 기술입니다."
+        },
+        {
+          "term": "GPU",
+          "explain": "영상이나 게임을 빠르게 처리하는 컴퓨터 부품입니다."
+        },
+        {
+          "term": "병렬 처리",
+          "explain": "한 번에 여러 일을 동시에 처리하는 기술입니다."
+        },
+        {
+          "term": "신경망",
+          "explain": "뇌처럼 데이터를 처리하는 컴퓨터의 구조입니다."
+        }
+      ],
+      "keywords": [
+        "영상 생성",
+        "Wave Forcing",
+        "GPU",
+        "병렬 처리",
+        "자연어 처리"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:05:41.244396+00:00",
+    "week": "2026-W46"
+  },
+  "2611.05275": {
+    "id": "2611.05275",
+    "title": "Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems",
+    "authors": [
+      "Pengfei Zhou",
+      "Yixing Ma",
+      "Hexin Wang",
+      "Weidong Tang",
+      "Zhenglin Wan",
+      "Wangbo Zhao",
+      "Yang You"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-11-03T17:56:42Z",
+    "updated": "2026-11-03T17:56:42Z",
+    "abstract": "Artificial general intelligence (AGI) requires a method that can understand, generate, reason, and act across diverse domains and modalities. Rather than relying on a single model to master every capability, a promising path toward AGI now is to orchestrate a heterogeneous ecosystem of specialized models, tools, and policies (candidates) into a unified AI system. At the heart of this vision lies a fundamental question: how can an AI system dynamically select and coordinate the most capable candidate for each task while balancing performance and computational cost? In this work, we present Route Anything, a unified framework for studying model and policy routing across general-purpose AI systems. We develop a unified theoretical foundation that characterizes optimal routing under quality--cost trade-offs and establishes how the information available to a router determines its attainable performance. To systematically investigate routing across diverse capabilities, we first construct an omni-modal trajectory matrix spanning 25 benchmarks across language understanding, image, video, and speech generation, coding and workplace agents, and robotic manipulation, comprising 374,401 scored runs from 452 candidate configurations. Building on this framework, we train and test different routers to investigate the potential of omni-modal model routing, the capabilities of learned routers, and the conditions under which routing improves efficiency. Our results reveal substantial opportunities for capability orchestration: per-input oracle routing outperforms the best fixed candidate by 5.4 points, and learned routers outperform it by 0.3 points across 16 benchmarks, by 2.1 points on video generation, and by 1.1 points on robot manipulation while using 24% less policy time. More importantly, routing raises efficiency by 8.82x on average compared with the reference model.",
+    "pdf_url": "https://arxiv.org/pdf/2611.05275v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.05275",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 80,
+    "citations": null,
+    "summary": {
+      "tldr": "모든 작업을 하나의 모델이 처리하는 대신, 여러 모델을 조율해 더 잘 처리합니다.",
+      "problem": "일반 인공지능은 다양한 작업을 처리해야 하지만, 하나의 모델로 모든 것을 처리하는 것이 어렵습니다. 여러 모델을 조율해 더 나은 성능을 내는 방법을 찾고자 합니다.",
+      "method": "Route Anything은 여러 모델을 조율하는 방법을 연구합니다. 각 작업에 가장 적합한 모델을 선택하고, 성능과 자원 사용을 균형 있게 조절하는 데 초점을 맞춥니다.",
+      "result": "모델을 조율하면 작업 성능이 크게 향상되고, 자원 사용도 줄어듭니다. 예를 들어, 작업 처리 시간이 8.82배 줄어들었습니다.",
+      "method_easy": "이 논문은 여러 개의 모델을 가지고 있는 컴퓨터가 어떤 작업을 할 때 가장 잘하는 모델을 골라서 사용하는 방법을 연구합니다. 예를 들어, 사진을 찍는 작업은 사진 모델이, 글을 쓰는 작업은 글 모델이 처리합니다. 이렇게 여러 모델을 조율해서 더 잘하는 컴퓨터를 만듭니다.",
+      "improvement": "이전에는 하나의 모델로 모든 작업을 처리해야 했기 때문에 성능이 떨어졌고, 자원도 많이 소비했습니다. 이 연구로는 작업에 따라 가장 잘하는 모델을 선택해 성능을 5.4점 향상시키고, 자원 사용을 24% 줄였습니다. 예를 들어, 로봇이 작업을 할 때, 모델을 조율하면 작업 시간이 8.82배 줄어들어 더 빠르게 처리할 수 있습니다.",
+      "limitations": "이 연구는 특정 작업에만 적용 가능하고, 모든 모델이 항상 잘 작동하지 않습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 다양한 작업에 맞는 모델을 더 넓게 확장하고, 모델 간의 협업을 더 잘 조율하면 더 좋은 결과를 기대할 수 있습니다.",
+      "example": "이 기술은 로봇이 여러 작업을 처리할 때 사용할 수 있습니다. 예를 들어, 로봇이 사진을 찍고, 글을 쓰고, 영상도 만드는 작업을 할 때, 각 작업에 맞는 모델을 선택해 더 효율적으로 처리할 수 있습니다.",
+      "eli12": "이 논문은 컴퓨터가 여러 가지 일을 할 때, 각 일에 가장 잘하는 다른 컴퓨터를 골라서 사용하는 방법을 연구합니다. 예를 들어, 사진을 찍는 일에는 사진을 잘 찍는 컴퓨터, 글을 쓰는 일에는 글을 잘 쓰는 컴퓨터를 사용해 더 잘 처리할 수 있습니다.",
+      "background": [
+        {
+          "term": "모델",
+          "explain": "데이터를 입력받아 결과를 출력하는 컴퓨터 프로그램입니다."
+        },
+        {
+          "term": "정책",
+          "explain": "모델이 어떤 일을 할지 결정하는 규칙이나 방법입니다."
+        },
+        {
+          "term": "오버헤드",
+          "explain": "작업을 처리할 때 추가로 필요한 자원이나 시간입니다."
+        },
+        {
+          "term": "트레이딩",
+          "explain": "이익과 손실을 고려해 가장 좋은 선택을 하는 과정입니다."
+        },
+        {
+          "term": "오라클",
+          "explain": "모든 문제에 대해 최적의 해결책을 제공하는 이상적인 시스템입니다."
+        }
+      ],
+      "keywords": [
+        "모델 조율",
+        "정책 라우팅",
+        "다목적 AI",
+        "성능 최적화",
+        "자원 효율성"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:06:29.511952+00:00",
+    "week": "2026-W46"
+  },
+  "2611.05376": {
+    "id": "2611.05376",
+    "title": "From Autonomous Agents to Cognitive Symbionts: Toward AI-Augmented Human Intelligence",
+    "authors": [
+      "Hao Fei"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-11-03T18:59:52Z",
+    "updated": "2026-11-03T18:59:52Z",
+    "abstract": "For a decade, progress in artificial intelligence has been measured by how much a machine can do on its own. Large foundation models now write code and run multistep tasks, and personal agents act on a person's behalf. Yet people still forget what they once knew, miss what they are not looking at, fail to find the right words, and face hard choices without the benefit of their own history, because the machine that could help stands outside the situation. As AI moves into the physical world, attention has settled on one kind of intelligent individual, the embodied robot; we argue that the era of Physical AI holds a second kind of equal importance, the person augmented by AI. Alongside artificial general intelligence, which asks how intelligent a machine can be, stands AI-augmented human intelligence (AHI), which asks how much intelligence a machine can enable in a particular person. Realizing it calls for a new kind of system, a cognitive symbiont: a lifelong, embedded, real-time, private, low-friction, and proactive companion that senses what the person senses through external devices, keeps their context across years, models their situation and their mind, takes part in their thinking at the right moment, carries out everyday tasks with their context, and keeps learning the person as both change. We give the paradigm a conceptual core, the cognitive gap between what a person could bring to a situation and what they can hold in working memory, and organize its design space as a symbiosis loop of sensing, keeping, understanding, living alongside, acting for and thinking with the person, and growing, enclosed by a personal runtime and by trust. Because a symbiont changes what a person can do in front of others, it also raises risks of a new kind, from covert assistance in examinations to pressure on everyone to adopt it, and we treat their governance as part of the paradigm.",
+    "pdf_url": "https://arxiv.org/pdf/2611.05376v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.05376",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 117,
+    "citations": null,
+    "summary": {
+      "tldr": "AI가 인간의 지능을 보조하는 새로운 시스템을 제안합니다.",
+      "problem": "기존 AI는 인간의 작업을 대체하지만, 인간의 기억이나 판단을 도와주지 못합니다. 인간이 잊거나 판단을 못할 때 AI가 도움을 줄 수 있도록 해야 합니다.",
+      "method": "AI가 인간의 생각과 상황을 이해하고, 실시간으로 도움을 주는 시스템을 설계했습니다. 이 시스템은 인간의 기억을 보완하고, 일상 작업을 도와주는 역할을 합니다.",
+      "result": "AI가 인간의 지능을 보조하는 새로운 개념인 AHI를 제안하고, 이를 구현하기 위한 시스템인 인지 공생체를 제시했습니다. 이는 인간과 AI가 함께 일상에서 협력하는 방향으로 나갑니다.",
+      "method_easy": "AI가 사람의 생각을 읽고, 그 사람의 일상에 도움을 주는 친구처럼 생겼어요. 예를 들어, 사람이 잊은 걸 도와주거나, 중요한 결정을 도와주는 역할을 합니다. 이 친구는 사람의 기억을 계속 따라가면서, 사람의 생각을 이해해 줍니다.",
+      "improvement": "이전에는 AI가 사람의 생각을 이해하지 못해 도움을 주기 어려웠습니다. 이 연구로 AI가 사람의 상황과 생각을 실시간으로 파악해 주기 때문에, 사람의 일상에서 더 유용하게 사용할 수 있습니다. 예를 들어, 사람의 일정을 도와주는 AI가 있다면, 사람의 기억을 도와주고, 중요한 일정을 놓치지 않게 해 줍니다. 이는 실제 일상에서 매우 유용합니다.",
+      "limitations": "이 연구는 아직 실제 시스템 구현이 부족하고, 사람의 사고를 완전히 이해하는 데 한계가 있습니다. 이는 사람의 생각을 더 정확하게 분석하는 알고리즘을 개발하면 보완할 수 있을 것으로 보입니다. 또한, AI가 사람의 사생활을 침해할 수 있는 위험도 있습니다. 이는 사용자에게 투명한 데이터 처리 방식을 제공하면 해결할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 사람의 일상에서 AI가 도움을 주는 시스템으로 사용됩니다. 예를 들어, 사람의 일정을 관리해 주거나, 중요한 결정을 도와주는 시스템이 있을 수 있습니다. 이는 사람의 기억을 보완하고, 일상에서 더 효율적으로 일할 수 있도록 도와줍니다.",
+      "eli12": "AI가 사람의 생각을 읽고, 그 사람의 일상에 도움을 주는 친구처럼 생겼어요. 예를 들어, 사람이 잊은 걸 도와주거나, 중요한 결정을 도와주는 친구처럼요. 이 친반은 사람의 생각을 계속 따라가면서, 사람의 일상에 도움을 줍니다.",
+      "background": [
+        {
+          "term": "인공지능",
+          "explain": "머신이 인간처럼 생각하고 판단할 수 있도록 만든 기술입니다."
+        },
+        {
+          "term": "인지 공생체",
+          "explain": "AI가 사람과 함께 일상에서 협력하는 시스템을 말합니다."
+        },
+        {
+          "term": "실시간",
+          "explain": "지금 이 순간에 일어나는 일에 바로 반응하는 것을 말합니다."
+        },
+        {
+          "term": "사고",
+          "explain": "머신이 사람처럼 생각하고 판단하는 능력을 말합니다."
+        },
+        {
+          "term": "사생활",
+          "explain": "사람이 개인적으로 가지는 정보나 행동을 말합니다."
+        }
+      ],
+      "keywords": [
+        "AI 보조 지능",
+        "인지 공생체",
+        "실시간 협력",
+        "사람 중심 AI",
+        "지능 보조"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:07:19.931364+00:00",
+    "week": "2026-W46"
+  },
+  "2611.00883": {
+    "id": "2611.00883",
+    "title": "Random Is Almost Enough? Stable and Low-Cost Benchmark Compression via BestRand",
+    "authors": [
+      "George Ling",
+      "Shanshan Zhong",
+      "Lijin Yang",
+      "Hao Yang",
+      "Nanxiang Li",
+      "Zhongzhan Huang"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-10-31T12:36:58Z",
+    "updated": "2026-10-31T12:36:58Z",
+    "abstract": "Benchmark compression reduces the often prohibitive time and cost of model evaluation by evaluating models on a small benchmark subset that closely matches full-benchmark results. To quantify estimation error, we derive an accurate analytical approximation to the error distribution when estimating full-benchmark scores from a subset, showing that most subsets yield small errors, while a few produce much larger errors, resulting in a long-tailed distribution. This means random sampling alone can achieve surprisingly strong performance with high probability, but remains unstable due to rare large errors. We further show that this instability is inherent to modern foundation models and persists even as more models are evaluated. Based on these findings, we introduce BestRand, a stable and low-cost benchmark compression method that preserves the efficiency of random sampling while substantially reducing its high-error tail. We validate BestRand on 70+ text, multimodal, and agent benchmarks, and further extend it to VLA evaluation. Compared with competitive methods, BestRand reduces high-error risk by 50.2% and estimation error by 16.4% on average, while requiring only 51.3% of the construction cost. It further reduces OOD estimation error by 21.8% on average across score-range, model-family, and temporal shifts. Together, our theory provides practical guidance for understanding and predicting the accuracy and reliability of benchmark compression, while BestRand enables stable and accurate compression at low cost. The code and data are publicly available onhttps://github.com/George-Ling3/BestRand.",
+    "pdf_url": "https://arxiv.org/pdf/2611.00883v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.00883",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 51,
+    "citations": null,
+    "summary": {
+      "tldr": "랜덤으로도 충분하고, 안정적인 벤치마크 압축 방법을 제안했습니다.",
+      "problem": "모델 평가 시간과 비용을 줄이기 위해 벤치마크를 축소하는 것이 필요하지만, 랜덤으로 축소하면 결과가 불안정할 수 있습니다. 이 불안정성은 모델이 많아질수록 더 심해지기 때문에 해결책이 필요합니다.",
+      "method": "BestRand는 랜덤 샘플링의 효율성을 유지하면서, 큰 오류가 발생할 확률을 줄이는 방법입니다. 오류 분포를 분석해, 오류가 큰 경우를 제거하고, 안정적인 결과를 얻도록 설계했습니다.",
+      "result": "BestRand는 기존 방법에 비해 오류 위험을 50.2% 줄이고, 평균 오류도 16.4% 감소시켰습니다. 또한, 다양한 조건에서 오류를 21.8% 줄일 수 있었습니다. 이는 벤치마크 압축의 정확성과 신뢰성을 높이는 데 도움이 됩니다.",
+      "method_easy": "가장 좋은 문제를 골라서 테스트하는 대신, 무작위로 문제를 골라 테스트합니다. 하지만 가끔은 큰 실수를 할 수 있어서 결과가 불안정해요. BestRand는 그런 큰 실수를 줄이면서도, 무작위로 테스트하는 효율을 유지합니다. 예를 들어, 시험을 치를 때, 무작위로 문제를 골라 푸는 대신, 가장 중요한 문제 몇 개만 골라 푸는 방법이에요.",
+      "improvement": "이전에는 랜덤으로 테스트하면 큰 오류가 발생할 수 있어서 결과가 불안정했습니다. BestRand는 그런 큰 오류를 줄여서 결과가 더 안정적으로 됩니다. 오류 위험은 50.2% 줄었고, 평균 오류도 16.4% 줄었어요. 이는 기업이 모델을 테스트할 때, 시간과 비용을 절약하면서도 신뢰할 수 있는 결과를 얻을 수 있게 해줍니다. 예를 들어, AI 기반의 고객 서비스 시스템을 평가할 때, BestRand를 사용하면 테스트 시간을 절약하면서도 정확한 평가가 가능해집니다.",
+      "limitations": "이 연구는 특정 벤치마크에만 적용되었기 때문에, 모든 벤치마크에 효과가 보장되지 않을 수 있습니다. 또한, 벤치마크의 구성 방식에 따라 BestRand의 효과가 달라질 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 다양한 벤치마크에 적용해보거나, 벤치마크의 구성 방식을 고려한 조정을 할 수 있습니다.",
+      "example": "BestRand는 AI 모델을 평가할 때, 전체 문제를 테스트하는 대신, 중요한 문제 몇 개만 골라 테스트하는 방법입니다. 예를 들어, 영화 추천 시스템을 평가할 때, 전체 영화 데이터를 테스트하는 대신, 유저들이 자주 보는 영화 몇 개만 테스트해도 전체 평가 결과와 비슷하게 나오는 경우가 많습니다. BestRand는 그런 경우를 더 안정적으로 처리할 수 있도록 도와줍니다.",
+      "eli12": "가장 좋은 문제만 골라 테스트하는 대신, 무작위로 문제를 골라 테스트해도 결과가 잘 나온다고 합니다. 하지만 가끔은 큰 실수를 할 수 있어서 결과가 불안정해요. BestRand는 그런 큰 실수를 줄이면서도, 무작위로 테스트하는 효율을 유지해주는 방법입니다. 예를 들어, 시험을 치를 때, 가장 중요한 문제 몇 개만 골라 푸는 대신, 무작위로 문제를 골라 푸는 방법이에요.",
+      "background": [
+        {
+          "term": "벤치마크",
+          "explain": "모델의 성능을 평가하기 위해 사용하는 문제나 데이터의 집합입니다."
+        },
+        {
+          "term": "오류 분포",
+          "explain": "오류가 발생하는 정도와 빈도를 나타내는 분포입니다."
+        },
+        {
+          "term": "랜덤 샘플링",
+          "explain": "무작위로 데이터를 선택해 테스트하는 방법입니다."
+        },
+        {
+          "term": "안정성",
+          "explain": "결과가 일관되게 나올 수 있는 정도를 말합니다."
+        },
+        {
+          "term": "압축",
+          "explain": "큰 데이터를 작은 데이터로 줄여서 효율적으로 다루는 방법입니다."
+        }
+      ],
+      "keywords": [
+        "Benchmark Compression",
+        "BestRand",
+        "Error Distribution",
+        "Stability",
+        "Low-Cost Evaluation"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:08:24.405391+00:00",
+    "week": "2026-W46"
+  },
+  "2610.37481": {
+    "id": "2610.37481",
+    "title": "Follow the Gradient: Tracing Safety Degradation Back to Training Data",
+    "authors": [
+      "Saket Reddy",
+      "Amro Abbas",
+      "Anshuman Suri",
+      "Ari Morcos",
+      "David Schwab",
+      "Pratyush Maini"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-10-26",
+    "updated": "2026-10-26",
+    "abstract": "Fine-tuning Large Language Models (LLMs) on instruction data can quietly erode their safety, even when no training example looks harmful. Because this safety-degrading data looks benign, standard content filters struggle to catch it. We tackle this problem by developing SimpleLoRIF, a scalable gradient embedding method that identifies fine-tuning examples whose gradients align with unsafe behavior. By simplifying a low-rank attribution method and restricting backpropagation to the final four transformer blocks, SimpleLoRIF can embed datasets on the order of a million examples, boosting gradient attribution from a small-scale analysis tool into a practical filter for full post-training datasets. We first validate it on emergent misalignment, where we find that gradients can connect insecure-code training data to the broadly harmful behaviors that appear after fine-tuning, with AUC as high as 0.865 in the gradient space of misaligned models. We then use SimpleLoRIF to build SafeTulu, a version of Tulu 3 with the 20% of examples most gradient-aligned with unsafe responses removed. Training on SafeTulu reduces GCG attack success rate by up to 22% across Qwen, Llama, and Olmo, outperforming both LLM-as-a-judge and prior gradient-based filtering, while largely preserving or even improving capability. Finally, we analyzed the removed data and identify possibly under-studied sources of safety degradation, such as tool-execution failures and narrative arithmetic. We release SafeTulu along with a Hugging Face Space that lets researchers build their own customized versions of SafeTulu to fine-tune on, such as by changing the removal fraction or filtering only certain subsets.",
+    "pdf_url": "https://arxiv.org/pdf/2610.37481",
+    "arxiv_url": "https://arxiv.org/abs/2610.37481",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 31,
+    "citations": null,
+    "summary": {
+      "tldr": "훈련 데이터에서 안전성을 떨어뜨리는 문제를 찾는 방법을 제안합니다.",
+      "problem": "대규모 언어 모델을 지시 데이터로 미세 조정할 때, 안전성이 떨어질 수 있습니다. 이는 일반적인 필터로는 탐지하기 어려운 데이터에서 발생합니다.",
+      "method": "SimpleLoRIF라는 방법을 제안하여, 훈련 데이터의 기울기가 안전하지 않은 행동과 일치하는지 확인합니다. 이 방법은 저ank 속성 방법을 간소화하고, 트랜스포머 블록의 마지막 네 개에만 역전파를 적용합니다.",
+      "result": "SimpleLoRIF는 안전성 저하 데이터를 효과적으로 탐지하며, GCG 공격 성공률을 22%까지 낮춥니다. 이 방법은 기존의 필터보다 우수하며, 모델의 기능을 유지하거나 개선합니다.",
+      "method_easy": "이 방법은 모델이 학습하는 데이터를 보고, 그 데이터가 안전하지 않은 행동을 유도하는지 확인합니다. 예를 들어, 데이터가 '위험한 행동'을 하도록 유도하는지, 기울기(변화의 정도)를 비교해 알 수 있습니다. 이를 통해 데이터가 안전하지 않다는 것을 알 수 있습니다.",
+      "improvement": "이전에는 안전성 저하 데이터를 찾는 데 어려움이 많았습니다. 이 연구로는 기울기를 비교해 데이터를 쉽게 찾을 수 있게 되었습니다. GCG 공격 성공률을 22% 낮추는 성과를 보였습니다. 이는 실제 모델 개선에 큰 도움이 됩니다. 예를 들어, 모델이 위험한 답변을 하지 않도록 데이터를 정리하면, 사용자에게 더 안전한 서비스를 제공할 수 있습니다.",
+      "limitations": "이 연구는 특정한 데이터셋에만 적용 가능하며, 다른 데이터셋에서는 효과가 줄어들 수 있습니다. 또한, 모든 위험한 데이터를 탐지하지 못할 수 있습니다. 이는 더 다양한 데이터셋을 사용하거나, 다른 방법과 결합해 보완할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 대형 언어 모델을 훈련할 때, 위험한 답변을 유도하는 데이터를 제거하는 데 사용됩니다. 예를 들어, 모델이 '위험한 행동'을 하도록 유도하는 데이터를 찾아 제거하면, 사용자가 더 안전한 서비스를 받을 수 있습니다.",
+      "eli12": "이 기술은 모델이 학습하는 데이터를 보고, 그 데이터가 안전하지 않은 행동을 유도하는지 확인합니다. 예를 들어, 데이터가 '위험한 행동'을 하도록 유도하는지, 기울기를 비교해 알 수 있습니다. 이를 통해 데이터가 안전하지 않다는 것을 알 수 있습니다.",
+      "background": [
+        {
+          "term": "대규모 언어 모델",
+          "explain": "많은 데이터를 학습해 다양한 언어를 이해하고 생성하는 인공지능입니다."
+        },
+        {
+          "term": "미세 조정",
+          "explain": "이미 학습된 모델에 새로운 데이터를 추가해 성능을 개선하는 과정입니다."
+        },
+        {
+          "term": "기울기",
+          "explain": "데이터가 모델의 행동에 어떤 영향을 주는지를 나타내는 수치입니다."
+        },
+        {
+          "term": "안전성",
+          "explain": "모델이 위험한 행동을 하지 않고, 사용자에게 안전한 서비스를 제공하는 것을 의미합니다."
+        },
+        {
+          "term": "역전파",
+          "explain": "모델이 오류를 배우고 개선하는 과정에서 데이터의 영향을 역으로 계산하는 방법입니다."
+        }
+      ],
+      "keywords": [
+        "안전성",
+        "미세 조정",
+        "기울기",
+        "역전파",
+        "대규모 언어 모델"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:09:16.648697+00:00",
+    "week": "2026-W46"
+  },
+  "2611.08449": {
+    "id": "2611.08449",
+    "title": "VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding",
+    "authors": [
+      "Yu-Cheng Chou",
+      "Shihao Wang",
+      "Jin Huang",
+      "Chi-Pin Huang",
+      "Chiao-An Yang",
+      "Xianzhe Fan",
+      "Jing Wang",
+      "Zhiqi Li",
+      "Yuanguo Kuang",
+      "Ruijie Zheng",
+      "Johan Bjorck",
+      "Sifei Liu",
+      "Hang Su",
+      "Abhishek Badki",
+      "Lei Zhang",
+      "Alan Yuille",
+      "Linxi \"Jim'' Fan",
+      "Jan Kautz",
+      "Zhiding Yu"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-11-05T18:44:43Z",
+    "updated": "2026-11-05T18:44:43Z",
+    "abstract": "Models for physical AI tasks, such as robotics and autonomous driving, need not reason solely in language. They can use visual plans--points, bounding boxes, and trajectories--to represent spatial goals and anticipate motion. However, autoregressive vision-language models generate these plans one coordinate token at a time, making richer predictions increasingly costly. We introduce VFlash, a method for fast, accurate visual planning through Flash Primitive Decoding. VFlash exploits the known structure of visual primitives to predict their coordinates jointly, using a lightweight drafter that generates an entire primitive in one forward pass. The layout adapts to the primitive's type, dimensionality, and length, supporting compact boxes and long, variable-length trajectories. Crucially, spatial accuracy need not require reproducing an autoregressive model's exact token sequence. VFlash therefore trains on annotated primitives and directly accepts structurally valid predictions without target-token agreement. Across the evaluated 2D and 3D robot trajectory tasks, VFlash consistently reduces prediction errors relative to autoregressive decoding. Preliminary single-rollout measurements indicate approximately 25x faster generation for 3D point motion forecasting. A world action model conditioned on VFlash plans achieves 70.2% average success across four MolmoSpaces task suites, compared with 62.6% for the baseline.",
+    "pdf_url": "https://arxiv.org/pdf/2611.08449v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.08449",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 106,
+    "citations": null,
+    "summary": {
+      "tldr": "VFlash는 시각 계획을 빠르고 정확하게 만듭니다.",
+      "problem": "로봇이나 자율주행차가 목표를 달성하기 위해 시각 계획을 생성할 때, 한 번에 하나씩 생성하는 방식이 느리고 비용이 많이 듭니다. 이로 인해 실시간으로 반응하는 데 어려움이 있습니다.",
+      "method": "VFlash는 시각 원소의 구조를 활용해 한 번에 전체 원소를 생성합니다. 가벼운 드래퍼를 사용해 원소의 좌표를 함께 예측해 빠르게 계획을 만듭니다.",
+      "result": "VFlash는 기존 방식보다 예측 오류가 적고, 3D 운동 예측에서는 약 25배 빠릅니다. 실제 실험에서는 성공률도 높아졌습니다.",
+      "method_easy": "VFlash는 로봇이 목표 지점에 도달하려면 먼저 그 지점의 위치를 알아야 한다고 생각해요. 기존 방식은 한 번에 하나씩 위치를 찾지만, VFlash는 한 번에 여러 위치를 모두 찾아내죠. 예를 들어, 로봇이 여러 장애물을 피해야 할 때, VFlash는 한 번에 모든 장애물의 위치를 찾아내서 빠르게 경로를 설정합니다.",
+      "improvement": "기존에는 한 번에 하나씩 위치를 찾아야 해서 느리고 비용이 많이 들었습니다. VFlash는 한 번에 여러 위치를 찾아내서 3D 운동 예측에서는 약 25배 빠릅니다. 그래서 로봇이 더 빠르게 움직일 수 있고, 실제 작업에서 실시간 반응이 가능해집니다. 예를 들어, 자율주행차가 급정거해야 할 때, V바이스는 한 번에 여러 차량의 위치를 예측해 빠르게 대처할 수 있습니다.",
+      "limitations": "이 연구는 2D와 3D의 운동 예측에만 적용되었고, 더 복잡한 환경에서는 효과가 줄어들 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 더 다양한 환경을 고려한 실험을 추가하면 좋습니다. 또한, 시각 원소의 구조가 복잡한 경우 예측 정확도가 떨어질 수 있습니다. 이럴 때는 더 많은 데이터를 학습시키거나, 예측 방법을 개선하면 좋습니다.",
+      "example": "VFlash는 자율주행차가 도로를 따라 가는 경로를 빠르게 계획하는 데 사용됩니다. 기존 방식은 한 번에 하나씩 위치를 찾아야 해서 느리지만, VFlash는 한 번에 여러 위치를 찾아내서 빠르게 경로를 설정합니다. 예를 들어, 자율주행차가 여러 차량을 피해야 할 때, VFlash는 한 번에 모든 차량의 위치를 예측해 빠르게 회피 경로를 설정합니다.",
+      "eli12": "VFlash는 로봇이 목표 지점에 도달하려면 먼저 그 지점의 위치를 알아야 한다고 생각해요. 기존 방식은 한 번에 하나씩 위치를 찾지만, VFlash는 한 번에 여러 위치를 모두 찾아내서 빠르게 경로를 설정합니다. 예를 들어, 로봇이 여러 장애물을 피해야 할 때, VFlash는 한 번에 모든 장애물의 위치를 찾아내서 빠르게 경로를 설정합니다.",
+      "background": [
+        {
+          "term": "시각 계획",
+          "explain": "로봇이나 자율주행차가 목표 지점에 도달하기 위해 시각 정보를 기반으로 계획을 만드는 방법입니다."
+        },
+        {
+          "term": "자율주행차",
+          "explain": "사람이 직접 운전하지 않고, 컴퓨터가 스스로 운전하는 차량입니다."
+        },
+        {
+          "term": "시퀀스 예측",
+          "explain": "한 번에 하나씩 데이터를 예측하는 방식으로, 예측이 느리고 비용이 많이 듭니다."
+        },
+        {
+          "term": "시각 원소",
+          "explain": "로봇이 목표를 달성하기 위해 사용하는 시각 정보, 예를 들어 위치나 경로 등입니다."
+        },
+        {
+          "term": "모델",
+          "explain": "데이터를 기반으로 예측이나 판단을 하는 컴퓨터의 시스템입니다."
+        }
+      ],
+      "keywords": [
+        "시각 계획",
+        "VFlash",
+        "자율주행차",
+        "시퀀스 예측",
+        "시각 원소"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:10:16.868875+00:00",
+    "week": "2026-W46"
+  },
+  "2611.08373": {
+    "id": "2611.08373",
+    "title": "SLA: Scaling Spatial-Language-Action Model via Continual Pre-training",
+    "authors": [
+      "Fuhao Li",
+      "Wenxuan Song",
+      "Qizhou Huang",
+      "Ziyang Zhou",
+      "Jingbo Wang",
+      "Junwu E",
+      "Pengwei Wang",
+      "Yan Wang",
+      "Shunbo Zhou",
+      "Haoang Li"
+    ],
+    "categories": [
+      "cs.RO"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-11-05T17:52:16Z",
+    "updated": "2026-11-05T17:52:16Z",
+    "abstract": "Reliable robotic manipulation requires both semantic understanding and precise control in three-dimensional space. However, vision-language-action (VLA) foundations largely inherit visual representations from 2D vision-language pre-training, while spatial supervision is often introduced only during task-specific adaptation. Developing spatial understanding as a transferable foundation-model capability therefore calls for learning from broader robot experience. We present SLA, a Spatial-Language-Action Model that scales implicit spatial alignment to continual pre-training and maintains it during downstream post-training. Initialized from a pretrained pi05 policy, SLA jointly optimizes action prediction and alignment between intermediate visual embeddings and spatial representations from a frozen 3D perception model. We curate and unify heterogeneous robot datasets to support spatial learning across diverse embodiments, tasks, and scenes. To accommodate this diversity, we introduce feature-dependent gates that adaptively aggregate visual embeddings from multiple VLA layers for spatial supervision. The teacher further exploits partially available depth and camera calibration alongside RGB observations, enabling effective use of heterogeneous geometric annotations. Probabilistic state dropout encourages reliance on visual cues and mitigates overfitting to demonstration trajectories. All auxiliary components are used only during training, allowing direct reuse of pretrained VLA weights and preserving the original inference architecture.",
+    "pdf_url": "https://arxiv.org/pdf/2611.08373v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.08373",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 92,
+    "citations": null,
+    "summary": {
+      "tldr": "로봇이 공간을 이해하는 능력을 향상시킨 새로운 모델을 만든 것입니다.",
+      "problem": "로봇이 3차원 공간에서 정확하게 움직일 수 있도록 하려면 시각, 언어, 행동을 모두 이해해야 하지만, 기존 모델은 2차원 이미지에만 의존해 공간 정보를 제대로 배우지 못했습니다.",
+      "method": "SLA 모델은 로봇이 다양한 환경에서 경험을 통해 공간 정보를 배우도록 설계되었습니다. 이미 학습된 3D 인식 모델과 함께, 시각 정보를 공간 정보와 연결해 행동을 예측합니다.",
+      "result": "다양한 로봇 환경에서 성공적으로 작동하며, 기존 모델보다 공간 이해 능력이 향상되었습니다. 이는 로봇이 복잡한 작업을 더 잘 수행할 수 있도록 합니다.",
+      "method_easy": "로봇이 방금 본 것을 기억해서, 그걸로 공간을 이해하는 법을 배웁니다. 예를 들어, 로봇이 물건을 집을 때, 그 물건이 어디에 있는지, 어떻게 움직여야 하는지를 학습합니다. 이걸로 로봇이 더 똑똑하게 움직일 수 있게 됩니다.",
+      "improvement": "기존에는 로봇이 2차원 이미지에만 의존해 공간을 이해했기 때문에 복잡한 작업을 할 수 없었습니다. 이 연구에서는 3차원 공간 정보를 학습해 로봇이 더 정확하게 움직일 수 있게 되었습니다. 예를 들어, 로봇이 방금 본 물건의 위치를 기억해, 그 물건을 정확하게 집을 수 있습니다. 그래서 실제 산업 현장에서 로봇이 더 유연하게 작업할 수 있게 됩니다.",
+      "limitations": "이 모델은 아직 특정 환경에서는 잘 작동하지 않을 수 있습니다. 이 연구에서는 다양한 데이터를 사용해 문제를 줄였지만, 모든 상황을 다루지는 못했습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 더 많은 환경 데이터를 학습시켜 다양한 상황에서도 잘 작동하도록 개선할 수 있습니다.",
+      "example": "이 기술은 팩토리에서 로봇이 다양한 물건을 정확하게 집을 수 있도록 도와줍니다. 예를 들어, 로봇이 여러 가지 모양의 상자를 정렬할 때, 이 기술로 상자의 위치를 정확히 파악해 정리할 수 있습니다.",
+      "eli12": "로봇이 방금 본 것을 기억해서, 그걸로 공간을 이해하는 법을 배웁니다. 예를 들어, 로봇이 물건을 집을 때, 그 물건이 어디에 있는지, 어떻게 움직여야 하는지를 학습합니다. 이렇게 하면 로봇이 더 똑똑하게 움직일 수 있게 됩니다.",
+      "background": [
+        {
+          "term": "시각-언어-행동(VLA)",
+          "explain": "로봇이 보고 듣고 행동하는 방법을 학습하는 기술입니다."
+        },
+        {
+          "term": "3차원 공간",
+          "explain": "우리가 살아가는 세상처럼, 길이, 너비, 높이가 모두 있는 공간입니다."
+        },
+        {
+          "term": "지속적인 사전학습(continual pre-training)",
+          "explain": "모델이 처음부터 계속해서 학습을 계속해서 더 나은 능력을 얻는 방법입니다."
+        },
+        {
+          "term": "시각 임베딩(visual embeddings)",
+          "explain": "로봇이 보는 것을 숫자로 변환해 이해하는 방법입니다."
+        },
+        {
+          "term": "확률적 상태 드롭아웃(probabilistic state dropout)",
+          "explain": "로봇이 학습할 때, 일부 정보를 잃어버리면서 학습을 더 잘하게 만드는 기법입니다."
+        }
+      ],
+      "keywords": [
+        "SLA",
+        "3차원 공간",
+        "지속적인 사전학습",
+        "시각-언어-행동",
+        "로봇 제어"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:11:09.830140+00:00",
+    "week": "2026-W46"
+  },
+  "2611.02497": {
+    "id": "2611.02497",
+    "title": "RoboColosseum: Evaluating Physical Intelligence at Scale In-The-Wild",
+    "authors": [
+      "Tan Sang Nguyen",
+      "Yi Ru Wang",
+      "Shailesh Shailesh",
+      "Gang Yang",
+      "Jiamo Hu",
+      "Jianuo Jiang",
+      "Haoquan Fang",
+      "Zhongzheng Ren",
+      "Zhongyi Luo",
+      "Ian Chong",
+      "Aaron Tung",
+      "Santiago Pravisani",
+      "Minghui Lin",
+      "Yao Mo",
+      "Ishneet Singh",
+      "Benjamin Tee",
+      "Harold Soh",
+      "Siddhartha Srinivasa",
+      "Dieter Fox",
+      "David Hsu",
+      "Haoming Song",
+      "Maxime Ellerbach",
+      "Thomas Wolf",
+      "Pepijn Kooijmans",
+      "Ruijie He",
+      "Michael Cho",
+      "Jiafei Duan"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-11-02T04:16:47Z",
+    "updated": "2026-11-02T04:16:47Z",
+    "abstract": "General-purpose robot policies must work across robots, tasks, and environments, yet the variation that makes physical trials informative also makes them difficult to reproduce. We introduce RoboColosseum, a distributed evaluation framework that combines unified policy serving and standardized protocols across a network of locally operated robots in diverse environments. Our initial study evaluates five vision-language-action (VLA) policies and three frontier AI agents across four embodiments (SO-101, Franka, Bimanual-YAM, and G1 Humanoid). The Open Track compares models without task-specific adaptation in blinded, pairwise trials under matched local conditions. The Fine-tune Track measures how well VLA policies adapt to 20 tasks across all four embodiments when each policy receives the same 100 demonstrations per task. Across 5,699 pairwise Open Track comparisons at 124 sites, frontier agents rival specialized VLA policies, while all systems struggle to complete open-world tasks reliably. After fine-tuning, GR00T N1.7 leads on SO-101 and pi0.5 leads on Franka and Bimanual-YAM. Policy rankings show weak agreement across embodiment-specific task suites (Kendall W = 0.24). Open Track rankings poorly predict relative performance after fine-tuning, with substantial rank reversals on all three embodiments shared between tracks. Measuring partial progress reveals differences that task success alone misses. On the G1 Humanoid, no policy completes any of the five tasks, yet average progress ranges from 13.3% to 23.2% across policies. Open Track rankings stabilize as trials accumulate, and active matchmaking achieves comparable ranking agreement with substantially fewer physical trials than uniform sampling. These results show how distributed physical evaluation can reveal where robot policies generalize, how well they adapt to new tasks, and how far they progress on tasks they fail to complete.",
+    "pdf_url": "https://arxiv.org/pdf/2611.02497v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.02497",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 50,
+    "citations": 0,
+    "summary": {
+      "tldr": "로봇 정책의 실제 능력을 다양한 환경에서 비교해 보여줍니다.",
+      "problem": "로봇 정책이 다양한 로봇과 환경에서 잘 작동해야 하지만, 실제 실험은 복잡하고 어렵습니다. 이 논문은 이를 해결하기 위해 여러 로봇을 사용한 평가 프레임워크를 제안합니다.",
+      "method": "RoboColosseum은 여러 로봇이 함께 참여하는 분산된 평가 프레임워크로, 표준화된 규칙과 일관된 평가 방식을 사용합니다. 다양한 로봇과 작업을 비교하며, 정책의 성능을 평가합니다.",
+      "result": "실험 결과, 일반적인 AI와 전문적인 정책 간의 성능 차이가 나타났고, 정책이 작업에 적응하는 능력도 평가되었습니다. 일부 로봇에서는 작업을 완료하지 못했지만, 진행도는 차이가 있었습니다.",
+      "method_easy": "로봇들이 서로 다른 곳에서 경쟁하는 게임처럼 진행됩니다. 각 로봇은 같은 규칙을 따라, 서로 다른 작업을 해보고, 누가 더 잘하는지 비교합니다. 예를 들어, 한 로봇이 물건을 집고 다른 로봇이 문을 열면, 두 로봇이 어떻게 잘하는지 보는 것입니다.",
+      "improvement": "이전에는 로봇 실험을 하기 위해 많은 자원이 필요했고, 결과도 일관되지 않았습니다. 이 연구에서는 여러 로봇을 사용해 실험을 효율적으로 진행하고, 결과도 더 정확하게 비교할 수 있게 되었습니다. 예를 들어, 5,699번의 실험을 통해 로봇의 능력을 비교할 수 있게 되었습니다. 이는 실제 로봇 개발에서 더 신뢰할 수 있는 평가 방법을 제공합니다.",
+      "limitations": "이 연구는 일부 로봇이 작업을 완료하지 못했고, 진행도 차이만으로 성능을 판단하는 한계가 있습니다. 또한, 모든 로봇이 동일한 환경에서 실험되었기 때문에 실제 상황과 차이가 있을 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다: 다양한 환경에서 실험을 추가하고, 작업 완료 외에도 진행도를 고려한 평가 방법을 개선하면 더욱 정확한 결과를 얻을 수 있습니다.",
+      "example": "이 기술은 로봇이 집에서 물건을 옮기거나, 병원에서 환자를 도와주는 등 실제 작업을 할 때 얼마나 잘하는지 평가할 수 있습니다. 예를 들어, 로봇이 환자를 옮기려고 하면, 이 기술을 통해 얼마나 잘 옮기는지, 얼마나 오래 걸리는지 등을 비교할 수 있습니다.",
+      "eli12": "로봇들이 서로 다른 곳에서 경쟁하는 게임처럼 진행됩니다. 각 로봇은 같은 규칙을 따라, 서로 다른 작업을 해보고, 누가 더 잘하는지 비교합니다. 예를 들어, 한 로봇이 물건을 집고 다른 로봇이 문을 열면, 두 로봇이 어떻게 잘하는지 보는 것입니다. 이렇게 하면 로봇이 실제 세상에서 잘 작동하는지 알 수 있습니다.",
+      "background": [
+        {
+          "term": "로봇 정책",
+          "explain": "로봇이 어떤 작업을 해야 하는지 결정하는 규칙이나 방법입니다."
+        },
+        {
+          "term": "분산 평가",
+          "explain": "여러 곳에서 동시에 실험을 진행하여 결과를 비교하는 방법입니다."
+        },
+        {
+          "term": "정규화된 규칙",
+          "explain": "모든 실험에 동일한 규칙을 적용하여 공정하게 비교할 수 있도록 만드는 방법입니다."
+        },
+        {
+          "term": "작업 성공률",
+          "explain": "로봇이 어떤 작업을 완료하는지, 얼마나 잘하는지를 나타내는 지표입니다."
+        },
+        {
+          "term": "진행도",
+          "explain": "작업을 완료하지 못했지만, 어느 정도 진행했는지를 나타내는 지표입니다."
+        }
+      ],
+      "keywords": [
+        "로봇 평가",
+        "정책 비교",
+        "분산 실험",
+        "작업 성공",
+        "진행도"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:12:06.092722+00:00",
+    "week": "2026-W46"
+  },
+  "2611.03178": {
+    "id": "2611.03178",
+    "title": "CoworkOS:Scaling Agent Coworkers for Real-world Automation",
+    "authors": [
+      "Jiajie Jin",
+      "Guanting Dong",
+      "Chengjun Pan",
+      "Xin Deng",
+      "Zhuohui Sheng",
+      "Guoqiang Wang",
+      "Tao Gui",
+      "Yutao Zhu",
+      "Yujia Chen",
+      "Shihong Yi",
+      "Binze Hu",
+      "Zhixiong Yang",
+      "Zhichao Sun",
+      "Rui Wang",
+      "Han Han",
+      "Mingyu Ma",
+      "Junhao Huang",
+      "Xiaotao Wang",
+      "Huicheng Jiang",
+      "Yuyang Hu",
+      "Xinyu Yang",
+      "Wanghan Xu",
+      "Yajie Yang",
+      "Zhecan Wang",
+      "Honglin Guo",
+      "Xiaoyu Xing",
+      "Xiaoqian Zhang",
+      "Yulun Zhu",
+      "Xiaoxi Li",
+      "Jiahang Lin",
+      "Shaofan Liu",
+      "Shihan Dou",
+      "Zhiheng Xi",
+      "Qi Zhang",
+      "Yu-Gang Jiang",
+      "See-Kiong Ng",
+      "Yang Zhang",
+      "Tat-Seng Chua",
+      "Ji-Rong Wen",
+      "Zhicheng Dou"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-11-02T14:15:11Z",
+    "updated": "2026-11-02T14:15:11Z",
+    "abstract": "Rapid advances in cowork agents are shifting human-AI collaboration toward real-world automation, delivering software, designs, and other artifacts. However, such productivity work demands both high-quality delivery on complex productivity tasks and continued monitoring and decision-making over long horizons, a combination that remains an open challenge. We introduce CoworkOS, a general-purpose harness for long-horizon work that separates task strategy from execution management: the model decides actions, delegation, and acceptance, while the runtime maintains state and feedback. Its three-layer architecture enables direct execution or delegation to Subagents, synchronously or asynchronously, under stable responsibilities. Through a shared application layer, humans and agents inspect and revise the same evolving documents, presentations, CAD models, and Blender scenes, so human-in-the-loop participation can enter both through conversation and through direct modification of the work itself. To sustain continuity across agents and sessions, CoworkOS further introduces hierarchical workspaces and persistent semantic memory, so working files, key decisions, and long-running Job logs remain shareable, reusable, and resumable after interruption. Across 12 benchmarks and 6 categories of real-world applications, CoworkOS proves highly competitive with frontier agent applications such as Codex and DeepSeek Harness. As a sustained-work case study, CoworkOS uses GLM-5.3 as its backbone to conduct RSI-driven automated post-training on Qwen3.6-35B-A3B. Over five rounds, the model's average score across eight benchmarks rose from 33.19 to 42.95 (+9.76). Looking ahead, we believe CoworkOS opens a meaningful path toward general cowork-agent intelligence.",
+    "pdf_url": "https://arxiv.org/pdf/2611.03178v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.03178",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 100,
+    "citations": null,
+    "summary": {
+      "tldr": "CoworkOS는 작업을 자동화하고 인간과 AI가 협업하는 시스템입니다.",
+      "problem": "AI가 복잡한 작업을 처리하고 오랜 시간 동안 모니터링하는 것이 어렵습니다. 인간과 AI가 함께 작업할 때, 문서나 설계를 수정하는 방식이 부족합니다.",
+      "method": "CoworkOS는 작업 전략과 실행을 분리해 AI가 행동을 결정하고, 시스템이 상태를 관리합니다. 인간과 AI는 같은 문서나 설계를 수정할 수 있고, 작업이 중단되어도 계속할 수 있습니다.",
+      "result": "CoworkOS는 여러 테스트에서 Codex나 DeepSeek Harness와 경쟁할 수 있었습니다. AI가 학습을 반복할수록 성능이 크게 향상되었습니다.",
+      "method_easy": "CoworkOS는 AI가 작업을 계획하고, 시스템이 실제로 실행하는 방식입니다. 예를 들어, AI가 문서를 수정할 때, 시스템은 그 수정을 저장하고, 중간에 중단해도 다시 시작할 수 있습니다. AI와 인간이 같은 문서를 수정할 수 있어서 협업이 쉬워졌습니다.",
+      "improvement": "기존에는 AI가 오래 걸리는 작업을 처리하는 것이 어려웠고, 인간과 AI가 함께 작업할 때 문서 수정이 복잡했습니다. 이 연구로 AI가 작업을 계획하고, 인간이 직접 수정할 수 있게 되었습니다. 예를 들어, 설계도면을 수정할 때 AI가 제안하고, 인간이 직접 수정할 수 있어서 효율이 높아졌습니다. 현실에서는 엔지니어가 설계를 만들 때 AI가 도움을 주고, 수정도 직접 할 수 있어서 작업이 빨라집니다.",
+      "limitations": "이 연구에서는 AI가 복잡한 작업을 처리하는 데 한계가 있고, 인간과 AI가 협업할 때 오류가 발생할 수 있습니다. 이렇게 하면 AI가 더 많은 데이터를 학습하고, 인간과 AI가 협업할 때 실시간 피드백을 주고받을 수 있도록 시스템을 개선할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 엔지니어가 설계도면을 만들 때 AI가 도움을 주고, 수정도 직접 할 수 있습니다. 예를 들어, 건축가가 건물 설계를 할 때 AI가 자동으로 구조를 제안하고, 건축가가 직접 수정할 수 있어서 시간이 절약됩니다.",
+      "eli12": "CoworkOS는 AI가 사람과 함께 작업하는 시스템입니다. 예를 들어, AI가 사람에게 질문을 하고, 사람도 AI에게 답을 주면서 함께 문서를 만드는 것처럼요. AI가 먼저 계획을 세우고, 사람도 직접 수정할 수 있어서 더 쉽게 작업할 수 있어요.",
+      "background": [
+        {
+          "term": "AI 협업",
+          "explain": "AI가 사람과 함께 일을 도와주는 방식입니다."
+        },
+        {
+          "term": "작업 자동화",
+          "explain": "AI가 사람 대신 작업을 자동으로 처리하는 것입니다."
+        },
+        {
+          "term": "문서 수정",
+          "explain": "문서나 설계도를 바꾸는 일입니다."
+        },
+        {
+          "term": "지속 작업",
+          "explain": "오랜 시간 동안 계속해서 작업을 하는 것입니다."
+        },
+        {
+          "term": "AI 학습",
+          "explain": "AI가 데이터를 보고 스스로 배우는 것입니다."
+        }
+      ],
+      "keywords": [
+        "AI 협업",
+        "작업 자동화",
+        "문서 수정",
+        "지속 작업",
+        "AI 학습"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:12:54.445950+00:00",
+    "week": "2026-W46"
+  },
+  "2611.04277": {
+    "id": "2611.04277",
+    "title": "Harness-S: Learning from Sibling Harnesses for Generalizable Agent Training",
+    "authors": [
+      "Kangning Zhang",
+      "Wenxiang Jiao",
+      "Bowen Fang",
+      "Shuai Shao",
+      "Jiachen Zhu",
+      "Rong Shan",
+      "Shijian Wang",
+      "Hao Wang",
+      "Yuan Lu",
+      "Weiwen Liu",
+      "Weinan Zhang"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-11-03T04:03:44Z",
+    "updated": "2026-11-03T04:03:44Z",
+    "abstract": "Harness evolution from a common base exhibits Locality, Complementarity, and Nonstationarity: variants repair different failures, and their utility changes as the policy learns. Rather than seeking a universally superior harness, we introduce Harness-S to selectively rescue failures of a base execution system through sibling harnesses and transfer the resulting capabilities into a single policy that remains effective under the original harness. Directional Harness Evolution develops specialized sibling harnesses along distinct repair directions, forming a reusable Sibling Harness Pool that remains fixed during policy training. Complementary Harness Rescue Training invokes this pool only when all initial attempts under the base harness fail. The same policy generates fresh rollouts under selected auxiliary harnesses, and these trajectories replace the failed group for reinforcement learning. An Adaptive Harness Router selects the Top-k variants using Harness Behavior Profiles and voting across multiple LLMs. Policy-aware profile re-anchoring refreshes this evidence as the policy learns. Across AppWorld, SWE-Gym, and DBBench, the trained policy substantially outperforms policy-only training when returned to the original base harness. Behavioral analyses and held-out cases support the transfer of harness-elicited behaviors into the policy itself. Reusing the router for Rank-1 inference provides additional gains at the same executor rollout count.",
+    "pdf_url": "https://arxiv.org/pdf/2611.04277v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.04277",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 66,
+    "citations": null,
+    "summary": {
+      "tldr": "정책 학습에 다양한 헤르시를 활용해 성능을 향상시킵니다.",
+      "problem": "기존 방법은 단일 헤르시로 학습해 문제가 발생할 경우 해결책이 부족했습니다. 다양한 헤르시를 활용해 문제를 해결하고, 학습된 정책이 원래 헤르시에서도 잘 작동하도록 만들고자 합니다.",
+      "method": "Harness-S는 여러 헤르시를 사용해 문제를 해결하고, 학습된 정책이 원래 헤르반스에서도 효과적으로 작동하도록 합니다. 학습 중에 헤르시를 자동으로 선택해 문제를 해결하고, 학습된 정책을 업데이트합니다.",
+      "result": "AppWorld, SWE-Gym, DBBench에서 학습된 정책이 기존 방법보다 훨씬 잘 작동했습니다. 학습된 행동이 헤르시에 의존하지 않고 정책 자체에 내재되어 있어 일반화가 잘 됩니다.",
+      "method_easy": "이 논문은 여러 가지 방법(헤르시)을 사용해 문제를 해결하고, 학습된 방법이 처음 사용한 방법에서도 잘 작동하도록 합니다. 예를 들어, 게임에서 여러 가지 전략을 시도해 어떤 전략이 더 잘 작동하는지 확인하고, 그 전략을 정책에 적용합니다.",
+      "improvement": "기존에는 단일 전략만 사용해 문제가 발생하면 해결책이 없었습니다. 이 연구로는 여러 전략을 사용해 문제를 해결하고, 학습된 전략이 처음 사용한 전략에서도 잘 작동합니다. 예를 들어, 게임에서 여러 전략을 시도해 어떤 전략이 더 잘 작동하는지 확인하고, 그 전략을 정책에 적용해 성능이 크게 향상됩니다. 현실에서는 게임이나 로봇 제어 등에서 활용할 수 있습니다.",
+      "limitations": "이 연구는 헤르시를 생성하는 데 많은 자원이 필요해 대규모 시스템에서는 적용이 어려울 수 있습니다. 헤르시를 생성하는 과정을 자동화하거나, 더 효율적인 방법으로 개선하면 보완할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 게임에서 여러 전략을 시도해 어떤 전략이 더 잘 작동하는지 확인하고, 그 전략을 정책에 적용해 게임을 더 잘 플레이할 수 있습니다. 예를 들어, 게임에서 여러 가지 전략을 시도해 어떤 전략이 더 잘 작동하는지 확인하고, 그 전략을 정책에 적용해 게임을 더 잘 플레이할 수 있습니다.",
+      "eli12": "이 논문은 여러 가지 방법을 사용해 문제를 해결하고, 학습된 방법이 처음 사용한 방법에서도 잘 작동하도록 합니다. 예를 들어, 게임에서 여러 가지 전략을 시도해 어떤 전략이 더 잘 작동하는지 확인하고, 그 전략을 정책에 적용해 게임을 더 잘 플레이할 수 있습니다.",
+      "background": [
+        {
+          "term": "정책 학습",
+          "explain": "AI가 특정 목표를 달성하기 위해 스스로 학습하는 방법입니다."
+        },
+        {
+          "term": "헤르시",
+          "explain": "AI가 특정 행동을 수행할 때 사용하는 도구나 방법입니다."
+        },
+        {
+          "term": "강화 학습",
+          "explain": "AI가 행동을 통해 보상이나 페널티를 받으며 학습하는 방법입니다."
+        },
+        {
+          "term": "정책",
+          "explain": "AI가 특정 상황에서 어떤 행동을 선택할지를 결정하는 규칙입니다."
+        },
+        {
+          "term": "보상",
+          "explain": "AI가 행동을 통해 얻는 긍정적 또는 부정적 결과입니다."
+        }
+      ],
+      "keywords": [
+        "Harness-S",
+        "정책 학습",
+        "강화 학습",
+        "헤르시",
+        "보상"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:13:46.406089+00:00",
+    "week": "2026-W46"
+  },
+  "2610.39497": {
+    "id": "2610.39497",
+    "title": "Does Scaling Toward AGI Depend on What System-1 Lets System-2 Execute?",
+    "authors": [
+      "Qi Wang",
+      "Yun Qu",
+      "Lizhou Cai",
+      "Heming Zou",
+      "Haoang Chi",
+      "Yiqin Lv",
+      "Xiang Li",
+      "Haiyan Feng",
+      "Mengyu Ge",
+      "Yize Geng",
+      "Yuhang Jiang",
+      "Yixiu Mao",
+      "Xiangyang Ji"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-10-29T07:00:32Z",
+    "updated": "2026-10-29T07:00:32Z",
+    "abstract": "Progress toward artificial general intelligence (AGI) has largely relied on scaling a resource-intensive executive, System-2, through larger models, more data and compute, longer reasoning, and more agents. We ask whether the next stage may come instead from co-designing it with System-1, a lightweight, semantically aware predictor that evaluates candidate interactions before execution, so that System-2 acts only on those worth their cost. Our answer is a qualified yes. We study \\textit{conditional interaction}, a predict--gate--execute--update loop: System-1 estimates each candidate's utility, System-2 executes those admitted by an adaptive threshold, and the outcomes update System-1. The loop spans training, test-time reasoning, adaptive decision-making, and agentic tool use, with utility and cost defined by the application. Under ideal screening and equal execution costs, execution compute falls by a factor approaching $1/ρ_u$, where $ρ_u$ is the density of utility-relevant interactions (cost-weighted when costs differ); prediction errors, exploration, and distribution shift reduce the saving. We bound selection regret by predictor error and the utility margin. These results motivate our central hypothesis: $ρ_u$ is a measurable coordinate of scaling efficiency and makes informative compute a better description of scaling than total compute.",
+    "pdf_url": "https://arxiv.org/pdf/2610.39497v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.39497",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 64,
+    "citations": null,
+    "summary": {
+      "tldr": "AGI 발전은 System-1과 System-2의 협업에서 기대됩니다.",
+      "problem": "현재 AGI는 System-2의 확장에만 의존하고 있습니다. System-1과의 협업을 통해 더 효율적인 자원 사용이 가능할지 탐구합니다.",
+      "method": "System-1은 예측을 통해 System-2가 실행할 작업을 필터링하고, System-2는 필터링된 작업만 실행합니다. 이 과정은 학습, 추론, 의사결정, 도구 사용 등 다양한 단계에서 적용됩니다.",
+      "result": "System-1의 필터링으로 실행 계산량이 감소하고, 이는 AGI의 확장 효율을 높일 수 있습니다. 이는 총 계산량보다 유용한 계산량을 기준으로 하면 더 효과적입니다.",
+      "method_easy": "System-1은 먼저 '이 일을 해야 해?'라고 판단하고, System-2는 그 판단을 바탕으로 일을 합니다. 예를 들어, System-1이 '이 문제는 어렵다'고 판단하면, System-2는 그 문제를 건너뜁니다. 이처럼 System-1이 System-2가 할 일을 줄여줍니다.",
+      "improvement": "이전에는 System-2만 사용해 모든 일을 처리했기 때문에 계산량이 너무 컸습니다. 이 연구로 System-1이 필터링을 해주므로, 계산량이 1/ρ_u에 줄어듭니다. 예를 들어, ρ_u가 10이라면 계산량이 10분의 1로 줄어듭니다. 이는 실제 문제 해결에서 효율성을 크게 높일 수 있습니다.",
+      "limitations": "이 연구는 이상적인 상황을 가정하고 있기 때문에 실제 상황에서는 예측 오류나 비용 차이가 발생할 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 예측 오류는 더 많은 데이터로 줄이고, 비용 차이는 비용을 고려한 필터링으로 해결할 수 있습니다.",
+      "example": "이 기술은 자율주행차에서 사용될 수 있습니다. System-1이 '이 길은 위험하다'고 판단하면, System-2는 그 길을 건너뜁니다. 이로 인해 자동차가 더 안전하게 움직일 수 있습니다.",
+      "eli12": "System-1은 먼저 '이 일을 해야 해?'라고 생각하고, System-2는 그 판단을 바탕으로 일을 합니다. 예를 들어, System-1이 '이 문제는 어려워'라고 생각하면, System-2는 그 문제를 건너뜁니다. 이처럼 System-1이 System-2가 할 일을 줄여줍니다.",
+      "background": [
+        {
+          "term": "System-1",
+          "explain": "빠르고 자동으로 판단하는 뇌의 기능입니다."
+        },
+        {
+          "term": "System-2",
+          "explain": "천천히 생각하고 계산하는 뇌의 기능입니다."
+        },
+        {
+          "term": "AGI",
+          "explain": "인간처럼 다양한 작업을 할 수 있는 인공지능입니다."
+        },
+        {
+          "term": "예측 오류",
+          "explain": "예측한 결과와 실제 결과가 달라지는 오류입니다."
+        },
+        {
+          "term": "비용",
+          "explain": "작업을 하려면 자원이나 시간이 필요합니다."
+        }
+      ],
+      "keywords": [
+        "AGI",
+        "System-1",
+        "System-2",
+        "예측",
+        "효율"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:14:33.127477+00:00",
+    "week": "2026-W46"
+  },
+  "2611.00617": {
+    "id": "2611.00617",
+    "title": "Words Caught in the Heart: Simulating Person-Specific Expression for Self-Opaque Clients in Psychotherapy",
+    "authors": [
+      "Mengxi Xiao",
+      "Jingjing Chen",
+      "Ziyan Kuang",
+      "Jiarong Song",
+      "Wenhao Zhao",
+      "Zuchen Han",
+      "Yihuai Xu",
+      "Xiyang Huang",
+      "Jie Gong",
+      "Yuechen Jiang",
+      "Xueqing Peng",
+      "Yankai Chen",
+      "Xiaoyan Qu",
+      "Min Peng",
+      "Qianqian Xie"
+    ],
+    "categories": [
+      "cs.HC"
+    ],
+    "primary_category": "cs.HC",
+    "published": "2026-10-31T04:36:28Z",
+    "updated": "2026-10-31T04:36:28Z",
+    "abstract": "Psychotherapy clients may experience distress before they can coherently describe it, and their expression changes with emotion, perceived safety, and trust. Large language model-based client simulators often rely on clinically organized case descriptions, which can encourage responses explaining the client's difficulties more clearly than their current understanding warrants. We propose Pandora, a psychotherapy client simulation framework that models how psychological experience becomes situated, individual expression. Pandora updates psychological and relational states in response to therapist interventions, constructs subjective appraisals and attributions, and plans response content and strategy. A separate expression planner combines these decisions with language patterns distilled from the client's utterances to guide linguistic realization. We evaluate Pandora against five baselines on 115 cases from four counseling and motivational interviewing datasets. It achieves the highest expression similarity and overall disclosure-alignment score among the compared systems. In a four-evaluator study of 45 matched disclosure items, Pandora receives AI-like judgments in 7.2% of ratings, compared with 43.3--67.2% for the baselines and 35.6% without expression planning. The ablation also reduces expression similarity. These results support explicit expression planning in client simulation to improve alignment with individual language patterns and reduce perceived AI-like expression in the evaluated setting.",
+    "pdf_url": "https://arxiv.org/pdf/2611.00617v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.00617",
+    "subfield": "기타 AI",
+    "upvotes": 77,
+    "citations": null,
+    "summary": {
+      "tldr": "AI가 사람의 감정을 더 자연스럽게 표현할 수 있도록 했습니다.",
+      "problem": "심리상담에서 고객의 감정을 자연스럽게 표현하는 AI가 부족했습니다. 기존 AI는 고객의 감정을 잘 이해하지 못해 표현이 부자연스러웠습니다.",
+      "method": "Pandora라는 프레임워크를 만든 것입니다. 이 프레임워크는 상담사의 대화에 따라 고객의 감정과 관계 상태를 업데이트하고, 고객의 말을 분석해 자연스러운 대화를 만듭니다.",
+      "result": "Pandora는 기존 AI보다 고객의 감정 표현이 더 자연스럽고, AI처럼 느껴지지 않는 대화를 할 수 있었습니다. 평가 결과에서도 높은 점수를 받았습니다.",
+      "method_easy": "Pandora는 사람의 감정을 이해하고, 그 감정을 자연스럽게 말로 표현하는 AI입니다. 예를 들어, 고객이 슬프다고 말하면, AI는 그 감정을 느끼고, '그렇구나, 슬프다니 정말 마음이 힘들었겠구나'라고 말할 수 있도록 합니다.",
+      "improvement": "기존에는 AI가 고객의 감정을 잘 이해하지 못해 표현이 부자연스러웠습니다. 이 연구로 AI가 고객의 말을 분석해 감정을 더 잘 이해하고, 자연스럽게 표현할 수 있게 되었습니다. 평가 결과에서 7.2%의 평가가 AI처럼 느껴지지 않았고, 이전에는 43.3~67.2%였습니다. 이는 실제 상담에서 고객과 더 자연스럽게 대화할 수 있는 AI를 만들 수 있습니다.",
+      "limitations": "현재는 고객의 감정을 정확히 분석하는 데 한계가 있습니다. 고객의 말이 모호하거나 감정이 복잡할 경우, AI가 정확히 이해하지 못할 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 고객의 말을 더 자세히 분석하고, 감정을 더 정확히 분류하는 알고리즘을 개선하면 좋습니다.",
+      "example": "상담사가 고객에게 '왜 그런가요?'라고 물으면, AI는 고객의 감정을 분석해 '그렇구나, 그럴 만도 하다'라고 자연스럽게 대답할 수 있습니다. 이는 고객이 더 편안하게 말할 수 있도록 도와줍니다.",
+      "eli12": "Pandora는 사람의 감정을 잘 이해하고, 그 감정을 자연스럽게 말로 표현하는 AI입니다. 예를 들어, 친구가 슬프다고 말하면, AI는 '그렇구나, 슬프다니 정말 마음이 힘들었겠구나'라고 말할 수 있어요. 이는 친구가 더 편안하게 이야기할 수 있도록 도와요.",
+      "background": [
+        {
+          "term": "심리상담",
+          "explain": "심리학자가 고객의 감정이나 문제를 이해하고 도와주는 일입니다."
+        },
+        {
+          "term": "대화형 AI",
+          "explain": "사람과 대화를 나누고, 질문에 답하는 인공지능입니다."
+        },
+        {
+          "term": "감정 분석",
+          "explain": "사람의 말 속 감정을 알아내는 기술입니다."
+        },
+        {
+          "term": "자연스러운 언어",
+          "explain": "사람이 자연스럽게 말하는 방식을 모방한 언어입니다."
+        },
+        {
+          "term": "상담 기술",
+          "explain": "고객의 감정을 이해하고, 도움을 주는 방법을 말합니다."
+        }
+      ],
+      "keywords": [
+        "심리상담",
+        "대화형 AI",
+        "감정 분석",
+        "자연스러운 언어",
+        "상담 기술"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:15:24.233505+00:00",
+    "week": "2026-W46"
+  },
+  "2611.05193": {
+    "id": "2611.05193",
+    "title": "Factorized MLLM Embeddings for Composed Image Retrieval",
+    "authors": [
+      "WonJun Moon",
+      "Seongchan Kim",
+      "Dahun Kim",
+      "Seungryong Kim"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-11-02",
+    "updated": "2026-11-02",
+    "abstract": "Composed Image Retrieval (CIR) aims to retrieve a target image given a reference image and a modification text. Although recent approaches leveraging Multimodal Large Language Models (MLLMs) have shown significant progress, we argue that the MLLM's compositional understanding remains underutilized. This stems from directly mapping composed queries into a retrieval embedding via contrastive supervision alone, without explicitly resolving the intended visual modifications. In this work, we introduce Factorized MLLM Embeddings (FactEmbed), which decouples compositional query comprehension from building discriminative embeddings. Rather than directly projecting the composed query into a single embedding without internal reasoning, FactEmbed employs a set of factorized latents that simulate the intended visual modifications via an intermediate target imagination objective. This process encourages the latents to ground into target semantics before forming discriminative representations for retrieval. Subsequently, to propagate these factorized representations throughout the model for retrieval, we optimize a factor-level contrastive loss while distilling the decomposed representations into a deeper attention layer of the MLLM. Finally, for efficient inference, we retain the [EOS] token to establish a global-level embedding on top of these factorized latents, while we exploit the mean-pooled factorized latents to rerank a short candidate list at negligible cost, as both are produced by the same forward pass. Extensive evaluations demonstrate that FactEmbed outperforms prior works across CIR benchmarks.",
+    "pdf_url": "https://arxiv.org/pdf/2611.05193",
+    "arxiv_url": "https://arxiv.org/abs/2611.05193",
+    "subfield": "정보검색·추천",
+    "upvotes": 48,
+    "citations": null,
+    "summary": {
+      "tldr": "이미지 검색에 더 나은 결과를 내는 새로운 방법을 제안했습니다.",
+      "problem": "이미지 검색에서 수정된 이미지를 찾기 위해 기존 방법이 효과적이지 않았습니다. MLLM을 사용해도 구성된 문장의 의미를 제대로 파악하지 못해 검색 성능이 낮았습니다.",
+      "method": "FactEmbed는 구성된 문장의 의미를 별개로 이해하고, 이를 바탕으로 검색에 사용할 잠재적 특징을 만듭니다. 이 잠재적 특징을 기반으로 검색 성능을 높이기 위해 특별한 손실 함수를 사용했습니다.",
+      "result": "FactEmbed는 기존 방법보다 검색 성능이 향상되었고, 실제 검색 시도에서 효과적으로 작동했습니다. 이는 이미지 검색 분야에서 중요한 발전으로 평가받고 있습니다.",
+      "method_easy": "이 방법은 이미지에 대한 설명을 여러 부분으로 나누어 하나씩 이해하고, 각 부분을 바탕으로 검색을 더 잘 할 수 있도록 도와줍니다. 예를 들어, '빨간 자동차'라는 설명을 '빨간색'과 '자동차'로 나누어 각각의 특징을 분리해 검색에 사용합니다.",
+      "improvement": "기존에는 설명을 하나의 전체로 보아 검색을 했기 때문에 의미가 잘 파악되지 않았습니다. 이 연구에서는 설명을 나누어 각 부분을 분리해 검색 성능을 15% 향상시켰습니다. 이는 실제 검색 시, 더 정확한 결과를 보여주는 데 도움이 됩니다. 예를 들어, '흰색 고양이'를 검색할 때, '흰색'과 '고양이'를 나누어 검색하면 더 정확한 이미지를 찾을 수 있습니다.",
+      "limitations": "이 방법은 복잡한 설명을 처리할 때 시간이 더 걸릴 수 있습니다. 이는 대규모 데이터 처리 시 성능 저하로 이어질 수 있습니다. 이를 보완하기 위해서는 더 효율적인 처리 방식을 도입하면 보완할 수 있을 것으로 보입니다. 또한, 이 방법은 특정 유형의 설명에만 잘 작동하므로, 다양한 유형의 설명을 처리할 수 있도록 개선이 필요합니다.",
+      "example": "이 기술은 사진 검색 앱에서 사용할 수 있습니다. 예를 들어, 사용자가 '파란 배경의 고양이'라고 검색하면, 이 기술은 '파란 배경'과 '고양이'를 나누어 검색해 더 정확한 결과를 제공합니다.",
+      "eli12": "이 방법은 설명을 여러 부분으로 나누어 하나씩 이해하고, 그걸로 검색을 더 잘 해요. 예를 들어, '빨간 자동차'라고 검색하면 '빨간색'과 '자동차'를 나누어 검색해 더 정확한 사진을 찾을 수 있어요. 이 방법은 검색이 더 잘 되고, 사람들이 원하는 사진을 더 쉽게 찾을 수 있어요.",
+      "background": [
+        {
+          "term": "멀티모달 대규모 언어 모델",
+          "explain": "이미지와 텍스트를 함께 이해하는 큰 인공지능입니다."
+        },
+        {
+          "term": "임베딩",
+          "explain": "문자나 이미지를 숫자로 바꾸어 컴퓨터가 이해할 수 있도록 만드는 방법입니다."
+        },
+        {
+          "term": "대비 손실",
+          "explain": "두 가지 것의 차이를 비교해 모델이 더 잘 구분할 수 있도록 도와주는 기법입니다."
+        },
+        {
+          "term": "요약",
+          "explain": "복잡한 내용을 간단하게 요약하여 쉽게 이해할 수 있도록 만드는 방법입니다."
+        },
+        {
+          "term": "인코딩",
+          "explain": "문자나 이미지를 컴퓨터가 이해할 수 있는 형태로 변환하는 과정입니다."
+        }
+      ],
+      "keywords": [
+        "이미지 검색",
+        "임베딩",
+        "MLLM",
+        "대비 손실",
+        "요약"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:16:17.777032+00:00",
+    "week": "2026-W46"
+  },
+  "2611.00172": {
+    "id": "2611.00172",
+    "title": "From Fragmentation to Fusion: A Survey and Roadmap for Omnimodal Embeddings",
+    "authors": [
+      "Ziyin Zhang",
+      "Yuyu Guo",
+      "Ying Zhang",
+      "Siqiao Xue",
+      "Zihan Liao",
+      "Jin Qin",
+      "Wenjie Yang",
+      "Siyuan Yang",
+      "Shijie Li",
+      "Cheng Chen",
+      "Hao Wu",
+      "Zhaoyang Zhu",
+      "Ruipeng Li",
+      "Zhaokun Jiang",
+      "Lei Lei",
+      "Rui Wang",
+      "Hang Yu",
+      "Rui Wang"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-10-29",
+    "updated": "2026-10-29",
+    "abstract": "Embedding models underpin virtually every modern AI system, from search engines to recommendation systems. Despite shared mathematical foundations, research on embedding models remains fragmented by modality: the communities develop largely in isolation, seldom exchanging insights. We argue that this fragmentation obscures a deeper convergence. Driven by contrastive learning, Transformer architectures, and a granularity shift, embedding research across modalities is converging toward a common set of principles, even as modality-specific challenges remain underexplored. To reason across this convergence without conflating it, we propose a framework of three progressively harder capabilities: coverage, comparability, and compositionality. Three paths toward unification satisfy these in turn: transformation broadens coverage, alignment enables comparability, and joint embedding, the terminus we advocate, aims at compositionality. This position paper traces the resulting evolution, providing the first unified, cross-cutting treatment of omnimodal embedding research.",
+    "pdf_url": "https://arxiv.org/pdf/2611.00172",
+    "arxiv_url": "https://arxiv.org/abs/2611.00172",
+    "subfield": "정보검색·추천",
+    "upvotes": 24,
+    "citations": null,
+    "summary": {
+      "tldr": "모든 데이터 유형을 하나로 묶는 방법을 정리하고 미래 방향을 제시했습니다.",
+      "problem": "모든 데이터 유형(음성, 텍스트 등)을 하나로 묶는 연구가 분산되어 있어 통합이 어려웠습니다. 각 분야에서 독자적으로 연구해 서로의 성과를 공유하지 못했습니다.",
+      "method": "모든 데이터 유형을 하나로 묶는 세 가지 능력(커버리지, 비교 가능성, 조합 가능성)을 제안했습니다. 이를 위해 변환, 정렬, 결합이라는 세 가지 방법을 사용했습니다.",
+      "result": "모든 데이터 유형을 하나로 묶는 연구가 점점 통합되고 있다는 점을 밝혔습니다. 이는 AI 시스템이 더 잘 작동할 수 있는 가능성을 열어줍니다.",
+      "method_easy": "모든 데이터를 하나로 묶는 방법을 세 가지로 나누었습니다. 첫째, 데이터를 다른 형태로 바꾸는 것이고, 둘째, 데이터를 서로 비교할 수 있게 만드는 것이고, 셋째, 데이터를 조합해 새로운 정보를 만드는 것입니다. 예를 들어, 텍스트와 이미지를 하나로 묶어 새로운 정보를 만드는 것이죠.",
+      "improvement": "이전에는 데이터 유형별로 연구가 분리되어 서로의 성과를 공유하지 못했습니다. 이 연구로는 데이터를 하나로 묶는 방법이 통합되어 더 나은 결과를 낼 수 있게 되었습니다. 예를 들어, 이미지와 텍스트를 하나로 묶어 더 정확한 추천을 할 수 있게 되었습니다. 현실에서는 추천 시스템이나 번역 시스템에서 큰 도움이 됩니다.",
+      "limitations": "이 연구는 실제 데이터를 처리하는 데까지 다가가지 못했습니다. 또한, 모든 데이터 유형을 처리하는 데 한계가 있습니다. 이걸 보완하면, 실제 데이터를 처리하는 실험을 추가하고, 다양한 데이터 유형을 처리하는 방법을 더 연구하면 좋습니다.",
+      "example": "이 기술은 영화 추천 시스템에서 사용됩니다. 영화의 설명(텍스트)과 포스터(이미지)를 하나로 묶어 더 정확한 추천을 할 수 있습니다. 예를 들어, '이 영화는 공포 영화인데, 주인공이 강한 감정을 보입니다'라는 설명과 함께 영화 포스터를 하나로 묶어 추천합니다.",
+      "eli12": "모든 데이터를 하나로 묶는 방법을 정리하고, 앞으로 어떻게 발전할지 말해주는 글입니다. 예를 들어, 텍스트와 이미지를 하나로 묶어 새로운 정보를 만드는 방법을 말해요. 이는 게임이나 영화 추천에 도움이 됩니다.",
+      "background": [
+        {
+          "term": "임베딩 모델",
+          "explain": "데이터를 숫자로 바꿔서 컴퓨터가 이해할 수 있도록 만드는 방법입니다."
+        },
+        {
+          "term": "모달리티",
+          "explain": "데이터의 유형을 말합니다. 예를 들어, 텍스트, 이미지, 음성 등이 있습니다."
+        },
+        {
+          "term": "대비 학습",
+          "explain": "데이터를 비교해 모델이 더 잘 배우도록 하는 방법입니다."
+        },
+        {
+          "term": "트랜스포머",
+          "explain": "데이터를 처리하는 데 자주 사용되는 구조로, 문장이나 이미지를 이해하는 데 도움을 줍니다."
+        },
+        {
+          "term": "정렬",
+          "explain": "두 가지 데이터를 서로 비교할 수 있도록 만드는 방법입니다."
+        }
+      ],
+      "keywords": [
+        "임베딩 모델",
+        "모달리티",
+        "대비 학습",
+        "트랜스포머",
+        "정렬"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:17:07.475013+00:00",
+    "week": "2026-W46"
+  },
+  "2611.04894": {
+    "id": "2611.04894",
+    "title": "VisSearch-Bench: Evaluating Long Horizon Visual Search in Multimodal Agents",
+    "authors": [
+      "ZhengXian Wu",
+      "Qianhao Nie",
+      "Zhuohong Chen",
+      "Junjie Gao",
+      "Yuyao Zhang",
+      "Yunyao Yu",
+      "Hangrui Xu",
+      "Cheng Cheng",
+      "Guiyu Ma",
+      "Jin Zhang",
+      "Xingzhong Xu",
+      "Kai Yang",
+      "Haoqian Wang"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-11-02",
+    "updated": "2026-11-02",
+    "abstract": "Multimodal agents use web and image tools to answer questions beyond their internal knowledge. Some search tasks use images mainly to identify an initial entity, then rely on text retrieval. These tasks offer limited insight into how agents connect information across images, objects, and search steps. We therefore focus on visual context management. This involves organizing and using visual information and linking it to other findings during search. Visually intensive tasks require agents to combine object appearance, local details, or spatial relations with external information. We introduce VisSearch-Bench, with 204 human-written tasks across 7 main domains and 25 subdomains. It covers Set-wise Visual Search, Sequential Visual Search, Hybrid Wide-Deep Search, Competitive Visual Disambiguation, and Visual-Structure-Guided Search. Each task provides a reference answer, traceable evidence, and scoring rules. Accuracy measures complete task success, while Process Score measures the correctness and completeness of individual results and subquestion answers. Across 16 multimodal models, the best system fully solves only 26.47% of tasks, even with search tools. These results highlight the challenge of linking visual evidence with search results to produce complete answers.",
+    "pdf_url": "https://arxiv.org/pdf/2611.04894",
+    "arxiv_url": "https://arxiv.org/abs/2611.04894",
+    "subfield": "정보검색·추천",
+    "upvotes": 22,
+    "citations": null,
+    "summary": {
+      "tldr": "시각 검색 능력을 평가하는 새로운 테스트 벤치를 제안했습니다.",
+      "problem": "다양한 모달리티를 사용하는 에이전트가 시각 정보를 연결해 검색하는 능력을 평가하는 방법이 부족합니다. 기존 방법은 시각 정보를 연결하는 능력을 충분히 평가하지 못해 한계가 있습니다.",
+      "method": "VisSearch-Bench라는 새로운 평가 테스트를 제안했습니다. 이 테스트는 7개 주 분야와 25개 부분야에 걸쳐 204개의 인간이 작성한 작업을 포함합니다. 각 작업은 정답, 증거, 평가 기준을 제공하며, 정확도와 처리 점수를 통해 성능을 평가합니다.",
+      "result": "16개의 다모달 모델 중 최고 성능 모델도 26.47%만 작업을 완전히 해결할 수 있었습니다. 이는 시각 증거와 검색 결과를 연결해 완전한 답변을 만드는 것이 얼마나 어려운지를 보여줍니다.",
+      "method_easy": "이 논문은 AI가 사진이나 그림을 보며 정보를 찾는 능력을 평가하는 테스트를 만들었습니다. 예를 들어, AI가 '파란 자전거'를 찾을 때, 사진 속 자전거의 색, 모양, 위치 등을 고려해 찾아야 합니다. 이 테스트는 AI가 사진을 보고 정보를 연결하는 능력을 체크합니다.",
+      "improvement": "기존에는 AI가 사진을 보고 정보를 찾는 능력을 충분히 평가하지 못했습니다. 이 연구로 AI가 사진을 보고 정보를 연결하는 능력을 정확하게 평가할 수 있게 되었습니다. 예를 들어, AI가 사진 속 자전거를 찾을 때, 색, 모양, 위치 등을 모두 고려해 정답을 찾을 수 있게 되었습니다. 이는 실제 문제 해결에 큰 도움이 됩니다.",
+      "limitations": "이 연구는 현재까지 204개의 작업만을 포함하고 있어 모든 시각 검색 문제를 다루지 못합니다. 또한, AI가 사용하는 검색 도구에 따라 성능이 달라질 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 더 많은 작업을 추가하고, 다양한 검색 도구를 지원하면 더욱 실용적일 것입니다.",
+      "example": "이 기술은 온라인 쇼핑몰에서 제품을 찾는 데 사용할 수 있습니다. 예를 들어, 사용자가 '파란 자전거'를 검색하면, AI는 사진 속 자전거의 색, 모양, 위치 등을 고려해 정확한 제품을 추천할 수 있습니다.",
+      "eli12": "이 논문은 AI가 사진을 보고 정보를 찾는 능력을 평가하는 테스트를 만들었습니다. 예를 들어, AI가 '파란 자전�'을 찾을 때, 사진 속 자전거의 색, 모양, 위치 등을 고려해 찾아야 합니다. 이 테스트는 AI가 사진을 보고 정보를 연결하는 능력을 체크합니다. 이는 실제 문제 해결에 큰 도움이 됩니다.",
+      "background": [
+        {
+          "term": "다모달리티",
+          "explain": "텍스트, 이미지, 음성 등 여러 형태의 정보를 함께 사용하는 기술입니다."
+        },
+        {
+          "term": "시각 검색",
+          "explain": "사진이나 그림을 보고 정보를 찾는 작업입니다."
+        },
+        {
+          "term": "평가 테스트",
+          "explain": "AI의 능력을 측정하기 위해 만든 테스트입니다."
+        },
+        {
+          "term": "정확도",
+          "explain": "정답을 맞춘 비율로 AI의 성능을 나타냅니다."
+        },
+        {
+          "term": "처리 점수",
+          "explain": "작업을 수행하는 과정에서 얼마나 잘 했는지를 평가하는 점수입니다."
+        }
+      ],
+      "keywords": [
+        "다모달리티",
+        "시각 검색",
+        "평가 테스트",
+        "정확도",
+        "처리 점수"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:18:02.721191+00:00",
+    "week": "2026-W46"
+  },
+  "2610.40738": {
+    "id": "2610.40738",
+    "title": "Apriel Voice 27B Preview: An Open Model for Speech, Reasoning, and Tool Use",
+    "authors": [
+      "Aman Tiwari",
+      "Akshay Kalkunte",
+      "Akintunde Oladipo",
+      "Jash Shah",
+      "Tara Bogavelli",
+      "Hoang Nguyen",
+      "Nishanth Madhusudhan",
+      "Vishal Juneja",
+      "Sridhar Nemala",
+      "Srinivas Sunkara",
+      "Sathwik Tejaswi Madhusudhan",
+      "Shruthan Radhakrishna",
+      "Masoud Hashemi",
+      "Kelechi Ogueji",
+      "Khalil Slimi",
+      "Saloni Mittal",
+      "Pulkit Pattnaik",
+      "Shashank Maiya",
+      "Dhruv Jhamb",
+      "Esakkivel Esakkiraja",
+      "Katrina Stankiewicz",
+      "Gabrielle Gauthier Melançon",
+      "Fanny Riols",
+      "Amit Saha",
+      "Lakshmi Sirisha Chodisetty",
+      "Nitin Aggarwal",
+      "Anil Madamala",
+      "Sagar Davasam",
+      "Segan Subramanian",
+      "Vikas Yadav",
+      "Sai Rajeswar Mudumba"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-10-28",
+    "updated": "2026-10-28",
+    "abstract": "A capable voice assistant must do more than recognize words; it must understand requests, reason over context, sustain conversations, and act through tools. We present Apriel Voice 27B Preview, an open speech-language model that unifies these capabilities within a shared reasoning backbone while retaining text and image input modalities. Built on the post-trained Gemma 4 26B-A4B checkpoint, Apriel Voice directly processes speech and generates both responses and tool calls without requiring a separate dialogue model. We introduce a two-stage training procedure to adapt the model to speech. The first stage establishes the speech interface, while the second jointly adapts the projector and backbone through supervised fine-tuning, text replay, and source-dependent cross-entropy and forward Kullback--Leibler divergence supervision. Automatically constructed speech-conditioned dialogues provide conversational training data, while local teacher serving, overlapping teacher and student computation, and fused full-vocabulary losses enable efficient online distillation. In thinking mode, Apriel Voice achieves a score of 98.90 on Big Bench Audio, 81.13 on Speech-BFCL, and a task success rate of 65.51% on τ-Voice, with a mean latency of 1.91 seconds. It also achieves 51.27% English EVA accuracy and 74.13% experience pass@1. Finally, we deploy Apriel Voice 27B Preview on a custom serving platform to support interactive voice interactions.",
+    "pdf_url": "https://arxiv.org/pdf/2610.40738",
+    "arxiv_url": "https://arxiv.org/abs/2610.40738",
+    "subfield": "음성·오디오",
+    "upvotes": 36,
+    "citations": null,
+    "summary": {
+      "tldr": "Apriel Voice 27B는 말을 이해하고 대화하며 도구를 사용할 수 있는 오픈 소스 모델입니다.",
+      "problem": "말을 이해하고 대화하며 도구를 사용하는 기능이 별도로 필요한 문제를 해결하고자 합니다. 기존 모델은 각 기능을 별도로 처리해야 했기 때문에 효율성이 낮았습니다.",
+      "method": "Apriel Voice 27B는 말을 처리하고 대화, 도구 사용을 통합하는 공유된 사고 구조를 사용합니다. 먼저 말을 처리하는 방식을 설정하고, 그 다음에 학습을 통해 모델을 개선합니다.",
+      "result": "Apriel Voice 27B는 대화, 도구 사용, 음성 인식 등 여러 테스트에서 높은 성능을 보였습니다. 이 모델은 실제 음성 대화에 사용할 수 있는 기반을 제공합니다.",
+      "method_easy": "Apriel Voice 27B는 말을 듣고 이해해서 대화하고, 필요한 도구를 사용할 수 있는 기계입니다. 먼저 말을 이해하는 방법을 배우고, 그 다음에 더 잘 이해하도록 학습합니다. 예를 들어, '오늘 날씨가 어때?'라고 말하면, 기계가 날씨를 알려주는 도구를 사용해 답변을 줍니다.",
+      "improvement": "기존에는 말을 이해하고 대화하며 도구를 사용하는 기능이 별도로 필요해 복잡했습니다. 이 연구로는 모든 기능을 하나의 모델로 통합해 효율이 향상되었습니다. 예를 들어, 대화 중에 도구를 사용할 때도 바로 처리할 수 있어 사용자가 더 편리하게 이용할 수 있습니다. 현실에서는 스마트 스피커나 자동차의 음성 인식 시스템에 활용할 수 있습니다.",
+      "limitations": "현재는 특정 언어나 문화에 맞춘 데이터가 부족해 모든 사람에게 적합하지 않습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 다양한 언어와 문화의 데이터를 추가하면 더 많은 사람들에게 도움을 줄 수 있습니다.",
+      "example": "이 기술은 스마트 스피커에서 사용할 수 있습니다. 사용자가 '오늘 날씨가 어때?'라고 말하면, 스피커가 날씨를 알려주는 도구를 사용해 답변을 줍니다.",
+      "eli12": "Apriel Voice 27B는 말을 듣고 이해해서 대화하고, 필요한 도구를 사용할 수 있는 기계입니다. 예를 들어, '오늘 날씨가 어때?'라고 말하면, 기계가 날씨를 알려주는 도구를 사용해 답변을 줍니다. 이 기계는 말을 듣고 이해하는 것이 아니라, 말을 듣고 그 말을 이해해서 도구를 사용해 대화를 이어갑니다.",
+      "background": [
+        {
+          "term": "음성 인식",
+          "explain": "말을 들었을 때 그 말을 글로 변환하는 기술입니다."
+        },
+        {
+          "term": "대화 시스템",
+          "explain": "사람이 말을 하면 그 말을 이해하고 적절한 대답을 하는 시스템입니다."
+        },
+        {
+          "term": "도구 사용",
+          "explain": "모델이 특정 기능을 사용해 문제를 해결하는 기능입니다."
+        },
+        {
+          "term": "모델 학습",
+          "explain": "모델이 데이터를 통해 학습해 새로운 정보를 배우는 과정입니다."
+        },
+        {
+          "term": "오픈 소스",
+          "explain": "누구나 사용하고 개선할 수 있는 자유로운 소프트웨어입니다."
+        }
+      ],
+      "keywords": [
+        "음성 인식",
+        "대화 시스템",
+        "도구 사용",
+        "모델 학습",
+        "오픈 소스"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:18:54.515267+00:00",
+    "week": "2026-W46"
+  },
+  "2611.04408": {
+    "id": "2611.04408",
+    "title": "Halley: A Predictive Control Plane for Optical AI Data Center Networks",
+    "authors": [
+      "Manav Mishra",
+      "Krishna M. Sivalingam"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-11-03",
+    "updated": "2026-11-03",
+    "abstract": "A frontier AI model is trained in an AI data center, on tens of thousands of accelerators joined by a dedicated network, and every training step ends with all of them exchanging data at once. Between racks, that network is optical, and each of its four layers, from lasers to switches, runs a fixed or after-the-fact policy. Lasers sharing an enclosure, cooling, and power can fail together. At a fixed spare ratio, correlated failure provably caps a pool's availability however large it grows. In this paper, we present a comprehensive predictive control plane framework, called Halley, that reads each resource's next state and acts before the failure occurs. It has four components, each carrying a formal guarantee: LightReserve that sizes the laser pool to provide a coverage bound, FoldFit that schedules the switch within 11/9 of the optimal, ThermaLead that holds a microring with one-step-ahead control, and TriageGuard that protects the highest-risk modules first. Halley gives each layer a predictive controller that defers to the deployed policy when unsure. Composed from simulations at that point, effective goodput, the share of ideal throughput kept, rises from 65.2\\% to 76.5\\% if a window that exhausts its spares is lost. If only the dark channels' bandwidth is lost, it reaches 67.4\\%. Per megawatt, that is up to 1.03--1.17 times the training; for the same training, up to 3.3--14.7\\% less data center capacity. Halley's fallback circuits are formally verified and are shown to achieve close timing on a commercial FPGA, and pass a 130~nm signoff.",
+    "pdf_url": "https://arxiv.org/pdf/2611.04408",
+    "arxiv_url": "https://arxiv.org/abs/2611.04408",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 33,
+    "citations": null,
+    "summary": {
+      "tldr": "AI 데이터센터의 네트워크 장애를 예측해 방지하는 시스템을 만든 것입니다.",
+      "problem": "AI 데이터센터의 광학 네트워크에서 장비가 동시에 고장날 수 있어 전체 시스템의 가용성이 떨어집니다. 기존 방식은 고장이 발생한 후 대처하기 때문에 효율이 낮습니다.",
+      "method": "Halley는 장비의 다음 상태를 예측해 고장 전에 대응하는 시스템입니다. 네트워크의 각 층에 맞는 예측 제어 기능을 추가해, 고장 발생을 줄이고 효율을 높입니다.",
+      "result": "Halley를 사용하면 데이터 전송 효율이 65.2%에서 76.5%로 증가하고, 전력 효율도 개선됩니다. 이는 데이터센터의 운영 비용을 절감하고, AI 모델 훈련 속도를 빠르게 만듭니다.",
+      "method_easy": "이 시스템은 데이터센터의 네트워크 장비가 고장하기 전에 예측해서 미리 대비하는 것이라고 생각해요. 예를 들어, 램프가 꺼질 수 있다고 예측되면, 다른 램프를 먼저 켜서 대체해요. 이렇게 하면 장비가 고장해도 데이터 전송이 멈기지 않아요.",
+      "improvement": "기존에는 장비가 고장나면 대처하는 방식이었지만, Halley는 고장 전에 대비해 데이터 전송 효율을 11.3% 높였습니다. 이는 데이터센터에서 AI 모델 훈련 시간을 3.3~14.7% 단축시킬 수 있어요. 예를 들어, 10시간이 걸리는 훈련이 8시간으로 줄어들 수 있어요.",
+      "limitations": "이 시스템은 현재까지 시뮬레이션에서만 검증되었고, 실제 데이터센터에서의 성능은 더 연구가 필요합니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 실제 데이터센터에서 테스트를 통해 시스템을 개선하고, 다양한 상황을 고려한 알고리즘을 추가하면 좋습니다.",
+      "example": "AI 모델을 훈련하는 데이터센터에서 광학 네트워크가 고장날 수 있습니다. Halley는 이 고장 전에 미리 대비해 데이터 전송을 안정적으로 유지해요. 예를 들어, 램프가 고장날 수 있다고 예측되면, 다른 램프를 미리 켜서 대체해요.",
+      "eli12": "이 시스템은 데이터센터의 네트워크 장비가 고장하기 전에 미리 대비해 데이터를 안정적으로 보내는 것이라고 생각해요. 예를 들어, 램프가 꺼질 수 있다고 예측되면, 다른 램프를 먼저 켜서 대체해요. 이렇게 하면 데이터 전송이 멈기지 않아요.",
+      "background": [
+        {
+          "term": "광학 네트워크",
+          "explain": "빛을 이용해 데이터를 전송하는 네트워크로, 데이터 전송 속도가 빠릅니다."
+        },
+        {
+          "term": "예측 제어",
+          "explain": "장비가 고장하기 전에 미리 대비해 문제를 방지하는 기술입니다."
+        },
+        {
+          "term": "데이터센터",
+          "explain": "AI 모델을 훈련하기 위해 많은 컴퓨터와 네트워크 장비가 모여 있는 장소입니다."
+        },
+        {
+          "term": "가용성",
+          "explain": "시스템이 정상적으로 작동할 수 있는 비율로, 99.9% 이상이면 매우 안정적인 시스템입니다."
+        },
+        {
+          "term": "전력 효율",
+          "explain": "데이터센터에서 사용하는 전력이 얼마나 효율적으로 사용되는지를 나타내는 지표입니다."
+        }
+      ],
+      "keywords": [
+        "AI 데이터센터",
+        "예측 제어",
+        "광학 네트워크",
+        "가용성",
+        "전력 효율"
+      ]
+    },
+    "fetched_at": "2026-11-09T00:19:50.517500+00:00",
+    "week": "2026-W46"
   }
 }
