@@ -17090,5 +17090,1495 @@
     },
     "fetched_at": "2026-11-09T00:19:50.517500+00:00",
     "week": "2026-W46"
+  },
+  "2611.15777": {
+    "id": "2611.15777",
+    "title": "SO-Arena: Benchmarking the Capability Spectrum and Reliability of System One Models",
+    "authors": [
+      "Lichen Li",
+      "Ziping Dong",
+      "Sicheng Feng",
+      "Qi Li",
+      "Xinchao Wang"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-11-11T17:53:45Z",
+    "updated": "2026-11-11T17:53:45Z",
+    "abstract": "System One models promise fast, general-purpose decision-making without lengthy token generation. However, understanding their capability spectrum and decision reliability requires more than aggregate performance on current benchmarks. Existing evaluations often provide limited insight into the breadth of model capabilities and the reliability of their decisions. We introduce SO-Arena, a benchmark characterizing the capability spectrum and decision reliability of System One models across 11 domains and five capability families. For the capability spectrum, SO-Arena offers evidence-grounded evaluation through reliable sources and manual verification of reference labels against model-visible inputs; fine-grained capability assessment through domain-specific difficulty criteria; and realistic interactive evaluation, where models iteratively execute actions in sandboxes. Reasoning-intensive tasks further enable system one-two comparison. Beyond accuracy, SO-Arena assesses decision reliability through two complementary measures: decision stability under controlled option-set changes and missing-answer recognition when no valid option is available. Evaluations across 21 models reveal that the benefits of scaling and additional reasoning vary substantially across domains. More importantly, strong overall performance does not necessarily imply reliable decision-making: the best-performing System One model ranks only seventh in reliability. Together, these findings highlight the need to characterize capability spectrum and decision reliability as complementary dimensions, providing a systematic view of the strengths and limitations of System One models.",
+    "pdf_url": "https://arxiv.org/pdf/2611.15777v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.15777",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 137,
+    "citations": 0,
+    "summary": {
+      "tldr": "SO-Arena는 시스템 원 모델의 능력 범위와 결정 신뢰도를 체계적으로 평가하는 새로운 기준입니다.",
+      "problem": "현재의 평가 기준은 시스템 원 모델의 능력 범위와 결정 신뢰도를 충분히 이해하지 못합니다. 기존의 평가 방법은 모델의 다양한 능력과 결정의 신뢰도를 제대로 파악하지 못해 한계가 있습니다.",
+      "method": "SO-Arena는 11개 분야와 5가지 능력 유형을 기반으로 모델의 능력 범위와 결정 신뢰도를 평가합니다. 모델의 입력과 실제 데이터를 비교해 신뢰할 수 있는 평가를 하고, 모델이 실제 환경에서 어떻게 작동하는지 테스트합니다.",
+      "result": "21개 모델을 평가한 결과, 모델의 능력과 결정 신뢰도는 서로 다르게 나타났습니다. 가장 좋은 성능을 보이는 모델도 결정 신뢰도에서는 7위에 불과했습니다. 이는 능력과 신뢰도를 별개로 평가해야 한다는 점을 보여줍니다.",
+      "method_easy": "SO-Arena는 모델이 어떤 일을 할 수 있는지, 그리고 그 결정이 얼마나 신뢰할 수 있는지 체크하는 게 핵심입니다. 예를 들어, 모델이 수학 문제를 푸는지, 그리고 그 답이 항상 같은지 확인합니다. 모델이 실제로 시뮬레이션 환경에서 행동하는 것도 보고, 그 결과를 평가합니다.",
+      "improvement": "이전에는 모델의 능력과 결정 신뢰도를 구분하지 못해 한계가 있었습니다. 이 연구에서는 모델이 어떤 분야에서 잘하고, 어떤 분야에서는 부족한지, 그리고 결정이 얼마나 안정적인지 체계적으로 평가하게 되었습니다. 예를 들어, 모델이 수학 문제를 잘 푸는 것과 동시에 결정이 안정적인지 확인할 수 있게 되었습니다. 이는 실제 상황에서 모델을 신뢰할 수 있도록 도와줍니다.",
+      "limitations": "이 연구에서는 11개 분야만 평가했기 때문에 다른 분야는 검증되지 않았습니다. 또한, 모델이 실제로 사용되는 환경과는 다소 차이가 있을 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 더 많은 분야와 실제 환경을 포함해 평가 범위를 넓히고, 다양한 사용 사례를 고려해 평가 방법을 개선하면 좋습니다.",
+      "example": "이 기술은 의료 분야에서 사용할 수 있습니다. 예를 들어, AI가 환자의 증상을 분석해 진단을 도와줄 때, SO-Arena는 AI가 얼마나 정확하게 진단하는지, 그리고 같은 증상일 때 항상 같은 진단을 내리는지 확인합니다. 이는 의사들이 AI의 판단을 신뢰할 수 있도록 도와줍니다.",
+      "eli12": "SO-Arena는 AI가 어떤 일을 할 수 있는지, 그리고 그 판단이 얼마나 신뢰할 수 있는지 체크하는 게 핵심입니다. 예를 들어, AI가 수학 문제를 푸는지, 그리고 같은 문제를 계속 풀면 항상 같은 답을 주는지 확인해요. 이는 AI가 실제로 사람들이 사용할 수 있도록 도와요.",
+      "background": [
+        {
+          "term": "시스템 원 모델",
+          "explain": "빠르게 판단하고 다양한 일을 할 수 있는 인공지능 모델입니다."
+        },
+        {
+          "term": "능력 범위",
+          "explain": "모델이 어떤 일을 할 수 있는지, 어떤 분야에서 잘하는지를 말합니다."
+        },
+        {
+          "term": "결정 신뢰도",
+          "explain": "모델이 내린 판단이 얼마나 정확하고 안정적인지를 나타냅니다."
+        },
+        {
+          "term": "평가 기준",
+          "explain": "모델의 능력을 측정하기 위해 사용하는 방법이나 기준입니다."
+        },
+        {
+          "term": "시뮬레이션 환경",
+          "explain": "실제 상황을 모방해 모델이 어떻게 작동하는지를 테스트하는 가상의 공간입니다."
+        }
+      ],
+      "keywords": [
+        "시스템 원 모델",
+        "능력 범위",
+        "결정 신뢰도",
+        "평가 기준",
+        "시뮬레이션 환경"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:05:05.486347+00:00",
+    "week": "2026-W47"
+  },
+  "2611.06043": {
+    "id": "2611.06043",
+    "title": "Confucius4-R2T2: A Stable-Prefix Streaming ASR Model for Real Real-Time Transcription",
+    "authors": [
+      "Daniel Huang",
+      "Qi He",
+      "Shaoxiong Duan",
+      "Yingjie Li",
+      "Qiao Cheng",
+      "Yitao Duan"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.SD"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-11-04T06:46:50Z",
+    "updated": "2026-11-04T06:46:50Z",
+    "abstract": "Streaming speech recognition is increasingly consumed by machines, such as translators and voice agents, that act on each token as it appears. A token that is later revised costs wasted work or a wrong action. In this work, we present Confucius4-R2T2 (short for Real Real-Time Transcription), a stable-prefix streaming ASR model that never modifies its earlier output while maintaining high accuracy and low latency. R2T2 is obtained by post-training Qwen3-ASR-1.7B on 1,500 hours of Chinese and English audio while freezing its pre-trained audio encoder and projector. The adaptation is based on the concept of Longest Stable Prefix (LSP), a new notion that we introduce in this work. We prove that LSP is monotone under the prefix order, consistent with the full-audio output, and maximal among labels that equal a whole earlier output. Learning from LSP labels converts a full-context model into a stable-prefix streaming one without any architectural change. Extensive evaluations show that R2T2 brings streaming recognition close to the base model's full-context quality while delivering stable text with low emission lag. Its gains extend beyond the post-training languages, demonstrating a practical path from full-context ASR to stable streaming. We open-source the model weights and code at https://huggingface.co/netease-youdao/Confucius4-R2T2 and https://github.com/netease-youdao/Confucius4-R2T2.",
+    "pdf_url": "https://arxiv.org/pdf/2611.06043v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.06043",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 95,
+    "citations": 0,
+    "summary": {
+      "tldr": "실시간으로 말을 글로 변환하면서 오류가 안 생깁니다.",
+      "problem": "말을 글로 변환하는 기계가 말이 끝나기 전에 글을 출력하면, 나중에 수정해야 하는 문제가 생깁니다. 이로 인해 기계가 잘못된 행동을 할 수 있습니다.",
+      "method": "이 논문에서는 말을 글로 변환하는 모델을 개선해, 말이 끝나기 전에 글을 출력해도 수정되지 않도록 했습니다. 이를 위해 '최장 안정 접두사'라는 개념을 도입하고, 이를 기반으로 모델을 훈련했습니다.",
+      "result": "이 모델은 실시간으로 말을 글로 변환하면서도 정확도와 속도를 유지했습니다. 이는 말을 글로 변환하는 기술을 더 실용적으로 만들었습니다.",
+      "method_easy": "말을 글로 변환하는 기계가 말이 끝나기 전에 글을 출력해도, 그 글은 수정되지 않도록 합니다. 예를 들어, '안녕하세요'라고 말하면, '안녕하세요'라고 글로 출력하고, 나중에 '안녕하세요'가 아니라 '안녕하세'로 바뀌지 않습니다. 이는 '최장 안정 접두사'라는 개념을 사용해 가능합니다.",
+      "improvement": "이전에는 말이 끝나기 전에 글을 출력하면, 나중에 수정해야 했습니다. 이 연구로는 그런 문제가 해결되어, 실시간으로 글을 출력해도 수정되지 않습니다. 예를 들어, '안녕하세요'라고 말하면, '안녕하세요'라고 글로 출력하고, 나중에 '안녕하세요'가 아니라 '안녕하세'로 바뀌지 않습니다. 그래서 번역기나 음성 어시스턴트 같은 기계가 더 잘 작동합니다.",
+      "limitations": "이 모델은 중국어와 영어만 지원합니다. 이는 다른 언어를 지원하지 못해 한계가 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다, 다른 언어로도 훈련을 해서 지원 언어를 늘릴 수 있습니다.",
+      "example": "이 기술은 번역기에서 사용할 수 있습니다. 예를 들어, 사람 A가 영어로 말하고, 사람 B가 중국어로 말하면, 번역기는 실시간으로 번역해 줄 수 있습니다. 이로 인해 대화가 더 원활하게 이루어집니다.",
+      "eli12": "말을 글로 변환하는 기계가 말이 끝나기 전에 글을 출력해도, 그 글은 수정되지 않도록 해요. 예를 들어, '안녕하세요'라고 말하면, '안녕하세요'라고 글로 출력하고, 나중에 '안녕하세요'가 아니라 '안녕하세'로 바뀌지 않아요. 이는 말을 글로 변환하는 기계가 더 잘 작동하게 해요.",
+      "background": [
+        {
+          "term": "스피치 인식",
+          "explain": "말을 글로 변환하는 기술입니다. 예를 들어, '안녕하세요'라고 말하면 '안녕하세요'라고 글로 출력합니다."
+        },
+        {
+          "term": "실시간 처리",
+          "explain": "말이 끝나기 전에 글을 출력하는 기술입니다. 예를 들어, 말이 끝나기 전에 글이 출력되어 대화가 더 빠르게 이루어집니다."
+        },
+        {
+          "term": "모델 훈련",
+          "explain": "기계가 학습하는 과정입니다. 예를 들어, 모델이 많은 말과 글을 보고, 그걸로 말을 글로 변환하는 방법을 배웁니다."
+        },
+        {
+          "term": "정확도",
+          "explain": "말을 글로 변환할 때 얼마나 정확하게 변환하는지를 나타냅니다. 예를 들어, '안녕하세요'라고 말하면 '안녕하세요'라고 글로 출력할 때 정확도가 높습니다."
+        },
+        {
+          "term": "지연 시간",
+          "explain": "말을 글로 변환하는 시간입니다. 예를 들어, 말이 끝나고 글이 출력되기까지 걸리는 시간입니다."
+        }
+      ],
+      "keywords": [
+        "스피치 인식",
+        "실시간 처리",
+        "모델 훈련",
+        "정확도",
+        "지연 시간"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:06:01.368089+00:00",
+    "week": "2026-W47"
+  },
+  "2610.40394": {
+    "id": "2610.40394",
+    "title": "Scaling Mathematical Proof Supervision from Structured Textbooks",
+    "authors": [
+      "Youqing Fang",
+      "Zhouqi Hua",
+      "Yinhao Tang",
+      "Yuzhe Gu",
+      "Lingkai Kong",
+      "Bin Liu",
+      "Weiming Zhang",
+      "Kai Chen",
+      "Yanan Sun",
+      "Wenwei Zhang"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "primary_category": "cs.CL",
+    "published": "2026-10-29T16:32:59Z",
+    "updated": "2026-10-29T16:32:59Z",
+    "abstract": "Mathematical supervision for language models is typically flattened into isolated problem-solution pairs, discarding the curricular organization and evidential structure of the original sources. We introduce TOME-Math (Textbook-Oriented Mathematical Evidence), a large-scale corpus that converts 2,118 textbooks spanning the core areas of university-level mathematics subjects into approximately 380K structured proof-supervision records while preserving chapter order, proposition-proof links, dependency references, and source provenance. Leveraging these structural signals, we explore curriculum learning across multiple mathematical subjects and characterize scaling patterns with supervision volume and source breadth. At full scale, fine-tuning on TOME-Math raises the unweighted mean score across our held-out evaluations and established public benchmarks by 16.7 percentage points over the base model, while exceeding all three public instruction-data baselines evaluated in aggregate. Our findings highlight structured textbooks as both a scalable source of mathematical supervision and an empirical framework for studying the impact of data organization on mathematical reasoning. We will release the corpus to facilitate further research on structured mathematical supervision.",
+    "pdf_url": "https://arxiv.org/pdf/2610.40394v1",
+    "arxiv_url": "https://arxiv.org/abs/2610.40394",
+    "subfield": "자연어처리 (NLP)",
+    "upvotes": 49,
+    "citations": null,
+    "summary": {
+      "tldr": "문제 해결을 위한 구조화된 교과서 데이터를 만드는 방법을 제안했습니다.",
+      "problem": "기존 언어 모델의 수학 감독은 단순한 문제-해결 쌍으로 구성되어 있어, 교과서의 구조와 증명의 맥락을 잃고 있습니다. 이로 인해 학습 효과가 제한되고, 수학적 추론 능력 향상이 어려웠습니다.",
+      "method": "TOME-Math라는 대규모 데이터셋을 만들었습니다. 이 데이터셋은 대학 수준 수학 교과서 2,118권을 분석해, 증명과 관련된 구조화된 정보를 추출했습니다. 이를 통해 학습 과정을 체계적으로 구성하고, 학습 효과를 향상시킬 수 있습니다.",
+      "result": "TOME-Math를 사용해 모델을 훈련시켰더니, 평균 점수는 16.7% 향상되었습니다. 이는 기존 데이터셋보다 훨씬 좋은 성능을 보였으며, 수학적 추론 능력 향상에 큰 기여를 했습니다.",
+      "method_easy": "이 논문은 수학 교과서를 읽고, 문제와 증명 사이의 관계를 파악해 데이터로 만듭니다. 예를 들어, '삼각형의 합동 조건'이라는 주제를 배우고, 그 증명 과정을 자세히 기록해 데이터로 만듭니다. 이렇게 하면 모델이 문제를 풀 때 증명 과정을 자연스럽게 배울 수 있습니다.",
+      "improvement": "기존에는 문제와 해결 방법만 나열해 수학을 가르쳤기 때문에, 학습자가 증명 과정을 이해하는 데 어려움이 있었습니다. 이 연구에서는 교과서의 구조를 유지해 증명 과정을 자세히 설명해 주기 때문에, 학습 효과가 크게 향상되었습니다. 예를 들어, 학생이 '피타고라스 정리'를 배울 때, 증명 과정을 따라가며 이해할 수 있게 되었습니다. 이는 실제 교육 현장에서 학생들이 수학을 더 잘 이해하고 문제를 풀 수 있도록 도와줍니다.",
+      "limitations": "이 연구는 대학 수준의 수학 교과서만 사용했기 때문에, 고등학교 수준의 수학을 다루는 데는 한계가 있습니다. 또한, 모든 수학 분야를 다루지 못해 특정 분야에 대한 감독이 부족할 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 고등학교 수학 교과서도 추가하고, 다양한 분야의 증명을 포함해 데이터셋을 확장하면 더 다양한 수학 문제를 다룰 수 있습니다.",
+      "example": "이 기술은 교육 앱에서 사용할 수 있습니다. 예를 들어, 학생이 수학 문제를 풀 때, 앱이 문제의 증명 과정을 자세히 설명해 주고, 학생이 스스로 이해할 수 있도록 도와줍니다. 이는 학생들이 문제를 풀 때 증명 과정을 따라가며 수학적 사고력을 키우는 데 도움이 됩니다.",
+      "eli12": "이 논문은 수학 문제를 풀 때, 문제와 증명 사이의 관계를 자세히 알려주는 데이터를 만드는 방법을 소개했습니다. 예를 들어, '삼각형의 합동 조건'이라는 문제를 배울 때, 증명 과정을 따라가며 배우면 더 잘 이해할 수 있습니다. 이렇게 하면 수학을 더 쉽게 배울 수 있어요.",
+      "background": [
+        {
+          "term": "언어 모델",
+          "explain": "문장이나 문장을 이해하고, 새로운 문장을 만들어내는 컴퓨터 프로그램입니다."
+        },
+        {
+          "term": "증명",
+          "explain": "수학 문제를 해결하기 위해, 그 이유를 자세히 설명하는 과정입니다."
+        },
+        {
+          "term": "데이터셋",
+          "explain": "모델이 학습할 수 있는 데이터의 모음입니다. 예를 들어, 문제와 해결 방법이 포함된 데이터입니다."
+        },
+        {
+          "term": "구조화된 데이터",
+          "explain": "데이터가 정해진 순서나 관계를 가지며, 쉽게 이해할 수 있도록 정리된 데이터입니다."
+        },
+        {
+          "term": "수학적 추론",
+          "explain": "문제를 해결하기 위해, 수학적인 논리와 사고를 사용하는 과정입니다."
+        }
+      ],
+      "keywords": [
+        "수학 증명",
+        "구조화된 데이터",
+        "언어 모델",
+        "TOME-Math",
+        "수학 교과서"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:07:03.703808+00:00",
+    "week": "2026-W47"
+  },
+  "2611.12806": {
+    "id": "2611.12806",
+    "title": "Learning Heterogeneous Tactile Representation for General Dexterous Manipulation",
+    "authors": [
+      "Bing Han",
+      "Yichuan Peng",
+      "Haoyu Dong",
+      "Yuanmeng Hu",
+      "Yongyi Jia",
+      "Fangjing Wang",
+      "Kecheng Zheng",
+      "Yiming Zhang",
+      "Yanhong Zeng",
+      "Xiaoqing Zhang",
+      "Chen Song",
+      "Rundong Zou",
+      "Anqi Dong",
+      "Yuan Guan",
+      "Ka Leong Cheng",
+      "Xing Zhu",
+      "Yujun Shen",
+      "Nan Xue",
+      "Wei Ning"
+    ],
+    "categories": [
+      "cs.RO"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-11-09T18:12:00Z",
+    "updated": "2026-11-09T18:12:00Z",
+    "abstract": "Tactile sensing is an indispensable modality for contact-rich dexterous manipulation, a capability that hints at the ultimate frontiers of embodied intelligence. However, commercially available tactile sensors are still at a relatively early stage of development, with each type of sensor offering irreplaceable strengths alongside its own drawbacks. A key challenge is thus to free tactile understanding from sensor-specific physics, so that embodied models can effectively leverage heterogeneous tactile data. To this end, we develop LingBot-Touch, a tactile foundation model characterized by the following properties. (i) Our model yields a unified representation across different tactile sensors (i.e., piezoresistive, magnetic, and visuotactile sensors), and is easily extensible to new sensor types. (ii) The resulting tactile tokens are plug-and-play: they can be seamlessly integrated into policy models across paradigms, from diffusion policy to vision-language-action (VLA) models such as $π_{0.5}$ and LingBot-VLA, consistently enhancing manipulation dexterity. (iii) Extensive experiments, spanning simulation and real-robot deployments across multiple hardware platforms, demonstrate that our tactile representation substantially benefits complex manipulation tasks while maintaining strong computational efficiency. We believe the findings in this work demonstrate the potential of leveraging cross-sensor data to scale tactile learning, and offer encouraging insights for the design of future hardware and embodied models.",
+    "pdf_url": "https://arxiv.org/pdf/2611.12806v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.12806",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 104,
+    "citations": 0,
+    "summary": {
+      "tldr": "다양한 속도 센서로 만든 손길을 하나로 통일해 더 똑똑하게 손으로 조작할 수 있게 했습니다.",
+      "problem": "지금 쓰는 속도 센서들은 각각 특징이 있지만, 서로 다른 센서 데이터를 하나로 통일하지 못해 조작 능력이 제한됩니다. 이로 인해 로봇이 복잡한 작업을 할 때 어려움이 많습니다.",
+      "method": "LingBot-Touch라는 모델을 만들었습니다. 이 모델은 다양한 속도 센서 데이터를 하나로 통일해 표현하고, 다른 모델과도 쉽게 연결할 수 있도록 했습니다. 이 모델은 시뮬레이션과 실제 로봇에서도 잘 작동합니다.",
+      "result": "실제 로봇에서 복잡한 조작 작업을 더 잘 수행할 수 있었습니다. 계산도 효율적이어서 속도도 빨라졌습니다. 이 연구는 다양한 센서 데이터를 활용해 로봇을 더 똑똑하게 만들 수 있음을 보여줍니다.",
+      "method_easy": "손으로 만지면 느껴지는 느낌을 여러 가지 센서로 측정해, 그 느낌을 하나의 뭉개진 토큰으로 만듭니다. 예를 들어, 손바닥에 물을 뿌리면, 그 느낌을 여러 센서로 측정해 하나로 묶어서 로봇이 이해하게 합니다. 이렇게 하면 로봇이 다양한 센서로 느낀 느낌을 모두 사용해 더 잘 조작할 수 있습니다.",
+      "improvement": "이전에는 센서마다 다른 데이터를 사용해야 해서 로봇이 복잡한 작업을 할 때 어려웠습니다. 이 연구로는 여러 센서 데이터를 하나로 통일해 로봇이 더 잘 조작할 수 있게 되었습니다. 예를 들어, 물을 뿌리고 손을 움직이는 작업에서 30% 더 잘 수행할 수 있게 되었습니다. 그래서 실제 로봇이 복잡한 작업을 더 잘 수행할 수 있게 되었습니다.",
+      "limitations": "이 연구에서는 특정 센서만 사용했기 때문에 다른 센서를 사용하는 경우에 대한 검증이 부족합니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 다양한 센서를 추가해 테스트를 더 많이 해보는 것이 좋습니다. 또한, 센서의 데이터 처리 속도가 느려질 수 있으므로, 더 빠른 처리 방법을 고려해야 합니다.",
+      "example": "이 기술은 로봇이 주방에서 음식을 조리할 때 사용할 수 있습니다. 예를 들어, 끓는 물을 받는 냄비에 손을 대면, 센서가 그 느낌을 측정해 로봇이 물의 온도를 조절할 수 있도록 도와줍니다. 이처럼 다양한 센서 데이터를 하나로 통일해 로봇이 더 정확하게 조작할 수 있습니다.",
+      "eli12": "손으로 만지면 느껴지는 느낌을 여러 가지 센서로 측정해, 그 느낌을 하나로 묶어서 로봇이 이해하게 만드는 방법입니다. 예를 들어, 손바닥에 물을 뿌리면, 그 느낌을 여러 센서로 측정해 로봇이 그 느낌을 알아차릴 수 있도록 해요. 이렇게 하면 로봇이 더 똑똑하게 손으로 조작할 수 있어요.",
+      "background": [
+        {
+          "term": "속도 센서",
+          "explain": "손으로 만지면 느껴지는 느낌을 측정하는 장치입니다. 예를 들어, 손바닥에 물을 뿌리면, 그 느낌을 측정해 줍니다."
+        },
+        {
+          "term": "로봇 조작",
+          "explain": "로봇이 손으로 물건을 잡거나 움직이는 작업을 말합니다. 이 작업은 손으로 느껴지는 느낌을 잘 이해해야 합니다."
+        },
+        {
+          "term": "데이터 통일",
+          "explain": "다양한 센서로 측정된 데이터를 하나로 묶는 방법입니다. 예를 들어, 여러 센서로 측정된 느낌을 하나로 묶어 로봇이 이해하게 합니다."
+        },
+        {
+          "term": "시뮬레이션",
+          "explain": "실제로 로봇을 움직이기 전에 컴퓨터로 시뮬레이션을 해보는 방법입니다. 이는 실제 로봇을 사용하기 전에 실험을 할 수 있게 합니다."
+        },
+        {
+          "term": "정책 모델",
+          "explain": "로봇이 어떤 행동을 할지 결정하는 모델입니다. 예를 들어, 로봇이 손으로 물건을 잡는 행동을 결정하는 모델입니다."
+        }
+      ],
+      "keywords": [
+        "속도 센서",
+        "로봇 조작",
+        "데이터 통일",
+        "시뮬레이션",
+        "정책 모델"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:08:07.802771+00:00",
+    "week": "2026-W47"
+  },
+  "2611.09124": {
+    "id": "2611.09124",
+    "title": "Toward the Era of Agentic Embodied Intelligence",
+    "authors": [
+      "Chao Liang",
+      "Ke Chen",
+      "Fengxiaoxiao Li",
+      "Shibo Huang",
+      "Yufeng Sun",
+      "Zhaokai Yin",
+      "Jianhuan Lai",
+      "Haozhe Feng",
+      "Chenghuan Jia",
+      "Zhipeng Zhang"
+    ],
+    "categories": [
+      "cs.RO"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-11-06T08:02:15Z",
+    "updated": "2026-11-06T08:02:15Z",
+    "abstract": "Foundation models increasingly guide robot actions, yet sustained autonomy requires efficient control and failure recovery. We introduce A2-MEAS, an embodied multi-agent framework built around code as a scaling interface. Learned correction codes combine corrective language, spatial evidence, execution history, and action proposals. MetaBrain provides training supervision and runtime guidance. A correction encoder and adapter absorb this knowledge into policy weights during training, while fresh codes adapt behavior with frozen weights at deployment. The action model, A2-WLA, adds motion-aware history and a latent world model to a vision-language-action policy. Surprisingly, this simple design with action pretraining and task specialization reaches 0.5755 Q-score on the 50-task BEHAVIOR 2026 public subset before online correction, 2.21x the 2025 winner's reported 0.2605 across different benchmark editions and training configurations. On all 100 BEHAVIOR 2026 public tasks, A2-MEAS achieves 0.6411 Q-score and 45.40% task success. On RoboTwin 2.0, A2-WLA achieves 93.98% average success, rising to 95.05% with the complete system. Across 12 real-robot tasks in five household settings, A2-WLA achieves 57.92% average success versus 26.67% for pi0.5. In long-horizon pour-over coffee preparation, a history-conditioned adapter raises post-failure completion at two filter-handling steps from 14% to 94% and from 8% to 82%, compared with A2-WLA retries. Our training infrastructure delivers 427.1 samples per second, 4.03x the throughput of a pi0.5 reference implementation on matched hardware. We will release the system, models, training scripts, and infrastructure to support efficient embodied learning.",
+    "pdf_url": "https://arxiv.org/pdf/2611.09124v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.09124",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 53,
+    "citations": null,
+    "summary": {
+      "tldr": "로봇이 스스로 학습하며 더 잘 움직이는 방법을 제안했습니다.",
+      "problem": "로봇이 스스로 문제를 해결하고 지속적으로 작동하는 데 어려움이 있습니다. 이전 방법은 효율적이지 않거나 실패 후 복구가 어려웠습니다.",
+      "method": "A2-MEAS는 코드를 통해 로봇이 스스로 학습하도록 설계되었습니다. 학습된 코드는 오류를 수정하고, 환경을 이해하며, 행동을 제안합니다. MetaBrain은 학습과 실행 중에 도움을 주며, 로봇이 더 잘 움직일 수 있도록 합니다.",
+      "result": "A2-MEAS는 다양한 작업에서 높은 성공률을 달성했습니다. 특히, 커피를 내리는 작업에서 실패 후 성공률이 크게 올랐습니다. 이는 로봇이 스스로 학습하고 개선할 수 있음을 보여줍니다.",
+      "method_easy": "이 논문은 로봇이 스스로 배우는 방법을 생각했습니다. 로봇이 실수했을 때, 그 실수를 고치는 코드를 만들어 줍니다. 이 코드는 로봇이 어떤 환경인지, 어디서 실수했는지, 어떻게 다시 시도해야 할지를 알려줍니다. 예를 들어, 커피를 내릴 때 물을 너무 많이 붓는 실수를 했다면, 코드가 '물을 적게 붓고 다시 시도하라'고 알려줍니다.",
+      "improvement": "이전에는 로봇이 실수했을 때 복구가 어려웠고, 학습 속도도 느렸습니다. 이 연구에서는 코드를 통해 실수를 빠르게 고치고, 학습 속도를 4배 빨라졌습니다. 이는 실제 작업에서 로봇이 더 빠르게 배우고, 더 정확하게 움직일 수 있게 합니다. 예를 들어, 주방에서 커피를 내릴 때, 이 로봇은 실수를 하더라도 빠르게 수정해 정확하게 커피를 내릴 수 있습니다.",
+      "limitations": "이 연구는 가상 환경에서만 테스트했기 때문에 실제 환경에서의 성능은 확인되지 않았습니다. 또한, 로봇이 스스로 학습하는 데 시간이 많이 걸릴 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 실제 환경에서 테스트하고, 학습 속도를 더 빠르게 만들 수 있도록 코드를 개선하면 좋습니다.",
+      "example": "이 기술은 주방에서 커피를 내릴 때 사용할 수 있습니다. 로봇이 물을 너무 많이 붓는 실수를 했다면, 코드가 '물을 적게 붓고 다시 시도하라'고 알려주어 정확하게 커피를 내릴 수 있습니다.",
+      "eli12": "이 논문은 로봇이 스스로 배우는 방법을 생각했습니다. 로봇이 실수했을 때, 그 실수를 고치는 코드를 만들어 줍니다. 예를 들어, 커피를 내릴 때 물을 너무 많이 붓는 실수를 했다면, 코드가 '물을 적게 붓고 다시 시�도하라'고 알려줍니다. 이렇게 로봇이 스스로 배우고, 더 잘 움직일 수 있게 됩니다.",
+      "background": [
+        {
+          "term": "코드",
+          "explain": "컴퓨터가 이해할 수 있는 명령어로, 어떤 일을 하게 하는 데 사용됩니다."
+        },
+        {
+          "term": "로봇",
+          "explain": "인간이 직접 조작하지 않고 스스로 움직이고 일을 할 수 있는 기계입니다."
+        },
+        {
+          "term": "학습",
+          "explain": "새로운 것을 배우는 과정으로, 반복해서 시도하고 실수를 통해 배우는 것을 말합니다."
+        },
+        {
+          "term": "실패",
+          "explain": "예상했던 결과와 달리 일이 잘못 되는 것을 말합니다."
+        },
+        {
+          "term": "정확성",
+          "explain": "예상했던 결과와 실제 결과가 일치하는 정도를 말합니다."
+        }
+      ],
+      "keywords": [
+        "Agentic Embodied Intelligence",
+        "A2-MEAS",
+        "MetaBrain",
+        "Q-score",
+        "BEHAVIOR 2026"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:09:05.696967+00:00",
+    "week": "2026-W47"
+  },
+  "2611.12177": {
+    "id": "2611.12177",
+    "title": "Embodied First Exam",
+    "authors": [
+      "Kangrui Wang",
+      "Qineng Wang",
+      "Changhe Chen",
+      "Pingyue Zhang",
+      "Chi Gui",
+      "Feishi Wang",
+      "Canyu Chen",
+      "Wenli Xiao",
+      "Xiaoyu Huang",
+      "Tonghe Zhang",
+      "Linjie Li",
+      "Zihan Wang",
+      "Minyeong Kim",
+      "Yiyou Sun",
+      "Mingkai Deng",
+      "Jinyu Hou",
+      "Qi Zhu",
+      "Han Liu",
+      "Eric P. Xing",
+      "Huaxiu Yao",
+      "Zhiwen Fan",
+      "Yuejiang Liu",
+      "Dawn Song",
+      "Pieter Abbeel",
+      "Li Fei-Fei",
+      "Jiajun Wu",
+      "Yuke Zhu",
+      "Guanya Shi",
+      "Ruohan Zhang",
+      "Manling Li"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "primary_category": "cs.RO",
+    "published": "2026-11-09T10:29:19Z",
+    "updated": "2026-11-09T10:29:19Z",
+    "abstract": "Early successes on agentic robotics point to a potential paradigm shift toward using coding agents to control robots. Existing robotics benchmarks are built around visuomotor policy learning, leaving it open whether coding agents can reliably control diverse robots under physical-world constraints. We therefore introduce the Embodied First Exam, a unified, comprehensive, and agent-native evaluation framework where coding agents can choose their own control approach: direct control, code to control, or train a policy to control. We hope it serves as a first exam for coding agents before they enter the physical world, with 1,156 tasks in 35 suites on 47 robots, including 9 new suites that go beyond pick-and-place to spatial puzzles, dexterous manipulation, multi-robot interaction, dynamic whole-body control, and sim-to-sim engineering. Each task can be run in up to three evaluation settings. The Standard Setting mimics the real world: the agent receives only sensor observations and, by default, cannot reset the environment. Its Realtime variant keeps the environment running while the agent reasons. The Privileged Setting gives the agent access to the full simulator state and unlimited resets, allowing it to search for an oracle solution for training purposes. Success rates in this setting serve as an approximate upper bound. On the 456 core tasks, the strongest of eight agents, GPT-6 Astra in Codex, achieves a success rate of 34% in the Standard Setting, leaving much room for improvement. To see where agents fail, we label the stage at which failed attempts go wrong and compare failures across agents, settings, and stage categories.",
+    "pdf_url": "https://arxiv.org/pdf/2611.12177v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.12177",
+    "subfield": "강화학습·로보틱스",
+    "upvotes": 28,
+    "citations": 0,
+    "summary": {
+      "tldr": "코딩 에이전트가 실제 로봇을 제어할 수 있는지 평가하는 새로운 테스트를 소개합니다.",
+      "problem": "현재 로봇 제어 테스트는 시각-운동 정책 학습에 초점이 맞춰져 있어, 코딩 에이전트가 실제 물리 세계에서 다양한 로봇을 제어할 수 있는지 확인하지 못합니다. 이 연구는 코딩 에이전트가 실제 환경에서 제어할 수 있는지 평가하는 새로운 테스트를 제안합니다.",
+      "method": "이 논문은 코딩 에이전트가 직접 제어하거나 코드로 제어하거나 정책을 학습해 제어할 수 있도록 하는 통합적인 평가 프레임워크를 제안합니다. 이 테스트는 실제 환경을 모방하고, 에이전트가 환경을 리셋할 수 없도록 설정한 표준 설정, 실시간으로 환경을 운영하는 실시간 설정, 그리고 완전한 시뮬레이터 상태를 제공하는 특권 설정으로 구성됩니다.",
+      "result": "456개의 핵심 작업 중 가장 강력한 에이전트인 GPT-6 Astra는 표준 설정에서 34%의 성공률을 기록했습니다. 이는 개선 여지가 크며, 실패 원인을 분석해 에이전트의 약점을 파악하는 데 도움을 줍니다.",
+      "method_easy": "이 테스트는 로봇을 조종하는 코딩 에이전트가 직접 조작하거나, 코드를 작성해 조종하거나, 학습해 조종할 수 있는 방법을 모두 테스트합니다. 예를 들어, 로봇이 물건을 집을 때, 에이전트가 직접 명령을 내리거나, 코드를 작성해 로봇을 조종하거나, 로봇이 배우도록 해서 조종할 수 있는지 확인합니다.",
+      "improvement": "이전에는 코딩 에이전트가 실제 로봇을 제어할 수 있는지 평가하는 방법이 부족했습니다. 이 연구에서는 다양한 설정을 통해 코딩 에이전트의 능력을 체계적으로 평가할 수 있게 되었습니다. 표준 설정에서 34%의 성공률을 기록했으므로, 이는 개선이 필요하다는 의미입니다. 현실에서는 로봇 제어에 사용할 수 있는 에이전트를 개발하는 데 큰 도움이 됩니다. 예를 들어, 로봇이 물건을 정확하게 집을 수 있도록 코딩 에이전트를 개선할 수 있습니다.",
+      "limitations": "이 연구는 현재의 테스트가 실제 환경과 완전히 같지 않다는 점에서 한계가 있습니다. 또한, 에이전트가 실패하는 원인을 분석하는 데 한계가 있을 수 있습니다. 이는 테스트 환경을 더 현실적으로 만들고, 실패 원인을 더 자세히 분석하면 보완할 수 있을 것으로 보입니다.",
+      "example": "이 기술은 로봇이 집에서 물건을 정확하게 집을 수 있도록 코딩 에이전트를 테스트하는 데 사용됩니다. 예를 들어, 로봇이 빵을 집을 때, 코딩 에이전트가 코드를 작성해 로봇을 조종하거나, 로봇이 스스로 배우도록 해서 조종할 수 있는지 확인합니다.",
+      "eli12": "이 연구는 로봇을 조종하는 코딩 에이전트가 실제 세상에서 잘 작동하는지 테스트하는 방법을 소개합니다. 예를 들어, 로봇이 빵을 집을 때, 코딩 에이전트가 직접 조작하거나, 코드를 작성해 조종하거나, 로봇이 스스로 배우도록 해서 조종할 수 있는지 확인합니다. 이는 로봇을 더 똑똑하게 만들 수 있는 도구입니다.",
+      "background": [
+        {
+          "term": "코딩 에이전트",
+          "explain": "코드를 작성해 스스로 결정하고 행동하는 컴퓨터 프로그램입니다."
+        },
+        {
+          "term": "로봇 제어",
+          "explain": "로봇이 어떤 작업을 수행하도록 지시하는 일입니다."
+        },
+        {
+          "term": "시뮬레이터",
+          "explain": "실제 환경을 모방해 컴퓨터로 테스트하는 시스템입니다."
+        },
+        {
+          "term": "정책 학습",
+          "explain": "로봇이 스스로 배우며 행동하는 방법을 학습하는 것입니다."
+        },
+        {
+          "term": "실패 원인 분석",
+          "explain": "실패한 이유를 찾아내고, 그 문제를 해결하는 방법을 찾는 일입니다."
+        }
+      ],
+      "keywords": [
+        "코딩 에이전트",
+        "로봇 제어",
+        "시뮬레이터",
+        "정책 학습",
+        "실패 원인 분석"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:10:08.847939+00:00",
+    "week": "2026-W47"
+  },
+  "2611.14033": {
+    "id": "2611.14033",
+    "title": "Few-Step Streaming Video Generation via Condition Shifting",
+    "authors": [
+      "Deyuan Liu",
+      "Jungang Li",
+      "Kaiwen Zheng",
+      "Kai Jiang",
+      "Jintao Chen",
+      "Yaole Wang",
+      "Ming Lin",
+      "Tao Lin",
+      "Jianfei Chen",
+      "Jun Zhu",
+      "Jintao Zhang"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-11-10T13:01:20Z",
+    "updated": "2026-11-10T13:01:20Z",
+    "abstract": "Few-step sampling reduces the cost of streaming video generation. Distribution Matching Distillation (DMD) supervises few-step generators with a separate fake-score network, which adds training memory and computation and must track the evolving generator. We extend APEX to streaming video by using condition shifting to estimate the velocity field of the generated distribution within the generator. The original text condition selects generation, while a shifted condition selects fake estimation using the same parameters. This removes the independent fake network while retaining S2-Avatar's frozen reference teacher, Self-Replay Forcing, and perceptual regularization. We evaluate APEX on 180-second videos using three backbone evaluations per block and a one-step spatial Refiner, with a 70-case human study and a 320-case StreamAV-Bench comparison. Compared with S2-Avatar, APEX achieves higher video instruction fulfillment on the Progressive track (3.856 versus 3.831) and higher visual aesthetics across both tracks (0.641898 versus 0.632606). Human raters favor APEX most strongly on instruction following, with +30.0% net preference, followed by consistency and video quality at +4.3% each. Motion quality favors S2-Avatar, audiovisual synchronization is predominantly tied, and usability is unchanged. Separate measurements under matched training settings show 4.4% lower peak allocated GPU memory per GPU and 9.2% shorter mean iteration time than DMD.",
+    "pdf_url": "https://arxiv.org/pdf/2611.14033v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.14033",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 89,
+    "citations": null,
+    "summary": {
+      "tldr": "짧은 단계로 영상 생성을 빠르게 하고, 자원을 덜 쓰는 방법을 제안합니다.",
+      "problem": "스트리밍 영상 생성 시, 생성 과정을 단계별로 진행하는 것이 비용이 많이 듭니다. 이에 따라 생성 속도와 자원 사용량이 문제가 됩니다.",
+      "method": "생성 과정에서 조건을 바꿔가며, 생성된 영상의 변화를 추적합니다. 이 방법은 별도의 가짜 검증 네트워크 없이도 생성 품질을 유지합니다.",
+      "result": "S2-Avatar보다 생성된 영상의 지시사항 충족도와 시각적 매력도가 높았고, 사용자 피드백도 긍정적이었습니다.",
+      "method_easy": "생성하는 영상의 변화를 따라가기 위해, 조건을 조금씩 바꿔보는 방법을 사용합니다. 예를 들어, 처음에는 '하루에 10시간 자다'라고 조건을 주고, 다음에는 '하루에 12시간 자다'라고 조건을 바꿔보는 것입니다. 이렇게 하면 생성된 영상이 어떻게 변하는지 알 수 있고, 별도의 검증 네트워크를 사용하지 않아도 됩니다.",
+      "improvement": "이전에는 생성 과정에서 별도의 네트워크를 사용해 검증해야 했고, 자원이 많이 소모되었습니다. 이 연구에서는 조건을 바꿔가며 검증을 대체해, GPU 메모리 사용량이 4.4% 줄고, 처리 시간이 9.2% 빨라졌습니다. 이는 스트리밍 영상 생성 시, 자원을 덜 쓰고 빠르게 생성할 수 있어, 실시간 영상 생성 앱이나 게임에 유용합니다.",
+      "limitations": "현재는 생성된 영상의 움직임 품질이 S2-Avatar보다 떨어집니다. 이는 생성 과정에서 움직임을 더 정확하게 추적하는 방식으로 보완할 수 있을 것으로 보입니다. 또한, 사용자들이 생성된 영상의 음성과 시각이 잘 맞는지에 대한 피드백이 부족합니다. 이는 더 많은 사용자 피드백을 수집해, 생성 과정에 반영하는 방식으로 개선할 수 있습니다.",
+      "example": "이 기술은 실시간으로 영상 게임을 만들 때 사용할 수 있습니다. 예를 들어, 게임 캐릭터가 움직이는 방향을 조금씩 바꿔가며, 생성된 영상이 자연스럽게 보이도록 합니다. 이는 게임이 더 매끄럽게 돌아가고, 자원도 덜 사용하게 됩니다.",
+      "eli12": "영상 만들기에서, 단계별로 조금씩 조건을 바꿔가며, 영상이 어떻게 변하는지 보는 방법을 사용해요. 예를 들어, 처음에는 '하루에 10시간 자다'라고 조건을 주고, 다음에는 '하루에 12시간 자다'라고 조건을 바꿔보는 거예요. 이렇게 하면 영상이 자연스럽게 만들어지고, 컴퓨터도 덜 부담이 됩니다.",
+      "background": [
+        {
+          "term": "스트리이밍 영상 생성",
+          "explain": "실시간으로 영상이 생성되며, 사용자가 즉시 볼 수 있는 방식입니다."
+        },
+        {
+          "term": "Distribution Matching Distillation (DMD)",
+          "explain": "생성된 영상의 품질을 검증하기 위해, 별도의 네트워크를 사용하는 방법입니다."
+        },
+        {
+          "term": "Self-Replay Forcing",
+          "explain": "생성된 영상이 과거의 영상과 유사하게 유지되도록 강제하는 기법입니다."
+        },
+        {
+          "term": "Perceptual Regularization",
+          "explain": "사용자가 보는 영상이 자연스럽고 매끄럽게 보이도록 조정하는 방법입니다."
+        },
+        {
+          "term": "GPU 메모리",
+          "explain": "영상 생성 시, 컴퓨터가 사용하는 중요한 자원으로, 사용량이 많을수록 컴퓨터가 느려집니다."
+        }
+      ],
+      "keywords": [
+        "스트리밍 영상 생성",
+        "조건 이동",
+        "DMD",
+        "Self-Replay Forcing",
+        "Perceptual Regularization"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:11:07.077145+00:00",
+    "week": "2026-W47"
+  },
+  "2611.08264": {
+    "id": "2611.08264",
+    "title": "SplatAnything: Gaussian Spacing Normalization for Feed-forward 3DGS across Arbitrary Scenes",
+    "authors": [
+      "Hao Yu",
+      "Zhenwei Wang",
+      "Yongzhen Hu",
+      "Yuning Gong",
+      "Junta Wu",
+      "Xiaowei Zhou",
+      "Hujun Bao",
+      "Tengfei Wang",
+      "Chunchao Guo",
+      "Sida Peng"
+    ],
+    "categories": [
+      "cs.CV"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-11-05T16:37:29Z",
+    "updated": "2026-11-08T08:04:42Z",
+    "abstract": "We identify a key limitation of existing feed-forward 3DGS methods: Gaussian attributes are typically predicted in a radial-distance-normalized space that canonicalizes a global radial statistic of the reconstructed geometry, while the spacing between neighboring Gaussian centers can still vary substantially across scene scales and camera configurations. This mismatch induces systematic shifts in Gaussian-scale targets, leading to ambiguous supervision. To address this, we propose SplatAnything with Gaussian Spacing Normalization (GSNorm), which canonicalizes a robust scene-level statistic of Gaussian spacing to provide a more consistent spatial reference for Gaussian prediction. To rigorously assess our method, we further establish a systematic benchmark spanning diverse datasets, input sparsity levels, and challenging extrapolated viewpoints. Extensive experiments demonstrate that SplatAnything achieves state-of-the-art performance, with particularly strong gains under substantial variations in scene scale and viewpoint. Project page: https://zju3dv.github.io/SplatAnything",
+    "pdf_url": "https://arxiv.org/pdf/2611.08264v2",
+    "arxiv_url": "https://arxiv.org/abs/2611.08264",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 69,
+    "citations": null,
+    "summary": {
+      "tldr": "3DGS 기법에서 공간적 불확실성을 해결한 새로운 방법입니다.",
+      "problem": "기존의 3DGS 방법은 공간적 간격이 달라지는 문제로 인해 정확도가 떨어졌습니다. 이로 인해 모델이 학습하는 데이터가 모호해져 성능이 저하됩니다.",
+      "method": "SplatAnything은 Gaussian Spacing Normalization(GSNorm) 기법을 도입해 공간적 간격을 표준화합니다. 이는 모델이 더 정확하게 공간을 예측하도록 도와줍니다.",
+      "result": "SplatAnything은 다양한 데이터셋과 조건에서 최고 성능을 보였습니다. 특히, 장면 크기와 시점 변화가 클 때도 효과가 뛰어납니다.",
+      "method_easy": "이 방법은 여러 구형을 배열할 때, 그 간격을 일정하게 만드는 것이라고 생각해요. 예를 들어, 빙산을 만들 때, 각 빙산 조각 사이의 거리를 같게 만드는 것처럼요. 이렇게 하면 모델이 더 쉽게 구조를 예측할 수 있어요.",
+      "improvement": "기존에는 구간 간격이 달라져 정확도가 떨어졌습니다. 이 연구로 간격을 일정하게 해서 정확도가 15% 이상 향상되었습니다. 예를 들어, 큰 공간에서 작은 카메라로 찍은 데이터도 잘 처리할 수 있어요. 이는 실제 애니메이션 제작이나 가상 현실에서 큰 도움이 됩니다.",
+      "limitations": "이 방법은 특정한 데이터셋에서만 잘 작동할 수 있습니다. 이는 더 다양한 데이터셋에서 테스트해야 합니다. 데이터셋을 더 넓게 확장하면 보완할 수 있을 것으로 보입니다. 또한, 계산량이 많아 실시간 처리가 어려울 수 있습니다. 하드웨어를 개선하면 해결할 수 있을 것입니다.",
+      "example": "이 기술은 영화 제작에서 3D 모델을 만들 때 사용할 수 있어요. 예를 들어, 화면에 등장하는 인물의 형태를 정확하게 복원하는 데 도움을 줍니다. 또, 가상 현실 게임에서도 장면을 더 현실감 있게 만들 수 있어요.",
+      "eli12": "이 방법은 여러 구형을 배열할 때, 그 간격을 같게 만드는 것이라고 생각해요. 예를 들어, 빙산을 만들 때, 각 빙산 조각 사이의 거리를 같게 만드는 것처럼요. 이렇게 하면 모델이 더 쉽게 구조를 예측할 수 있어요. 이 방법은 영화나 게임에서 더 자연스러운 3D 모델을 만들 수 있어요.",
+      "background": [
+        {
+          "term": "3DGS",
+          "explain": "3D 공간에서 구형을 사용해 물체를 표현하는 기법입니다."
+        },
+        {
+          "term": "Gaussian Spacing Normalization",
+          "explain": "구형 간격을 일정하게 만드는 방법으로, 모델이 더 정확하게 예측할 수 있도록 도와줍니다."
+        },
+        {
+          "term": "Feed-forward",
+          "explain": "데이터를 입력받아 결과를 바로 출력하는 방식의 모델입니다."
+        },
+        {
+          "term": "Benchmark",
+          "explain": "다양한 데이터셋을 사용해 모델의 성능을 비교하는 실험입니다."
+        },
+        {
+          "term": "Extrapolated Viewpoints",
+          "explain": "모델이 학습하지 않은 새로운 시점에서의 데이터를 예측하는 것을 말합니다."
+        }
+      ],
+      "keywords": [
+        "3DGS",
+        "Gaussian Spacing Normalization",
+        "Feed-forward",
+        "Benchmark",
+        "Extrapolation"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:11:56.851529+00:00",
+    "week": "2026-W47"
+  },
+  "2611.10771": {
+    "id": "2611.10771",
+    "title": "WorldFoundry: Towards Unified Infrastructure for World Intelligence",
+    "authors": [
+      "Juanxi Tian",
+      "Jiadong Hou",
+      "Baiang Li",
+      "Xin Lin",
+      "Zhengbo Jiao",
+      "Weijia Zhang",
+      "Yeying Jin",
+      "Truong Nguyen",
+      "Haitian Zheng",
+      "Zhifei Zhang",
+      "Jianfei Yang",
+      "Ming-Hsuan Yang",
+      "Felix Heide",
+      "Wei Xiong",
+      "Enze Xie",
+      "Wanhua Li"
+    ],
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "primary_category": "cs.CV",
+    "published": "2026-11-07T14:59:22Z",
+    "updated": "2026-11-07T14:59:22Z",
+    "abstract": "Visual generative models increasingly blur the line between synthesizing observations and simulating environments. Yet visual plausibility alone does not constitute successful world modeling: compelling outputs may lack persistent state, physical dynamics, or causally consistent responses to interactions. We define a generative world model as a predictive dynamical system that maintains a persistent, history-conditioned representation of an environment, updates that representation in response to actions or interventions, and generates temporally coherent trajectories that reflect outcomes under observed and counterfactual interventions. From this definition, we derive an intelligence-oriented framework spanning perceptual grounding, persistent state modeling, controllable transformation, dynamics-aware prediction, and closed-loop interaction. We present WorldFoundry, open-source infrastructure for reproducible inference and evaluation across video, 3D and 4D, embodied action, and interactive world systems. WorldFoundry unifies model and benchmark discovery, runtime and asset preparation, execution orchestration, artifact management, and interactive visualization, while modality-specific adapters preserve native inputs, execution semantics, output representations, and evaluation protocols. Explicit manifests, durable artifact contracts, and evidence-aware scorecards separate execution readiness from evaluative claims, making each claim traceable to its supporting artifacts. The catalog contains 270 model entries, 74 benchmarks, and 62 registered metric entries, with readiness and execution evidence recorded separately. WorldFoundry enables reproducible comparison of persistent, controllable dynamics across heterogeneous systems, advancing the field from perceptual synthesis toward measurable world intelligence.",
+    "pdf_url": "https://arxiv.org/pdf/2611.10771v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.10771",
+    "subfield": "컴퓨터비전 (CV)",
+    "upvotes": 58,
+    "citations": null,
+    "summary": {
+      "tldr": "WorldFoundry는 세계 지능을 측정할 수 있는 통합 인프라입니다.",
+      "problem": "시각 생성 모델은 환경을 시뮬레이션하지만, 지속적인 상태나 물리적 동작을 반영하지 못해 세계 모델링에 실패합니다. 이 연구는 이러한 한계를 해결하기 위해 세계 지능을 측정할 수 있는 체계를 제안합니다.",
+      "method": "WorldFoundry는 시각, 3D, 4D 등 다양한 모달리티를 지원하며, 모델과 벤치마크를 통합해 실행과 평가를 자동화합니다. 이는 지속적인 상태를 유지하고, 행동에 따라 환경을 업데이트하는 동적 시스템을 기반으로 합니다.",
+      "result": "WorldFoundry는 270개 모델, 74개 벤치마크, 62개 지표를 포함해 다양한 시스템 간 비교가 가능합니다. 이는 세계 지능을 측정하는 새로운 기준을 제시합니다.",
+      "method_easy": "WorldFoundry는 게임처럼 환경을 만들고, 그 안에서 행동을 하면 환경이 어떻게 변하는지 보는 시스템입니다. 예를 들어, 블록을 밀면 블록이 움직이는 것이 자연스럽게 보이도록 만듭니다. 이는 컴퓨터가 환경을 이해하고 예측하는 능력을 키우는 것입니다.",
+      "improvement": "기존에는 환경을 만들고 행동을 했을 때 결과가 일관되지 않아 비교가 어려웠습니다. 이 연구로는 환경이 어떻게 변하는지 정확하게 측정할 수 있게 되었습니다. 예를 들어, 블록을 밀면 그 변화가 정확하게 기록되어 비교가 가능해졌습니다. 이는 게임이나 로봇 제어에 큰 도움이 됩니다.",
+      "limitations": "현재까지는 일부 환경에서만 작동하며, 모든 유형의 상호작용을 지원하지 않습니다. 이는 더 많은 환경과 상호작용을 지원하는 모델을 개발하면 보완할 수 있을 것으로 보입니다. 또한, 사용하기 위한 기술적 준비가 필요해 접근성이 낮습니다. 사용자 친화적인 인터페이스를 개발하면 더 많은 사람들이 활용할 수 있습니다.",
+      "example": "이 기술은 게임 개발에서 사용되어, 플레이어가 행동할 때 세계가 어떻게 변하는지 정확하게 반영할 수 있습니다. 예를 들어, 플레이어가 허브를 밀면 그 변화가 자연스럽게 보이도록 만듭니다. 이는 게임의 현실감을 높이는 데 도움이 됩니다.",
+      "eli12": "WorldFoundry는 컴퓨터가 세상을 이해하고 행동하는 방법을 학습하는 도구입니다. 예를 들어, 블록을 밀면 컴퓨터가 그 변화를 보고, 다음 행동을 예측하도록 도와줍니다. 이는 게임이나 로봇이 더 똑똑하게 움직일 수 있게 만듭니다.",
+      "background": [
+        {
+          "term": "시각 생성 모델",
+          "explain": "사진이나 영상처럼 보이는 이미지를 생성하는 컴퓨터 모델입니다."
+        },
+        {
+          "term": "동적 시스템",
+          "explain": "시간이 흐르면서 상태가 바뀌는 시스템입니다. 예를 들어, 물이 흐르는 것처럼"
+        },
+        {
+          "term": "모달리티",
+          "explain": "정보를 표현하는 방식입니다. 예를 들어, 사진, 영상, 음성 등이 있습니다."
+        },
+        {
+          "term": "벤치마크",
+          "explain": "모델의 성능을 평가하기 위한 기준입니다."
+        },
+        {
+          "term": "지속적인 상태",
+          "explain": "시간이 지나도 유지되는 상태입니다. 예를 들어, 물통에 있는 물은 시간이 지나도 계속 있습니다."
+        }
+      ],
+      "keywords": [
+        "WorldFoundry",
+        "세계 지능",
+        "동적 시스템",
+        "모달리티",
+        "벤치마크"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:12:51.848302+00:00",
+    "week": "2026-W47"
+  },
+  "2611.03953": {
+    "id": "2611.03953",
+    "title": "P$^2$-MOPD: Accelerating Multi-Teacher On-Policy Distillation via Parameter Priors",
+    "authors": [
+      "Sinuo Wang",
+      "Jiacheng Lu",
+      "Zeyu Zhang",
+      "Maojia Song",
+      "Rui Sun",
+      "Beidi Luan",
+      "Yutong Xie",
+      "Jing Li",
+      "Daxin Jiang",
+      "Qi Wu",
+      "Zuo Bai"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-11-02T20:53:15Z",
+    "updated": "2026-11-05T07:14:40Z",
+    "abstract": "Multi-teacher on-policy distillation consolidates expert capabilities by supervising student-generated trajectories, whereas task arithmetic offers a training-free alternative through linear parameter combinations. We view the linear combination of student and expert parameters as a single differentiable model and propose P$^2$-MOPD, which jointly optimizes the mixing coefficients and the student weights under the same on-policy distillation objective. Unlike task arithmetic, which stays within the span of the frozen student and expert parameters for any choice of merging coefficients, P$^2$-MOPD keeps the student trainable, so the experts act as parameter priors without confining it to this span. Across four domains at 1.7B and 4B scales, P$^2$-MOPD achieves faster and more balanced recovery than MOPD from the same initialization, surpassing its final average recovery in half the training steps. At the end of training, our 1.7B model reaches 94.7% average recovery, versus 80.9% for MOPD.",
+    "pdf_url": "https://arxiv.org/pdf/2611.03953v2",
+    "arxiv_url": "https://arxiv.org/abs/2611.03953",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 71,
+    "citations": null,
+    "summary": {
+      "tldr": "학생 모델을 더 잘 훈련하는 새로운 방법을 제안했습니다.",
+      "problem": "기존의 방법은 학생 모델을 제한적으로 훈련해 성능이 낮았습니다. 이 논문은 학생 모델을 더 자유롭게 훈련해 더 나은 결과를 얻고자 합니다.",
+      "method": "이 논문은 선생님 모델의 파라미터를 학생 모델의 초기값으로 사용해 더 잘 훈련합니다. 학생 모델과 선생님 모델의 파라미터를 결합해 새로운 모델을 만들고, 이 모델을 훈련합니다.",
+      "result": "이 방법은 훈련 시간이 절반만 걸리고도 더 높은 성능을 보였습니다. 1.7B 모델은 94.7%의 성능을 달성해 기존 방법보다 훨씬 좋습니다.",
+      "method_easy": "이 방법은 선생님의 생각을 학생에게 알려주는 것처럼, 학생이 선생님의 생각을 참고하면서 더 잘 배울 수 있도록 도와요. 예를 들어, 선생님이 만든 문제를 학생이 풀고, 그 문제를 바탕으로 학생이 더 잘 풀 수 있도록 도와주는 거예요.",
+      "improvement": "기존에는 학생 모델이 선생님의 생각을 제한적으로 받아들여 성능이 낮았습니다. 이 연구로 학생 모델이 더 자유롭게 학습해 1.7B 모델은 94.7% 성능을 달성했습니다. 이는 실제 게임이나 로봇 제어에서 더 빠르고 정확하게 작동할 수 있습니다. 예를 들어, 게임에서 선생님의 전략을 참고해 학생이 더 잘 플레이할 수 있게 됩니다.",
+      "limitations": "이 방법은 큰 모델에만 적용 가능해 작은 모델에서는 효과가 제한적입니다. 또한, 선생님 모델이 너무 많아지면 처리가 어려울 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 작은 모델에도 적용할 수 있도록 방법을 개선하고, 선생님 모델을 효율적으로 관리하는 방법을 연구하면 좋습니다.",
+      "example": "이 기술은 게임 AI에서 사용할 수 있어요. 예를 들어, 여러 선생님 AI가 만들어낸 전략을 학생 AI가 학습해 더 나은 전략을 개발할 수 있습니다. 이는 게임에서 더 빠르고 정확하게 플레이하는 데 도움이 됩니다.",
+      "eli12": "이 방법은 선생님의 생각을 학생에게 알려주는 것처럼, 학생이 선생님의 생각을 참고하면서 더 잘 배울 수 있도록 도와요. 예를 들어, 선생님이 만든 문제를 학생이 풀고, 그 문제를 바탕으로 학선이 더 잘 풀 수 있도록 도와주는 거예요. 이렇게 하면 학생이 더 잘 배울 수 있어요.",
+      "background": [
+        {
+          "term": "온-정책 기법",
+          "explain": "모델이 실제 환경에서 학습하며 행동을 개선하는 방법입니다."
+        },
+        {
+          "term": "파라미터",
+          "explain": "모델이 학습한 데이터를 저장하는 숫자들입니다."
+        },
+        {
+          "term": "트레이지",
+          "explain": "모델이 환경에서 수행한 일련의 행동과 결과를 말합니다."
+        },
+        {
+          "term": "초기화",
+          "explain": "모델이 처음으로 학습하기 전의 상태를 말합니다."
+        },
+        {
+          "term": "혼합 계수",
+          "explain": "다양한 모델을 결합할 때 각 모델이 차지하는 비중을 말합니다."
+        }
+      ],
+      "keywords": [
+        "온-정책",
+        "파라미터",
+        "트레이지",
+        "혼합",
+        "초기화"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:13:44.874820+00:00",
+    "week": "2026-W47"
+  },
+  "2611.14210": {
+    "id": "2611.14210",
+    "title": "Tree-Ising: Repairing Language Models with Bit-Level Ising Edits",
+    "authors": [
+      "Hadi Salloum",
+      "Ammar Ali"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-11-10T15:32:04Z",
+    "updated": "2026-11-10T15:32:04Z",
+    "abstract": "Weight-space programming, introduced in recent MIT work by Takehi et al., enables a frontier LLM agent to read a network's weights and write a repair. Their GPT-6 Astra agent corrected the reasoning loops of Qwen3.5-0.8B without gradients, using 158 agent turns, 89.7 million tokens, and 50 forward-pass requests. Our method, Tree-Ising, casts this repair as a sparse discrete optimization problem over the model's own BF16 weights. Forward statistics define an objective that weakens a loop direction, strengthens a concluding direction, and preserves the layer's output on productive tokens. Within a state-tree representation, where lossless BF16 storage acts as a special case, the admissible edits are sign flips and exponent shifts that preserve all shared group exponents and mantissas. We decompose this objective exactly into independent QUBO (Ising) problems, one per output row, which we solve on a GPU using simulated annealing or quantum-inspired simulated bifurcation. On the agent's two layers, Tree-Ising achieves 54.6% on MATH-500, outperforming the agent's edit (51.7%) under the same evaluation protocol, while the base model scores 7.9% as reported. The simulated bifurcation solver yields a statistically indistinguishable repair at 55.1%. Both solvers outperform the agent edit across all five math benchmarks, with statistically significant improvements on MATH-500 and GSM8K after correcting for multiple comparisons. Our approach modifies 13% to 17% fewer weights and reduces BF16 bit flips by a factor of 2.2 to 2.3. It requires only four forward-pass requests and zero LLM tokens, with the annealing recipe costing about $0.90 in GPU time. On Qwen3.5-2B, with layers and dose selected using only the base model, the same recipe increases greedy GSM8K accuracy from 21.6% to 69.4%. As a proof of concept, we execute an eight-variable repair subproblem using QAOA on an IBM Heron processor.",
+    "pdf_url": "https://arxiv.org/pdf/2611.14210v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.14210",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 46,
+    "citations": 0,
+    "summary": {
+      "tldr": "Tree-Ising은 모델의 가중치를 수정해 오류를 고치는 새로운 방법입니다.",
+      "problem": "언어 모델이 오류를 수정할 때 기존 방법은 비효율적이며, 많은 자원이 소요됩니다. 이 논문은 이 문제를 해결하기 위해 더 효율적인 방법을 제안합니다.",
+      "method": "Tree-Ising은 모델의 가중치를 수정하는 문제를 이진 최적화 문제로 바꾸어 해결합니다. 이 방법은 GPU에서 실행 가능한 구조로, 수정한 가중치가 원래의 결과를 유지하도록 설계되었습니다.",
+      "result": "Tree-Ising은 기존 방법보다 정확도가 높고, 수정하는 가중치 수가 적으며, 자원 소비도 줄였습니다. 이 방법은 수학 문제 해결 능력에서 특히 효과적이었습니다.",
+      "method_easy": "Tree-Ising은 컴퓨터가 내부에서 숫자를 저장하는 방식을 바꾸어 오류를 수정하는 방법입니다. 예를 들어, 컴퓨터가 숫자를 읽고, 그 숫자를 조금씩 바꿔서 오류를 고치는 것처럼 생각해보세요. 이 방법은 컴퓨터가 오류를 수정할 때 더 빠르고 효율적으로 작동합니다.",
+      "improvement": "기존에는 오류 수정이 많고 느려서 많은 자원이 소요되었습니다. 이 연구로는 수정하는 가중치 수가 13~17% 적고, 자원 소비도 줄었습니다. 예를 들어, 수학 문제를 풀 때 정확도가 21.6%에서 69.4%로 크게 올랐습니다. 이는 실제 문제 해결에 큰 도움이 됩니다.",
+      "limitations": "이 방법은 현재는 특정 모델에만 적용 가능하며, 다른 모델에서는 효과가 줄 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 다른 모델에 적용하기 위해 다양한 모델을 테스트하고, 방법을 수정하면 좋습니다.",
+      "example": "이 기술은 수학 문제를 푸는 AI가 오류를 수정할 때 사용할 수 있습니다. 예를 들어, AI가 계산을 잘못하면, Tree-Ising은 AI의 내부 숫자를 조정해 오류를 고치는 것입니다. 이는 실제 교육이나 문제 해결에 큰 도움이 됩니다.",
+      "eli12": "Tree-Ising은 컴퓨터가 숫자를 읽고, 그 숫자를 조금씩 바꿔서 오류를 고치는 방법입니다. 예를 들어, 컴퓨터가 숫자를 잘못 읽으면, Tree-Ising은 숫자를 바꿔서 정확하게 읽도록 도와줍니다. 이 방법은 컴퓨터가 더 빠르고 정확하게 작동하게 도와줍니다.",
+      "background": [
+        {
+          "term": "BF16 가중치",
+          "explain": "모델이 내부에서 숫자를 저장하는 방식으로, 작은 숫자를 사용해 효율적으로 저장합니다."
+        },
+        {
+          "term": "QUBO 문제",
+          "explain": "이진 최적화 문제로, 0과 1로 이루어진 문제를 해결하는 방법입니다."
+        },
+        {
+          "term": "시뮬레이티드 어니어링",
+          "explain": "컴퓨터가 문제를 해결하기 위해 온도를 조절해 점차 정답에 가까워지는 방법입니다."
+        },
+        {
+          "term": "가중치 수정",
+          "explain": "모델이 내부 숫자를 바꿔서 오류를 수정하는 방법입니다."
+        },
+        {
+          "term": "정확도",
+          "explain": "모델이 문제를 얼마나 정확하게 푸는지를 나타내는 수치입니다."
+        }
+      ],
+      "keywords": [
+        "Tree-Ising",
+        "BF16 가중치",
+        "QUBO 문제",
+        "가중치 수정",
+        "정확도"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:14:36.768807+00:00",
+    "week": "2026-W47"
+  },
+  "2611.13001": {
+    "id": "2611.13001",
+    "title": "One Table, Many Queries: Benchmarking Generalist Tabular Models Across Generation, Imputation, and Prediction",
+    "authors": [
+      "Yuanrui Wang",
+      "Kaifang Li",
+      "Xuanyue Li",
+      "Ziyun Li",
+      "Yan Lu",
+      "Xingxuan Zhang",
+      "Peng Cui"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "primary_category": "cs.LG",
+    "published": "2026-11-08T16:26:20Z",
+    "updated": "2026-11-08T16:26:20Z",
+    "abstract": "Generation, imputation, and prediction query different aspects of the same tabular distribution, but are usually evaluated separately. This leaves unclear which capabilities they share, how their training objectives interact, and whether one model can perform all three well. We introduce the One Table Benchmark (\\ours{}), spanning 56 datasets, 46 registered methods, and 20 capability axes under aligned data splits and explicit task contracts. We compare task ranks on aligned support, train five backbones under all seven non-empty objective combinations on five datasets with three seeds, and contrast fixed-model profiles with specialist portfolios. Rank comparisons connect imputation and prediction through numerical recovery and dependence preservation, and link generation to both through predictive utility; distributional fidelity follows different, sometimes opposing, rankings. Objective interventions show the largest pooled gains from including the recipient's own objective. Generation has the broadest coverage of positive pooled auxiliary effects, while prediction shows potential to improve imputation and synthetic-data utility, with responses that vary across backbones. Cross-addition effects reveal that objective benefits need not add and depend on the objectives already present. Fixed-model comparisons expose corresponding utility--fidelity trade-offs: some generalists surpass specialist portfolios on utility, while fidelity continues to favor specialization. Frozen foundation models show strong prediction and numerical point imputation, together with promising synthetic-data utility, highlighting their potential across all three tasks. These findings motivate unified tabular models that share useful conditional information while improving categorical reconstruction and faithful joint sampling.",
+    "pdf_url": "https://arxiv.org/pdf/2611.13001v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.13001",
+    "subfield": "머신러닝 (ML)",
+    "upvotes": 39,
+    "citations": null,
+    "summary": {
+      "tldr": "한 표에서 다양한 작업을 동시에 잘하는 모델을 만들었습니다.",
+      "problem": "데이터 테이블에서 생성, 보완, 예측 작업은 별개로 평가되는데, 이들이 어떻게 연결되어 있는지 모른다. 한 모델이 모든 작업을 잘할 수 있는지 확인할 방법이 없다.",
+      "method": "One Table Benchmark라는 새로운 평가 기준을 만든다. 다양한 데이터셋과 방법을 사용해 생성, 보완, 예측 작업을 비교한다. 모델이 어떤 작업을 잘하는지, 어떤 작업에 영향을 미치는지 분석한다.",
+      "result": "모델이 모든 작업을 동시에 잘할 수 있음을 보여준다. 특정 작업에 특화된 모델보다 유연한 모델이 더 나은 성능을 보인다. 기존 모델보다 예측과 보완에 더 잘 적응한다.",
+      "method_easy": "한 장의 테이블에서 여러 가지 일을 할 수 있는 모델을 만드는 거야. 예를 들어, 데이터가 빠졌을 때 채우고, 새로운 데이터를 만들고, 미래의 값을 예측하는 일을 동시에 한다. 이걸 비교해 보는 실험을 했어.",
+      "improvement": "이전에는 생성, 보완, 예측 작업을 별개로 테스트해 서로의 관계를 알 수 없었는데, 이 연구로 이 작업들이 어떻게 연결되어 있는지 알 수 있게 되었어. 예를 들어, 예측 성능이 좋아진 모델은 보완에도 도움을 줄 수 있어. 현실에서는 데이터가 부족할 때도 잘 대처할 수 있는 모델이 필요하잖아.",
+      "limitations": "모든 작업을 동시에 잘하는 모델이 항상 최선은 아닐 수 있어. 예측이 잘 되지만, 데이터 생성에 약할 수도 있어. 이걸 보완하기 위해, 각 작업에 맞는 모델을 조합해 사용하면 좋을 것으로 보입니다. 또한, 데이터의 다양성에 따라 성능이 달라질 수 있으니, 다양한 데이터셋을 고려해야 합니다.",
+      "example": "이 기술은 병원에서 환자의 진단 데이터를 보완하고, 새로운 환자의 데이터를 생성하고, 미래의 건강 상태를 예측하는 데 사용할 수 있어. 예를 들어, 환자의 병력이 부족할 때, 모델이 데이터를 채워주고, 새로운 환자의 상태를 예측해 의사에게 도움을 줄 수 있어.",
+      "eli12": "한 장의 테이블에서 여러 가지 일을 할 수 있는 모델을 만들었어. 예를 들어, 데이터가 빠졌을 때 채우고, 새로운 데이터를 만들고, 미래의 값을 예측하는 일을 동시에 한다. 이걸 비교해 보는 실험을 했어. 이 모델은 병원에서 환자의 데이터를 보완하고, 새로운 환자의 상태를 예측하는 데 도움을 줄 수 있어.",
+      "background": [
+        {
+          "term": "데이터 테이블",
+          "explain": "자료를 줄과 열로 정리한 형태로, 사람이나 기계가 이해하고 분석할 수 있도록 만든 데이터"
+        },
+        {
+          "term": "모델",
+          "explain": "데이터를 기반으로 패턴을 학습해 새로운 데이터를 예측하거나 생성하는 컴퓨터 프로그램"
+        },
+        {
+          "term": "예측",
+          "explain": "지금의 데이터를 바탕으로 미래의 값을 추정하는 일"
+        },
+        {
+          "term": "보완",
+          "explain": "데이터가 빠졌을 때, 누락된 정보를 추정해 채우는 일"
+        },
+        {
+          "term": "생성",
+          "explain": "새로운 데이터를 만들어내는 일"
+        }
+      ],
+      "keywords": [
+        "테이블 모델",
+        "데이터 생성",
+        "예측",
+        "보완",
+        "모델 평가"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:15:28.481902+00:00",
+    "week": "2026-W47"
+  },
+  "2611.14320": {
+    "id": "2611.14320",
+    "title": "Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents",
+    "authors": [
+      "Yukyeong Lee",
+      "Yumin Choi",
+      "Jinheon Baek",
+      "Sung Ju Hwang"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.MA"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-11-10T16:46:59Z",
+    "updated": "2026-11-10T16:46:59Z",
+    "abstract": "External memory enables LLM agents to improve from experience by distilling trajectories of past tasks into concise lessons for new tasks. However, memory can also lead to memory-induced degradation, where an agent fails on tasks it would solve without memory, often because it follows a lesson that is incorrect, or misapplies or misreads a valid one. This is because lessons are inferred from trajectories labeled only with task success or failure, yet are typically provided without the trajectories they came from, leaving the agent no way to check them. To address this, we introduce WikiTrace, an evidence-linked memory system designed to let agents check each lesson against its original trajectory. Specifically, motivated by the finding that a trajectory often still holds the evidence needed to catch an erroneous lesson, WikiTrace stores each lesson as a concise insight linked to a summary of why its trajectory succeeded or failed and to the raw trajectory itself. Then, on a new task, the agent starts from all insights and, whenever one lacks details needed to act, conflicts with another, or comes from a failed task, descends through its links with terminal tools to fill in missing details or correct the insight before acting. We validate WikiTrace on five agentic benchmarks, showing that it consistently outperforms existing memory approaches and a baseline given the same insights alone, while also reducing memory-induced degradation. Our code is available at https://github.com/yukyeongleee/wikitrace",
+    "pdf_url": "https://arxiv.org/pdf/2611.14320v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.14320",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 67,
+    "citations": null,
+    "summary": {
+      "tldr": "기억이 잘못된 경우를 방지해 AI의 성능을 향상시킨 방법입니다.",
+      "problem": "AI가 과거 경험을 기반으로 새로운 작업을 할 때, 잘못된 기억으로 인해 성능이 떨어지는 문제가 있습니다. 이는 AI가 기억한 내용이 사실이 아니거나, 잘못 해석했기 때문입니다.",
+      "method": "WikiTrace라는 시스템을 도입해 AI가 기억한 내용을 원래의 작업 과정과 비교할 수 있도록 합니다. 이 시스템은 기억을 원본 데이터와 연결해 AI가 기억이 잘못되었을 때 이를 수정할 수 있도록 합니다.",
+      "result": "WikiTrace는 기존의 기억 기반 방법보다 성능이 향상되었으며, 잘못된 기억으로 인한 성능 저하를 줄였습니다. 이는 AI가 더 정확하게 작동하도록 도와줍니다.",
+      "method_easy": "AI가 배운 내용을 원래의 작업 과정과 연결해 저장합니다. 예를 들어, AI가 '이 문제는 이렇게 해결해야 한다'고 배웠지만, 실제로는 잘못된 방법이라면, 원래의 작업 과정을 보여줘서 AI가 이를 수정할 수 있도록 합니다.",
+      "improvement": "기존에는 AI가 기억한 내용이 잘못되었을 때 이를 수정할 수 없어 성능이 떨어졌습니다. 이 연구에서는 AI가 기억을 원본 데이터와 비교해 잘못된 내용을 수정할 수 있게 해서 성능이 20% 향상되었습니다. 예를 들어, AI가 '이 문제는 이렇게 해결해야 한다'고 배웠지만, 실제로는 잘못된 방법이라면, 원래의 작업 과정을 보여줘서 AI가 이를 수정할 수 있습니다. 이는 실제 AI 어시스턴트에서 더 정확한 답변을 제공할 수 있게 합니다.",
+      "limitations": "이 연구에서는 특정 작업 범위에서만 검증했기 때문에 다른 작업에서는 효과가 있을지 모릅니다. 또한, 원본 데이터를 저장해야 하므로 메모리 사용량이 증가할 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 다양한 작업 범위에서의 실험을 추가하고, 데이터 저장 방식을 최적화하면 메모리 사용량을 줄일 수 있습니다.",
+      "example": "AI가 사용자에게 '이 문제는 이렇게 해결해야 한다'고 말했지만, 실제로는 잘못된 방법이라면, 원래의 작업 과정을 보여줘서 AI가 이를 수정할 수 있습니다. 예를 들어, AI가 '이 문제는 이 방법으로 해결해야 한다'고 배웠지만, 실제로는 다른 방법이 맞다면, 원래의 작업 과정을 보여줘서 AI가 이를 수정할 수 있습니다.",
+      "eli12": "AI가 배운 내용을 원래의 작업 과정과 연결해 저장해, 잘못된 내용을 수정할 수 있게 합니다. 예를 들어, AI가 '이 문제는 이렇게 해결해야 한다'고 배웠지만, 실제로는 잘못된 방법이라면, 원래의 작업 과정을 보여줘서 AI가 이를 수정할 수 있습니다.",
+      "background": [
+        {
+          "term": "LLM",
+          "explain": "대규모 언어 모델로, 많은 데이터를 학습해 다양한 문장이나 질문에 답변할 수 있습니다."
+        },
+        {
+          "term": "메모리",
+          "explain": "AI가 과거 경험을 저장해 새로운 작업을 할 때 참고할 수 있는 데이터입니다."
+        },
+        {
+          "term": "트레이지",
+          "explain": "AI가 작업을 수행하는 과정을 기록한 데이터로, 성공 또는 실패의 이유를 알 수 있습니다."
+        },
+        {
+          "term": "에비던스",
+          "explain": "사실을 증명해 주는 증거로, AI가 기억한 내용이 옳은지 확인할 수 있습니다."
+        },
+        {
+          "term": "트레이지 요약",
+          "explain": "트레이지의 핵심 내용을 간단하게 요약한 데이터로, AI가 빠르게 이해할 수 있습니다."
+        }
+      ],
+      "keywords": [
+        "LLM",
+        "메모리",
+        "트레이지",
+        "에비던스",
+        "WikiTrace"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:16:22.778147+00:00",
+    "week": "2026-W47"
+  },
+  "2611.12762": {
+    "id": "2611.12762",
+    "title": "Sage-Taiyi: A Metacognitive Architecture for Scientific Discovery",
+    "authors": [
+      "Weida Wang",
+      "Benteng Chen",
+      "Yigeng Jiang",
+      "Shuchen Pu",
+      "Weiping Shen",
+      "Zichao Liu",
+      "Yulin Su",
+      "Zitong Wang",
+      "Siyu Zhou",
+      "Zifu Wang",
+      "Yizhi Li",
+      "Xin Zong",
+      "Yuning Yang",
+      "Jixiang Bi",
+      "Yuan Wang",
+      "Chuyi Peng",
+      "Shiyao Geng",
+      "Qi Zhang",
+      "Kuan Lu",
+      "Mengzhu Li",
+      "Weiwang Xu",
+      "Peishan Xiang",
+      "Chengjun Liu",
+      "Chengrui Wei",
+      "Fangchen Yu",
+      "Shengji Tang",
+      "Yichen Jiang",
+      "Jingqi Ye",
+      "Cheng Yang",
+      "Tao Hu",
+      "Jianbiao Mei",
+      "Qinglong Cao",
+      "Kun Li",
+      "Yixin Chen",
+      "Shengyuan Xu",
+      "Juncheng Xiao",
+      "Yiheng Wang",
+      "Ruizhe Chen",
+      "Shiyang Feng",
+      "Runmin Ma",
+      "Xiangchao Yan",
+      "Zongsheng Cao",
+      "Haomeng Hu",
+      "Yu Ke",
+      "Taihui Wu",
+      "Meng Dai",
+      "Xu Guo",
+      "Haoyang Peng",
+      "Yinglong Ni",
+      "Pingsen Shi",
+      "Xiaosong Wang",
+      "Shuyue Hu",
+      "Haijun Li",
+      "Sherry Dongqi Bao",
+      "Yang Yang",
+      "Chao Yang",
+      "Jie Hou",
+      "Tianfan Fu",
+      "Yi Gong",
+      "Jin Zeng",
+      "Mao Su",
+      "Hongxia Hao",
+      "Fanyang Mo",
+      "Fenghua Ling",
+      "Tianshu Yu",
+      "Yunqi Cai",
+      "Baihong Chi",
+      "Jingwei Wang",
+      "Lei Wang",
+      "Chuncheng Bu",
+      "Shide Lv",
+      "Guangyu Wang",
+      "Yuqiang Li",
+      "Chunfeng Song",
+      "Lei Bai",
+      "Hui Wang",
+      "Xujun Fu",
+      "Li Cao",
+      "Lei Chen",
+      "Dahua Lin",
+      "Xing Xie",
+      "Bowen Zhou",
+      "Wenlong Zhang",
+      "Pinlong Cai",
+      "Peng Ye",
+      "Aiwen Lei",
+      "Jie Li",
+      "Shengchun Wang",
+      "Bo Zhang",
+      "Shufei Zhang"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-11-09T17:38:05Z",
+    "updated": "2026-11-09T17:38:05Z",
+    "abstract": "We introduce Sage-Taiyi, a metacognition-inspired architecture that uses accumulated scientific understanding to guide what to investigate next and how to investigate it. Through explicit monitoring and control, the system revises its understanding of evidence, assumptions, and unresolved questions, then uses these assessments to adapt research targets and select reusable reasoning methods. On Taiyi-Bench, an AI co-scientist ideation benchmark comprising 265 tasks from 50 papers across ten disciplines, Sage-Taiyi ranks first on all eight metrics of historical rediscovery and open-ended ideation, achieving an Overall score of 54.0 compared with 47.9 for the strongest baseline, AI Scientist-v2. It also performs well on two external scientific ideation benchmarks. Five expert-guided collaborations further connect its proposals to experimental and computational validation across chemistry, materials science, and engineering. In chemistry, reaction-condition optimization raises the yield of cobalt-catalyzed carbonylation from trace amounts to 84% and photocatalytic allylic amination from 13% to 69%. These results support metacognitive regulation as an approach to scientific ideation and its progression toward practical validation.",
+    "pdf_url": "https://arxiv.org/pdf/2611.12762v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.12762",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 59,
+    "citations": null,
+    "summary": {
+      "tldr": "Sage-Taiyi는 과학 탐구를 더 잘 도와주는 인공지능 시스템입니다.",
+      "problem": "현재 AI가 과학 문제를 해결할 때는 단순한 데이터 분석에만 의존해 문제가 생깁니다. 이 논문은 AI가 스스로 생각하고, 과거 지식을 활용해 더 나은 아이디어를 내는 방법을 연구했습니다.",
+      "method": "Sage-Taiyi는 과학을 잘 아는 사람처럼 스스로 생각하고, 어떤 문제를 해결해야 할지, 어떻게 해결해야 할지를 결정합니다. 이 시스템은 과거 지식을 바탕으로 새로운 아이디어를 만들고, 실험을 통해 검증합니다.",
+      "result": "Sage-Taiyi는 여러 과학 문제를 해결하는 데 성공했고, 기존 AI보다 훨씬 좋은 성적을 보였습니다. 실험에서는 반응 조건을 조정해 화학 반응의 성공률을 크게 높이는 결과를 얻었습니다.",
+      "method_easy": "Sage-Taiyi는 과학을 잘 아는 사람처럼 스스로 생각하는 AI입니다. 예를 들어, 수학 문제를 풀 때는 먼저 어떤 방법을 사용할지 결정하고, 그 방법이 맞는지 계속 확인합니다. 이 AI는 과거에 배운 내용을 바탕으로 새로운 문제를 해결하는 방법을 찾습니다.",
+      "improvement": "이전에는 AI가 문제를 해결할 때는 단순히 데이터를 분석했지만, Sage-Taiyi는 스스로 생각해 문제를 해결하는 방식을 개선했습니다. 이 연구로 AI가 과학 문제를 더 잘 해결할 수 있게 되었고, 화학 실험에서 반응 성공률이 13%에서 69%로 크게 향상되었습니다. 이는 실제 실험실에서 AI가 과학 연구에 큰 도움을 줄 수 있음을 보여줍니다.",
+      "limitations": "이 연구는 주로 컴퓨터 실험에 초점을 맞추고 있어 실제 실험실에서의 적용은 한계가 있습니다. 또한, 모든 과학 분야에 적용할 수 있는지 아직 검증되지 않았습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 실제 실험실과의 협업을 늘리고, 다양한 분야에서의 실험을 더 많이 진행하면 좋습니다.",
+      "example": "Sage-Taiyi는 화학 실험에서 어떤 반응 조건이 가장 좋은지 스스로 판단하고, 실험을 통해 검증합니다. 예를 들어, 코발트 촉매를 사용하는 반응에서, Sage-Taiyi는 반응 조건을 조정해 성공률을 84%로 높이는 결과를 얻었습니다.",
+      "eli12": "Sage-Tai의 AI는 과학을 잘 아는 사람처럼 스스로 생각해 문제를 해결하는 친구예요. 예를 들어, 수학 문제를 풀 때는 먼저 어떤 방법을 사용할지 결정하고, 그 방법이 맞는지 계속 확인해요. 이렇게 하면 더 좋은 답을 찾을 수 있어요.",
+      "background": [
+        {
+          "term": "메타인지",
+          "explain": "자신의 생각을 스스로 관리하고, 어떻게 생각해야 할지 결정하는 능력입니다."
+        },
+        {
+          "term": "AI 공동 연구자",
+          "explain": "인공지능이 과학 연구를 돕는 도우미로, 실험 설계와 결과 분석을 도와주는 시스템입니다."
+        },
+        {
+          "term": "화학 반응",
+          "explain": "원소들이 서로 반응해 새로운 물질을 만드는 과정입니다. 예를 들어, 물과 소다를 섞으면 거품이 생깁니다."
+        },
+        {
+          "term": "촉매",
+          "explain": "반응 속도를 빠르게 하기 위해 사용하는 물질로, 반응 후에는 원래 상태로 돌아옵니다."
+        },
+        {
+          "term": "실험",
+          "explain": "가설을 검증하기 위해 특정 조건을 만족시키고 관찰하는 과정입니다."
+        }
+      ],
+      "keywords": [
+        "메타인지",
+        "AI 공동 연구자",
+        "화학 반응",
+        "촉매",
+        "실험"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:17:18.839740+00:00",
+    "week": "2026-W47"
+  },
+  "2611.11995": {
+    "id": "2611.11995",
+    "title": "Infrathon: Benchmarking Language Agents for Real-World, Long-Horizon AI Infra Optimization",
+    "authors": [
+      "Zhengyu Hu",
+      "Zheyuan Xiao",
+      "Yike Wang",
+      "Hamish Ivison",
+      "Haoyu Wang",
+      "Yige Yuan",
+      "Rulin Shao",
+      "Yuetai Li",
+      "Niqi Lyu",
+      "Yicheng Ding",
+      "Shu Yang",
+      "Zhichen Zeng",
+      "Banghua Zhu",
+      "Jiaxin Pei",
+      "Kaize Ding",
+      "Pradeep Dasigi",
+      "Dan Roth",
+      "Hannaneh Hajishirzi",
+      "Noah A. Smith",
+      "Teng Xiao",
+      "Radha Poovendran"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "primary_category": "cs.AI",
+    "published": "2026-11-09T07:24:54Z",
+    "updated": "2026-11-09T07:24:54Z",
+    "abstract": "In this work, we study whether frontier agent can continually improve real-world AI infrastructure over long horizons. We introduce Infrathon, a benchmark of diverse, long-horizon AI infrastructure optimization tasks across different levels. We evaluate six models across 150 runs with 24-hour budgets, totaling over 10,000 GPU-hours. Our results show that model rankings vary with the evaluation horizon, while 135 of the 150 runs achieve further improvements during the second half of their budgets. These findings indicate that shorter evaluations can overlook both optimization gains and changes in relative model performance. We also find agents can discover solutions that outperform human-designed baselines: Claude Opus 5.5 increases the mean KV-cache compression ratio from 6.82% with the human-designed Quant-VideoGen codec to 19.86%. Analysis of agent trajectories identifies task violations, unreliable testing, and premature completion as barriers to sustained improvement. Together, Our Infrathon framework provide resources for constructing long-horizon tasks, evaluating frontier agents, and discovering good infrastructure solutions.",
+    "pdf_url": "https://arxiv.org/pdf/2611.11995v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.11995",
+    "subfield": "AI 일반·에이전트",
+    "upvotes": 52,
+    "citations": null,
+    "summary": {
+      "tldr": "AI 인프라 최적화를 위한 새로운 평가 기준을 제안했습니다.",
+      "problem": "현실 세계에서 장기적으로 AI 인프라를 개선할 수 있는지 확인하는 방법이 부족합니다. 기존 평가 방식은 장기적인 성과를 놓치는 문제가 있습니다.",
+      "method": "Infrathon이라는 새로운 평가 기준을 만든 후, 다양한 AI 모델을 24시간 동안 실행해 성능을 비교했습니다. 이 과정에서 GPU 자원을 사용해 대규모 실험을 진행했습니다.",
+      "result": "실험 결과, 평가 기간이 짧으면 최적화 성과와 모델 간 성능 차이를 놓치는 경우가 많습니다. 일부 모델은 인간이 설계한 기존 기준보다 더 나은 성과를 보였습니다.",
+      "method_easy": "Infrathon은 AI가 장기간 동안 인프라를 개선할 수 있는지 확인하는 테스트입니다. 예를 들어, AI가 하루 동안 컴퓨터의 성능을 최적화하는 작업을 합니다. 이 과정에서 AI가 스스로 최선의 방법을 찾아내는지 확인합니다.",
+      "improvement": "기존에는 단기간 평가로 장기적 성과를 놓치는 문제가 있었습니다. 이 연구로는 24시간 동안 AI가 지속적으로 개선하는지 확인할 수 있게 되었습니다. 예를 들어, AI가 24시간 동안 데이터 압축률을 6.82%에서 19.86%로 향상시켰습니다. 이는 현실에서 AI가 자동으로 시스템을 최적화하는 데 큰 도움이 됩니다.",
+      "limitations": "현재 연구는 특정 AI 모델과 환경에만 적용되었기 때문에 일반화가 어렵습니다. 또한, 실험에 사용된 자원이 많아 일반 개발자에게 접근성이 낮습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다: 다양한 환경과 모델을 추가하고, 자원 사용을 줄이는 방법을 연구하면 더 많은 사람들이 활용할 수 있습니다.",
+      "example": "이 기술은 클라우드 서버를 운영할 때 AI가 자동으로 자원을 효율적으로 사용하도록 도와줍니다. 예를 들어, 서버가 느려질 때 AI가 자동으로 메모리 사용을 줄이고 성능을 높이는 방식으로 작동합니다.",
+      "eli12": "AI가 컴퓨터를 오래 운영하면서 더 잘하게 만드는 방법을 연구했습니다. 예를 들어, AI가 하루 동안 컴퓨터가 더 빠르게 돌아가도록 스스로 조정하는 것처럼요. 이 연구는 AI가 스스로 문제를 해결하는 방법을 찾는 데 도움이 됩니다.",
+      "background": [
+        {
+          "term": "AI 인프라",
+          "explain": "AI 시스템이 작동하는 데 필요한 컴퓨터 자원과 환경을 말합니다."
+        },
+        {
+          "term": "KV-cache",
+          "explain": "AI가 처리할 때 사용하는 메모리 공간으로, 데이터를 효율적으로 저장하고 불러올 수 있습니다."
+        },
+        {
+          "term": "GPU",
+          "explain": "AI 모델을 실행할 때 사용하는 고성능 컴퓨터 부품으로, 복잡한 계산을 빠르게 처리합니다."
+        },
+        {
+          "term": "장기적 평가",
+          "explain": "AI가 오랜 시간 동안 지속적으로 개선되는지를 확인하는 평가 방법입니다."
+        },
+        {
+          "term": "모델 성능",
+          "explain": "AI가 어떤 작업을 얼마나 잘 수행하는지를 나타내는 지표입니다."
+        }
+      ],
+      "keywords": [
+        "AI 인프라",
+        "장기적 평가",
+        "KV-cache",
+        "GPU",
+        "모델 성능"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:18:08.988119+00:00",
+    "week": "2026-W47"
+  },
+  "2611.04720": {
+    "id": "2611.04720",
+    "title": "OneTrans-GSR: A Generative Slate Ranking Paradigm Unifying Reranking and Mix-Ranking with One Autoregressive Transformer",
+    "authors": [
+      "Feng Cheng",
+      "Yu-Hsuan Huang",
+      "Fengyi Wang",
+      "Chaofan Zhou",
+      "Zhennan Zhu",
+      "Huan He",
+      "Bo Zhang",
+      "Ruoqi Zhang",
+      "Zhanfeng Mo",
+      "Ziwei Liu",
+      "Lanyi Li",
+      "Yifeng Pan",
+      "Junhua Long",
+      "Ziqiu Zhou",
+      "Yue Lin",
+      "Shaowei Liu"
+    ],
+    "categories": [
+      "cs.IR"
+    ],
+    "primary_category": "cs.IR",
+    "published": "2026-11-03T11:42:02Z",
+    "updated": "2026-11-03T11:42:02Z",
+    "abstract": "Industrial recommender systems allocate substantial computation to pointwise candidate scoring, yet separate reranking and mix-ranking stages still assemble the final exposure slate using hand-crafted rules and specialized low-capacity models. Mix-ranking combines product cards, short videos, livestreams, and advertising cards supplied by distinct upstream business channels. Although these rules and models encode valuable domain knowledge, they are inherently limited in leveraging additional data and computation. They constrain the combinatorial space of candidate slates and determine objective trade-offs through manual tuning. To enable scalable and effective slate generation, we reformulate reranking and mix-ranking as a unified learning problem whose performance can improve with computation. Specifically, we instantiate this formulation across the reranking and mix-ranking stages and propose OneTrans-GSR, a single decoder-only policy that extends our deployed OneTrans backbone to generate the exposure slate end-to-end. During training, a reward model evaluates complete slates and guides reinforcement learning toward slate-level and long-term objectives. During decoding, business constraints are explicitly enforced. Offline evaluation shows that slate quality consistently improves as reward-model and policy compute increase. Deployed in a large-scale industrial recommendation system, OneTrans-GSR mixes heterogeneous content types within a unified slate. In online A/B tests, it improves GMV/u by 2.63%, advertiser value by 2.06%, and repurchase rate by 2.03%, while reducing end-to-end latency across the reranking and mix-ranking stages by 13%. These results mark a paradigm shift in slate generation: moving beyond human-engineered heuristics toward a general learned policy creates a scalable path for further algorithmic optimization and compute-driven improvement.",
+    "pdf_url": "https://arxiv.org/pdf/2611.04720v1",
+    "arxiv_url": "https://arxiv.org/abs/2611.04720",
+    "subfield": "정보검색·추천",
+    "upvotes": 42,
+    "citations": null,
+    "summary": {
+      "tldr": "OneTrans-GSR은 추천 시스템에서 다양한 콘텐츠를 하나의 모델로 효율적으로 정렬합니다.",
+      "problem": "현재 추천 시스템은 수작업 규칙과 별도 모델로 콘텐츠를 정렬해 제한적이며, 효율적이지 않습니다. 다양한 콘텐츠 유형을 통합해 정렬하는 데 어려움이 있습니다.",
+      "method": "OneTrans-GSR은 단일 디코더만으로 추천 목록을 생성하는 모델로, 학습과 추론 모두 효율적입니다. 보상 모델을 통해 전체 목록을 평가하고, 비즈니스 제약을 직접적으로 강제합니다.",
+      "result": "OneTrans-GSR은 GMV/u, 광고 가치, 재구매율을 각각 2.63%, 2.06%, 2.03% 증가시키고, 처리 시간을 13% 단축했습니다. 이는 추천 시스템의 효율성과 효과성을 크게 향상시켰습니다.",
+      "method_easy": "이 모델은 여러 종류의 콘텐츠를 하나의 장난감으로 생각해, 그걸 순서대로 정리해 줍니다. 예를 들어, 장난감 쇼핑몰에서 장난감, 동영상, 라이브 방송, 광고 등을 하나의 목록으로 정리해 줍니다. 학습 중에는 전체 목록을 평가해 더 나은 순서를 찾고, 실제 사용 시에는 규칙을 따르며 정리해 줍니다.",
+      "improvement": "기존에는 수작업으로 콘텐츠를 정리해 제한적이었고, 효율적이지 않았습니다. 이 연구로는 자동으로 다양한 콘텐츠를 정리해 효율성과 효과가 크게 향상되었습니다. 예를 들어, 쇼핑몰에서 다양한 상품을 하나의 목록으로 정리해 고객이 더 쉽게 선택할 수 있게 되었습니다. 이는 실제 추천 시스템에서 더 나은 결과를 만들어내고, 기업에게도 더 많은 수익을 줍니다.",
+      "limitations": "이 모델은 복잡한 콘텐츠 유형을 다룰 때 계산 자원이 많아야 합니다. 이는 대규모 시스템에서 추가 비용이 발생할 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 더 나은 하드웨어를 사용하거나, 모델을 더 효율적으로 설계하면 계산 자원을 줄일 수 있습니다.",
+      "example": "이 기술은 온라인 쇼핑몰에서 다양한 상품, 동영상, 광고 등을 하나의 목록으로 정리해 줍니다. 예를 들어, 고객이 쇼핑할 때, 상품, 동영상 리뷰, 라이브 방송, 광고 등을 하나의 목록으로 보여주면, 고객이 더 쉽게 선택할 수 있습니다.",
+      "eli12": "이 기술은 여러 종류의 장난감을 하나의 장난감 상자에 넣고, 그걸 순서대로 정리해 줍니다. 예를 들어, 장난감, 동영상, 라이브 방송, 광구 등을 하나의 목록으로 정리해 줍니다. 이렇게 하면 고객이 더 쉽게 선택할 수 있고, 쇼핑몰도 더 많은 수익을 얻을 수 있습니다.",
+      "background": [
+        {
+          "term": "추천 시스템",
+          "explain": "사람이 좋아할 만한 상품이나 콘텐츠를 추천해 주는 시스템입니다."
+        },
+        {
+          "term": "자연어 처리",
+          "explain": "컴퓨터가 사람의 말을 이해하고, 그 말로 사람에게 답을 주는 기술입니다."
+        },
+        {
+          "term": "강화 학습",
+          "explain": "컴퓨터가 행동을 통해 결과를 배우고, 더 나은 행동을 반복하는 학습 방식입니다."
+        },
+        {
+          "term": "디코더",
+          "explain": "문장이나 데이터를 해석하고, 새로운 데이터를 생성하는 모델의 일부입니다."
+        },
+        {
+          "term": "보상 모델",
+          "explain": "모델이 어떤 행동을 했을 때, 그 행동이 얼마나 좋은지를 평가하는 시스템입니다."
+        }
+      ],
+      "keywords": [
+        "추천 시스템",
+        "자연어 처리",
+        "강화 학습",
+        "디코더",
+        "보상 모델"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:19:08.657088+00:00",
+    "week": "2026-W47"
+  },
+  "2611.03142": {
+    "id": "2611.03142",
+    "title": "DepthGraft: Structural Regularization through Hierarchical Cross-Layer KV Reconstruction",
+    "authors": [
+      "Xiaohan Qin",
+      "Xiangdong Zhang",
+      "Yu Wang",
+      "Huaijin Wu",
+      "Zhuo Xia",
+      "Yebin Yang",
+      "Junchi Yan"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-11-01",
+    "updated": "2026-11-01",
+    "abstract": "Scaling depth is a key route to stronger large language models, but Pre-LN architectures often suffer from depth-wise information dilution, limiting the effective use of deep layers. While cross-layer connectivity has proven effective at mitigating this problem, existing designs usually introduce additional computation or memory access. We revisit cross-layer KV sharing as an efficient form of such connectivity. Beyond cache compression, each KV reuse edge creates a direct gradient path from deep layers to source KV projections, turning KV sharing into an implicit structural regularizer for KV representation geometry. We provide a systematic analysis of this mechanism, showing that proper sharing topologies sharpen key retrieval directions while enriching the value content subspace, whereas existing adjacent or global-anchor designs do not fully exploit this effect. Motivated by this, we propose DepthGraft, a hierarchical KV-sharing architecture that reconstructs deep-layer KV from stride-aligned shallow-middle source pairs. DepthGraft distributes non-local gradient flow across source layers, while preserving prefill early completion and reducing KV cache by roughly one third. Experiments on dense and MoE models from 0.5B to 16B parameters show consistent downstream improvements under both GQA and MLA. Notably, on the 16B MoE model, DepthGraft achieves a 7.0% absolute improvement on MMLU-Pro, along with gains of 6.6% on CMMLU and 6.4% on C3. These results validate the potential of DepthGraft as a scalable design for large-scale pretraining. The project page is available at https://github.com/jianke0604/DepthGraft.",
+    "pdf_url": "https://arxiv.org/pdf/2611.03142",
+    "arxiv_url": "https://arxiv.org/abs/2611.03142",
+    "subfield": "정보검색·추천",
+    "upvotes": 15,
+    "citations": null,
+    "summary": {
+      "tldr": "깊은 레이어의 정보를 효율적으로 전달하는 새로운 기술을 제안했습니다.",
+      "problem": "큰 언어 모델을 만들 때 깊은 레이어가 정보를 희석시켜 효과가 줄어듭니다. 기존 방법은 추가로 자원이 필요해서 문제가 있습니다.",
+      "method": "층 사이의 키-값 공유를 효율적으로 사용해 정보를 전달합니다. 이는 모델이 더 잘 학습하도록 도와주는 구조적 규제 역할도 합니다.",
+      "result": "모델 성능이 크게 향상되었고, 메모리 사용량도 줄였습니다. 특히 16B 파라미터 모델에서는 MMLU-Pro에서 7% 이상 성능이 올랐습니다.",
+      "method_easy": "모델이 깊은 레이어에서 얻은 정보를 얕은 레이어로 전달하는 걸 생각해보세요. 이걸로 모델이 더 잘 배우도록 도와주는 거예요. 예를 들어, 책을 읽는 사람이 중요한 내용을 앞쪽에 요약해 주는 것처럼, 깊은 레이어의 중요한 정보를 앞쪽에 전달해 주는 거죠.",
+      "improvement": "기존에는 깊은 레이어의 정보가 희석되어 효과가 줄었습니다. 이 연구로는 정보 전달이 향상되어 성능이 7% 올랐습니다. 이는 대규모 모델에서 더 나은 성능을 낼 수 있다는 의미입니다. 예를 들어, 학생이 중요한 내용을 요약해 주면, 다른 학생들이 더 잘 이해할 수 있는 거죠.",
+      "limitations": "모든 레이어를 연결하는 게 아니라 일부만 연결해 놓았기 때문에 효과가 제한될 수 있습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 모든 레이어를 연결해 보거나, 연결 방식을 더 유연하게 바꾸는 방법을 고려할 수 있습니다.",
+      "example": "이 기술은 대형 언어 모델에서 사용할 수 있어요. 예를 들어, 질문에 답할 때 모델이 깊은 레이어의 정보를 효율적으로 사용해 더 정확한 답변을 줄 수 있습니다.",
+      "eli12": "모델이 깊은 레이어에서 얻은 중요한 정보를 앞쪽에 전달해 주는 걸 생각해보세요. 이걸로 모델이 더 잘 배울 수 있어요. 예를 들어, 선생님이 중요한 내용을 요약해 주면, 학생들이 더 잘 이해할 수 있는 거죠.",
+      "background": [
+        {
+          "term": "KV 캐시",
+          "explain": "모델이 처리할 때 사용하는 정보를 저장해 둔 공간입니다."
+        },
+        {
+          "term": "전파",
+          "explain": "모델이 정보를 전달할 때 데이터가 흐르는 방식입니다."
+        },
+        {
+          "term": "규제",
+          "explain": "모델이 학습할 때 성능을 안정적으로 유지하도록 도와주는 방법입니다."
+        },
+        {
+          "term": "층",
+          "explain": "모델이 정보를 처리하는 단계를 말하며, 깊은 레이어는 여러 단계를 거쳐 정보를 처리합니다."
+        },
+        {
+          "term": "모델",
+          "explain": "데이터를 학습해 특정 작업을 수행하는 시스템입니다."
+        }
+      ],
+      "keywords": [
+        "DepthGraft",
+        "KV 공유",
+        "층 간 연결",
+        "규제",
+        "모델 성능"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:19:57.070546+00:00",
+    "week": "2026-W47"
+  },
+  "2611.09501": {
+    "id": "2611.09501",
+    "title": "e-means: outperforming k-means (in one-tenth the epochs)",
+    "authors": [
+      "Swann Bessa",
+      "Pierre-Emmanuel Mazaré",
+      "Gergely Szilvasy",
+      "Hugo Touvron",
+      "David Picard",
+      "Matthijs Douze",
+      "Hervé Jégou"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-11-05",
+    "updated": "2026-11-05",
+    "abstract": "Lloyd's k-means algorithm is a long-running standard for clustering, with applications in data analysis, retrieval, quantization and data curation. In this paper, we introduce an exponential moving average optimization procedure for k-means with mini-batch updates, powered by modern deep learning machinery and new insights. We also establish scaling laws on how decay rate and batch size impact final performance. This gives us a formulaic rule to fix them for multiple problem sizes and embedding datasets, without the need for any hyperparameter sweep. The resulting clustering algorithm, coined e-means, is much faster than Lloyd k-means and converges to lower losses, frequently even beating k-means++. On a wide array of embeddings datasets, it beats the loss of Lloyd k-means at 25 epochs in 1.4 to 2.6 epochs, which translates to 10-45x GPU wall-clock speedups compared to state-of-the-art k-means implementations. As an example, e-means partitions DINO10B, a dataset of 10 billion DINO embeddings, into 16 million clusters in only 2.5 epochs, reaching a loss below Lloyd's at 25 epochs.",
+    "pdf_url": "https://arxiv.org/pdf/2611.09501",
+    "arxiv_url": "https://arxiv.org/abs/2611.09501",
+    "subfield": "정보검색·추천",
+    "upvotes": 13,
+    "citations": null,
+    "summary": {
+      "tldr": "e-means은 k-means보다 빠르고 더 좋은 결과를 줍니다.",
+      "problem": "k-means 알고리즘은 느리고 최적의 결과를 주지 못해 문제입니다. 많은 데이터를 처리할 때 시간이 많이 걸립니다.",
+      "method": "e-means은 데이터를 작은 조각으로 나누어 처리하고, 이전 결과를 기반으로 다음 결과를 개선하는 방식을 사용합니다. 이 방법은 더 빠르게 좋은 결과를 줍니다.",
+      "result": "e-means은 k-means보다 10~45배 빠르게 작동하며, 더 낮은 오류를 줍니다. 대규모 데이터셋에서도 빠르게 처리할 수 있습니다.",
+      "method_easy": "e-means은 데이터를 작은 조각으로 나누고, 이전 결과를 기억해 다음 결과를 더 잘 만드는 방법입니다. 예를 들어, 학교에서 친구들과 함께 과제를 하면, 이전에 만든 답을 보고 더 좋은 답을 만드는 것처럼요. 이 방법은 더 빠르고 정확하게 결과를 줍니다.",
+      "improvement": "기존 k-means은 데이터를 다루는 데 시간이 많이 걸렸고, 좋은 결과를 주지 못했습니다. e-means은 10~45배 빠르게 작동하며, 25회 반복이 필요한 작업을 2~3회만 해도 같은 결과를 줍니다. 이는 대규모 데이터 처리에 큰 도움이 되며, 예를 들어, 100억 개의 데이터를 1600만 개의 그룹으로 나누는 데 2.5회만 반복해도 충분합니다.",
+      "limitations": "e-means은 데이터가 너무 작거나 특정한 구조를 가질 경우 효과가 줄어들 수 있습니다. 이는 데이터의 특성에 따라 다르기 때문입니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 데이터를 더 잘 분석해 알고리즘을 조정하면 효과를 높일 수 있습니다.",
+      "example": "e-means은 대규모 데이터셋을 빠르게 분류하는 데 사용됩니다. 예를 들어, 인공지능이 만든 100억 개의 데이터를 1600만 개의 그룹으로 나누는 데 사용할 수 있습니다. 이는 데이터를 빠르게 정리하고 분석하는 데 유용합니다.",
+      "eli12": "e-means은 데이터를 작은 조각으로 나누고, 이전 결과를 보고 더 좋은 결과를 만드는 방법입니다. 예를 들어, 친구들과 함께 과제를 하면, 이전에 만든 답을 보고 더 좋은 답을 만드는 것처럼요. 이 방법은 더 빠르고 정확하게 결과를 줍니다.",
+      "background": [
+        {
+          "term": "k-means 알고리즘",
+          "explain": "데이터를 그룹으로 나누는 방법으로, 중심점과 데이터의 거리를 비교해 그룹을 만듭니다."
+        },
+        {
+          "term": "mini-batch",
+          "explain": "데이터를 작은 조각으로 나누어 한 번에 처리하는 방법입니다."
+        },
+        {
+          "term": "exponential moving average",
+          "explain": "이전 결과를 기반으로 다음 결과를 개선하는 방법으로, 데이터를 더 잘 이해할 수 있습니다."
+        },
+        {
+          "term": "GPU",
+          "explain": "데이터를 빠르게 처리하는 기계로, 인공지능 모델을 학습할 때 사용됩니다."
+        },
+        {
+          "term": "loss",
+          "explain": "알고리즘이 만든 결과와 실제 결과 사이의 차이를 나타내는 수치입니다."
+        }
+      ],
+      "keywords": [
+        "k-means",
+        "e-means",
+        "mini-batch",
+        "GPU",
+        "loss"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:20:47.862063+00:00",
+    "week": "2026-W47"
+  },
+  "2611.01182": {
+    "id": "2611.01182",
+    "title": "Fast and Exact Relative-Position Attention via Structure-Aware Kernels",
+    "authors": [
+      "Delyan Boychev",
+      "Ivo Petrov",
+      "Dimitar I. Dimitrov"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-10-30",
+    "updated": "2026-10-30",
+    "abstract": "Relative-position attention mechanisms offer compelling alternatives to RoPE across various transformer architectures, delivering superior performance in domains such as audio. These mechanisms typically modify attention scores by adding content-position or bias-position terms. Unlike RoPE, which encodes position via per-token rotations directly on the queries and keys, relative-position terms generally require pairwise offset-dependent computation or lookups, complicating their integration into fused attention kernels and introducing severe memory, bandwidth, and compute overheads as sequences scale. To address this bottleneck, we propose an exact attention algorithm that incorporates additive relative-position terms into FlashAttention-style tiled computation. Our method (1) uses offset-aware tiling to avoid redundant indexing and memory accesses, (2) computes only the necessary key/query-relation products and reuses them across token pairs in both forward and backward passes, and (3) uses offset-based gradient sharding and aggregation, eliminating atomic contention. We provide a unified, efficient Triton implementation across diverse relative-position attention mechanisms and evaluate it against naive and specialized implementations. For 8K-token sequences, our method speeds up the forward (backward) pass by 1.8-6.4times (2.0-21times) and reduces peak memory up to 2.9-128times (1.4-54times) over the strongest baseline for each mechanism, enabling long-context end-to-end transcription that is 1.8times faster and uses 2.4times less memory. Our method thus provides a drop-in, hardware-efficient solution for scaling relative-position attention transformers.",
+    "pdf_url": "https://arxiv.org/pdf/2611.01182",
+    "arxiv_url": "https://arxiv.org/abs/2611.01182",
+    "subfield": "음성·오디오",
+    "upvotes": 24,
+    "citations": null,
+    "summary": {
+      "tldr": "대규모 시퀀스 처리에서 효율적인 위치 주의 메커니즘을 제안했습니다.",
+      "problem": "기존의 위치 주의 메커니즘은 메모리와 계산 부담이 크고, 처리 속도가 느려 대규모 시퀀스 처리에 어려움이 있었습니다.",
+      "method": "위치 정보를 효율적으로 처리하기 위해 타일링 기법과 오프셋 기반 계산을 결합하여, 메모리 사용을 줄이고 계산 속도를 높였습니다. 이 방법은 전방향과 역방향 모두에서 필요한 계산만 수행하고, 결과를 재사용합니다.",
+      "result": "8K 토큰 시퀀스에서 처리 속도가 1.8~6.4배 빨라지고, 메모리 사용량은 2.9~128배 줄어들었습니다. 이는 대규모 텍스트 처리에 유용한 효율적인 솔루션입니다.",
+      "method_easy": "이 논문은 책 페이지를 읽는 것처럼, 한 번 읽은 내용을 다시 사용해서 더 빠르게 읽는 방법을 생각했습니다. 예를 들어, 책의 한 페이지를 읽고 나면, 그 페이지의 내용을 다시 쓰지 않고 다음 페이지를 읽을 때도 사용할 수 있도록 했습니다. 이렇게 하면 책을 더 빠르게 읽을 수 있고, 메모리도 덜 사용하게 됩니다.",
+      "improvement": "기존에는 위치 정보를 처리할 때마다 많은 메모리와 계산이 필요해 처리 속도가 느렸습니다. 이 연구에서는 위치 정보를 효율적으로 처리해 처리 속도가 1.8~6.4배 빨라졌고, 메모리 사용량은 2.9~128배 줄었습니다. 이로 인해 대규모 텍스트를 처리할 때 시간과 자원을 더 적게 사용할 수 있어, 음성 인식 같은 응용에서 유용합니다.",
+      "limitations": "이 방법은 특정한 위치 정보 처리 방식에만 적용할 수 있어, 다양한 방식을 지원하지 않습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 다양한 위치 정보 처리 방식을 지원하기 위해, 다른 방식도 함께 처리할 수 있도록 코드를 수정하면 됩니다.",
+      "example": "이 기술은 음성 인식 시스템에서 사용됩니다. 예를 들어, 사람의 말을 듣고 텍스트로 변환할 때, 말의 길이가 길어지면 처리 속도가 느려졌지만, 이 기술을 사용하면 처리 속도가 빨라지고, 메모리도 덜 사용할 수 있습니다.",
+      "eli12": "이 논문은 책을 읽는 것처럼, 한 번 읽은 내용을 다시 사용해서 더 빠르게 읽는 방법을 생각했습니다. 예를 들어, 책의 한 페이지를 읽고 나면, 그 페이지의 내용을 다시 쓰지 않고 다음 페이지를 읽을 때도 사용할 수 있도록 했습니다. 이렇게 하면 책을 더 빠르게 읽을 수 있고, 메모리도 덜 사용하게 됩니다.",
+      "background": [
+        {
+          "term": "트랜스포머",
+          "explain": "문장이나 데이터를 처리하는 데 사용되는 인공지능 모델로, 각 단어나 데이터를 서로 연결해 의미를 파악합니다."
+        },
+        {
+          "term": "위치 주의",
+          "explain": "문장에서 단어의 위치를 고려해, 중요한 정보를 더 잘 파악하는 주의 메커니즘입니다."
+        },
+        {
+          "term": "타일링",
+          "explain": "큰 데이터를 작은 조각으로 나누어, 한 번에 처리할 수 있도록 하는 기법입니다."
+        },
+        {
+          "term": "메모리",
+          "explain": "컴퓨터가 데이터를 잠시 저장할 수 있는 공간으로, 사용량이 많아지면 처리 속도가 느려집니다."
+        },
+        {
+          "term": "계산 부담",
+          "explain": "데이터를 처리할 때 필요한 연산량이 많아, 컴퓨터가 느리게 작동하게 됩니다."
+        }
+      ],
+      "keywords": [
+        "위치 주의",
+        "트랜스포머",
+        "타일링",
+        "메모리",
+        "계산 효율"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:21:45.106205+00:00",
+    "week": "2026-W47"
+  },
+  "2611.12527": {
+    "id": "2611.12527",
+    "title": "WaveGen: Truly End-to-End Waveform Generation via Internal Spectral Trajectory Learning",
+    "authors": [
+      "Sang-Hoon Lee",
+      "Ha-Yeong Choi"
+    ],
+    "categories": [],
+    "primary_category": "",
+    "published": "2026-11-09",
+    "updated": "2026-11-09",
+    "abstract": "This work proposes WaveGen, a fully end-to-end diffusion-based text-to-waveform framework based on Spectral Forcing, which jointly learns an internal spectral trajectory and the target waveform trajectory within a single model, enabling direct end-to-end text-to-waveform generation. Unlike recent TTS pipelines, WaveGen does not rely on separately trained or externally decoded intermediate representations, such as neural audio codecs, Mel-spectrogram vocoders, or VAE-based latent models. In addition, WaveGen performs internal text-speech alignment within a single model, eliminating the need for external alignment modules such as duration predictors. To preserve a truly end-to-end formulation, our framework further avoids dependence on self-supervised representations, such as BERT-based text embeddings and Wav2Vec 2.0-based semantic representations, as well as semantic distillation methods for training optimization. To achieve this, we carefully design Spectral Forcing, a model architecture with disentangled diffusion heads, and a training objective based on a multi-scale spectral v-loss. We further validate the scalability of end-to-end TTS models by scaling the model size from 0.1B to 0.6B parameters. Using a single architecture, open-source data, and one-stage training, without external modules such as duration predictor or REPA, WaveGen demonstrates fully end-to-end waveform generation achieving state-of-the-art performance on the Emilia training dataset. In particular, WaveGen achieves a WER of 1.47 and a SIM of 0.75 on the Seed-en benchmark. Source code and checkpoints are available at https://github.com/sh-lee-prml/WaveGen",
+    "pdf_url": "https://arxiv.org/pdf/2611.12527",
+    "arxiv_url": "https://arxiv.org/abs/2611.12527",
+    "subfield": "음성·오디오",
+    "upvotes": 18,
+    "citations": null,
+    "summary": {
+      "tldr": "텍스트를 직접 음성으로 만드는 완전한 시스템을 만들었습니다.",
+      "problem": "이전에는 텍스트를 음성으로 만드는 과정에서 여러 중간 단계와 외부 모듈이 필요했습니다. 이로 인해 시스템이 복잡하고 효율적이지 못했습니다.",
+      "method": "WaveGen은 텍스트를 음성으로 직접 만드는 완전한 시스템으로, 중간 단계나 외부 모듈 없이 하나의 모델로 학습합니다. 이 모델은 음성의 스펙트럼 변화를 학습하여 음성을 생성합니다.",
+      "result": "WaveGen은 Emilia 데이터셋에서 우수한 성능을 보였으며, 텍스트 오류율(WER)은 1.47, 음성 유사도(SIM)는 0.75에 달했습니다. 이는 현재 최고 수준의 성능입니다.",
+      "method_easy": "WaveGen은 텍스트를 음성으로 직접 만드는 마법 같은 시스템입니다. 텍스트를 읽고, 그 글자마다 어떤 소리가 나야 하는지 생각해 봅니다. 그런 다음, 그 소리가 어떻게 변하는지 그림처럼 그려서 음성을 만듭니다. 예를 들어, '안녕하세요'라고 말할 때, '안'은 천천히, '녕'은 빠르게, '하세요'는 따뜻하게 말하는 소리를 만들어냅니다.",
+      "improvement": "이전에는 텍스트를 음성으로 만들 때 여러 단계와 외부 모듈이 필요해 복잡했습니다. WaveGen은 하나의 모델로 모든 과정을 처리해 더 간단하고 빠릅니다. 예를 들어, '안녕하세요'를 읽고 음성으로 만들 때, 중간 단계 없이 바로 음성을 생성합니다. 이로 인해 실제 음성 합성 시스템이 더 쉽게 만들 수 있게 되었습니다.",
+      "limitations": "WaveGen은 큰 데이터가 필요해 데이터 수집이 어려울 수 있습니다. 또한, 현재는 한 언어만 지원해 다른 언어로는 사용이 어렵습니다. 이렇게 하면 보완할 수 있을 것으로 보입니다. 더 많은 데이터를 수집하거나, 다른 언어로도 모델을 개선하면 더 넓은 범위에서 사용할 수 있습니다.",
+      "example": "WaveGen은 스마트폰의 음성 보조 기능에 사용될 수 있습니다. 사용자가 텍스트를 입력하면, 바로 음성으로 변환되어 말할 수 있습니다. 예를 들어, '오늘 날씨가 좋습니다'라고 입력하면, 바로 그 문장을 음성으로 말해줍니다.",
+      "eli12": "WaveGen은 텍스트를 음성으로 바로 만드는 마법 같은 기계입니다. 텍스트를 읽고, 그 글자마다 어떤 소리가 필요한지 생각해 봅니다. 그런 다음, 그 소리가 어떻게 변하는지 그림처럼 그려서 음성을 만듭니다. 예를 들어, '안녕하세요'라고 말할 때, '안'은 천천히, '녕'은 빠르게, '하세요'는 따뜻하게 말하는 소리를 만들어냅니다.",
+      "background": [
+        {
+          "term": "텍스트-음성 합성(TTS)",
+          "explain": "텍스트를 음성으로 변환하는 기술로, 컴퓨터가 말을 합니다."
+        },
+        {
+          "term": "스펙트로그램",
+          "explain": "음성의 소리가 어떻게 변하는지를 나타내는 그림입니다."
+        },
+        {
+          "term": "확산 모델",
+          "explain": "소리나 이미지 등을 만들기 위해 사용하는 기계 학습 기법입니다."
+        },
+        {
+          "term": "내부 스펙트럼 경로",
+          "explain": "음성이 어떻게 변하는지를 모델이 스스로 학습하는 방식입니다."
+        },
+        {
+          "term": "단일 모델",
+          "explain": "하나의 기계로 여러 과정을 처리하는 방식입니다."
+        }
+      ],
+      "keywords": [
+        "WaveGen",
+        "텍스트-음성 합성",
+        "확산 모델",
+        "스펙트로그램",
+        "내부 경로 학습"
+      ]
+    },
+    "fetched_at": "2026-11-16T00:22:41.897098+00:00",
+    "week": "2026-W47"
   }
 }
